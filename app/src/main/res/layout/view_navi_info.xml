@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.desaysv.psmap.ui.navi.NaviViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="@{()->0}"
+        android:soundEffectsEnabled="false">
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/groupBigNaviInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="clTop"
+            tools:visibility="visible" />
+
+        <View
+            android:id="@+id/showCrossLaneView"
+            android:layout_width="@dimen/sv_dimen_700"
+            android:layout_height="@dimen/sv_dimen_708"
+            app:layout_constraintEnd_toEndOf="@+id/clTop"
+            app:layout_constraintStart_toStartOf="@+id/clTop"
+            app:layout_constraintTop_toTopOf="@+id/clTop"
+            app:visibleGone="@{viewModel.showCrossView}" />
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:id="@+id/clTop"
+            android:layout_width="@dimen/sv_dimen_700"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_main_navi_bg_day"
+            app:background4Night="@drawable/ic_main_navi_bg_night"
+            app:background4Skin="@drawable/ic_main_navi_bg_day"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <ImageView
+                android:id="@+id/ivTopDirection"
+                android:layout_width="@dimen/sv_dimen_104"
+                android:layout_height="@dimen/sv_dimen_104"
+                android:layout_marginStart="@dimen/sv_dimen_20"
+                android:layout_marginTop="@dimen/sv_dimen_41"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:setTurnIcon="@{viewModel.turnIcon}"
+                tools:src="@drawable/global_image_hud_sou2" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tvTopDistance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sv_dimen_16"
+                android:layout_marginTop="@dimen/sv_dimen_32"
+                android:includeFontPadding="true"
+                android:text="@{viewModel.topDistance}"
+                android:textColor="@color/onPrimaryDay"
+                android:textFontWeight="500"
+                android:textSize="@dimen/sv_dimen_64"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@+id/ivTopDirection"
+                app:layout_constraintTop_toTopOf="parent"
+                app:textColor4Night="@color/onPrimaryNight"
+                app:textColor4Skin="@color/onPrimaryDay"
+                tools:text="500" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tvTopDistanceUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sv_dimen_4"
+                android:layout_marginBottom="@dimen/sv_dimen_10"
+                android:includeFontPadding="true"
+                android:text="@{viewModel.topDistanceUnit}"
+                android:textColor="@color/onSecondaryDay"
+                android:textSize="@dimen/sv_dimen_28"
+                app:layout_constraintBottom_toBottomOf="@+id/tvTopDistance"
+                app:layout_constraintStart_toEndOf="@+id/tvTopDistance"
+                app:textColor4Night="@color/onSecondaryNight"
+                app:textColor4Skin="@color/onSecondaryDay"
+                tools:text="米" />
+
+            <!--            <com.autonavi.auto.skin.view.SkinTextView-->
+            <!--                android:id="@+id/tvTopCome"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginStart="@dimen/sv_dimen_10"-->
+            <!--                android:layout_marginBottom="@dimen/sv_dimen_8"-->
+            <!--                android:includeFontPadding="true"-->
+            <!--                android:text="@{viewModel.topDistanceTip}"-->
+            <!--                android:textColor="@color/onSecondaryDay"-->
+            <!--                android:textSize="@dimen/sv_dimen_28"-->
+            <!--                app:layout_constraintBottom_toBottomOf="@+id/tvTopDistance"-->
+            <!--                app:layout_constraintStart_toEndOf="@+id/tvTopDistanceUnit"-->
+            <!--                app:textColor4Night="@color/onSecondaryNight"-->
+            <!--                app:textColor4Skin="@color/onSecondaryDay"-->
+            <!--                tools:text="进入" />-->
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tvTopRoadName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sv_dimen_5"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/onSecondaryDay"
+                app:invisible="@{!viewModel.exitDirectionInfoVisible}"
+                app:layout_constraintStart_toStartOf="@+id/tvTopDistance"
+                app:layout_constraintTop_toBottomOf="@id/tvTopDistance"
+                app:setEnglishChineseSizeText="@{viewModel.topRoadName}"
+                app:textColor4Night="@color/onSecondaryNight"
+                app:textColor4Skin="@color/onSecondaryDay"
+                tools:text="武侯立交桥"
+                tools:textSize="@dimen/sv_dimen_28" />
+
+            <ImageView
+                android:id="@+id/ivCenterNearDirection"
+                android:layout_width="@dimen/sv_dimen_64"
+                android:layout_height="@dimen/sv_dimen_64"
+                android:layout_marginTop="@dimen/sv_dimen_35"
+                android:layout_marginEnd="@dimen/sv_dimen_21"
+                android:visibility="@{viewModel.nearThumInfoVisibility?viewModel.nearThumTurnIcon==null?View.INVISIBLE:View.VISIBLE:View.GONE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:setNearThumTurnIcon="@{viewModel.nearThumTurnIcon}"
+                tools:src="@drawable/global_image_hud_sou_next2" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tvCenterNearRoadName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/onPrimaryDay"
+                app:layout_constraintBottom_toBottomOf="@id/ivCenterNearDirection"
+                app:layout_constraintEnd_toStartOf="@+id/ivCenterNearDirection"
+                app:layout_constraintTop_toTopOf="@id/ivCenterNearDirection"
+                app:setEnglishChineseSizeText="@{viewModel.nearRoadName}"
+                app:textColor4Night="@color/onPrimaryNight"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:visibleGone="@{viewModel.nearThumInfoVisibility}"
+                tools:text="随后19米"
+                tools:textSize="@dimen/sv_dimen_28" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clExitInfoShow"
+                android:layout_width="@dimen/sv_dimen_0"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sv_dimen_5"
+                app:layout_constraintEnd_toEndOf="@+id/topView"
+                app:layout_constraintStart_toStartOf="@+id/tvTopDistance"
+                app:layout_constraintTop_toBottomOf="@id/tvTopDistance"
+                app:visibleGone="@{viewModel.exitDirectionInfoVisible}"
+                tools:visibility="gone">
+
+                <com.autonavi.auto.skin.view.SkinTextView
+                    android:id="@+id/tvExitInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/sv_dimen_32"
+                    android:background="@drawable/shape_navi_exit_bg_day"
+                    android:gravity="center"
+                    android:minWidth="@dimen/sv_dimen_80"
+                    android:paddingHorizontal="@dimen/sv_dimen_20"
+                    android:text="@{viewModel.exitTip}"
+                    android:textColor="@color/onPrimaryContainerDay"
+                    android:textSize="@dimen/sv_dimen_20"
+                    app:background4Night="@drawable/shape_navi_exit_bg_night"
+                    app:background4Skin="@drawable/shape_navi_exit_bg_day"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:textColor4Night="@color/onPrimaryContainerNight"
+                    app:textColor4Skin="@color/onPrimaryContainerDay"
+                    tools:text="出口" />
+
+                <com.autonavi.auto.skin.view.SkinTextView
+                    android:id="@+id/tvExitInfoList"
+                    android:layout_width="@dimen/sv_dimen_0"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/sv_dimen_16"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="@{viewModel.exitDirectionInfo}"
+                    android:textColor="@color/onSecondaryDay"
+                    android:textSize="@dimen/sv_dimen_28"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tvExitInfo"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:textColor4Night="@color/onSecondaryNight"
+                    app:textColor4Skin="@color/onSecondaryDay"
+                    tools:text="福建  莆田  漳州  厦门" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.desaysv.psmap.model.view.ShadowLayout
+                android:id="@+id/clCenter"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sv_dimen_89"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tmcBarHorizontalView"
+                app:setShadowColor="@{viewModel.themeChange}"
+                app:shadowColor="@color/customColorShadowColorDay"
+                app:shadowDx="@dimen/sv_dimen_2"
+                app:shadowDy="@dimen/sv_dimen_2"
+                app:shadowRadius="@dimen/sv_dimen_10"
+                app:visibleGone="@{!viewModel.showCrossView}"
+                tools:visibility="visible">
+
+                <com.autonavi.auto.skin.view.SkinConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/shape_navi_lane_day"
+                    app:background4Night="@drawable/shape_navi_lane_night"
+                    app:background4Skin="@drawable/shape_navi_lane_day">
+
+                    <com.autonavi.auto.skin.view.SkinTextView
+                        android:id="@+id/tvRemainDistanceTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/sv_dimen_30"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:textColor="@color/onPrimaryDay"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:setEnglishChineseSizeText="@{viewModel.remainTimeAndDistance}"
+                        app:textColor4Night="@color/onPrimaryNight"
+                        app:textColor4Skin="@color/onPrimaryDay"
+                        tools:text="2511公里 · 12天41时38分钟"
+                        tools:textSize="@dimen/sv_dimen_28" />
+
+
+                    <com.autonavi.auto.skin.view.SkinTextView
+                        android:id="@+id/tvArriveTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/sv_dimen_27"
+                        android:textColor="@color/onPrimaryDay"
+                        app:layout_constraintBottom_toBottomOf="@+id/tvRemainDistanceTime"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/tvRemainDistanceTime"
+                        app:setEnglishChineseSizeText="@{viewModel.arriveTime}"
+                        app:textColor4Night="@color/onPrimaryNight"
+                        app:textColor4Skin="@color/onPrimaryDay"
+                        tools:text="周六15:18到达"
+                        tools:textSize="@dimen/sv_dimen_28" />
+
+                </com.autonavi.auto.skin.view.SkinConstraintLayout>
+            </com.desaysv.psmap.model.view.ShadowLayout>
+
+            <com.desaysv.psmap.ui.navi.view.TmcBarHorizontalView
+                android:id="@+id/tmcBarHorizontalView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sv_dimen_12"
+                android:layout_marginTop="@dimen/sv_dimen_14"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/laneComposeView"
+                app:visibleGone="@{!viewModel.showCrossView &amp;&amp; viewModel.simpleTmcBarVisible}"
+                tools:visibility="visible" />
+
+            <com.autonavi.auto.skin.view.SkinSeekBar
+                android:id="@+id/seekBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sv_dimen_30"
+                android:layout_marginStart="-8dp"
+                android:layout_marginEnd="-12dp"
+                android:clickable="false"
+                android:focusable="false"
+                android:progressDrawable="@drawable/seekbar_road"
+                android:splitTrack="false"
+                android:thumb="@drawable/ic_navi_traffic_car_day"
+                app:layout_constraintBottom_toBottomOf="@+id/tmcBarHorizontalView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tmcBarHorizontalView"
+                app:thumb4Night="@drawable/ic_navi_traffic_car_night"
+                app:thumb4Skin="@drawable/ic_navi_traffic_car_day"
+                app:visibleGone="@{!viewModel.showCrossView &amp;&amp; viewModel.simpleTmcBarVisible}"
+                tools:max="100"
+                tools:progress="50"
+                tools:visibility="visible" />
+
+            <com.autonavi.auto.skin.view.SkinView
+                android:id="@+id/topView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sv_dimen_17"
+                android:background="@color/showCrossViewBgDay"
+                app:background4Night="@color/showCrossViewBgNight"
+                app:background4Skin="@color/showCrossViewBgDay"
+                app:layout_constraintEnd_toEndOf="@+id/clTop"
+                app:layout_constraintStart_toStartOf="@+id/clTop"
+                app:layout_constraintTop_toBottomOf="@+id/tvTopRoadName" />
+
+            <androidx.compose.ui.platform.ComposeView
+                android:id="@+id/laneComposeView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sv_dimen_80"
+                android:layout_marginTop="@dimen/sv_dimen_n6"
+                app:layout_constraintEnd_toEndOf="@id/clExitInfoShow"
+                app:layout_constraintStart_toStartOf="@id/clExitInfoShow"
+                app:layout_constraintTop_toBottomOf="@+id/topView"
+                app:visibleGone="@{!viewModel.showCrossView &amp;&amp; viewModel.naviLaneVisible}"
+                tools:visibility="visible" />
+
+
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:id="@+id/clBottom"
+            android:layout_width="@dimen/sv_dimen_0"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/sv_dimen_30"
+            android:layout_marginBottom="@dimen/sv_dimen_32"
+            android:background="@color/showCrossViewBgDay"
+            app:background4Night="@color/showCrossViewBgNight"
+            app:background4Skin="@color/showCrossViewBgDay"
+            app:layout_constraintBottom_toBottomOf="@+id/clTop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:visibleGone="@{viewModel.showCrossView}">
+
+            <com.autonavi.auto.skin.view.SkinProgressBar
+                android:id="@+id/crossImageProgressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sv_dimen_8"
+                android:layout_centerHorizontal="true"
+                android:background="@null"
+                android:indeterminateOnly="false"
+                android:max="100"
+                android:progress="@{viewModel.crossImageProgress}"
+                android:progressDrawable="@drawable/shape_cross_progress_bar_day"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:progressDrawable4Night="@drawable/shape_cross_progress_bar_night"
+                app:progressDrawable4Skin="@drawable/shape_cross_progress_bar_day"
+                tools:progress="50" />
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:id="@+id/showCrossLaneCl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_navi_lane_show_cross_day"
+            app:background4Night="@drawable/shape_navi_lane_show_cross_night"
+            app:background4Skin="@drawable/shape_navi_lane_show_cross_day"
+            app:layout_constraintBottom_toTopOf="@+id/clCenterCross"
+            app:layout_constraintEnd_toEndOf="@+id/clTop"
+            app:layout_constraintStart_toStartOf="@+id/clTop"
+            app:visibleGone="@{viewModel.showCrossView &amp;&amp; viewModel.naviLaneVisible}">
+
+            <androidx.compose.ui.platform.ComposeView
+                android:id="@+id/showCrossLaneComposeView"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/sv_dimen_80"
+                android:maxWidth="@dimen/sv_dimen_640" />
+
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+        <com.desaysv.psmap.model.view.ShadowLayout
+            android:id="@+id/clCenterCross"
+            android:layout_width="@dimen/sv_dimen_640"
+            android:layout_height="@dimen/sv_dimen_89"
+            android:layout_marginBottom="@dimen/sv_dimen_28"
+            app:layout_constraintBottom_toBottomOf="@+id/showCrossLaneView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:setShadowColor="@{viewModel.themeChange}"
+            app:shadowColor="@color/customColorShadowColorDay"
+            app:shadowDx="@dimen/sv_dimen_2"
+            app:shadowDy="@dimen/sv_dimen_2"
+            app:shadowRadius="@dimen/sv_dimen_10"
+            app:visibleGone="@{viewModel.showCrossView}"
+            tools:visibility="visible">
+
+            <com.autonavi.auto.skin.view.SkinConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_navi_lane_bg_day"
+                app:background4Night="@drawable/shape_navi_lane_bg_night"
+                app:background4Skin="@drawable/shape_navi_lane_bg_day">
+
+                <com.autonavi.auto.skin.view.SkinConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/shape_navi_lane_day"
+                    app:background4Night="@drawable/shape_navi_lane_night"
+                    app:background4Skin="@drawable/shape_navi_lane_day">
+
+                    <com.autonavi.auto.skin.view.SkinTextView
+                        android:id="@+id/tvRemainDistanceTimeCross"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/sv_dimen_30"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:textColor="@color/onPrimaryDay"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:setEnglishChineseSizeText="@{viewModel.remainTimeAndDistance}"
+                        app:textColor4Night="@color/onPrimaryNight"
+                        app:textColor4Skin="@color/onPrimaryDay"
+                        tools:text="2511公里 · 12天41时38分钟"
+                        tools:textSize="@dimen/sv_dimen_28" />
+
+
+                    <com.autonavi.auto.skin.view.SkinTextView
+                        android:id="@+id/tvArriveTimeCross"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/sv_dimen_27"
+                        android:textColor="@color/onPrimaryDay"
+                        app:layout_constraintBottom_toBottomOf="@+id/tvRemainDistanceTimeCross"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/tvRemainDistanceTimeCross"
+                        app:setEnglishChineseSizeText="@{viewModel.arriveTime}"
+                        app:textColor4Night="@color/onPrimaryNight"
+                        app:textColor4Skin="@color/onPrimaryDay"
+                        tools:text="周六15:18到达"
+                        tools:textSize="@dimen/sv_dimen_28" />
+
+                </com.autonavi.auto.skin.view.SkinConstraintLayout>
+            </com.autonavi.auto.skin.view.SkinConstraintLayout>
+        </com.desaysv.psmap.model.view.ShadowLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

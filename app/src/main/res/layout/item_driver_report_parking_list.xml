@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.autosdk.bussiness.common.POI" />
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="position"
+            type="Integer" />
+    </data>
+
+    <com.autonavi.auto.skin.view.SkinConstraintLayout
+        android:id="@+id/reportCl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/sv_dimen_180"
+        android:background="@color/color_report_bg_day"
+        app:background4Night="@color/color_report_bg_night"
+        app:background4Skin="@color/color_report_bg_day">
+
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/tv_position"
+            android:layout_width="@dimen/sv_dimen_64"
+            android:layout_height="@dimen/sv_dimen_64"
+            android:layout_marginStart="@dimen/sv_dimen_24"
+            android:gravity="center"
+            android:text="@{String.valueOf(position)}"
+            android:textColor="@color/onPrimaryDay"
+            android:textSize="@dimen/sv_dimen_36"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:textColor4Night="@color/onPrimaryNight"
+            app:textColor4Skin="@color/onPrimaryDay"
+            tools:text="1" />
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/stv_text_title_search_result"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sv_dimen_16"
+            android:layout_marginEnd="@dimen/sv_dimen_20"
+            android:ellipsize="end"
+            android:gravity="left"
+            android:singleLine="true"
+            android:text="@{item.name}"
+            android:textColor="@color/onPrimaryDay"
+            android:textSize="@dimen/sv_dimen_34"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_position"
+            app:layout_constraintEnd_toStartOf="@+id/stvDistance"
+            app:layout_constraintStart_toEndOf="@+id/tv_position"
+            app:layout_constraintTop_toTopOf="@+id/tv_position"
+            app:textColor4Night="@color/onPrimaryNight"
+            app:textColor4Skin="@color/onPrimaryDay"
+            tools:text="和平饭店" />
+
+        <com.autonavi.auto.skin.view.SkinImageView
+            android:id="@+id/gotoThere"
+            android:layout_width="@dimen/sv_dimen_64"
+            android:layout_height="@dimen/sv_dimen_64"
+            android:layout_marginTop="@dimen/sv_dimen_31"
+            android:layout_marginEnd="@dimen/sv_dimen_40"
+            android:src="@drawable/selector_ic_navi_driver_report_day"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:src4Night="@drawable/selector_ic_navi_driver_report_night"
+            app:src4Skin="@drawable/selector_ic_navi_driver_report_day"
+            tools:visibility="visible" />
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/stvDistance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sv_dimen_4"
+            android:text="@{item.dis}"
+            android:textColor="@color/onPrimaryDay"
+            android:textSize="@dimen/sv_dimen_30"
+            app:layout_constraintEnd_toEndOf="@+id/gotoThere"
+            app:layout_constraintStart_toStartOf="@+id/gotoThere"
+            app:layout_constraintTop_toBottomOf="@+id/gotoThere"
+            app:textColor4Night="@color/onPrimaryNight"
+            app:textColor4Skin="@color/onPrimaryDay"
+            tools:text="3.5公里" />
+
+        <com.autonavi.auto.skin.view.SkinView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sv_dimen_1"
+            android:layout_marginHorizontal="@dimen/sv_dimen_40"
+            android:background="@color/lineDay"
+            app:background4Night="@color/lineNight"
+            app:background4Skin="@color/lineDay"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+
+</layout>

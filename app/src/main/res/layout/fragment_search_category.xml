@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+    </data>
+
+    <com.autonavi.auto.skin.view.SkinConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:layout_width="@dimen/sv_dimen_680"
+            android:layout_height="@dimen/sv_dimen_1178"
+            android:layout_marginStart="@dimen/sv_dimen_20"
+            android:layout_marginTop="@dimen/sv_dimen_90"
+            android:background="@drawable/ic_main_bg_day"
+            android:onClick="@{()->0}"
+            android:soundEffectsEnabled="false"
+            android:paddingHorizontal="@dimen/sv_dimen_20"
+            android:paddingTop="@dimen/sv_dimen_20"
+            android:paddingBottom="@dimen/sv_dimen_28"
+            app:background4Night="@drawable/ic_main_bg_night"
+            app:background4Skin="@drawable/ic_main_bg_day"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/search_category_back"
+                android:layout_width="@dimen/sv_dimen_64"
+                android:layout_height="@dimen/sv_dimen_64"
+                android:layout_marginStart="@dimen/sv_dimen_30"
+                android:layout_marginTop="@dimen/sv_dimen_30"
+                android:contentDescription="@string/sv_search_back_accessibility"
+                android:background="@drawable/selector_ic_back_day"
+                app:background4Night="@drawable/selector_ic_back_night"
+                app:background4Skin="@drawable/selector_ic_back_day"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.autonavi.auto.skin.view.SkinRecyclerView
+                android:id="@+id/search_common_category_listview"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/sv_dimen_360"
+                android:layout_marginTop="@dimen/sv_dimen_30"
+                android:divider="@null"
+                android:dividerHeight="0dp"
+                android:listSelector="@android:color/transparent"
+                android:overScrollMode="never"
+                android:requiresFadingEdge="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search_category_back" />
+
+            <com.desaysv.psmap.ui.search.view.SearchCategoryView
+                android:id="@+id/search_trip_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="@dimen/sv_dimen_48"
+                app:layout_constraintTop_toBottomOf="@+id/search_common_category_listview"/>
+
+            <com.desaysv.psmap.ui.search.view.SearchCategoryView
+                android:id="@+id/search_food_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="@dimen/sv_dimen_40"
+                app:layout_constraintTop_toBottomOf="@+id/search_trip_category"/>
+
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+
+    </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+</layout>

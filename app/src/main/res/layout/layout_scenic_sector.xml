@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <com.autonavi.auto.skin.view.SkinConstraintLayout
+        android:layout_width="@dimen/sv_dimen_680"
+        android:layout_height="@dimen/sv_dimen_802"
+        android:background="@drawable/ic_main_bg_day"
+        app:background4Night="@drawable/ic_main_bg_night"
+        app:background4Skin="@drawable/ic_main_bg_day">
+        <com.autonavi.auto.skin.view.SkinImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_seenic_degault_day"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <com.autonavi.auto.skin.view.SkinImageView
+            android:id="@+id/close_iv"
+            android:layout_width="@dimen/sv_dimen_64"
+            android:layout_height="@dimen/sv_dimen_64"
+            android:layout_marginStart="@dimen/sv_dimen_40"
+            android:layout_marginTop="@dimen/sv_dimen_40"
+            app:src4Skin="@drawable/selector_ic_dialog_close_day"
+            app:src4Night="@drawable/selector_ic_dialog_close_night"
+            android:src="@drawable/selector_ic_dialog_close_day"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/ivGoHere"
+            android:layout_width="@dimen/sv_dimen_400"
+            android:layout_height="@dimen/sv_dimen_90"
+            android:background="@drawable/selector_ic_btn_scenic_go_day"
+            android:gravity="center"
+            android:text="@string/sv_common_goto"
+            android:textFontWeight="400"
+            android:textSize="@dimen/sv_dimen_34"
+            app:textColor4Night="@color/onPrimaryContainerNight"
+            app:textColor4Skin="@color/customAhaSecenicPointTextDay"
+            android:textColor="@color/customAhaSecenicPointTextDay"
+            app:background4Night="@drawable/selector_ic_btn_scenic_go_night"
+            app:background4Skin="@drawable/selector_ic_btn_scenic_go_day"
+            android:layout_marginBottom="@dimen/sv_dimen_40"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+    </com.autonavi.auto.skin.view.SkinConstraintLayout>
+</layout>

@@ -1,0 +1,12 @@
+<div id='guide_label_right_down_fast' style='width:auto;height:auto;background-image:global_image_navi_bg_route_label_right_down_day.9.png;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;'>
+  <div id='div1_ignore' style='flex-direction:row;justify-content:flex-start;align-items:center;'>
+    <label id='time_diff_text' style='color:#f0ffffff;font-size:20px;justify-content:flex-start;' text='快3分钟'/>
+    <image id='cost_image' style='margin-left:6px;' src='global_image_shoufei_fast_day.png'/>
+    <label id='cost_text' style='color:#f0ffffff;font-size:20px;justify-content:flex-start;' text='少33元'/>
+  </div>
+  <div id='div2_ignore' style='flex-direction:row;justify-content:flex-start;align-items:center;margin-top:5px;'>
+    <label id='distance_diff_text' style='color:#f0ffffff;font-size:16px;justify-content:flex-start;' text='多1公里'/>
+    <image id='traffic_light_image' style='margin-left:6px;' src='global_image_honglvdeng_fast_day.png'/>
+    <label id='traffic_light_text' style='color:#f0ffffff;font-size:16px;justify-content:flex-start;' text='少3个'/>
+  </div>
+</div>

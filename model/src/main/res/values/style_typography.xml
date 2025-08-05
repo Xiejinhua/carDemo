@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    请先重写父类Material3的字体样式，
+        <item name="fontFamily">@string/m3_sys_typescale_body_large_font</item>
+        <item name="android:fontFamily">@string/m3_sys_typescale_body_large_font</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textAllCaps">@bool/m3_sys_typescale_body_large_text_all_caps</item>
+        <item name="android:textSize">@dimen/m3_sys_typescale_body_large_text_size</item>
+        <item name="android:letterSpacing">@dimen/m3_sys_typescale_body_large_letter_spacing</item>
+        通常已经满足，不够再扩展 -->
+
+    <style name="CustomTextAppearanceBodyLarge" parent="@style/TextAppearance.Material3.BodyLarge">
+        <item name="android:textSize">@dimen/sv_font_size_28</item>
+        <item name="android:fontWeight">400</item>
+    </style>
+
+    <style name="CustomTextAppearanceBodyMedium" parent="@style/TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">@dimen/sv_font_size_34</item>
+        <item name="android:fontWeight">400</item>
+    </style>
+
+    <style name="CustomTextAppearanceBodySmall" parent="@style/TextAppearance.Material3.BodySmall">
+        <item name="android:textSize">@dimen/sv_font_size_30</item>
+        <item name="android:fontWeight">400</item>
+    </style>
+
+    <style name="CustomTextAppearanceDisplayLarge" parent="@style/TextAppearance.Material3.DisplayLarge">
+        <item name="android:textSize">@dimen/sv_font_size_32</item>
+    </style>
+
+    <style name="CustomTextAppearanceDisplayMedium" parent="@style/TextAppearance.Material3.DisplayMedium">
+        <item name="android:textSize">@dimen/sv_font_size_26</item>
+    </style>
+
+    <style name="CustomTextAppearanceDisplaySmall" parent="@style/TextAppearance.Material3.DisplaySmall">
+        <item name="android:textSize">@dimen/sv_dimen_14</item>
+        <item name="android:fontWeight">400</item>
+    </style>
+
+    <style name="CustomTextAppearanceHeadlineLarge" parent="@style/TextAppearance.Material3.HeadlineLarge">
+        <item name="android:textSize">@dimen/sv_font_size_60</item>
+    </style>
+
+    <style name="CustomTextAppearanceHeadlineMedium" parent="@style/TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textSize">@dimen/sv_font_size_36</item>
+        <item name="android:fontWeight">500</item>
+    </style>
+
+
+    <style name="CustomTextAppearanceHeadlineSmall" parent="@style/TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textSize">@dimen/sv_font_size_24</item>
+        <item name="android:fontWeight">500</item>
+    </style>
+
+    <style name="CustomTextAppearanceLabelLarge" parent="@style/TextAppearance.Material3.LabelLarge">
+
+    </style>
+
+    <style name="CustomTextAppearanceCustomTextAppearanceLabelLarge" parent="@style/TextAppearance.Material3.HeadlineSmall">
+
+    </style>
+
+    <style name="CustomTextAppearanceLabelMedium" parent="@style/TextAppearance.Material3.LabelMedium">
+        <item name="android:textSize">@dimen/sv_font_size_34</item>
+        <item name="android:fontWeight">500</item>
+    </style>
+
+    <style name="CustomTextAppearanceTabSelect" parent="@style/TextAppearance.Material3.TitleMedium">
+        <item name="android:textSize">@dimen/sv_font_size_36</item>
+        <item name="android:fontWeight">500</item>
+    </style>
+
+
+    <style name="CustomTextAppearanceTabUnSelect" parent="@style/TextAppearance.Material3.TitleSmall">
+        <item name="android:textSize">@dimen/sv_font_size_36</item>
+        <item name="android:fontWeight">200</item>
+    </style>
+
+    <style name="CustomTextAppearanceLabelSmall" parent="@style/TextAppearance.Material3.LabelSmall">
+
+    </style>
+
+    <style name="CustomTextAppearanceTitleLarge" parent="@style/TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">@dimen/sv_font_size_40</item>
+    </style>
+
+    <style name="CustomTextAppearanceTitleMedium" parent="@style/TextAppearance.Material3.TitleMedium">
+
+    </style>
+
+    <style name="CustomTextAppearanceTitleSmall" parent="@style/TextAppearance.Material3.TitleSmall">
+
+    </style>
+</resources>

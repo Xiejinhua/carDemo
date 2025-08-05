@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.desaysv.psmap.ui.engineer.EngineerViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_fps_foreground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tv_fps_foreground"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sv_engineer_fps_foreground"
+                android:textColor="@color/onPrimaryDay"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onPrimaryNight"
+                android:textSize="@dimen/sv_dimen_34"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tv_fps_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sv_engineer_fps_normal"
+                android:textColor="@color/onPrimaryDay"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onPrimaryNight"
+                android:textSize="@dimen/sv_dimen_34"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_fps_foreground" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tv_fps_navi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sv_dimen_10"
+                android:text="@string/sv_engineer_fps_navi"
+                android:textColor="@color/onPrimaryDay"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onPrimaryNight"
+                android:textSize="@dimen/sv_dimen_34"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_fps_normal" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tv_fps_animation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sv_dimen_10"
+                android:text="@string/sv_engineer_fps_animation"
+                android:textColor="@color/onPrimaryDay"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onPrimaryNight"
+                android:textSize="@dimen/sv_dimen_34"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_fps_navi" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tv_fps_gesture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sv_dimen_10"
+                android:text="@string/sv_engineer_fps_gesture_action"
+                android:textColor="@color/onPrimaryDay"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onPrimaryNight"
+                android:textSize="@dimen/sv_dimen_34"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_fps_animation" />
+
+            <SeekBar
+                android:id="@+id/sb_fps_normal"
+                android:layout_width="@dimen/sv_dimen_300"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sv_dimen_30"
+                android:max="60"
+                android:min="1"
+                android:progressDrawable="@drawable/layer_engineer_seekbar_bg"
+                android:splitTrack="false"
+                android:thumb="@drawable/shape_engineer_seekbar_thumb"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_fps_normal"
+                app:layout_constraintStart_toEndOf="@+id/tv_fps_normal"
+                app:layout_constraintTop_toTopOf="@+id/tv_fps_normal" />
+
+            <SeekBar
+                android:id="@+id/sb_fps_navi"
+                android:layout_width="@dimen/sv_dimen_300"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sv_dimen_30"
+                android:max="60"
+                android:min="1"
+                android:progressDrawable="@drawable/layer_engineer_seekbar_bg"
+                android:splitTrack="false"
+                android:thumb="@drawable/shape_engineer_seekbar_thumb"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_fps_navi"
+                app:layout_constraintStart_toEndOf="@+id/tv_fps_navi"
+                app:layout_constraintTop_toTopOf="@+id/tv_fps_navi" />
+
+            <SeekBar
+                android:id="@+id/sb_fps_animation"
+                android:layout_width="@dimen/sv_dimen_300"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sv_dimen_30"
+                android:max="60"
+                android:min="1"
+                android:progressDrawable="@drawable/layer_engineer_seekbar_bg"
+                android:splitTrack="false"
+                android:thumb="@drawable/shape_engineer_seekbar_thumb"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_fps_animation"
+                app:layout_constraintStart_toEndOf="@+id/tv_fps_animation"
+                app:layout_constraintTop_toTopOf="@+id/tv_fps_animation" />
+
+            <SeekBar
+                android:id="@+id/sb_fps_gesture"
+                android:layout_width="@dimen/sv_dimen_300"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sv_dimen_30"
+                android:max="60"
+                android:min="1"
+                android:progressDrawable="@drawable/layer_engineer_seekbar_bg"
+                android:splitTrack="false"
+                android:thumb="@drawable/shape_engineer_seekbar_thumb"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_fps_gesture"
+                app:layout_constraintStart_toEndOf="@+id/tv_fps_gesture"
+                app:layout_constraintTop_toTopOf="@+id/tv_fps_gesture" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.sbFpsNormalProgress.toString()}"
+                android:textColor="#f00"
+                android:textSize="@dimen/sv_dimen_34"
+                app:layout_constraintBottom_toBottomOf="@+id/sb_fps_normal"
+                app:layout_constraintStart_toEndOf="@+id/sb_fps_normal"
+                app:layout_constraintTop_toTopOf="@+id/sb_fps_normal"
+                tools:text="30" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.sbFpsNaviProgress.toString()}"
+                android:textColor="#f00"
+                android:textSize="@dimen/sv_dimen_34"
+                app:layout_constraintBottom_toBottomOf="@+id/sb_fps_navi"
+                app:layout_constraintStart_toEndOf="@+id/sb_fps_navi"
+                app:layout_constraintTop_toTopOf="@+id/sb_fps_navi"
+                tools:text="30" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.sbFpsAnimationProgress.toString()}"
+                android:textColor="#f00"
+                android:textSize="@dimen/sv_dimen_34"
+                app:layout_constraintBottom_toBottomOf="@+id/sb_fps_animation"
+                app:layout_constraintStart_toEndOf="@+id/sb_fps_animation"
+                app:layout_constraintTop_toTopOf="@+id/sb_fps_animation"
+                tools:text="30" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.sbFpsGestureProgress.toString()}"
+                android:textColor="#f00"
+                android:textSize="@dimen/sv_dimen_34"
+                app:layout_constraintBottom_toBottomOf="@+id/sb_fps_gesture"
+                app:layout_constraintStart_toEndOf="@+id/sb_fps_gesture"
+                app:layout_constraintTop_toTopOf="@+id/sb_fps_gesture"
+                tools:text="30" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_fps_background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sv_dimen_50"
+            app:layout_constraintStart_toEndOf="@+id/cl_fps_foreground"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tv_fps_background"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sv_engineer_fps_background"
+                android:textColor="@color/onPrimaryDay"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onPrimaryNight"
+                android:textSize="@dimen/sv_dimen_34"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tv_fps_normal_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sv_engineer_fps_normal"
+                android:textColor="@color/onPrimaryDay"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onPrimaryNight"
+                android:textSize="@dimen/sv_dimen_34"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_fps_background" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tv_fps_navi_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sv_dimen_10"
+                android:text="@string/sv_engineer_fps_navi"
+                android:textColor="@color/onPrimaryDay"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onPrimaryNight"
+                android:textSize="@dimen/sv_dimen_34"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_fps_normal_back" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tv_fps_animation_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sv_dimen_10"
+                android:text="@string/sv_engineer_fps_animation"
+                android:textColor="@color/onPrimaryDay"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onPrimaryNight"
+                android:textSize="@dimen/sv_dimen_34"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_fps_navi_back" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tv_fps_gesture_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sv_dimen_10"
+                android:text="@string/sv_engineer_fps_gesture_action"
+                android:textColor="@color/onPrimaryDay"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onPrimaryNight"
+                android:textSize="@dimen/sv_dimen_34"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_fps_animation_back" />
+
+            <SeekBar
+                android:id="@+id/sb_fps_normal_back"
+                android:layout_width="@dimen/sv_dimen_300"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sv_dimen_30"
+                android:max="60"
+                android:min="1"
+                android:progressDrawable="@drawable/layer_engineer_seekbar_bg"
+                android:splitTrack="false"
+                android:thumb="@drawable/shape_engineer_seekbar_thumb"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_fps_normal_back"
+                app:layout_constraintStart_toEndOf="@+id/tv_fps_normal_back"
+                app:layout_constraintTop_toTopOf="@+id/tv_fps_normal_back" />
+
+            <SeekBar
+                android:id="@+id/sb_fps_navi_back"
+                android:layout_width="@dimen/sv_dimen_300"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sv_dimen_30"
+                android:max="60"
+                android:min="1"
+                android:progressDrawable="@drawable/layer_engineer_seekbar_bg"
+                android:splitTrack="false"
+                android:thumb="@drawable/shape_engineer_seekbar_thumb"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_fps_navi_back"
+                app:layout_constraintStart_toEndOf="@+id/tv_fps_navi_back"
+                app:layout_constraintTop_toTopOf="@+id/tv_fps_navi_back" />
+
+            <SeekBar
+                android:id="@+id/sb_fps_animation_back"
+                android:layout_width="@dimen/sv_dimen_300"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sv_dimen_30"
+                android:max="60"
+                android:min="1"
+                android:progressDrawable="@drawable/layer_engineer_seekbar_bg"
+                android:splitTrack="false"
+                android:thumb="@drawable/shape_engineer_seekbar_thumb"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_fps_animation_back"
+                app:layout_constraintStart_toEndOf="@+id/tv_fps_animation_back"
+                app:layout_constraintTop_toTopOf="@+id/tv_fps_animation_back" />
+
+            <SeekBar
+                android:id="@+id/sb_fps_gesture_back"
+                android:layout_width="@dimen/sv_dimen_300"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sv_dimen_30"
+                android:max="60"
+                android:min="1"
+                android:progressDrawable="@drawable/layer_engineer_seekbar_bg"
+                android:splitTrack="false"
+                android:thumb="@drawable/shape_engineer_seekbar_thumb"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_fps_gesture_back"
+                app:layout_constraintStart_toEndOf="@+id/tv_fps_gesture_back"
+                app:layout_constraintTop_toTopOf="@+id/tv_fps_gesture_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.sbFpsNormalBackProgress.toString()}"
+                android:textColor="#f00"
+                android:textSize="@dimen/sv_dimen_34"
+                app:layout_constraintBottom_toBottomOf="@+id/sb_fps_normal_back"
+                app:layout_constraintStart_toEndOf="@+id/sb_fps_normal_back"
+                app:layout_constraintTop_toTopOf="@+id/sb_fps_normal_back"
+                tools:text="30" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.sbFpsNaviBackProgress.toString()}"
+                android:textColor="#f00"
+                android:textSize="@dimen/sv_dimen_34"
+                app:layout_constraintBottom_toBottomOf="@+id/sb_fps_navi_back"
+                app:layout_constraintStart_toEndOf="@+id/sb_fps_navi_back"
+                app:layout_constraintTop_toTopOf="@+id/sb_fps_navi_back"
+                tools:text="30" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.sbFpsAnimationBackProgress.toString()}"
+                android:textColor="#f00"
+                android:textSize="@dimen/sv_dimen_34"
+                app:layout_constraintBottom_toBottomOf="@+id/sb_fps_animation_back"
+                app:layout_constraintStart_toEndOf="@+id/sb_fps_animation_back"
+                app:layout_constraintTop_toTopOf="@+id/sb_fps_animation_back"
+                tools:text="30" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.sbFpsGestureBackProgress.toString()}"
+                android:textColor="#f00"
+                android:textSize="@dimen/sv_dimen_34"
+                app:layout_constraintBottom_toBottomOf="@+id/sb_fps_gesture_back"
+                app:layout_constraintStart_toEndOf="@+id/sb_fps_gesture_back"
+                app:layout_constraintTop_toTopOf="@+id/sb_fps_gesture_back"
+                tools:text="30" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.autonavi.auto.skin.view.SkinButton
+            android:id="@+id/btn_confirm_fps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sv_dimen_30"
+            android:layout_marginEnd="@dimen/sv_dimen_50"
+            android:text="@string/sv_engineer_fps_confirm"
+            android:textSize="@dimen/sv_dimen_34"
+            android:padding="@dimen/sv_dimen_10"
+            android:textColor="@color/onPrimaryDay"
+            app:textColor4Night="@color/onPrimaryNight"
+            app:textColor4Skin="@color/onPrimaryDay"
+            android:background="@drawable/selector_bg_inverse_primary_day"
+            app:background4Skin="@drawable/selector_bg_inverse_primary_day"
+            app:background4Night="@drawable/selector_bg_inverse_primary_night"
+            app:layout_constraintEnd_toStartOf="@+id/btn_reset_fps"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="@+id/cl_fps_foreground"
+            app:layout_constraintTop_toBottomOf="@+id/cl_fps_foreground" />
+
+        <com.autonavi.auto.skin.view.SkinButton
+            android:id="@+id/btn_reset_fps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sv_engineer_fps_reset"
+            android:textSize="@dimen/sv_dimen_34"
+            android:padding="@dimen/sv_dimen_10"
+            android:textColor="@color/onPrimaryDay"
+            app:textColor4Night="@color/onPrimaryNight"
+            app:textColor4Skin="@color/onPrimaryDay"
+            android:background="@drawable/selector_bg_inverse_primary_day"
+            app:background4Skin="@drawable/selector_bg_inverse_primary_day"
+            app:background4Night="@drawable/selector_bg_inverse_primary_night"
+            app:layout_constraintEnd_toEndOf="@+id/cl_fps_background"
+            app:layout_constraintStart_toEndOf="@+id/btn_confirm_fps"
+            app:layout_constraintTop_toTopOf="@+id/btn_confirm_fps" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

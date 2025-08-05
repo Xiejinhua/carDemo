@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.desaysv.psmap.ui.engineer.EngineerViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="UseSwitchCompatOrMaterialXml">
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/tv_title_uuid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sv_engineer_test_uuid_setup"
+            android:textColor="@color/onPrimaryDay"
+            app:textColor4Skin="@color/onPrimaryDay"
+            app:textColor4Night="@color/onPrimaryNight"
+            android:textSize="@dimen/sv_dimen_34"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Switch
+            android:id="@+id/sb_uuid_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sv_dimen_24"
+            android:splitTrack="true"
+            android:switchMinWidth="@dimen/sv_dimen_88"
+            android:layout_marginTop="@dimen/sv_dimen_24"
+            app:switchSetDrawable="@{true}"
+            app:switchSetChecked="@{viewModel.uuidCheckFlag}"
+            app:layout_constraintLeft_toLeftOf="@+id/tv_title_uuid"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_uuid"
+            tools:thumb="@drawable/switch_thumb_checked_night"
+            tools:track="@drawable/switch_track_checked_night" />
+
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/tv_uuid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sv_dimen_20"
+            android:textColor="@color/onPrimaryDay"
+            app:textColor4Skin="@color/onPrimaryDay"
+            app:textColor4Night="@color/onPrimaryNight"
+            android:textSize="@dimen/sv_dimen_30"
+            app:layout_constraintBottom_toBottomOf="@+id/sb_uuid_test"
+            app:layout_constraintStart_toEndOf="@+id/sb_uuid_test"
+            app:layout_constraintTop_toTopOf="@+id/sb_uuid_test"
+            tools:text="@string/sv_engineer_current_uuid" />
+
+        <TextView
+            android:id="@+id/tv_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sv_dimen_10"
+            android:text="@string/sv_engineer_retart_close_take_effect"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="@dimen/sv_dimen_30"
+            app:layout_constraintStart_toStartOf="@+id/sb_uuid_test"
+            app:layout_constraintTop_toBottomOf="@+id/sb_uuid_test" />
+
+        <com.autonavi.auto.skin.view.SkinEditText
+            android:id="@+id/et_uuid"
+            android:layout_width="@dimen/sv_dimen_600"
+            android:layout_height="@dimen/sv_dimen_80"
+            android:layout_marginTop="@dimen/sv_dimen_25"
+            android:background="@drawable/shape_bg_vehicle_number_day"
+            app:background4Night="@drawable/shape_bg_vehicle_number_night"
+            app:background4Skin="@drawable/shape_bg_vehicle_number_day"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:hint="@string/sv_engineer_require_uuid_15"
+            android:imeOptions="actionNext"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@color/onPrimaryDay"
+            app:textColor4Skin="@color/onPrimaryDay"
+            app:textColor4Night="@color/onPrimaryNight"
+            android:textColorHint="@color/onSecondaryDay"
+            app:textColorHint4Skin="@color/onSecondaryDay"
+            app:textColorHint4Night="@color/onSecondaryNight"
+            android:textCursorDrawable="@null"
+            app:setCustomSelectionActionModeCallback="@{true}"
+            android:textSize="@dimen/sv_dimen_30"
+            app:layout_constraintStart_toStartOf="@+id/sb_uuid_test"
+            app:layout_constraintTop_toBottomOf="@+id/tv_2"/>
+
+        <com.autonavi.auto.skin.view.SkinButton
+            android:id="@+id/bt_confirm"
+            android:layout_width="@dimen/sv_dimen_600"
+            android:layout_height="@dimen/sv_dimen_90"
+            android:layout_marginTop="@dimen/sv_dimen_20"
+            android:text="@string/sv_common_confirm"
+            android:textSize="@dimen/sv_dimen_36"
+            android:textColor="@color/onPrimaryDay"
+            app:textColor4Night="@color/onPrimaryNight"
+            app:textColor4Skin="@color/onPrimaryDay"
+            android:background="@drawable/selector_bg_inverse_primary_day"
+            app:background4Skin="@drawable/selector_bg_inverse_primary_day"
+            app:background4Night="@drawable/selector_bg_inverse_primary_night"
+            app:layout_constraintStart_toStartOf="@+id/et_uuid"
+            app:layout_constraintTop_toBottomOf="@+id/et_uuid" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <com.autonavi.auto.skin.view.SkinConstraintLayout
+        android:id="@+id/item"
+        android:layout_width="@dimen/sv_dimen_420"
+        android:layout_height="@dimen/sv_dimen_120"
+        tools:background="@android:color/darker_gray">
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sv_dimen_40"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/onPrimaryDay"
+            app:textColor4Skin="@color/onPrimaryDay"
+            app:textColor4Night="@color/onPrimaryNight"
+            android:textSize="@dimen/sv_dimen_34"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="定位回放" />
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/iv_more"
+            android:layout_width="@dimen/sv_dimen_64"
+            android:layout_height="@dimen/sv_dimen_64"
+            android:layout_marginEnd="@dimen/sv_dimen_20"
+            android:background="@drawable/selector_ic_group_more_day"
+            app:background4Night="@drawable/selector_ic_group_more_night"
+            app:background4Skin="@drawable/selector_ic_group_more_day"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.autonavi.auto.skin.view.SkinView
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sv_dimen_1"
+            android:background="@color/lineDay"
+            app:background4Night="@color/lineNight"
+            app:background4Skin="@color/lineDay"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </com.autonavi.auto.skin.view.SkinConstraintLayout>
+</layout>

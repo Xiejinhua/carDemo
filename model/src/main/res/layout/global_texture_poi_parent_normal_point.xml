@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:background="@drawable/global_image_icon_list_normal">
+    <TextView
+        android:id="@+id/poi_position_tv"
+        android:layout_width="@dimen/sv_dimen_52"
+        android:layout_height="@dimen/sv_dimen_60"
+        android:gravity="center"
+        android:textColor="@color/primaryDay"
+        android:text="7"
+        android:textSize="@dimen/sv_dimen_26"
+        android:lineHeight="@dimen/sv_dimen_35"
+        android:paddingBottom="@dimen/sv_dimen_12"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

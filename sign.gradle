@@ -1,0 +1,32 @@
+android {
+    signingConfigs {
+        release {
+            storeFile file("../appSignKey/platform.keystore")
+            storePassword "sv2655888"
+            keyAlias "desaysv"
+            keyPassword "sv2655888"
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+        debug {
+            storeFile file("../appSignKey/platform.keystore")
+            storePassword "sv2655888"
+            keyAlias "desaysv"
+            keyPassword "sv2655888"
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug{
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+    }
+}

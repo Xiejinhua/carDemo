@@ -1,0 +1,98 @@
+plugins {
+    alias(libs.plugins.library)
+    alias(libs.plugins.kotlin)
+    alias(libs.plugins.kotlinkapt)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.kotlinextensions)
+}
+
+// 读取配置文件
+def autoConfigFile = file('../auto-config.properties')
+def autoConfig = new Properties()
+autoConfig.load(new FileInputStream(autoConfigFile))
+
+android {
+    namespace 'com.autosdk'
+    compileSdk libs.versions.compileSdkVersion.get().toInteger()
+
+    defaultConfig {
+        minSdk libs.versions.minSdkVersion.get().toInteger()
+        buildConfigField("int", "autoDevicesType", autoConfig.getProperty("auto.devices.type"))
+        buildConfigField("boolean", "isEnableSpecifyAutoPath", autoConfig.getProperty("auto.specify.storage"))
+        buildConfigField("String", "specifyAutoBasePath", autoConfig.getProperty("auto.specify.storage.base_dir"))
+        buildConfigField("boolean", "dayNightBySystemUI", autoConfig.getProperty("auto.day_night.sys_mode"))
+        buildConfigField("String", "autoChannelId", autoConfig.getProperty("auto.channel.id"))
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+
+        ndk {
+            abiFilters 'arm64-v8a'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    buildFeatures {
+        buildConfig true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.5.1'
+    }
+}
+
+dependencies {
+    api(fileTree(dir: "libs", include: ["*.aar"]))
+    api(project(":LocalRepo:AutoSdk"))
+    // =====Jetpact implementation =====
+    implementation libs.bundles.kotlin
+    implementation libs.bundles.androidx
+    implementation libs.bundles.navigation
+    implementation libs.bundles.lifecycle
+
+    // =====Compose kotlin =====
+    //def composeBom = platform(libs.kotlin.compose)
+    //implementation(composeBom)
+    //testImplementation(composeBom)
+    //androidTestImplementation(composeBom)
+
+    // =====hilt =====
+    implementation libs.bundles.hilt
+    kapt libs.bundles.hilt.kapt
+
+    //implementation libs.paging
+    implementation libs.workmanager
+
+    //room
+    //implementation libs.bundles.room
+    //kapt libs.bundles.room.kapt
+    //retrofit
+    implementation libs.bundles.retrofit
+
+    // ===== 第三方开源库 implementation======
+    implementation libs.timber
+    api libs.clearEditText
+    //implementation libs.coil
+    //implementation libs.coil.gif
+    //implementation libs.security
+
+    // =====Compose =====
+    //implementation libs.bundles.androidx.compose
+    //debugImplementation libs.bundles.androidx.compose.debug
+
+    //=====单元测试 testImplementation & androidTestImplementation kaptAndroidTest =====
+    //testImplementation libs.bundles.test.java
+    //androidTestImplementation libs.bundles.test.android
+    //kaptAndroidTest libs.bundles.test.kapt.android
+}

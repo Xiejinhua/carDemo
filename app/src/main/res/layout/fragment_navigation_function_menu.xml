@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:background="@color/customColorBlack60Day">
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:id="@+id/layout"
+            android:layout_width="@dimen/sv_dimen_680"
+            android:layout_height="match_parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:onClick="@{()->0}"
+            android:soundEffectsEnabled="false"
+            android:layout_marginStart="@dimen/sv_dimen_20"
+            android:layout_marginTop="@dimen/sv_dimen_90"
+            android:layout_marginBottom="@dimen/sv_dimen_6"
+            android:background="@drawable/ic_main_bg_day"
+            app:background4Night="@drawable/ic_main_bg_night"
+            app:background4Skin="@drawable/ic_main_bg_day">
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/back"
+                android:layout_width="@dimen/sv_dimen_64"
+                android:layout_height="@dimen/sv_dimen_64"
+                android:layout_marginLeft="@dimen/sv_dimen_30"
+                android:background="@drawable/selector_ic_back_day"
+                app:background4Night="@drawable/selector_ic_back_night"
+                app:background4Skin="@drawable/selector_ic_back_day"
+                android:layout_marginTop="@dimen/sv_dimen_30"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/onPrimaryDay"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onPrimaryNight"
+                android:textSize="@dimen/sv_dimen_34"
+                android:layout_marginTop="@dimen/sv_dimen_40"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/engineer_tv"
+                android:layout_width="@dimen/sv_dimen_230"
+                android:layout_height="@dimen/sv_dimen_95"
+                android:layout_marginLeft="@dimen/sv_dimen_5"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.compose.ui.platform.ComposeView
+                android:id="@+id/composeView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/sv_dimen_20"
+                android:layout_marginBottom="@dimen/sv_dimen_24"
+                app:layout_constraintTop_toBottomOf="@+id/back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/touch"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

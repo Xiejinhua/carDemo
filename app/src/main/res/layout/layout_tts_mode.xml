@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="isNight"
+            type="Boolean" />
+        <variable
+            name="selectTab"
+            type="Integer" />
+    </data>
+
+    <com.desaysv.psmap.model.view.ShadowLayout
+        android:id="@+id/problem_layout"
+        android:layout_width="@dimen/sv_dimen_560"
+        android:layout_height="@dimen/sv_dimen_90"
+        app:radius="@dimen/sv_dimen_12"
+        app:setShadowColor="@{isNight}"
+        app:shadowColor="@color/customColorShadowColorDay"
+        app:shadowDx="@dimen/sv_dimen_2"
+        app:shadowDy="@dimen/sv_dimen_2"
+        app:shadowRadius="@dimen/sv_dimen_10">
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:layout_width="@dimen/sv_dimen_560"
+            android:layout_height="@dimen/sv_dimen_90"
+            android:background="@drawable/selector_bg_setting_rb_day"
+            app:background4Night="@drawable/shape_bg_navi_set_night"
+            app:background4Skin="@drawable/selector_bg_setting_rb_day">
+            <com.desaysv.psmap.model.view.ShadowLayout
+                android:id="@+id/indicator"
+                android:layout_width="@dimen/sv_dimen_186_6_7"
+                android:layout_height="@dimen/sv_dimen_90"
+                android:background="@drawable/selector_bg_setting_button_selected_day"
+                app:background4Night="@drawable/selector_bg_setting_button_selected_night"
+                app:background4Skin="@drawable/selector_bg_setting_button_selected_day"
+                app:setSelectView="@{true}"
+                app:radius="@dimen/sv_dimen_4"
+                app:setShadowNightColor="@{isNight}"
+                app:shadowColor="@color/customColorShadowColorDay"
+                app:shadowDx="@dimen/sv_dimen_2"
+                app:shadowDy="@dimen/sv_dimen_2"
+                app:shadowRadius="@dimen/sv_dimen_10"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+            <RadioGroup
+                android:id="@+id/broadcast_tab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints">
+
+                <com.autonavi.auto.skin.view.SkinRadioButton
+                    android:id="@+id/broadcastDetail"
+                    android:layout_width="@dimen/sv_dimen_186_6_7"
+                    android:layout_height="@dimen/sv_dimen_90"
+                    android:gravity="center"
+                    android:button="@null"
+                    tools:checked="true"
+                    android:text="@string/sv_setting_navi_tts_mode1"
+                    android:contentDescription="@string/sv_setting_navi_tts_mode1"
+                    app:setSelectView="@{selectTab == 2}"
+                    app:setTypefaceBold="@{selectTab == 2}"
+                    android:textColor="@color/color_setting_button_text_day"
+                    android:textSize="@dimen/sv_dimen_30"
+                    app:textColor4Night="@color/color_setting_button_text_night"
+                    app:textColor4Skin="@color/color_setting_button_text_day"/>
+
+                <com.autonavi.auto.skin.view.SkinRadioButton
+                    android:id="@+id/broadcastSimple"
+                    android:layout_width="@dimen/sv_dimen_186_6_7"
+                    android:layout_height="@dimen/sv_dimen_90"
+                    android:gravity="center"
+                    android:button="@null"
+                    android:text="@string/sv_setting_navi_tts_mode3"
+                    android:contentDescription="@string/sv_setting_navi_tts_mode3"
+                    app:setSelectView="@{selectTab == 1}"
+                    app:setTypefaceBold="@{selectTab == 1}"
+                    android:textColor="@color/color_setting_button_text_day"
+                    android:textSize="@dimen/sv_dimen_30"
+                    app:textColor4Night="@color/color_setting_button_text_night"
+                    app:textColor4Skin="@color/color_setting_button_text_day"/>
+                <com.autonavi.auto.skin.view.SkinRadioButton
+                    android:id="@+id/broadcastMin"
+                    android:layout_width="@dimen/sv_dimen_186_6_7"
+                    android:layout_height="@dimen/sv_dimen_90"
+                    android:gravity="center"
+                    android:button="@null"
+                    android:text="@string/sv_setting_navi_tts_mode2"
+                    android:contentDescription="@string/sv_setting_navi_tts_mode2"
+                    app:setSelectView="@{selectTab == 3}"
+                    app:setTypefaceBold="@{selectTab == 3}"
+                    android:textColor="@color/color_setting_button_text_day"
+                    android:textSize="@dimen/sv_dimen_30"
+                    app:textColor4Night="@color/color_setting_button_text_night"
+                    app:textColor4Skin="@color/color_setting_button_text_day" />
+            </RadioGroup>
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+    </com.desaysv.psmap.model.view.ShadowLayout>
+</layout>

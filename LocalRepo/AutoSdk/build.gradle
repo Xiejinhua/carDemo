@@ -1,0 +1,2 @@
+configurations.maybeCreate("default")
+artifacts.add("default", file('gbl-9.750.280.2.923_android_arm64_v8a_bl_jni_timelimit_release.aar'))

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.example.aha_api_sdkd01.manger.models.LineListModel.DataDTO.ListDTO" />
+        <variable
+            name="isNight"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/itemCl"
+            android:layout_width="@dimen/sv_dimen_640"
+            android:layout_height="@dimen/sv_dimen_205"
+            tools:layout_width="@dimen/sv_dimen_640"
+            tools:background="@color/white"
+            android:paddingRight="@dimen/sv_dimen_10"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <com.autonavi.auto.skin.view.SkinImageView
+                android:id="@+id/image"
+                android:layout_width="@dimen/sv_dimen_160"
+                android:layout_height="@dimen/sv_dimen_120"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_aha_list_default_picture_day"
+                android:layout_marginLeft="@dimen/sv_dimen_40"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                tools:text="北京环球度假区"
+                app:setAhaDetailTitle="@{item.caption}"
+                app:setAhaDetailTitleNight="@{isNight}"
+                android:textColor="@color/onPrimaryDay"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onPrimaryNight"
+                app:setSearchListTitleTextColor="@{isNight}"
+                android:textSize="@dimen/sv_dimen_34"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_marginLeft="@dimen/sv_dimen_16"
+                android:layout_marginRight="@dimen/sv_dimen_30"
+                android:layout_marginTop="@dimen/sv_dimen_28"
+                app:layout_constraintLeft_toRightOf="@+id/image"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/day_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="天数："
+                android:textColor="@color/onSecondaryDay"
+                app:textColor4Night="@color/onSecondaryNight"
+                app:textColor4Skin="@color/onSecondaryDay"
+                app:setSearchListAddressTextColor="@{isNight}"
+                android:textSize="@dimen/sv_dimen_30"
+                android:layout_marginLeft="@dimen/sv_dimen_16"
+                android:layout_marginBottom="@dimen/sv_dimen_8"
+                app:layout_constraintLeft_toRightOf="@+id/image"
+                app:layout_constraintBottom_toTopOf="@+id/mileage_title"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/day_num"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                tools:text="1天"
+                android:textColor="@color/onPrimaryDay"
+                app:textColor4Night="@color/onPrimaryNight"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:setSearchListTitleTextColor="@{isNight}"
+                android:textSize="@dimen/sv_dimen_32"
+                app:layout_constraintLeft_toRightOf="@+id/day_title"
+                app:layout_constraintBottom_toBottomOf="@+id/day_title"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/mileage_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="里程："
+                android:textColor="@color/onSecondaryDay"
+                app:textColor4Night="@color/onSecondaryNight"
+                app:textColor4Skin="@color/onSecondaryDay"
+                app:setSearchListAddressTextColor="@{isNight}"
+                android:textSize="@dimen/sv_dimen_30"
+                android:layout_marginBottom="@dimen/sv_dimen_28"
+                app:layout_constraintLeft_toLeftOf="@+id/day_title"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/mileage_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                tools:text="24km"
+                app:setAhaTripMileage="@{item.totalDistance}"
+                android:textColor="@color/onPrimaryDay"
+                app:textColor4Night="@color/onPrimaryNight"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:setSearchListTitleTextColor="@{isNight}"
+                android:textSize="@dimen/sv_dimen_32"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_marginRight="@dimen/sv_dimen_20"
+                app:layout_constraintLeft_toRightOf="@+id/mileage_title"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/mileage_title"/>
+            <com.autonavi.auto.skin.view.SkinView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sv_dimen_1"
+                android:background="@color/lineDay"
+                app:background4Night="@color/lineNight"
+                app:background4Skin="@color/lineDay"
+                app:setSearchLine="@{isNight}"
+                android:layout_marginHorizontal="@dimen/sv_dimen_40"
+                app:layout_constraintBottom_toBottomOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/sv_dimen_205"
+            app:layout_constraintLeft_toRightOf="@+id/itemCl"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/delete"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_history_delete_bg"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/sv_dimen_36"
+                tools:text="@string/sv_setting_cancel_favorite"
+                android:text="@string/sv_setting_cancel_favorite"
+                android:textColor="@color/onPrimaryContainerDay"
+                android:textSize="@dimen/sv_dimen_34"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:textColor4Night="@color/onPrimaryNight"
+                app:textColor4Skin="@color/onPrimaryContainerDay"
+                tools:ignore="NotSibling" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

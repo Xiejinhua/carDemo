@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:width="@dimen/sv_dimen_150"
+        android:height="@dimen/sv_dimen_150"
+        android:gravity="center"
+        android:drawable="@drawable/ic_card_loading_day" />
+</layer-list>

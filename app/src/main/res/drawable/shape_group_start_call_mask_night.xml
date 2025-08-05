@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:width="@dimen/sv_dimen_640"
+        android:height="@dimen/sv_dimen_1130"
+        android:drawable="@drawable/bg_group_start_call_mask_night" />
+
+    <item
+        android:bottom="@dimen/sv_dimen_265"
+        android:drawable="@drawable/anim_group_start_call_night"
+        android:gravity="center_horizontal|bottom" />
+
+    <item
+        android:bottom="@dimen/sv_dimen_160"
+        android:drawable="@drawable/icon_group_start_call_speak_text_night"
+        android:gravity="center_horizontal|bottom" />
+
+    <item
+        android:bottom="@dimen/sv_dimen_41"
+        android:drawable="@drawable/icon_group_start_call_speak_night"
+        android:gravity="center_horizontal|bottom" />
+
+    <item
+        android:drawable="@drawable/icon_group_start_call_bottom_mask_night"
+        android:gravity="bottom" />
+
+</layer-list>

@@ -1,0 +1,115 @@
+plugins {
+    alias(libs.plugins.library)
+    alias(libs.plugins.kotlin)
+    alias(libs.plugins.kotlinkapt)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.kotlinextensions)
+}
+
+// 读取配置文件
+def autoConfigFile = file('../auto-config.properties')
+def autoConfig = new Properties()
+autoConfig.load(new FileInputStream(autoConfigFile))
+
+android {
+    namespace 'com.desaysv.psmap.base'
+    compileSdk libs.versions.compileSdkVersion.get().toInteger()
+
+    defaultConfig {
+        minSdk libs.versions.minSdkVersion.get().toInteger()
+        buildConfigField("int", "autoLocType", autoConfig.getProperty("auto.loc.type"))
+        buildConfigField("boolean", "isSupportLaneMode", autoConfig.getProperty("auto.support.lane_mode"))
+        buildConfigField("boolean", "isSupportEhp", autoConfig.getProperty("auto.support.ehp"))
+        buildConfigField("boolean", "dayNightBySystemUI", autoConfig.getProperty("auto.day_night.sys_mode"))
+        buildConfigField("String", "emulatorDevicesID", autoConfig.getProperty("auto.device_id.demo"))
+        buildConfigField("String", "emulatorUuid", autoConfig.getProperty("auto.uuid.demo"))
+        buildConfigField("String", "defaultUuid", autoConfig.getProperty("auto.defaultUuid.demo"))
+        buildConfigField("String", "emulatorActiveSnCode", autoConfig.getProperty("auto.activeSnCode.demo"))
+        buildConfigField("String", "emulatorActiveCode", autoConfig.getProperty("auto.activeCode.demo"))
+        buildConfigField("String", "pushMQTTKey", autoConfig.getProperty("auto.push.mqtt_key"))
+        buildConfigField("boolean", "isSupportEarthMap", autoConfig.getProperty("auto.support.earth.map"))
+        buildConfigField("String", "sourceID", autoConfig.getProperty("auto.source.id"))
+        buildConfigField("int", "multiMapViewNumber", autoConfig.getProperty("auto.multi.mapview.number"))
+        buildConfigField("boolean", "useVehicleAccount", autoConfig.getProperty("auto.use.vehicle.account"))
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+        ndk {
+            abiFilters 'arm64-v8a'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildFeatures {
+        dataBinding true
+        buildConfig true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    /*composeOptions {
+        kotlinCompilerExtensionVersion '1.3.2'
+    }*/
+    kapt {
+        correctErrorTypes true
+    }
+}
+
+dependencies {
+    api(project(":autosdk"))
+    // =====Jetpact implementation =====
+    implementation libs.bundles.kotlin
+    implementation libs.bundles.androidx
+    implementation libs.bundles.navigation
+    implementation libs.bundles.lifecycle
+
+    // =====Compose kotlin =====
+    /*def composeBom = platform(libs.kotlin.compose)
+    implementation(composeBom)
+    testImplementation(composeBom)
+    androidTestImplementation(composeBom)*/
+
+    // =====hilt =====
+    implementation libs.bundles.hilt
+    kapt libs.bundles.hilt.kapt
+
+    implementation libs.paging
+    implementation libs.workmanager
+
+    //room
+    implementation libs.bundles.room
+    kapt libs.bundles.room.kapt
+    //retrofit
+    implementation libs.bundles.retrofit
+
+    implementation libs.glideLibrary
+    implementation libs.glideTransformations
+
+    // ===== 第三方开源库 implementation======
+    implementation libs.timber
+    implementation libs.coil
+    implementation libs.coil.gif
+    implementation libs.coil.compose
+    implementation libs.security
+    api libs.desaysv.licenses
+
+    // =====Compose =====
+    /*implementation libs.bundles.androidx.compose
+    debugImplementation libs.bundles.androidx.compose.debug*/
+
+    //=====单元测试 testImplementation & androidTestImplementation kaptAndroidTest =====
+    testImplementation libs.bundles.test.java
+    androidTestImplementation libs.bundles.test.android
+    kaptAndroidTest libs.bundles.test.kapt.android
+
+
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="isSelect"
+            type="boolean" />
+    </data>
+
+    <com.autonavi.auto.skin.view.SkinTextView
+        android:id="@+id/stv_text"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/sv_dimen_72"
+        style="@style/CustomTextAppearanceBodyMedium"
+        android:minWidth="@dimen/sv_dimen_114"
+        android:textSize="@dimen/sv_dimen_32"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="推荐排序"
+        android:textColor="@color/color_search_classify_day"
+        android:drawableBottom="@drawable/selector_bg_rb_transparent"
+        app:setTypefaceBold="@{isSelect}"
+        app:textColor4Skin="@color/color_search_classify_day"
+        app:textColor4Night="@color/color_search_classify_night"
+        tools:background="@color/onPrimaryNight"/>
+</layout>
+

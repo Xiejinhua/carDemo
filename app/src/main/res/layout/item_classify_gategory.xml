@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <com.autonavi.auto.skin.view.SkinTextView
+        android:id="@+id/stv_text"
+        android:layout_width="@dimen/sv_dimen_212"
+        android:layout_height="@dimen/sv_dimen_100"
+        style="@style/CustomTextAppearanceBodySmall"
+        android:paddingRight="@dimen/sv_dimen_20"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="500米"
+        android:textColor="@color/onPrimaryDay"
+        android:drawablePadding="@dimen/sv_dimen_8"
+        app:textColor4Skin="@color/onPrimaryDay"
+        app:textColor4Night="@color/onPrimaryNight"/>
+</layout>
+

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent" android:shape="rectangle">
+    <solid android:color="@color/customColorSetBgNight"/>
+    <corners android:radius="@dimen/sv_dimen_20" />
+    <stroke android:width="@dimen/sv_dimen_2" android:color="@color/primaryContainerNight" />
+</shape>

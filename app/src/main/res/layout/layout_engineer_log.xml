@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.desaysv.psmap.ui.engineer.EngineerViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="UseSwitchCompatOrMaterialXml">
+
+        <LinearLayout
+            android:id="@+id/switch_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/sv_dimen_120"
+                android:gravity="center">
+
+                <com.autonavi.auto.skin.view.SkinTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sv_engineer_alc_log"
+                    android:textColor="@color/onPrimaryDay"
+                    app:textColor4Skin="@color/onPrimaryDay"
+                    app:textColor4Night="@color/onPrimaryNight"
+                    android:textSize="@dimen/sv_dimen_34" />
+
+                <com.autonavi.auto.skin.view.SkinButton
+                    android:id="@+id/btn_auto_bl"
+                    android:layout_width="@dimen/sv_dimen_240"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/sv_dimen_24"
+                    android:paddingVertical="@dimen/sv_dimen_10"
+                    android:textSize="@dimen/sv_dimen_34"
+                    android:text="@{viewModel.blLogLevelName}"
+                    tools:text="Verberse"
+                    android:textColor="@color/onPrimaryDay"
+                    app:textColor4Night="@color/onPrimaryNight"
+                    app:textColor4Skin="@color/onPrimaryDay"
+                    android:background="@drawable/selector_bg_inverse_primary_day"
+                    app:background4Skin="@drawable/selector_bg_inverse_primary_day"
+                    app:background4Night="@drawable/selector_bg_inverse_primary_night"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sv_engineer_save_flag"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textSize="@dimen/sv_dimen_34"
+                    android:layout_marginStart="@dimen/sv_dimen_75"/>
+                <Switch
+                    android:id="@+id/switch_auto_bl_save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> viewModel.switchSaveBlLogLevelFlag(!viewModel.saveBlLogLevelFlag)}"
+                    android:splitTrack="true"
+                    android:switchMinWidth="@dimen/sv_dimen_88"
+                    app:switchSetDrawable="@{true}"
+                    app:switchSetChecked="@{viewModel.saveBlLogLevelFlag}"
+                    android:layout_marginStart="@dimen/sv_dimen_10"
+                    tools:thumb="@drawable/switch_thumb_checked_night"
+                    tools:track="@drawable/switch_track_checked_night" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/sv_dimen_120"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/sv_dimen_30">
+
+                <com.autonavi.auto.skin.view.SkinTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sv_engineer_pos_log"
+                    android:textColor="@color/onPrimaryDay"
+                    app:textColor4Skin="@color/onPrimaryDay"
+                    app:textColor4Night="@color/onPrimaryNight"
+                    android:textSize="@dimen/sv_dimen_34" />
+
+                <Switch
+                    android:id="@+id/switch_auto_pos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/sv_dimen_24"
+                    android:onClick="@{() -> viewModel.switchBlPosLog(!viewModel.blPosLog)}"
+                    android:splitTrack="true"
+                    android:switchMinWidth="@dimen/sv_dimen_88"
+                    app:switchSetDrawable="@{true}"
+                    app:switchSetChecked="@{viewModel.blPosLog}"
+                    tools:thumb="@drawable/switch_thumb_checked_night"
+                    tools:track="@drawable/switch_track_checked_night" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sv_engineer_save_flag"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textSize="@dimen/sv_dimen_34"
+                    android:layout_marginStart="@dimen/sv_dimen_160"/>
+                <Switch
+                    android:id="@+id/switch_auto_pos_save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> viewModel.switchSaveBlPosLog(!viewModel.savePosLogFlag)}"
+                    android:splitTrack="true"
+                    android:switchMinWidth="@dimen/sv_dimen_88"
+                    app:switchSetDrawable="@{true}"
+                    app:switchSetChecked="@{viewModel.savePosLogFlag}"
+                    android:layout_marginStart="@dimen/sv_dimen_10"
+                    tools:thumb="@drawable/switch_thumb_checked_night"
+                    tools:track="@drawable/switch_track_checked_night" />
+            </LinearLayout>
+
+            <!--<LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sv_dimen_40"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AutoSDK网络日志"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/sv_dimen_30" />
+
+                <Switch
+                    android:id="@+id/switch_auto_network"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/sv_dimen_24"
+                    android:splitTrack="true"
+                    android:switchMinWidth="@dimen/sv_dimen_88"
+                    android:onClick="@{() -> viewModel.switchNetWorkLog(!viewModel.netWorkLogFlag)}"
+                    app:switchSetDrawable="@{true}"
+                    app:switchSetChecked="@{viewModel.netWorkLogFlag}"
+                    tools:thumb="@drawable/switch_thumb_checked_night"
+                    tools:track="@drawable/switch_track_checked_night" />
+            </LinearLayout>-->
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

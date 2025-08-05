@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.desaysv.psmap.ui.navi.NaviViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+
+    <com.autonavi.auto.skin.view.SkinConstraintLayout
+        android:id="@+id/clNaviStrategy"
+        android:layout_width="@dimen/sv_dimen_680"
+        android:layout_height="@dimen/sv_dimen_200"
+        android:background="@drawable/ic_main_bg_day"
+        app:background4Night="@drawable/ic_main_bg_night"
+        app:background4Skin="@drawable/ic_main_bg_day"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.autonavi.auto.skin.view.SkinImageView
+            android:id="@+id/tvSpeeding"
+            android:layout_width="@dimen/sv_dimen_0"
+            android:layout_height="@dimen/sv_dimen_0"
+            android:background="@drawable/ic_speeding_bg_day"
+            app:background4Night="@drawable/ic_speeding_bg_night"
+            app:background4Skin="@drawable/ic_speeding_bg_day"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:setSpeedingAverageSpeed="@{viewModel.averageSpeed}"
+            app:setSpeedingLimitSpeed="@{viewModel.limitSpeed}" />
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/tvIntervalSpeed"
+            android:layout_width="@dimen/sv_dimen_96"
+            android:layout_height="@dimen/sv_dimen_96"
+            android:layout_marginStart="@dimen/sv_dimen_50"
+            android:background="@drawable/shape_bg_red_oval"
+            android:gravity="center"
+            android:text="@{viewModel.limitSpeed}"
+            android:textColor="@color/onPrimaryDay"
+            android:textSize="@dimen/sv_dimen_49"
+            android:textStyle="bold"
+            app:background4Night="@drawable/shape_bg_red_oval"
+            app:background4Skin="@drawable/shape_bg_red_oval"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:textColor4Night="@color/onPrimaryDay"
+            app:textColor4Skin="@color/onPrimaryDay"
+            tools:text="100" />
+
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/tvSpeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sv_dimen_50"
+            android:layout_marginTop="@dimen/sv_dimen_23"
+            android:textColor="@color/onPrimaryDay"
+            android:textSize="@dimen/sv_dimen_26"
+            app:layout_constraintStart_toEndOf="@+id/tvIntervalSpeed"
+            app:layout_constraintTop_toTopOf="parent"
+            app:setAverageSpeed="@{viewModel.averageSpeed}"
+            app:setLimitSpeed="@{viewModel.limitSpeed}"
+            app:textColor4Night="@color/onPrimaryNight"
+            app:textColor4Skin="@color/onPrimaryDay"
+            tools:text="180km/h  " />
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/tvSpeedTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sv_dimen_50"
+            android:layout_marginTop="@dimen/sv_dimen_22"
+            android:text="@string/sv_navi_zone_speed_limit"
+            android:textColor="@color/onSecondaryDay"
+            android:textSize="@dimen/sv_dimen_24"
+            app:layout_constraintBottom_toBottomOf="@+id/tvIntervalSpeed"
+            app:layout_constraintStart_toEndOf="@+id/tvIntervalSpeed"
+            app:layout_constraintTop_toBottomOf="@+id/tvSpeed"
+            app:textColor4Night="@color/onSecondaryNight"
+            app:textColor4Skin="@color/onSecondaryDay" />
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/tvDistance"
+            android:layout_width="@dimen/sv_dimen_0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sv_dimen_36"
+            android:textColor="@color/onPrimaryDay"
+            android:textSize="@dimen/sv_dimen_26"
+            app:layout_constraintBottom_toBottomOf="@+id/tvSpeed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvSpeed"
+            app:layout_constraintTop_toTopOf="@+id/tvSpeed"
+            app:setRemainDist="@{viewModel.remainDist}"
+            app:textColor4Night="@color/onPrimaryNight"
+            app:textColor4Skin="@color/onPrimaryDay"
+            tools:text="6.5km" />
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/tvDistanceTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sv_navi_remaining_distance"
+            android:textColor="@color/onSecondaryDay"
+            android:textSize="@dimen/sv_dimen_24"
+            app:layout_constraintBottom_toBottomOf="@+id/tvSpeedTip"
+            app:layout_constraintStart_toStartOf="@+id/tvDistance"
+            app:layout_constraintTop_toTopOf="@+id/tvSpeedTip"
+            app:textColor4Night="@color/onSecondaryNight"
+            app:textColor4Skin="@color/onSecondaryDay" />
+    </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+</layout>

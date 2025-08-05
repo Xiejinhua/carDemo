@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--    选中状态-->
+    <item android:drawable="@drawable/bg_group_invite_member_focus_night" android:state_checked="true" />
+    <!--    不选中状态-->
+    <item android:drawable="@color/transparent" android:state_checked="false" />
+    <!--    默认状态-->
+    <item android:drawable="@color/transparent" />
+</selector>

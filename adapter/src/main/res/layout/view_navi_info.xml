@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupBigNaviInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="clTop"
+        tools:visibility="visible" />
+
+    <View
+        android:id="@+id/showCrossLaneView"
+        android:layout_width="@dimen/sv_dimen_556"
+        android:layout_height="@dimen/sv_dimen_587"
+        app:layout_constraintEnd_toEndOf="@+id/clTop"
+        app:layout_constraintStart_toStartOf="@+id/clTop"
+        app:layout_constraintTop_toTopOf="@+id/clTop" />
+
+    <ImageView
+        android:id="@+id/enlargeCrossImage"
+        android:layout_width="@dimen/sv_dimen_528"
+        android:layout_height="@dimen/sv_dimen_350"
+        android:layout_marginBottom="@dimen/sv_dimen_18"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clTop"
+        android:layout_width="@dimen/sv_dimen_556"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_main_bg_day"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/ivTopDirection"
+            android:layout_width="@dimen/sv_dimen_80"
+            android:layout_height="@dimen/sv_dimen_80"
+            android:layout_marginStart="@dimen/sv_dimen_32"
+            android:layout_marginTop="@dimen/sv_dimen_30"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/global_image_hud_sou2" />
+
+        <TextView
+            android:id="@+id/tvTopDistance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sv_dimen_16"
+            android:layout_marginTop="@dimen/sv_dimen_24"
+            android:includeFontPadding="true"
+            android:textColor="@color/onPrimaryDay"
+            android:textSize="@dimen/sv_dimen_48"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/ivTopDirection"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="500" />
+
+
+        <TextView
+            android:id="@+id/tvTopDistanceUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sv_dimen_4"
+            android:layout_marginBottom="@dimen/sv_dimen_4"
+            android:includeFontPadding="true"
+            android:textColor="@color/onSecondaryDay"
+            android:textSize="@dimen/sv_dimen_24"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTopDistance"
+            app:layout_constraintStart_toEndOf="@+id/tvTopDistance"
+            tools:text="米" />
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/tvTopCome"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginStart="@dimen/sv_dimen_10"-->
+        <!--                android:layout_marginBottom="@dimen/sv_dimen_8"-->
+        <!--                android:includeFontPadding="true"-->
+        <!--                android:text="@{viewModel.topDistanceTip}"-->
+        <!--                android:textColor="@color/onSecondaryDay"-->
+        <!--                android:textSize="@dimen/sv_dimen_28"-->
+        <!--                app:layout_constraintBottom_toBottomOf="@+id/tvTopDistance"-->
+        <!--                app:layout_constraintStart_toEndOf="@+id/tvTopDistanceUnit"-->
+        <!--                app:textColor4Night="@color/onSecondaryNight"-->
+        <!--                app:textColor4Skin="@color/onSecondaryDay"-->
+        <!--                tools:text="进入" />-->
+
+        <TextView
+            android:id="@+id/tvTopRoadName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/onSecondaryDay"
+            android:textSize="@dimen/sv_dimen_24"
+            app:layout_constraintEnd_toStartOf="@+id/tvCenterNearRoadName"
+            app:layout_constraintStart_toStartOf="@+id/tvTopDistance"
+            app:layout_constraintTop_toBottomOf="@id/tvTopDistance"
+            tools:text="武侯立交桥" />
+
+        <ImageView
+            android:id="@+id/ivCenterNearDirection"
+            android:layout_width="@dimen/sv_dimen_48"
+            android:layout_height="@dimen/sv_dimen_48"
+            android:layout_marginEnd="@dimen/sv_dimen_20"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvTopDistance"
+            tools:src="@drawable/global_image_hud_sou_next2"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tvCenterNearRoadName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sv_dimen_16"
+            android:textColor="@color/onPrimaryDay"
+            android:textSize="@dimen/sv_dimen_24"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/ivCenterNearDirection"
+            app:layout_constraintEnd_toStartOf="@+id/ivCenterNearDirection"
+            app:layout_constraintTop_toTopOf="@id/ivCenterNearDirection"
+            tools:text="随后19米"
+            tools:visibility="visible" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clExitInfoShow"
+            android:layout_width="@dimen/sv_dimen_0"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/sv_dimen_20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/ivTopDirection"
+            app:layout_constraintTop_toBottomOf="@+id/tvTopRoadName"
+            tools:visibility="visible">
+
+            <TextView
+                android:id="@+id/tvExitInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/sv_dimen_30"
+                android:layout_marginEnd="@dimen/sv_dimen_51"
+                android:background="@drawable/shape_navi_exit_bg_day"
+                android:gravity="center"
+                android:minWidth="@dimen/sv_dimen_80"
+                android:paddingHorizontal="@dimen/sv_dimen_10"
+                android:textColor="@color/onTertiaryContainerDay"
+                android:textSize="@dimen/sv_dimen_20"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="出口" />
+
+            <TextView
+                android:id="@+id/tvExitInfoList"
+                android:layout_width="@dimen/sv_dimen_0"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sv_dimen_16"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/onSecondaryDay"
+                android:textSize="@dimen/sv_dimen_22"
+                app:layout_constraintBottom_toBottomOf="@id/tvExitInfo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvExitInfo"
+                app:layout_constraintTop_toTopOf="@id/tvExitInfo"
+                tools:text="福建  莆田  漳州  厦门" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clCenter"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sv_dimen_68"
+            android:background="@drawable/shape_navi_lane_day"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/laneComposeView"
+            tools:visibility="visible">
+
+
+            <TextView
+                android:id="@+id/tvRemainDistanceTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sv_dimen_24"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/onPrimaryDay"
+                android:textSize="@dimen/sv_dimen_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="2511公里 · 41小时38分钟" />
+
+
+            <TextView
+                android:id="@+id/tvArriveTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/sv_dimen_24"
+                android:textColor="@color/onPrimaryDay"
+                android:textSize="@dimen/sv_dimen_24"
+                app:layout_constraintBottom_toBottomOf="@+id/tvRemainDistanceTime"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvRemainDistanceTime"
+                tools:text="15:18到达" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/laneComposeView"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/sv_dimen_68"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clExitInfoShow"
+            tools:visibility="visible" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/crossImageProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="@dimen/sv_dimen_0"
+        android:layout_height="@dimen/sv_dimen_6"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="@dimen/sv_dimen_14"
+        android:layout_marginBottom="@dimen/sv_dimen_18"
+        android:background="@null"
+        android:indeterminateOnly="false"
+        android:max="100"
+        android:progressDrawable="@drawable/shape_cross_progress_bar_day"
+        app:layout_constraintBottom_toBottomOf="@+id/clTop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:progress="50" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/showCrossLaneCl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/sv_dimen_18"
+        android:background="@drawable/shape_navi_lane_show_cross_day"
+        app:layout_constraintBottom_toBottomOf="@+id/showCrossLaneView"
+        app:layout_constraintEnd_toEndOf="@+id/clTop"
+        app:layout_constraintStart_toStartOf="@+id/clTop">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/showCrossLaneComposeView"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/sv_dimen_68"
+            android:maxWidth="@dimen/sv_dimen_528"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

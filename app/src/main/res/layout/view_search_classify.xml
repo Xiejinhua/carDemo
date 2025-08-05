@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <com.autonavi.auto.skin.view.SkinConstraintLayout
+        android:id="@+id/cl_root"
+        android:layout_width="@dimen/sv_dimen_528"
+        android:layout_height="wrap_content"
+        android:onClick="@{()->0}"
+        android:soundEffectsEnabled="false">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cl_search_classify_category"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/sv_dimen_51"
+            android:layout_marginStart="@dimen/sv_dimen_32"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:setLayoutManager="@{false}">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:id="@+id/cl_classify_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sv_dimen_20"
+            android:background="@drawable/shape_classify_day"
+            android:elevation="@dimen/sv_dimen_1"
+            android:visibility="gone"
+            app:background4Skin="@drawable/shape_classify_day"
+            app:background4Night="@drawable/shape_classify_night"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cl_search_classify_category"
+            tools:visibility="visible">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rl_classify_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/sv_dimen_32"
+                android:layout_marginTop="@dimen/sv_dimen_20"
+                android:layout_marginBottom="@dimen/sv_dimen_40"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:id="@+id/cl_classify_detail_category"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sv_dimen_696"
+            android:layout_marginTop="@dimen/sv_dimen_20"
+            android:background="@drawable/shape_classify_day"
+            app:background4Skin="@drawable/shape_classify_day"
+            app:background4Night="@drawable/shape_classify_night"
+            android:elevation="@dimen/sv_dimen_1"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cl_search_classify_category"
+            tools:visibility="visible">
+
+            <com.autonavi.auto.skin.view.SkinRecyclerView
+                android:id="@+id/rl_classify_category1"
+                android:layout_width="@dimen/sv_dimen_160"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/shape_bg_classify_category_day"
+                app:background4Skin="@drawable/shape_bg_classify_category_day"
+                app:background4Night="@drawable/shape_bg_classify_category_night"
+                app:setLayoutManager="@{true}" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rl_classify_detail_category"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/sv_dimen_32"
+                android:layout_marginTop="@dimen/sv_dimen_12"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rl_classify_category1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+
+    </com.autonavi.auto.skin.view.SkinConstraintLayout>
+</layout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!-- 填充的颜色 -->
+    <solid android:color="@color/lineNight" />
+    <corners android:radius="@dimen/sv_dimen_12" />
+</shape>

@@ -1,0 +1,6 @@
+<div id="click_route_via_point" style="display:flex;flex-direction:row;justify-content:center;width:auto;height:auto;">
+  <div id="click_via_image_dynamic" style="display:flex;flex-direction:row;justify-content:center;align-items:flex-start;margin-top:10px;width:84px;height:104px;background-image:global_image_bubble_midd_big_day_night;">
+    <div style="display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:12px;width:84px;height:60px;"><label id="type_text" style="font-size:40px;color:#ffffff;font-family:font_cn;" lines="1">经</label></div>
+  </div>
+  <image id="click_delete" style="margin-left:-16px;width:26px;height:26px;" src="global_image_bubble_delete_big_day_night" />
+</div>

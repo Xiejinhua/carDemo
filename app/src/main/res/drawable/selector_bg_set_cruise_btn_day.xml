@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:state_selected="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/primaryContainerPressDay" />
+            <corners android:radius="@dimen/sv_dimen_14"/>
+        </shape>
+    </item>
+
+    <item android:state_pressed="false" android:state_selected="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/primaryContainerDay" />
+            <corners android:radius="@dimen/sv_dimen_14"/>
+        </shape>
+    </item>
+
+    <item android:state_pressed="true" android:state_selected="false">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/customColorButtonCancelPressDay" />
+            <corners android:radius="@dimen/sv_dimen_14"/>
+        </shape>
+    </item>
+
+    <item android:state_pressed="false" android:state_selected="false">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/inverseOnSurfaceDay" />
+            <corners android:radius="@dimen/sv_dimen_14"/>
+        </shape>
+    </item>
+</selector>

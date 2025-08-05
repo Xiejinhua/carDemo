@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <com.autonavi.auto.skin.view.SkinConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.autonavi.auto.skin.view.SkinProgressBar
+            android:id="@+id/pbSnr"
+            android:layout_width="@dimen/sv_dimen_8"
+            android:layout_height="@dimen/sv_dimen_120"
+            android:indeterminateOnly="false"
+            android:max="63"
+            android:min="0"
+            android:progressDrawable="@drawable/progress_gnss_snr_medium_day"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progressDrawable4Night="@drawable/progress_gnss_snr_medium_night"
+            app:progressDrawable4Skin="@drawable/progress_gnss_snr_medium_day" />
+
+    </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+
+</layout>
+

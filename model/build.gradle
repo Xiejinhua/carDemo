@@ -1,0 +1,115 @@
+plugins {
+    alias(libs.plugins.library)
+    alias(libs.plugins.kotlin)
+    alias(libs.plugins.kotlinkapt)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.kotlinextensions)
+}
+
+android {
+    namespace 'com.desaysv.psmap.model'
+    compileSdk libs.versions.compileSdkVersion.get().toInteger()
+
+    defaultConfig {
+        minSdk libs.versions.minSdkVersion.get().toInteger()
+        targetSdk libs.versions.targetSdkVersion.get().toInteger()
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+
+        ndk {
+            abiFilters 'arm64-v8a'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.5.1'
+    }
+
+    // DataBinding
+    buildFeatures {
+        dataBinding true
+    }
+}
+kapt {
+    correctErrorTypes true
+}
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+    implementation(project(":base"))
+    implementation(project(":adapter"))
+    api(project(":LocalRepo:TxzingMapSdk"))
+    api(project(":LocalRepo:AhaTrip"))
+    compileOnly files("libs/android-car.jar")
+
+    // =====Jetpact implementation =====
+    implementation libs.bundles.kotlin
+    implementation libs.bundles.androidx
+    implementation libs.bundles.navigation
+    implementation libs.bundles.lifecycle
+
+    // =====Compose kotlin =====
+    /*def composeBom = platform(libs.kotlin.compose)
+    implementation(composeBom)
+    testImplementation(composeBom)
+    androidTestImplementation(composeBom)*/
+
+    // =====hilt =====
+    implementation libs.bundles.hilt
+    kapt libs.bundles.hilt.kapt
+
+    implementation libs.paging
+    implementation libs.workmanager
+
+    //room
+    implementation libs.bundles.room
+    kapt libs.bundles.room.kapt
+    //retrofit
+    implementation libs.bundles.retrofit
+
+    // ===== 第三方开源库 implementation======
+    implementation libs.timber
+    implementation libs.coil
+    implementation libs.coil.gif
+    implementation libs.coil.compose
+    implementation libs.security
+    implementation libs.qrcode
+    implementation libs.commonsCodec
+
+    implementation libs.glideLibrary
+    implementation libs.glideTransformations
+
+    api libs.sv.account.sdk
+    api libs.sv.bigdata.sdk
+    api libs.bouncycastle.bcpkix
+    api libs.bouncycastle.bcprov
+    api libs.bouncycastle.bctls
+    api libs.licenses.online
+    api libs.aha.okhttputils
+    api libs.aha.mmkv
+
+    /*// =====Compose =====
+    implementation libs.bundles.androidx.compose
+    debugImplementation libs.bundles.androidx.compose.debug*/
+
+    //=====单元测试 testImplementation & androidTestImplementation kaptAndroidTest =====
+    testImplementation libs.bundles.test.java
+    androidTestImplementation libs.bundles.test.android
+    kaptAndroidTest libs.bundles.test.kapt.android
+
+    implementation libs.protobuf.java
+
+}

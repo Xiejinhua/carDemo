@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+        自定义的皮肤的属性,属性类型都是String类型,最终通过反射转化成对应的资源id。\n
+        【新增】属性的,则需要在com.autonavi.skin.SkinItemNames中进行定义以及转化,
+        同时在com.autonavi.skin.SkinUtil.stranslate获取对应的资源名称。\n
+        皮肤设置原则:定义该属性后,则要求在资源中可以找到对应的资源id,否则设置为0. \n
+        最终是否支持下列属性,需要看对应的View的实现,在使用之前需要进行确认
+    -->
+    <declare-styleable name="autoSkin">
+        <attr name="textColor4Skin" format="reference" />
+        <!--背景颜色,background 优先级高于 backgroundColor-->
+        <!--背景图片,指向的是图片资源id-->
+        <attr name="background4Skin" format="reference" />
+        <!--svg图片,指向的是SVG图片资源色值id-->
+        <attr name="svgColor4Skin" format="reference" />
+        <!--背景图片,指向的是图片资源id-->
+        <attr name="src4Skin" format="reference" />
+        <attr name="drawableLeft4Skin" format="reference" />
+        <attr name="drawableTop4Skin" format="reference" />
+        <attr name="drawableRight4Skin" format="reference" />
+        <attr name="drawableBottom4Skin" format="reference" />
+        <attr name="textColorHint4Skin" format="reference" />
+        <!--进度条背景资源 -->
+        <attr name="progressDrawable4Skin" format="reference" />
+        <!--拖动条背景资源-->
+        <attr name="thumb4Skin" format="reference" />
+
+        <!--字体颜色,textColorSelector 优先级高于 textColor-->
+        <!--字体颜色,指向的字体颜色的资源id-->
+        <attr name="textColor4Night" format="reference" />
+        <!--背景颜色,background 优先级高于 backgroundColor-->
+        <!--背景图片,指向的是图片资源id-->
+        <attr name="background4Night" format="reference" />
+        <!--svg图片,指向的是SVG图片资源色值id-->
+        <attr name="svgColor4Night" format="reference" />
+        <!--背景图片,指向的是图片资源id-->
+        <attr name="src4Night" format="reference" />
+        <attr name="drawableLeft4Night" format="reference" />
+        <attr name="drawableTop4Night" format="reference" />
+        <attr name="drawableRight4Night" format="reference" />
+        <attr name="drawableBottom4Night" format="reference" />
+        <attr name="textColorHint4Night" format="reference" />
+        <!--进度条背景资源 -->
+        <attr name="progressDrawable4Night" format="reference" />
+        <!--拖动条背景资源-->
+        <attr name="thumb4Night" format="reference" />
+        <!--图片翻转-->
+        <attr name="isFlippedHorizontal" format="boolean" />
+        <attr name="isFlippedVertical" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="ClearEditText">
+        <attr format="reference" name="clear_drawable"/>
+        <attr format="dimension|integer" name="clear_size"/>
+        <attr format="reference" name="left_drawable"/>
+        <attr format="dimension|integer" name="left_size"/>
+    </declare-styleable>
+</resources>

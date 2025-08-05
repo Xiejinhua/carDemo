@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.desaysv.psmap.model.bean.CustomGroupMember" />
+
+        <variable
+            name="isSelect"
+            type="boolean" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root"
+        android:layout_width="@dimen/sv_dimen_178"
+        android:layout_height="@dimen/sv_dimen_220">
+
+
+        <ImageView
+            android:id="@+id/siv_addfriend"
+            android:layout_width="@dimen/sv_dimen_94"
+            android:layout_height="@dimen/sv_dimen_94"
+            android:layout_marginTop="@dimen/sv_dimen_12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_group_default_avatar_day" />
+
+        <com.autonavi.auto.skin.view.SkinImageView
+            android:id="@+id/siv_offline"
+            android:layout_width="@dimen/sv_dimen_120"
+            android:layout_height="@dimen/sv_dimen_120"
+            android:scaleType="fitXY"
+            android:src="@drawable/shape_bg_group_offline"
+            app:layout_constraintBottom_toBottomOf="@+id/siv_addfriend"
+            app:layout_constraintEnd_toEndOf="@+id/siv_addfriend"
+            app:layout_constraintStart_toStartOf="@+id/siv_addfriend"
+            app:layout_constraintTop_toTopOf="@+id/siv_addfriend"
+            app:src4Night="@drawable/shape_bg_group_offline_night"
+            app:src4Skin="@drawable/shape_bg_group_offline"
+            app:visibleGone="@{!item.isOnline_status}" />
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/tv_member_name"
+            android:layout_width="@dimen/sv_dimen_130"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sv_dimen_23"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text="@{item.nick_name}"
+            android:textColor="@color/onPrimaryDay"
+            android:textSize="@dimen/sv_font_size_26"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/siv_addfriend"
+            app:textColor4Night="@color/onPrimaryNight"
+            app:textColor4Skin="@color/onPrimaryDay"
+            tools:text="西红柿炒蛋" />
+
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/tv_member_role"
+            android:layout_width="@dimen/sv_dimen_126"
+            android:layout_height="@dimen/sv_dimen_32"
+            android:layout_marginTop="@dimen/sv_dimen_93"
+            android:background="@drawable/bg_group_in_team"
+            android:gravity="center"
+            android:visibility="gone"
+            app:background4Night="@drawable/bg_group_in_team_night"
+            app:background4Skin="@drawable/bg_group_in_team"
+            app:layout_constraintEnd_toEndOf="@+id/siv_addfriend"
+            app:layout_constraintStart_toStartOf="@+id/siv_addfriend"
+            app:layout_constraintTop_toTopOf="parent"
+            app:visibleGone="@{item.isTeam}"
+            tools:visibility="visible" />
+
+
+        <com.autonavi.auto.skin.view.SkinCheckBox
+            android:id="@+id/cb_invite_select_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/selector_bg_group_invite_select_day"
+            android:button="@null"
+            android:enabled="@{!item.isTeam}"
+            app:background4Night="@drawable/selector_bg_group_invite_select_night"
+            app:background4Skin="@drawable/selector_bg_group_invite_select_day" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

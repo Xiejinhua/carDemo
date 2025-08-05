@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<resources>
+    <declare-styleable name="custom">
+      <attr name="custom_ac_layout_stv_time_text" format="reference"/>
+      <attr name="custom_bar_status_stv_time_text" format="reference"/>
+      <attr name="custom_btn_checkbox1_stv_checkbox1_text" format="reference"/>
+      <attr name="custom_btn_radio2_stv_radio1_text" format="reference"/>
+      <attr name="custom_btn_radio2_stv_radio2_text" format="reference"/>
+      <attr name="custom_btn_radio3_stv_radio1_text" format="reference"/>
+      <attr name="custom_btn_radio3_stv_radio2_text" format="reference"/>
+      <attr name="custom_btn_radio3_stv_radio3_text" format="reference"/>
+      <attr name="custom_btn_radio4_stv_radio1_text" format="reference"/>
+      <attr name="custom_btn_radio4_stv_radio2_text" format="reference"/>
+      <attr name="custom_btn_radio4_stv_radio3_text" format="reference"/>
+      <attr name="custom_btn_radio4_stv_radio4_text" format="reference"/>
+      <attr name="custom_btn_switch_stv_text_close_text" format="reference"/>
+      <attr name="custom_daynight_switch_stv_checkbox1_text" format="reference"/>
+      <attr name="custom_index_bar_stv_text_text" format="reference"/>
+      <attr name="custom_keyboard_number_stv_text_0_text" format="reference"/>
+      <attr name="custom_keyboard_number_stv_text_1_text" format="reference"/>
+      <attr name="custom_keyboard_number_stv_text_2_text" format="reference"/>
+      <attr name="custom_keyboard_number_stv_text_3_text" format="reference"/>
+      <attr name="custom_keyboard_number_stv_text_4_text" format="reference"/>
+      <attr name="custom_keyboard_number_stv_text_5_text" format="reference"/>
+      <attr name="custom_keyboard_number_stv_text_6_text" format="reference"/>
+      <attr name="custom_keyboard_number_stv_text_7_text" format="reference"/>
+      <attr name="custom_keyboard_number_stv_text_8_text" format="reference"/>
+      <attr name="custom_keyboard_number_stv_text_9_text" format="reference"/>
+      <attr name="custom_navi_bar_item_short_stv_text1_text" format="reference"/>
+      <attr name="custom_navi_bar_item_stv_number_text" format="reference"/>
+      <attr name="custom_navi_bar_item_stv_text1_text" format="reference"/>
+      <attr name="custom_point_new_stv_point_text" format="reference"/>
+      <attr name="custom_speedwindow_stv_text_speed_text" format="reference"/>
+      <attr name="custom_speedwindow_stv_text_unit_text" format="reference"/>
+    </declare-styleable>
+
+  <declare-styleable name="primaryButtonStyle">
+    <attr name="text" format="reference"/>
+    <attr name="textStyle">
+      <enum name="normal" value="0" />
+      <enum name="big" value="1" />
+      <enum name="huge" value="2" />
+    </attr>
+  </declare-styleable>
+
+  <declare-styleable name="imageButtonStyle">
+    <attr name="textTitle" format="reference"/>
+    <attr name="imageBackground4Night" format="reference"/>
+    <attr name="imageBackground4Skin" format="reference"/>
+    <attr name="tipVisible">
+      <enum name="visible" value="1" />
+      <enum name="gone" value="0" />
+    </attr>
+  </declare-styleable>
+
+  <declare-styleable name="multiButtonStyle">
+    <attr name="text_index1" format="reference"/>
+    <attr name="text_index2" format="reference"/>
+    <attr name="text_index3" format="reference"/>
+    <attr name="image_background_index1" format="reference"/>
+    <attr name="image_background_index2" format="reference"/>
+    <attr name="image_background_index3" format="reference"/>
+    <attr name="image_background_night_index1" format="reference"/>
+    <attr name="image_background_night_index2" format="reference"/>
+    <attr name="image_background_night_index3" format="reference"/>
+  </declare-styleable>
+
+  <declare-styleable name="tipTextViewStyle">
+    <attr name="tipDirection">
+      <enum name="left" value="0" />
+      <enum name="right" value="1" />
+      <enum name="top" value="2" />
+      <enum name="bottom" value="3" />
+    </attr>
+  </declare-styleable>
+
+
+  <declare-styleable name="StaggeredGridView">
+    <attr name="column_count" format="integer" />
+    <attr name="column_count_portrait" format="integer" />
+    <attr name="column_count_landscape" format="integer" />
+    <attr name="item_margin" format="dimension" />
+    <attr name="grid_paddingLeft" format="dimension" />
+    <attr name="grid_paddingRight" format="dimension" />
+    <attr name="grid_paddingTop" format="dimension" />
+    <attr name="grid_paddingBottom" format="dimension" />
+  </declare-styleable>
+
+  <declare-styleable name="imageTextStyle">
+    <attr name="imageTextTitle" format="reference"/>
+  </declare-styleable>
+
+  <declare-styleable name="suggestionTipsStyle">
+    <attr name="boxBackground" format="reference"/>
+    <attr name="stvTips" format="reference"/>
+    <attr name="sivTips" format="reference"/>
+  </declare-styleable>
+
+  <!-- 自定义星星属性 -->
+  <declare-styleable name="star">
+    <!--星星数量-->
+    <attr format="integer" name="starsNum"/>
+    <!--星星宽度-->
+    <attr format="dimension" name="starWidth"/>
+    <!--星星高度-->
+    <attr format="dimension" name="starHeight"/>
+    <!--星星间距-->
+    <attr format="dimension" name="starDistance"/>
+    <!--星星背景-->
+    <attr format="reference" name="starBackground"/>
+    <!--星星变化背景-->
+    <attr format="reference" name="starDrawBackground"/>
+    <!--控件是否可以点击-->
+    <attr format="boolean" name="starClickable"/>
+  </declare-styleable>
+
+  <!-- ShadowLayout 阴影 -->
+  <declare-styleable name="cornerWindow">
+    <attr name="windowWidth" format="dimension"/>
+    <attr name="windowHeight" format="dimension"/>
+    <attr name="offsetX" format="dimension"/>
+    <attr name="offsetY" format="dimension"/>
+    <attr name="layout_marginLeft" format="dimension"/>
+    <attr name="layout_marginTop" format="dimension"/>
+    <attr name="layout_marginRight" format="dimension"/>
+    <attr name="layout_marginBottom" format="dimension"/>
+    <attr name="topLeftRadius" format="dimension"/>
+    <attr name="topRightRadius" format="dimension"/>
+    <attr name="bottomLeftRadius" format="dimension"/>
+    <attr name="bottomRightRadius" format="dimension"/>
+    <attr name="backNightColor" format="reference"/>
+    <attr name="backNormalColor" format="reference"/>
+  </declare-styleable>
+
+  <!-- 阻断页标签 阴影 -->
+  <declare-styleable name="BorderTextView">
+    <attr name="strokeWidth" format="dimension"/>
+    <attr name="cornerRadius" format="dimension"/>
+    <attr name="strokeColor" format="color"/>
+    <attr name="enableBackColor" format="color" />
+    <attr name="contentBackColor" format="color"/>
+    <attr name="contentPressedColor" format="color"/>
+    <attr name="followTextColor" format="boolean"/>
+  </declare-styleable>
+</resources>

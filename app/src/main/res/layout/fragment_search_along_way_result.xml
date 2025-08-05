@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.desaysv.psmap.ui.search.SearchAlongWayResultModel" />
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+    </data>
+
+    <com.autonavi.auto.skin.view.SkinConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:layout_width="@dimen/sv_dimen_680"
+            android:layout_height="@dimen/sv_dimen_1178"
+            android:layout_marginStart="@dimen/sv_dimen_20"
+            android:layout_marginTop="@dimen/sv_dimen_90"
+            android:background="@drawable/ic_main_bg_day"
+            android:onClick="@{()->0}"
+            android:paddingHorizontal="@dimen/sv_dimen_20"
+            android:paddingTop="@dimen/sv_dimen_20"
+            android:paddingBottom="@dimen/sv_dimen_28"
+            android:soundEffectsEnabled="false"
+            app:background4Night="@drawable/ic_main_bg_night"
+            app:background4Skin="@drawable/ic_main_bg_day"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:visibleGone="@{viewModel.singleResult==null}">
+
+            <com.desaysv.psmap.ui.search.view.SearchBarView
+                android:id="@+id/search_bar"
+                android:layout_width="@dimen/sv_dimen_640"
+                android:layout_height="@dimen/sv_dimen_72"
+                android:layout_marginTop="@dimen/sv_dimen_26"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.autonavi.auto.skin.view.SkinConstraintLayout
+                android:id="@+id/cl_search_result_data"
+                android:layout_width="@dimen/sv_dimen_640"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/sv_dimen_20"
+                android:visibility="@{viewModel.isLoadingLiveData()?View.GONE:View.VISIBLE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/search_bar"
+                app:layout_constraintStart_toStartOf="@+id/search_bar"
+                app:layout_constraintTop_toBottomOf="@+id/search_bar"
+                tools:visibility="visible">
+
+                <com.autonavi.auto.skin.view.SkinRecyclerView
+                    android:id="@+id/search_result_listview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@null"
+                    android:dividerHeight="0dp"
+                    android:listSelector="@android:color/transparent"
+                    android:overScrollMode="never"
+                    android:requiresFadingEdge="horizontal"
+                    android:visibility="@{viewModel.isSearchSuccess()?View.VISIBLE:viewModel.isSingleResult()?View.GONE:View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:setLayoutManager="@{true}"
+                    tools:visibility="visible" />
+            </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+            <com.autonavi.auto.skin.view.SkinConstraintLayout
+                android:id="@+id/cl_loading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="@{viewModel.isLoadingLiveData()?View.VISIBLE:View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/search_bar"
+                app:layout_constraintStart_toStartOf="@+id/search_bar"
+                app:layout_constraintTop_toBottomOf="@+id/search_bar"
+                tools:visibility="visible">
+
+                <ProgressBar
+                    android:id="@+id/cls_loading"
+                    android:layout_width="@dimen/sv_dimen_54"
+                    android:layout_height="@dimen/sv_dimen_54"
+                    android:indeterminateBehavior="repeat"
+                    android:indeterminateDrawable="@drawable/rotate_loading_view_day"
+                    android:indeterminateOnly="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:setActiveIndeterminateDrawable="@{viewModel.isNight}" />
+
+                <com.autonavi.auto.skin.view.SkinTextView
+                    style="@style/CustomTextAppearanceBodySmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sv_dimen_24"
+                    android:text="正在加载…"
+                    android:textColor="@color/onSecondaryDay"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cls_loading"
+                    app:textColor4Night="@color/onSecondaryNight"
+                    app:textColor4Skin="@color/onSecondaryDay" />
+
+            </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+            <com.autonavi.auto.skin.view.SkinConstraintLayout
+                android:id="@+id/cl_search_no_result"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/sv_dimen_7"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/search_bar"
+                app:layout_constraintStart_toStartOf="@+id/search_bar"
+                app:layout_constraintTop_toBottomOf="@+id/search_bar"
+                app:visibleGone="@{!viewModel.isSearchSuccess()}"
+                tools:visibility="gone">
+
+                <com.autonavi.auto.skin.view.SkinTextView
+                    style="@style/CustomTextAppearanceBodyLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="暂无相关结果"
+                    android:textColor="@color/customColorRbBgDay"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:textColor4Night="@color/customColorWhite80Night"
+                    app:textColor4Skin="@color/customColorRbBgDay" />
+            </com.autonavi.auto.skin.view.SkinConstraintLayout>
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+        <com.desaysv.psmap.ui.search.view.SearchSinglePoiView
+            android:id="@+id/single_poi_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:visibleGone="@{viewModel.singleResult!=null}" />
+
+    </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+</layout>

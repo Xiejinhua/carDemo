@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+        <variable
+            name="viewModel"
+            type="com.desaysv.psmap.ui.search.SearchAlongWayModel" />
+
+        <variable
+            name="isNaving"
+            type="Boolean" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <com.autonavi.auto.skin.view.SkinConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:layout_width="@dimen/sv_dimen_680"
+            android:layout_height="@dimen/sv_dimen_1178"
+            android:layout_marginStart="@dimen/sv_dimen_20"
+            android:layout_marginTop="@dimen/sv_dimen_90"
+            android:background="@drawable/ic_main_bg_day"
+            android:onClick="@{()->0}"
+            android:paddingHorizontal="@dimen/sv_dimen_20"
+            android:paddingTop="@dimen/sv_dimen_20"
+            android:paddingBottom="@dimen/sv_dimen_28"
+            android:soundEffectsEnabled="false"
+            app:background4Night="@drawable/ic_main_bg_night"
+            app:background4Skin="@drawable/ic_main_bg_day"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.desaysv.psmap.ui.search.view.SearchBoxView
+                android:id="@+id/search_box"
+                android:layout_width="@dimen/sv_dimen_640"
+                android:layout_height="@dimen/sv_dimen_72"
+                android:layout_marginTop="@dimen/sv_dimen_26"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.autonavi.auto.skin.view.SkinConstraintLayout
+                android:id="@+id/cl_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sv_dimen_26"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search_box"
+                app:visibleGone="@{!viewModel.isSuggestionLiveData}">
+
+                <com.autonavi.auto.skin.view.SkinTextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/sv_dimen_81"
+                    android:layout_marginStart="@dimen/sv_dimen_40"
+                    android:ellipsize="end"
+                    android:gravity="center|left"
+                    android:maxLines="1"
+                    android:paddingBottom="@dimen/sv_dimen_30"
+                    android:text="顺路搜"
+                    android:textColor="@color/onPrimaryDay"
+                    android:textSize="@dimen/sv_dimen_30"
+                    android:visibility="@{isNaving?View.VISIBLE:View.GONE}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:textColor4Night="@color/onPrimaryNight"
+                    app:textColor4Skin="@color/onPrimaryDay"
+                    tools:visibility="gone" />
+
+                <com.autonavi.auto.skin.view.SkinRecyclerView
+                    android:id="@+id/search_common_category_listview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/sv_dimen_8"
+                    android:divider="@null"
+                    android:dividerHeight="0dp"
+                    android:listSelector="@android:color/transparent"
+                    android:overScrollMode="never"
+                    android:requiresFadingEdge="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+                <com.autonavi.auto.skin.view.SkinConstraintLayout
+                    android:id="@+id/cl_search_history"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/sv_dimen_720"
+                    android:layout_marginTop="@dimen/sv_dimen_40"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/search_common_category_listview"
+                    app:visibleGone="@{!viewModel.noHistoryVisibilityLiveData}"
+                    tools:visibility="visible">
+
+                    <com.autonavi.auto.skin.view.SkinConstraintLayout
+                        android:id="@+id/cl_delete_history"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/sv_dimen_64"
+                        android:visibility="@{isNaving?View.VISIBLE:View.GONE}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.autonavi.auto.skin.view.SkinTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/sv_dimen_40"
+                            android:importantForAccessibility="no"
+                            android:text="@string/sv_search_history"
+                            android:textColor="@color/customColorRbBgDay"
+                            android:textSize="@dimen/sv_dimen_30"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:textColor4Night="@color/customColorWhite80Night"
+                            app:textColor4Skin="@color/customColorRbBgDay" />
+
+                        <com.autonavi.auto.skin.view.SkinImageView
+                            android:id="@+id/tv_delete_history"
+                            android:layout_width="@dimen/sv_dimen_64"
+                            android:layout_height="@dimen/sv_dimen_64"
+                            android:layout_marginEnd="@dimen/sv_dimen_40"
+                            android:contentDescription="@string/sv_search_del_history_accessibility"
+                            android:src="@drawable/ic_search_clear_history_day"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:src4Night="@drawable/ic_search_clear_history_night"
+                            app:src4Skin="@drawable/ic_search_clear_history_day" />
+                    </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+                    <com.autonavi.auto.skin.view.SkinRecyclerView
+                        android:id="@+id/search_history_listview"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/sv_dimen_573"
+                        android:divider="@null"
+                        android:dividerHeight="0dp"
+                        android:listSelector="@android:color/transparent"
+                        android:overScrollMode="never"
+                        android:requiresFadingEdge="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cl_delete_history"
+                        app:setLayoutManager="@{true}" />
+                </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+                <com.autonavi.auto.skin.view.SkinConstraintLayout
+                    android:id="@+id/cl_search_no_history"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/sv_dimen_720"
+                    android:layout_marginTop="@dimen/sv_dimen_8"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/search_common_category_listview"
+                    app:visibleGone="@{viewModel.noHistoryVisibilityLiveData}"
+                    tools:visibility="visible">
+
+                    <com.autonavi.auto.skin.view.SkinImageView
+                        android:id="@+id/iv_search_no_history"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/sv_dimen_144"
+                        android:src="@drawable/ic_no_history_day"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:src4Night="@drawable/ic_no_history_night"
+                        app:src4Skin="@drawable/ic_no_history_day" />
+
+                    <com.autonavi.auto.skin.view.SkinTextView
+                        android:id="@+id/tv_no_history_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/sv_dimen_32"
+                        android:text="@string/sv_search_no_history_title"
+                        android:textColor="@color/customColorRbBgDay"
+                        android:textSize="@dimen/sv_dimen_30"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/iv_search_no_history"
+                        app:textColor4Night="@color/customColorWhite80Night"
+                        app:textColor4Skin="@color/customColorRbBgDay" />
+
+                </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+
+            </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+            <com.autonavi.auto.skin.view.SkinConstraintLayout
+                android:id="@+id/cl_suggestion_data"
+                android:layout_width="@dimen/sv_dimen_640"
+                android:layout_height="@dimen/sv_dimen_1032"
+                android:layout_marginTop="@dimen/sv_dimen_20"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search_box"
+                app:visibleGone="@{viewModel.isSuggestionLiveData}"
+                tools:visibility="visible">
+
+                <com.autonavi.auto.skin.view.SkinRecyclerView
+                    android:id="@+id/search_suggestion_listview"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/sv_dimen_1032"
+                    android:divider="@null"
+                    android:dividerHeight="0dp"
+                    android:listSelector="@android:color/transparent"
+                    android:overScrollMode="never"
+                    android:requiresFadingEdge="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:setLayoutManager="@{true}"
+                    app:visibleGone="@{!viewModel.noSuggestionVisibilityLiveData}" />
+
+
+                <com.autonavi.auto.skin.view.SkinView
+                    android:id="@+id/line2"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/sv_dimen_2"
+                    android:layout_marginTop="@dimen/sv_dimen_n2"
+                    android:background="@color/lineDay"
+                    app:background4Night="@color/lineNight"
+                    app:background4Skin="@color/lineDay"
+                    app:layout_constraintTop_toBottomOf="@id/search_suggestion_listview"
+                    app:visibleGone="@{!viewModel.noSuggestionVisibilityLiveData}" />
+
+
+                <com.autonavi.auto.skin.view.SkinTextView
+                    android:id="@+id/tv_no_suggestion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/sv_dimen_480"
+                    android:gravity="center"
+                    android:text="暂无预搜索结果"
+                    android:textColor="@color/customColorRbBgDay"
+                    android:textSize="@dimen/sv_dimen_30"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:textColor4Night="@color/customColorWhite80Night"
+                    app:textColor4Skin="@color/customColorRbBgDay"
+                    app:visibleGone="@{viewModel.noSuggestionVisibilityLiveData}"
+                    tools:visibility="visible" />
+
+            </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+
+    </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+</layout>

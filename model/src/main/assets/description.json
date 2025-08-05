@@ -1,0 +1,173 @@
+{
+    "description.json": {
+        "path": "description.json", 
+        "type": 0, 
+        "version": "9.750.280.2.923"
+    }, 
+    "GLndsConfig.xml": {
+        "path": "GLndsConfig.xml", 
+        "type": 3, 
+        "update": "Content"
+    }, 
+    "GNaviConfig.xml": {
+        "path": "GNaviConfig.xml", 
+        "type": 3, 
+        "update": "Content"
+    }, 
+    "GRestConfig.ini": {
+        "path": "GRestConfig.ini", 
+        "type": 2, 
+        "channel": true
+    }, 
+    "GblConfig.json": {
+        "path": "GblConfig.json", 
+        "type": 2, 
+        "channel": true
+    }, 
+    "LogSenceConfig.json": {
+        "type": 2, 
+        "path": "LogSenceConfig.json"
+    }, 
+    "GuideConfig.json": {
+        "path": "GuideConfig.json", 
+        "type": 2
+    }, 
+    "localization": {
+        "path": "localization", 
+        "type": 2, 
+        "subfiles": [
+            "/values-zh-cn/bl_strings.xml", 
+            "/values-zh-tr/bl_strings.xml", 
+            "/values-en/bl_strings.xml"
+        ]
+    }, 
+    "opencc_conf": {
+        "path": "opencc_conf", 
+        "type": 0, 
+        "write": true, 
+        "subfiles": [
+            "/STCharacters.ocd2", 
+            "/s2t.json", 
+            "/STPhrases.ocd2"
+        ]
+    }, 
+    "network_conf": {
+        "path": "network_conf", 
+        "type": 0, 
+        "subfiles": [
+            "/autorz.crt"
+        ]
+    }, 
+    "EhpConfig.dat": {
+        "path": "EhpConfig.dat", 
+        "type": 2, 
+        "channel": true
+    }, 
+    "IdcConfig.dat": {
+        "path": "IdcConfig.dat", 
+        "type": 2, 
+        "channel": true
+    }, 
+    "global.db": {
+        "path": "res/global.db", 
+        "type": 3, 
+        "write": true, 
+        "version": "1608820241"
+    }, 
+    "global_e.db": {
+        "path": "res/global_e.db", 
+        "type": 3, 
+        "write": true, 
+        "version": "1635907287"
+    }, 
+    "font": {
+        "path": "font", 
+        "type": 0, 
+        "subfiles": [
+            "/AmapNumber-Bold.ttf", 
+            "/Roboto-Bold.ttf", 
+            "/font_cn.ttf", 
+            "/Oswald-Regular.ttf"
+        ]
+    }, 
+    "res": {
+        "path": "res", 
+        "type": 2
+    }, 
+    "MapAsset": {
+        "path": "MapAsset", 
+        "type": 2
+    }, 
+    "LayerAsset": {
+        "path": "LayerAsset", 
+        "type": 2
+    }, 
+    "offline_conf": {
+        "path": "offline_conf", 
+        "type": 3, 
+        "write": true, 
+        "update": "EmptySize", 
+        "subfiles": [
+            "/all_city_compile.json"
+        ]
+    }, 
+    "voice_conf": {
+        "path": "voice_conf", 
+        "type": 3, 
+        "write": true, 
+        "update": "EmptySize", 
+        "subfiles": [
+            "/voicedata.json"
+        ]
+    }, 
+    "theme_conf": {
+        "path": "theme_conf", 
+        "type": 3, 
+        "write": true, 
+        "update": "EmptySize", 
+        "subfiles": [
+            "/themedata2.json"
+        ]
+    }, 
+    "speech_conf": {
+        "path": "speech_conf", 
+        "type": 0, 
+        "subfiles": [
+            "/xiaoyan.irf", 
+            "/common.irf", 
+            "/isstts.cfg"
+        ]
+    }, 
+    "arres": {
+        "path": "arres", 
+        "type": 2
+    }, 
+    "LaneLayerAsset": {
+        "path": "LaneLayerAsset", 
+        "type": 2
+    }, 
+    "LaneResource": {
+        "path": "LaneResource", 
+        "type": 2
+    }, 
+    "LaneCarSRResource": {
+        "path": "LaneCarSRResource", 
+        "type": 2
+    }, 
+    "MultipleScreen.json": {
+        "path": "MultipleScreen.json", 
+        "type": 2
+    }, 
+    "MapToolAsset": {
+        "path": "MapToolAsset", 
+        "type": 2
+    }, 
+    "LayerTool": {
+        "path": "LayerTool", 
+        "type": 2
+    }, 
+    "Prefab": {
+        "path": "Prefab", 
+        "type": 2
+    }
+}

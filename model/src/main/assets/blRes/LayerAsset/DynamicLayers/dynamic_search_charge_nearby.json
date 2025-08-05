@@ -1,0 +1,463 @@
+{
+  "data": {
+    "type": "adaptor_point",
+    "value": {},
+    "rule": [
+      {
+        "brief": "图层之间碰撞",
+        "type": "data_quadrant_if",
+        "value": {
+          "biz_data": "demo",
+          "condition": {
+            "fact": true,
+            "operator": "equal",
+            "value": true
+          },
+          "case": {
+            "true": 1
+          }
+        }
+      }
+    ]
+  },
+  "biz": [
+    {
+      "brief": "设置是否可点击",
+      "type": "biz_set_clickable",
+      "value": true
+    },
+    {
+      "brief" : "设置显示比例尺范围",
+      "type" : "biz_set_display_scale",
+      "value" : {
+        "min_scale" : 11.0,
+        "max_scale" : 20.0
+      }
+    },
+    {
+      "brief": "设置图层优先级",
+      "type": "biz_set_priority",
+      "value": {
+        "draw_priority": 140,
+        "sub_priority": 1000
+      }
+    },
+    {
+      "brief": "设置多飘向图层避让算法",
+      "type": "biz_set_avoid_algorithm",
+      "value": 2
+    },
+    {
+      "brief": "设置是否图层内碰撞",
+      "type": "biz_is_collision",
+      "value": true
+    },
+    {
+      "brief": "设置是否是多象限图层",
+      "type": "biz_is_quadrant_layer",
+      "value": {
+        "type": 1,
+        "preview_rect": {
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        },
+        "intersect_ratio": 0.54,
+        "intersect_area": 0.54,
+        "area_threshold": 0.5
+      }
+    },
+    {
+      "brief": "设置图元优先级是否升序",
+      "type": "biz_item_priority_asc",
+      "value": false
+    },
+    {
+      "brief": "设置组合碰撞",
+      "type": "biz_combination_collision",
+      "value": {
+        "dynamic_search_charge_nearby_collision": {
+          "area_collision": [
+            "dynamic_search_charge_nearby"
+          ],
+          "collision_layer": [
+            "dynamic_search_charge_nearby"
+          ],
+          "area_threshold": 0.5,
+          "ui_threshold": 0.5
+        }
+      }
+    }
+  ],
+  "style": {
+    "marker_info": {
+      "marker_info_carservice_search_nearby_recommend_left": {
+        "anchor": 9,
+        "x_ratio": 0.908,
+        "y_ratio": 0.808,
+        "night_style": {
+          "color":[{"text_title":"#e77b15"},{"score_text":"#e77b15"},{"price_text":"#e77b15"}],
+          "text-stroke":[{"text_title":"3px #cc000000"},{"score_text":"2px #cc000000"},{"price_text":"2px #cc000000"}]
+        },
+        "day_style": {
+          "color":[{"text_title":"#d15b0e"},{"score_text":"#d15b0e"},{"price_text":"#d15b0e"}],
+          "text-stroke":[{"text_title":"3px #ccffffff"},{"score_text":"2px #ccffffff"},{"price_text":"2px #ccffffff"}]
+        }
+      },
+      "marker_info_carservice_search_nearby_recommend_left_focus": {
+        "anchor": 9,
+        "x_ratio": 0.087,
+        "y_ratio": 0.808,
+        "night_style": {
+          "color":[{"text_title":"#e77b15"},{"score_text":"#e77b15"},{"price_text":"#e77b15"}],
+          "text-stroke":[{"text_title":"3px #cc000000"},{"score_text":"2px #cc000000"},{"price_text":"2px #cc000000"}]
+        },
+        "day_style": {
+          "color":[{"text_title":"#d15b0e"},{"score_text":"#d15b0e"},{"price_text":"#d15b0e"}],
+          "text-stroke":[{"text_title":"3px #ccffffff"},{"score_text":"2px #ccffffff"},{"price_text":"2px #ccffffff"}]
+        }
+      },
+      "marker_info_carservice_search_nearby_recommend_right": {
+        "anchor": 9,
+        "x_ratio": 0.871,
+        "y_ratio": 0.904,
+        "night_style": {
+          "color":[{"text_title":"#e77b15"},{"score_text":"#e77b15"},{"price_text":"#e77b15"}],
+          "text-stroke":[{"text_title":"3px #cc000000"},{"score_text":"2px #cc000000"},{"price_text":"2px #cc000000"}]
+        },
+        "day_style": {
+          "color":[{"text_title":"#d15b0e"},{"score_text":"#d15b0e"},{"price_text":"#d15b0e"}],
+          "text-stroke":[{"text_title":"3px #ccffffff"},{"score_text":"2px #ccffffff"},{"price_text":"2px #ccffffff"}]
+        }
+      },
+      "marker_info_carservice_search_nearby_recommend_right_focus": {
+        "anchor": 9,
+        "x_ratio": 0.124,
+        "y_ratio": 0.92,
+        "night_style": {
+          "color":[{"text_title":"#e77b15"},{"score_text":"#e77b15"},{"price_text":"#e77b15"}],
+          "text-stroke":[{"text_title":"3px #cc000000"},{"score_text":"2px #cc000000"},{"price_text":"2px #cc000000"}]
+        },
+        "day_style": {
+          "color":[{"text_title":"#d15b0e"},{"score_text":"#d15b0e"},{"price_text":"#d15b0e"}],
+          "text-stroke":[{"text_title":"3px #ccffffff"},{"score_text":"2px #ccffffff"},{"price_text":"2px #ccffffff"}]
+        }
+      }
+    },
+    "style_info": {
+      "carservice_search_nearby_recommend_left": {
+        "point_layer_item_style": {
+          "normal_style": {
+            "poi_marker_id": "carservice_search_nearby_recommend_left_normal.xml",
+            "poi_marker_info": "marker_info_carservice_search_nearby_recommend_left"
+          },
+          "focus_style": {
+            "poi_marker_id": "carservice_search_nearby_recommend_left_focus.xml",
+            "poi_marker_info": "marker_info_carservice_search_nearby_recommend_left_focus"
+          }
+        }
+      },
+      "carservice_search_nearby_recommend_right": {
+        "point_layer_item_style": {
+          "normal_style": {
+            "poi_marker_id": "carservice_search_nearby_recommend_right_normal.xml",
+            "poi_marker_info": "marker_info_carservice_search_nearby_recommend_right"
+          },
+          "focus_style": {
+            "poi_marker_id": "carservice_search_nearby_recommend_right_focus.xml",
+            "poi_marker_info": "marker_info_carservice_search_nearby_recommend_right_focus"
+          }
+        }
+      }
+    },
+    "style_name": {
+      "prefix_name": "",
+      "rule": [
+        {
+          "brief": "样式规则",
+          "type": "style_switch",
+          "value": {
+            "condition": "$item_data.quadrantType",
+            "case": {
+              "1": "carservice_search_nearby_recommend_left",
+              "2": "carservice_search_nearby_recommend_right"
+            }
+          }
+        }
+      ]
+    },
+    "card_info": {
+      "carservice_search_nearby_recommend_left_normal.xml": "<div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:auto;height:auto;\">\n  <div id=\"click_bg_div\" style=\"display:flex;flex-direction:column;justify-content:center;align-items:flex-end;\">\n    <label id=\"text_title\" style=\"font-size:22px;color:#d15b0e;font-family:font_cn;text-overflow:ellipsis;text-stroke:3px #ccffffff;line-clamp:1;max-width:218px;\" lines=\"1\">标题最长情况也就这么长...</label>\n    <div id=\"score_div\" style=\"display:flex;flex-direction:row;justify-content:flex-end;align-items:center;margin-top:2px;\">\n      <image id=\"score_icon\" style=\"width:19px;height:19px;\" src=\"global_image_carservice_food_score_icon_day_night\" />\n      <label id=\"score_text\" style=\"margin-left:6px;font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">4.8</label>\n      <label id=\"price_text\" style=\"margin-left:6px;font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">¥128/人</label>\n    </div>\n  </div>\n  <image id=\"click_type_icon\" style=\"margin-left:6px;width:37px;height:46px;\" src=\"global_image_carservice_poiicon_food_recommend_icon_day_night\" />\n</div>",
+      "carservice_search_nearby_recommend_left_focus.xml": "<div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:auto;height:auto;\">\n  <div id=\"click_bg_div\" style=\"display:flex;flex-direction:column;justify-content:center;align-items:flex-end;\">\n    <label id=\"text_title\" style=\"font-size:22px;color:#d15b0e;font-family:font_cn;text-overflow:ellipsis;text-stroke:3px #ccffffff;line-clamp:1;max-width:218px;\" lines=\"1\">标题最长情况也就这么长...</label>\n    <div id=\"score_div\" style=\"display:flex;flex-direction:row;justify-content:flex-end;align-items:center;margin-top:2px;\">\n      <image id=\"score_icon\" style=\"width:19px;height:19px;\" src=\"global_image_carservice_food_score_icon_day_night\" />\n      <label id=\"score_text\" style=\"margin-left:6px;font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">4.8</label>\n      <label id=\"price_text\" style=\"margin-left:6px;font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">¥128/人</label>\n    </div>\n  </div>\n  <image id=\"click_type_icon\" style=\"margin-left:6px;width:86px;height:106px;\" src=\"global_image_carservice_poiicon_food_selected_icon_day_night\" />\n</div>",
+      "carservice_search_nearby_recommend_right_normal.xml": "<div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:auto;height:auto;\">\n  <image id=\"click_type_icon\" style=\"margin-right:6px;width:37px;height:46px;\" src=\"global_image_carservice_poiicon_food_recommend_icon_day_night\" />\n  <div id=\"click_bg_div\" style=\"display:flex;flex-direction:column;justify-content:center;align-items:flex-start;\">\n    <label id=\"text_title\" style=\"font-size:22px;color:#d15b0e;font-family:font_cn;text-overflow:ellipsis;text-stroke:3px #ccffffff;line-clamp:1;max-width:218px;\" lines=\"1\">标题最长情况也就这么长...</label>\n    <div id=\"score_div\" style=\"display:flex;flex-direction:row;justify-content:flex-end;align-items:center;margin-top:2px;\">\n      <image id=\"score_icon\" style=\"width:19px;height:19px;\" src=\"global_image_carservice_food_score_icon_day_night\" />\n      <label id=\"score_text\" style=\"margin-left:6px;font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">4.8</label>\n      <label id=\"price_text\" style=\"margin-left:6px;font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">¥128/人</label>\n    </div>\n  </div>\n</div>\n",
+      "carservice_search_nearby_recommend_right_focus.xml": "<div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:auto;height:auto;\">\n  <image id=\"click_type_icon\" style=\"margin-right:6px;width:86px;height:106px;\" src=\"global_image_carservice_poiicon_food_selected_icon_day_night\" />\n  <div id=\"click_bg_div\" style=\"display:flex;flex-direction:column;justify-content:center;align-items:flex-start;\">\n    <label id=\"text_title\" style=\"font-size:22px;color:#d15b0e;font-family:font_cn;text-overflow:ellipsis;text-stroke:3px #ccffffff;line-clamp:1;max-width:218px;\" lines=\"1\">标题最长情况也就这么长...</label>\n    <div id=\"score_div\" style=\"display:flex;flex-direction:row;justify-content:flex-end;align-items:center;margin-top:2px;\">\n      <image id=\"score_icon\" style=\"width:19px;height:19px;\" src=\"global_image_carservice_food_score_icon_day_night\" />\n      <label id=\"score_text\" style=\"margin-left:6px;font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">4.8</label>\n      <label id=\"price_text\" style=\"margin-left:6px;font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">¥128/人</label>\n    </div>\n  </div>\n</div>\n"
+    },
+    "dynamic_marker": {
+      "rule": [
+        {
+          "brief": "设置名称",
+          "type": "marker_if",
+          "value": {
+            "condition": {
+              "func": {
+                "name": "StringLength",
+                "param": {
+                  "value": "$biz_data.name"
+                }
+              },
+              "operator": "gt",
+              "value": 0
+            },
+            "case": {
+              "true": {
+                "id": "text_title",
+                "nodeName": "label",
+                "display": true,
+                "value": "$biz_data.name",
+                "defaultStyle": "font-size:22px;color:#d15b0e;font-family:font_cn;text-overflow:ellipsis;text-stroke:3px #ccffffff;line-clamp:1;max-width:218px;"
+              },
+              "false": {
+                "id": "text_title",
+                "nodeName": "label",
+                "display": false,
+                "defaultStyle": "font-size:22px;color:#d15b0e;font-family:font_cn;text-overflow:ellipsis;text-stroke:3px #ccffffff;line-clamp:1;max-width:218px;"
+              }
+            }
+          }
+        },
+        {
+          "brief": "设置评分",
+          "type": "marker_if",
+          "value": {
+            "condition": {
+              "func": {
+                "name": "StringLength",
+                "param": {
+                  "value": "$biz_data.score"
+                }
+              },
+              "operator": "gt",
+              "value": 0
+            },
+            "case": {
+              "true": {
+                "id": "score_text",
+                "nodeName": "label",
+                "display": true,
+                "value": "$biz_data.score",
+                "defaultStyle": "margin-left:6px;font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;"
+              },
+              "false": [
+                {
+                  "id": "score_text",
+                  "nodeName": "label",
+                  "display": false,
+                  "defaultStyle": "margin-left:6px;font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;"
+                },
+                {
+                  "id": "score_icon",
+                  "nodeName": "image",
+                  "display": false,
+                  "defaultStyle": "width:19px;height:19px;"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "brief": "设置价格",
+          "type": "marker_if",
+          "value": {
+            "condition": {
+              "func": {
+                "name": "StringLength",
+                "param": {
+                  "value": "$biz_data.price"
+                }
+              },
+              "operator": "gt",
+              "value": 0
+            },
+            "case": {
+              "true": {
+                "id": "price_text",
+                "nodeName": "label",
+                "display": true,
+                "value": "$biz_data.price",
+                "defaultStyle": "margin-left:6px;font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;"
+              },
+              "false": {
+                "id": "price_text",
+                "nodeName": "label",
+                "display": false,
+                "defaultStyle": "margin-left:6px;font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;"
+              }
+            }
+          }
+        },
+        {
+          "brief": "左根据品类设置图片",
+          "type": "marker_switch",
+          "value": {
+            "marker_id": "carservice_search_nearby_recommend_left_normal.xml",
+            "condition": "$biz_data.type",
+            "case": {
+              "1": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_food_recommend_icon_day_night",
+                "defaultStyle": "margin-left:6px;width:37px;height:46px;"
+              },
+              "2": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_wc_normal_icon_day_night",
+                "defaultStyle": "margin-left:6px;width:37px;height:46px;"
+              },
+              "3": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_shopping_recommend_icon_day_night",
+                "defaultStyle": "margin-left:6px;width:37px;height:46px;"
+              }
+            }
+          }
+        },
+        {
+          "brief": "左飘焦点",
+          "type": "marker_if",
+          "value": {
+            "marker_id": "carservice_search_nearby_recommend_left_focus.xml",
+            "condition": {
+              "fact": "$biz_data.type",
+              "operator": "equal",
+              "value": 1
+            },
+            "case": {
+              "true": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_food_selected_icon_day_night",
+                "defaultStyle": "margin-left:6px;width:37px;height:46px;"
+              },
+              "false": {
+                "if": {
+                  "condition": {
+                    "fact": "$biz_data.type",
+                    "operator": "equal",
+                    "value": 2
+                  },
+                  "case": {
+                    "true": {
+                      "id": "click_type_icon",
+                      "nodeName": "image",
+                      "display": true,
+                      "value": "global_image_carservice_poiicon_wc_selected_icon_day_night",
+                      "defaultStyle": "margin-left:6px;width:37px;height:46px;"
+                    },
+                    "false": {
+                      "id": "click_type_icon",
+                      "nodeName": "image",
+                      "display": true,
+                      "value": "global_image_carservice_poiicon_shopping_selected_icon_day_night",
+                      "defaultStyle": "margin-left:6px;width:37px;height:46px;"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "brief": "右飘焦点",
+          "type": "marker_if",
+          "value": {
+            "marker_id": "carservice_search_nearby_recommend_right_focus.xml",
+            "condition": {
+              "fact": "$biz_data.type",
+              "operator": "equal",
+              "value": 1
+            },
+            "case": {
+              "true": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_food_selected_icon_day_night",
+                "defaultStyle": "margin-right:6px;width:37px;height:46px;"
+              },
+              "false": {
+                "if": {
+                  "condition": {
+                    "fact": "$biz_data.type",
+                    "operator": "equal",
+                    "value": 2
+                  },
+                  "case": {
+                    "true": {
+                      "id": "click_type_icon",
+                      "nodeName": "image",
+                      "display": true,
+                      "value": "global_image_carservice_poiicon_wc_selected_icon_day_night",
+                      "defaultStyle": "margin-right:6px;width:37px;height:46px;"
+                    },
+                    "false": {
+                      "id": "click_type_icon",
+                      "nodeName": "image",
+                      "display": true,
+                      "value": "global_image_carservice_poiicon_shopping_selected_icon_day_night",
+                      "defaultStyle": "margin-right:6px;width:37px;height:46px;"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "brief": "右根据品类设置图片",
+          "type": "marker_switch",
+          "value": {
+            "marker_id": "carservice_search_nearby_recommend_right_normal.xml",
+            "condition": "$biz_data.type",
+            "case": {
+              "1": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_food_recommend_icon_day_night",
+                "defaultStyle": "margin-left:6px;width:37px;height:46px;"
+              },
+              "2": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_wc_normal_icon_day_night",
+                "defaultStyle": "margin-left:6px;width:37px;height:46px;"
+              },
+              "3": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_shopping_recommend_icon_day_night",
+                "defaultStyle": "margin-left:6px;width:37px;height:46px;"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "abstract": {
+    "brief": "搜索品类-充电的周边推荐",
+    "name": "dynamic_search_charge_nearby",
+    "biz_type": 11008,
+    "update_card": false
+  },
+  "dataSource": "[{\"item_data\":{\"quadrantType\":1,\"position\":{\"lon\":116.356343,\"lat\":39.942365}},\"biz_data\":{\"type\":1,\"name\":\"海底捞\",\"score\":\"4.5分\",\"price\":\"￥180/人\",\"img\":\"图片地址\"}}]"
+}

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:id="@+id/childPOICl"
+            android:layout_width="@dimen/sv_dimen_858"
+            android:layout_height="@dimen/sv_dimen_148"
+            android:background="@drawable/ic_main_bg_day"
+            app:background4Night="@drawable/ic_main_bg_night"
+            app:background4Skin="@drawable/ic_main_bg_day"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tvWhetherToGo"
+                style="@style/CustomTextAppearanceBodyMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sv_dimen_24"
+                android:layout_marginTop="@dimen/sv_dimen_3"
+                android:enabled="false"
+                android:gravity="center"
+                android:text="@string/sv_route_whether_to_go_or_not"
+                android:textColor="@color/onSecondaryContainerDay"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:textColor4Night="@color/onSecondaryContainerNight"
+                app:textColor4Skin="@color/onSecondaryContainerDay" />
+
+            <androidx.compose.ui.platform.ComposeView
+                android:id="@+id/childPOIComposeView"
+                android:layout_width="@dimen/sv_dimen_0"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvWhetherToGo"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

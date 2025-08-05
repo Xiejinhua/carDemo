@@ -1,0 +1,74 @@
+def date = new Date().format('yyMMddHHmm')
+def versionCount = 'git rev-list HEAD --first-parent --count'.execute().text.trim() // 提交次数
+def commitId = "git rev-parse --short HEAD".execute().text.trim().toString() // 获取最新的commit id
+def currentTagId = "git describe --abbrev=0 --tags".execute().text.trim().toString()// 获取最新的tag
+def tag = hasProperty("tag_id") ? tag_id : currentTagId //  判断使用外部传入tag还是使用最新tag
+def projectName = 'Project' // 项目名称
+def moduleName = 'ModuleName' // 应用名称
+
+// 可由外部传入
+ext.setProjectName = { name ->
+    println("setProjectName:"+name)
+    projectName = name
+}
+// 可由外部传入
+ext.setModuleName = { name ->
+    println("setModuleName:"+name)
+    moduleName = name
+}
+// 版本号-提交次数
+ext.generateVersionCode = {
+    println("generateVersionCode:"+ versionCount)
+    if (versionCount == null || versionCount == "") {
+        return 1
+    }
+    return versionCount.toInteger()
+}
+// 版本名称
+ext.generateVersionName = {
+    println("tag:"+tag)
+    if (tag == null || tag == "") {
+        tag = "No_Tag"
+    }
+    def version = "${projectName}_${moduleName}_${commitId}_${date}_${tag}"
+    println(version)
+    return version
+}
+
+android {
+    defaultConfig {
+        buildConfigField "String", "tag_id", "\"${tag}\""
+    }
+    flavorDimensions "versionCode"
+
+    /**
+     * 服务器API 配置
+     */
+    productFlavors {
+        //生产环境
+        prod {
+            buildConfigField 'String', 'environment', '"R"'
+            versionNameSuffix '_R'
+        }
+        //开发环境
+        dev {
+            buildConfigField 'String', 'environment', '"D"'
+            versionNameSuffix '_D'
+        }
+        //沙箱环境
+        sand {
+            buildConfigField 'String', 'environment', '"T"'
+            versionNameSuffix '_T'
+        }
+    }
+    // 应用打包名称配置
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            if ('release' == variant.buildType.name) {
+                outputFileName = "${moduleName}.apk"
+            } else {
+                outputFileName = "${versionName}.apk"
+            }
+        }
+    }
+}

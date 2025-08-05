@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <com.autonavi.auto.skin.view.SkinConstraintLayout
+        android:id="@+id/search_box"
+        android:layout_width="@dimen/sv_dimen_640"
+        android:layout_height="@dimen/sv_dimen_72"
+        android:onClick="@{()->0}"
+        android:soundEffectsEnabled="false"
+        tools:background="@color/primaryDay">
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/search_back"
+            android:layout_width="@dimen/sv_dimen_64"
+            android:layout_height="@dimen/sv_dimen_64"
+            android:layout_marginStart="@dimen/sv_dimen_30"
+            android:background="@drawable/selector_ic_back_day"
+            app:background4Night="@drawable/selector_ic_back_night"
+            app:background4Skin="@drawable/selector_ic_back_day"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:id="@+id/search_content"
+            android:layout_width="@dimen/sv_dimen_496"
+            android:layout_height="@dimen/sv_dimen_72"
+            android:layout_marginStart="@dimen/sv_dimen_10"
+            android:background="@drawable/shape_search_box_bg_day"
+            app:background4Night="@drawable/shape_search_box_bg_night"
+            app:background4Skin="@drawable/shape_search_box_bg_day"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/search_back"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.autonavi.auto.skin.view.SkinImageView
+                android:id="@+id/search"
+                android:layout_width="@dimen/sv_dimen_64"
+                android:layout_height="@dimen/sv_dimen_64"
+                android:layout_marginStart="@dimen/sv_dimen_8"
+                android:background="@drawable/selector_ic_search_day"
+                app:background4Night="@drawable/selector_ic_search_night"
+                app:background4Skin="@drawable/selector_ic_search_day"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/search_around_TextView"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/sv_dimen_45"
+                android:layout_marginStart="@dimen/sv_dimen_16"
+                android:layout_marginEnd="@dimen/sv_dimen_11"
+                android:background="@null"
+                android:ellipsize="end"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:gravity="left|center_vertical"
+                android:imeOptions="actionSearch"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/onPrimaryDay"
+                android:textColorHint="@color/onSecondaryDay"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/sv_dimen_30"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/search"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:textColor4Night="@color/onPrimaryNight"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColorHint4Night="@color/onSecondaryNight"
+                app:textColorHint4Skin="@color/onSecondaryDay" />
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+    </com.autonavi.auto.skin.view.SkinConstraintLayout>
+</layout>

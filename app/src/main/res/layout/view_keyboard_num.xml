@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <com.autonavi.auto.skin.view.SkinLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/sv_dimen_417"
+        tools:layout_width="1480dp"
+        android:background="@drawable/shape_bg_car_keyboards_day"
+        app:background4Skin="@drawable/shape_bg_car_keyboards_day"
+        app:background4Night="@drawable/shape_bg_car_keyboards_night"
+        android:layout_gravity="bottom|center_horizontal"
+        android:clickable="true"
+        android:orientation="vertical">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/select_num_up"
+                android:layout_height="@dimen/sv_dimen_64"
+                android:layout_width="@dimen/sv_dimen_64"
+                android:background="@drawable/selector_ime_pack_up_n"
+                app:background4Skin="@drawable/selector_ime_pack_up_n"
+                app:background4Night="@drawable/selector_ime_pack_up_night"
+                android:layout_marginRight="@dimen/sv_dimen_22"
+                android:layout_marginTop="@dimen/sv_dimen_23"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/line"
+                android:layout_width="@dimen/sv_dimen_2"
+                android:layout_height="@dimen/sv_dimen_37"
+                android:background="@color/customColorVehicleLineDay"
+                app:background4Skin="@color/customColorVehicleLineDay"
+                app:background4Night="@color/secondaryNight"
+                android:layout_marginRight="@dimen/sv_dimen_26"
+                app:layout_constraintRight_toLeftOf="@+id/select_num_up"
+                app:layout_constraintTop_toTopOf="@+id/select_num_up"
+                app:layout_constraintBottom_toBottomOf="@+id/select_num_up"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/sv_dimen_1"
+                android:layout_marginTop="@dimen/sv_dimen_7"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:orientation="horizontal">
+                <com.autonavi.auto.skin.view.SkinTextView
+                    android:id="@+id/select_num_100_tv"
+                    style="@style/license_plate_num_textStyle"
+                    android:text="0"
+                    app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                    app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                    app:textColor4Skin="@color/onPrimaryDay"
+                    app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+                <com.autonavi.auto.skin.view.SkinTextView
+                    android:id="@+id/select_num_101_tv"
+                    style="@style/license_plate_num_textStyle"
+                    android:text="1"
+                    app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                    app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                    app:textColor4Skin="@color/onPrimaryDay"
+                    app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+                <com.autonavi.auto.skin.view.SkinTextView
+                    android:id="@+id/select_num_102_tv"
+                    style="@style/license_plate_num_textStyle"
+                    android:text="2"
+                    app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                    app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                    app:textColor4Skin="@color/onPrimaryDay"
+                    app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+                <com.autonavi.auto.skin.view.SkinTextView
+                    android:id="@+id/select_num_103_tv"
+                    style="@style/license_plate_num_textStyle"
+                    android:text="3"
+                    app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                    app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                    app:textColor4Skin="@color/onPrimaryDay"
+                    app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+                <com.autonavi.auto.skin.view.SkinTextView
+                    android:id="@+id/select_num_104_tv"
+                    style="@style/license_plate_num_textStyle"
+                    android:text="4"
+                    app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                    app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                    app:textColor4Skin="@color/onPrimaryDay"
+                    app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+                <com.autonavi.auto.skin.view.SkinTextView
+                    android:id="@+id/select_num_105_tv"
+                    style="@style/license_plate_num_textStyle"
+                    android:text="5"
+                    app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                    app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                    app:textColor4Skin="@color/onPrimaryDay"
+                    app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+                <com.autonavi.auto.skin.view.SkinTextView
+                    android:id="@+id/select_num_106_tv"
+                    style="@style/license_plate_num_textStyle"
+                    android:text="6"
+                    app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                    app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                    app:textColor4Skin="@color/onPrimaryDay"
+                    app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+                <com.autonavi.auto.skin.view.SkinTextView
+                    android:id="@+id/select_num_107_tv"
+                    style="@style/license_plate_num_textStyle"
+                    android:text="7"
+                    app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                    app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                    app:textColor4Skin="@color/onPrimaryDay"
+                    app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+                <com.autonavi.auto.skin.view.SkinTextView
+                    android:id="@+id/select_num_108_tv"
+                    style="@style/license_plate_num_textStyle"
+                    android:text="8"
+                    app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                    app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                    app:textColor4Skin="@color/onPrimaryDay"
+                    app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+                <com.autonavi.auto.skin.view.SkinTextView
+                    android:id="@+id/select_num_109_tv"
+                    style="@style/license_plate_num_textStyle"
+                    android:text="9"
+                    app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                    app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                    app:textColor4Skin="@color/onPrimaryDay"
+                    app:textColor4Night="@color/onSecondaryContainerDay"/>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/sv_dimen_1"
+            android:orientation="horizontal">
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/select_num_200_tv"
+                style="@style/license_plate_num_textStyle"
+                android:text="Q"
+                app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/select_num_201_tv"
+                style="@style/license_plate_num_textStyle"
+                android:text="W"
+                app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/select_num_202_tv"
+                style="@style/license_plate_num_textStyle"
+                android:text="E"
+                app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/select_num_203_tv"
+                style="@style/license_plate_num_textStyle"
+                android:text="R"
+                app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/select_num_204_tv"
+                style="@style/license_plate_num_textStyle"
+                android:text="T"
+                app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/select_num_205_tv"
+                style="@style/license_plate_num_textStyle"
+                android:text="Y"
+                app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/select_num_206_tv"
+                style="@style/license_plate_num_textStyle"
+                android:text="U"
+                app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/select_num_207_tv"
+                style="@style/license_plate_num_textStyle"
+                android:text="P"
+                app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/select_num_208_tv"
+                style="@style/license_plate_num_textStyle"
+                android:text="港"
+                app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/select_num_209_tv"
+                style="@style/license_plate_num_textStyle"
+                android:text="澳"
+                app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onSecondaryContainerDay"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/sv_dimen_1"
+            android:orientation="horizontal">
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/select_num_300_tv"
+                style="@style/license_plate_num_textStyle"
+                android:text="A"
+                app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/select_num_301_tv"
+                style="@style/license_plate_num_textStyle"
+                android:text="S"
+                app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/select_num_302_tv"
+                style="@style/license_plate_num_textStyle"
+                android:text="D"
+                app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/select_num_303_tv"
+                style="@style/license_plate_num_textStyle"
+                android:text="F"
+                app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/select_num_304_tv"
+                style="@style/license_plate_num_textStyle"
+                android:text="G"
+                app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/select_num_305_tv"
+                style="@style/license_plate_num_textStyle"
+                android:text="H"
+                app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/select_num_306_tv"
+                style="@style/license_plate_num_textStyle"
+                android:text="J"
+                app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/select_num_307_tv"
+                style="@style/license_plate_num_textStyle"
+                android:text="K"
+                app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/select_num_308_tv"
+                style="@style/license_plate_num_textStyle"
+                android:text="L"
+                app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/select_num_309_tv"
+                style="@style/license_plate_num_textStyle"
+                android:text="学"
+                app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onSecondaryContainerDay"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/sv_dimen_1"
+            android:orientation="horizontal">
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/select_num_400_tv"
+                style="@style/license_plate_num_textStyle"
+                android:text="Z"
+                app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/select_num_401_tv"
+                style="@style/license_plate_num_textStyle"
+                android:text="X"
+                app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/select_num_402_tv"
+                style="@style/license_plate_num_textStyle"
+                android:text="C"
+                app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/select_num_403_tv"
+                style="@style/license_plate_num_textStyle"
+                android:text="V"
+                app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/select_num_404_tv"
+                style="@style/license_plate_num_textStyle"
+                android:text="B"
+                app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/select_num_405_tv"
+                style="@style/license_plate_num_textStyle"
+                android:text="N"
+                app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/select_num_406_tv"
+                style="@style/license_plate_num_textStyle"
+                android:text="M"
+                app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onSecondaryContainerDay"/>
+
+            <com.autonavi.auto.skin.view.SkinImageView
+                android:id="@+id/select_num_delete_tv"
+                android:layout_height="@dimen/sv_dimen_86"
+                android:layout_width="@dimen/sv_dimen_111"
+                android:padding="@dimen/sv_dimen_8"
+                android:background="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Skin="@drawable/selector_bg_ime_car_btn_day"
+                app:background4Night="@drawable/selector_bg_ime_car_btn_night"
+                android:src="@drawable/selector_keyboard_btn_delete"
+                app:src4Skin="@drawable/selector_keyboard_btn_delete"
+                app:src4Night="@drawable/selector_keyboard_btn_delete_night"
+                android:layout_marginRight="@dimen/sv_dimen_5"
+                android:layout_marginTop="@dimen/sv_dimen_8"/>
+        </LinearLayout>
+    </com.autonavi.auto.skin.view.SkinLinearLayout>
+</LinearLayout>

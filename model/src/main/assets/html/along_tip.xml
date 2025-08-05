@@ -1,0 +1,12 @@
+<div id='along_search_pop' style='width:auto;height:auto;border-radius:10px;display:flex;flex-direction:row;margin-bottom:110px'>
+    <div style='width:auto;height:auto;display:flex;flex-direction:row;justify-content: center;align-items: center;border-top-left-radius:10px;border-bottom-left-radius:10px;background-color:#8AC007;'>
+        <label id="along_search_add_click" style='padding-top:14px;padding-bottom:14px;padding-left:10px;padding-right:10px;' text="+">+</label>
+    </div>
+    <div id='along_search_right' style='width:auto;height:auto;display:flex;flex-direction:column;border-top-right-radius:10px;border-bottom-right-radius:10px;border:2px solid #8AC007;background-color:#ffffff;padding:3px'>
+        <label id='along_search_content_one' style='color:#000000;font-size:14px;justify-content:flex-start;'></label>
+        <div style='width:auto;height:auto;display:flex;flex-direction:column;justify-content:flex-start;'>
+            <label id='along_search_content_two' style='color:#000000;font-size:14px;justify-content:flex-start;'></label>
+            <label id='along_search_content_three' style='color:#000000;font-size:14px;justify-content:flex-start;'></label>
+        </div>
+    </div>
+</div>

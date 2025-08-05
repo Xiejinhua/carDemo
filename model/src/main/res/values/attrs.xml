@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RoundProgressBar">
+        <attr name="progressInt" format="dimension"/>
+        <attr name="roundColor" format="color" />
+        <attr name="roundProgressColor" format="color" />
+        <attr name="roundWidth" format="dimension"/>
+        <attr name="txtColor" format="color" />
+        <attr name="txtSize" format="dimension" />
+        <attr name="max" format="integer"/>
+        <attr name="startAngle" format="integer"/>
+        <attr name="sweepAngle" format="integer"/>
+
+        <attr name="textIsDisplayable" format="boolean"/>
+        <attr name="style">
+            <enum name="STROKE" value="0"/>
+            <enum name="FILL" value="1"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ShadowLayout">
+        <!--阴影颜色-->
+        <attr name="shadowColor" format="color|reference" />
+        <!--阴影范围/阴影半径-->
+        <attr name="shadowRadius" format="dimension" />
+        <!--阴影颜色在X轴偏移，正数向右，负数向左-->
+        <attr name="shadowDx" format="dimension" />
+        <!--阴影颜色在y轴偏移，正数向下，负数向上-->
+        <attr name="shadowDy" format="dimension" />
+        <!--圆角-->
+        <attr name="radius" format="dimension" />
+    </declare-styleable>
+
+    <!--车牌号全量的List，出处：AVM同事提供的安卓车牌协议.xlsx文件-->
+    <string-array name="plate_number">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+        <item>H</item>
+        <item>I</item>
+        <item>J</item>
+        <item>K</item>
+        <item>L</item>
+        <item>M</item>
+        <item>N</item>
+        <item>O</item>
+        <item>P</item>
+        <item>Q</item>
+        <item>R</item>
+        <item>S</item>
+        <item>T</item>
+        <item>U</item>
+        <item>V</item>
+        <item>W</item>
+        <item>X</item>
+        <item>Y</item>
+        <item>Z</item>
+        <item>澳</item>
+        <item>藏</item>
+        <item>川</item>
+        <item>鄂</item>
+        <item>甘</item>
+        <item>赣</item>
+        <item>港</item>
+        <item>贵</item>
+        <item>桂</item>
+        <item>黑</item>
+        <item>沪</item>
+        <item>吉</item>
+        <item>冀</item>
+        <item>津</item>
+        <item>晋</item>
+        <item>京</item>
+        <item>辽</item>
+        <item>鲁</item>
+        <item>蒙</item>
+        <item>闽</item>
+        <item>宁</item>
+        <item>青</item>
+        <item>琼</item>
+        <item>陕</item>
+        <item>苏</item>
+        <item>皖</item>
+        <item>湘</item>
+        <item>新</item>
+        <item>渝</item>
+        <item>豫</item>
+        <item>粤</item>
+        <item>云</item>
+        <item>浙</item>
+        <item>警</item>
+        <item>军</item>
+        <item>空</item>
+        <item>海</item>
+        <item>北</item>
+        <item>沈</item>
+        <item>兰</item>
+        <item>济</item>
+        <item>南</item>
+        <item>广</item>
+        <item>成</item>
+        <item>使</item>
+        <item>领</item>
+        <item>WJ</item>
+        <item>应</item>
+        <item>急</item>
+        <item>·</item>
+        <item>学</item>
+        <!--空白字符，可用于车牌号为油车的车牌号时，第8位显示空字符串-->
+        <item></item>
+    </string-array>
+
+    <!--APA车牌号第一位数据,出处：需求提供的APA那边的车牌号信号定义.xlsx文件-->
+    <string-array name="apa_lpn_info1">
+        <item>京</item>
+        <item>津</item>
+        <item>晋</item>
+        <item>冀</item>
+        <item>蒙</item>
+        <item>辽</item>
+        <item>吉</item>
+        <item>黑</item>
+        <item>沪</item>
+        <item>苏</item>
+        <item>浙</item>
+        <item>皖</item>
+        <item>闽</item>
+        <item>赣</item>
+        <item>鲁</item>
+        <item>豫</item>
+        <item>鄂</item>
+        <item>湘</item>
+        <item>粤</item>
+        <item>桂</item>
+        <item>琼</item>
+        <item>渝</item>
+        <item>川</item>
+        <item>贵</item>
+        <item>云</item>
+        <item>藏</item>
+        <item>陕</item>
+        <item>甘</item>
+        <item>青</item>
+        <item>宁</item>
+        <item>新</item>
+    </string-array>
+    <!--APA车牌号第二位数据-->
+    <string-array name="apa_lpn_info2">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+        <item>H</item>
+        <item>I</item>
+        <item>J</item>
+        <item>K</item>
+        <item>L</item>
+        <item>M</item>
+        <item>N</item>
+        <item>O</item>
+        <item>P</item>
+        <item>Q</item>
+        <item>R</item>
+        <item>S</item>
+        <item>T</item>
+        <item>U</item>
+        <item>V</item>
+        <item>W</item>
+        <item>X</item>
+        <item>Y</item>
+        <item>Z</item>
+    </string-array>
+    <!--APA车牌号第三到八位数据-->
+    <string-array name="apa_lpn_info3">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+        <item>H</item>
+        <item>I</item>
+        <item>J</item>
+        <item>K</item>
+        <item>L</item>
+        <item>M</item>
+        <item>N</item>
+        <item>O</item>
+        <item>P</item>
+        <item>Q</item>
+        <item>R</item>
+        <item>S</item>
+        <item>T</item>
+        <item>U</item>
+        <item>V</item>
+        <item>W</item>
+        <item>X</item>
+        <item>Y</item>
+        <item>Z</item>
+    </string-array>
+
+    <item name="banner_data_key" type="id"/>
+    <item name="banner_pos_key" type="id"/>
+    <string name="banner_adapter_null_error">Adapter为空！请检查下参数</string>
+    <string name="indicator_color_error">指示器的颜色只能设置成“@color/colorID or #000000”</string>
+    <declare-styleable name="Banner">
+        <attr format="integer" name="banner_loop_time"/>
+        <attr format="boolean" name="banner_auto_loop"/>
+        <attr format="boolean" name="banner_infinite_loop"/>
+
+        <!--RoundLinesIndicator、RectangleIndicator-->
+        <attr format="dimension" name="banner_indicator_height"/>
+        <attr format="dimension" name="banner_indicator_radius"/>
+
+        <!-- 以下为公用属性 -->
+        <attr format="dimension" name="banner_indicator_selected_width"/>
+        <!--CircleIndicator-->
+        <attr format="dimension" name="banner_indicator_normal_width"/>
+        <attr format="dimension" name="banner_indicator_space"/>
+
+        <attr format="reference|color" name="banner_indicator_normal_color"/>
+        <attr format="reference|color" name="banner_indicator_selected_color"/>
+        <attr format="dimension" name="banner_indicator_margin"/>
+        <attr format="dimension" name="banner_indicator_marginLeft"/>
+        <attr format="dimension" name="banner_indicator_marginTop"/>
+        <attr format="dimension" name="banner_indicator_marginRight"/>
+        <attr format="dimension" name="banner_indicator_marginBottom"/>
+
+        <attr format="enum" name="banner_indicator_gravity">
+            <enum name="left" value="0"/>
+            <enum name="center" value="1"/>
+            <enum name="right" value="2"/>
+        </attr>
+
+        <attr name="banner_orientation">
+            <enum name="horizontal" value="0"/>
+            <enum name="vertical" value="1"/>
+        </attr>
+
+        <attr format="dimension" name="banner_radius"/>
+
+        <!--设置需要圆角的方向，不设置默认全部设置-->
+        <attr format="boolean" name="banner_round_top_left"/>
+        <attr format="boolean" name="banner_round_top_right"/>
+        <attr format="boolean" name="banner_round_bottom_left"/>
+        <attr format="boolean" name="banner_round_bottom_right"/>
+
+    </declare-styleable>
+    <declare-styleable name="DrawableIndicator">
+        <attr format="reference" name="normal_drawable"/>
+        <attr format="reference" name="selected_drawable"/>
+    </declare-styleable>
+</resources>

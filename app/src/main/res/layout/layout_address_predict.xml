@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.desaysv.psmap.ui.dialog.AddressPredictViewModel" />
+    </data>
+
+    <com.autonavi.auto.skin.view.SkinConstraintLayout
+        android:id="@+id/cl_save_list_one"
+        android:layout_width="@dimen/sv_dimen_680"
+        android:layout_height="@dimen/sv_dimen_319"
+        android:clickable="true"
+        android:background="@drawable/ic_main_bg_day"
+        app:background4Night="@drawable/ic_main_bg_night"
+        app:background4Skin="@drawable/ic_main_bg_day">
+
+        <com.autonavi.auto.skin.view.SkinImageView
+            android:id="@+id/ivClose"
+            android:layout_width="@dimen/sv_dimen_56"
+            android:layout_height="@dimen/sv_dimen_56"
+            android:layout_marginStart="@dimen/sv_dimen_16"
+            android:layout_marginTop="@dimen/sv_dimen_20"
+            android:background="@drawable/ic_close_tip_day"
+            app:background4Night="@drawable/ic_close_tip_night"
+            app:background4Skin="@drawable/ic_close_tip_day"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sv_dimen_28"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:layout_marginTop="@dimen/sv_dimen_20"
+            android:layout_marginHorizontal="@dimen/sv_dimen_32"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivClose"
+            android:textColor="@color/onPrimaryDay"
+            app:textColor4Night="@color/onPrimaryNight"
+            app:textColor4Skin="@color/onPrimaryDay"
+            tools:text="@string/sv_address_predict_home"
+            android:text="@{viewModel.predictType == 1 ? @string/sv_address_predict_home : @string/sv_address_predict_company}"/>
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="@dimen/sv_dimen_22"
+            android:textColor="@color/onSecondaryDay"
+            android:layout_marginTop="@dimen/sv_dimen_8"
+            android:layout_marginHorizontal="@dimen/sv_dimen_32"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            app:textColor4Night="@color/onSecondaryNight"
+            app:textColor4Skin="@color/onSecondaryDay"
+            tools:text="西江路四望亭路453号" />
+
+        <com.desaysv.psmap.model.view.ShadowLayout
+            android:id="@+id/ok"
+            android:layout_width="@dimen/sv_dimen_226"
+            android:layout_height="@dimen/sv_dimen_68"
+            android:background="@drawable/selector_bg_report_btn_day"
+            app:background4Night="@drawable/selector_bg_report_btn_night"
+            app:background4Skin="@drawable/selector_bg_report_btn_day"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/change"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            android:layout_marginBottom="@dimen/sv_dimen_32"
+            app:radius="@dimen/sv_dimen_4"
+            app:setShadowColor="@{viewModel.isNight}"
+            app:shadowColor="@color/customColorShadowColorDay"
+            app:shadowDx="@dimen/sv_dimen_2"
+            app:shadowDy="@dimen/sv_dimen_2"
+            app:shadowRadius="@dimen/sv_dimen_10">
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:layout_width="@dimen/sv_dimen_290"
+                android:layout_height="@dimen/sv_dimen_68"
+                android:gravity="center"
+                android:text="@string/sv_common_confirm"
+                android:textColor="@color/primaryDay"
+                android:textSize="@dimen/sv_dimen_24"
+                app:textColor4Night="@color/customColorMapDataNumNight"
+                app:textColor4Skin="@color/primaryDay" />
+        </com.desaysv.psmap.model.view.ShadowLayout>
+
+        <com.desaysv.psmap.model.view.ShadowLayout
+            android:id="@+id/change"
+            android:layout_width="@dimen/sv_dimen_226"
+            android:layout_height="@dimen/sv_dimen_68"
+            android:background="@drawable/selector_bg_inverse_primary_day"
+            app:background4Skin="@drawable/selector_bg_inverse_primary_day"
+            app:background4Night="@drawable/selector_bg_inverse_primary_night"
+            android:layout_marginStart="@dimen/sv_dimen_12"
+            app:layout_constraintBottom_toBottomOf="@+id/ok"
+            app:layout_constraintStart_toEndOf="@+id/ok"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:radius="@dimen/sv_dimen_4"
+            app:setShadowColor="@{viewModel.isNight}"
+            app:shadowColor="@color/customColorShadowColorDay"
+            app:shadowDx="@dimen/sv_dimen_2"
+            app:shadowDy="@dimen/sv_dimen_2"
+            app:shadowRadius="@dimen/sv_dimen_10">
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/cancelTv"
+                android:layout_width="@dimen/sv_dimen_290"
+                android:layout_height="@dimen/sv_dimen_68"
+                android:gravity="center"
+                android:text="@string/sv_common_change"
+                android:textColor="@color/onPrimaryDay"
+                android:textSize="@dimen/sv_dimen_24"
+                app:textColor4Night="@color/onPrimaryNight"
+                app:textColor4Skin="@color/onPrimaryDay" />
+        </com.desaysv.psmap.model.view.ShadowLayout>
+    </com.autonavi.auto.skin.view.SkinConstraintLayout>
+</layout>

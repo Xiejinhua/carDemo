@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="false">
+        <shape>
+            <solid android:color="@color/inversePrimaryNight"/>
+            <corners android:radius="@dimen/sv_dimen_12"/>
+            <stroke
+                android:width="@dimen/sv_dimen_2"
+                android:color="@color/customColorWhite12Night" />
+        </shape>
+    </item>
+    <item android:state_checked="true">
+        <shape>
+            <solid android:color="@color/inversePrimaryPressNight"/>
+            <corners android:radius="@dimen/sv_dimen_12"/>
+            <stroke
+                android:width="@dimen/sv_dimen_2"
+                android:color="@color/customColorWhite6Night" />
+        </shape>
+    </item>
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="@color/inversePrimaryPressNight"/>
+            <corners android:radius="@dimen/sv_dimen_12"/>
+            <stroke
+                android:width="@dimen/sv_dimen_2"
+                android:color="@color/customColorWhite6Night" />
+        </shape>
+    </item>
+</selector>

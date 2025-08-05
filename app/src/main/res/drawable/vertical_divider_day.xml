@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:insetBottom="15%">
+    <!-- 只保留下半部分，等于把线往上抬 50% 高度 -->
+    <shape android:shape="rectangle">
+        <size android:width="@dimen/sv_dimen_2" android:height="@dimen/sv_dimen_34"/>
+        <solid android:color="@color/onPrimaryDay"/>
+    </shape>
+</inset>

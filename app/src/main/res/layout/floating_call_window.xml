@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.desaysv.psmap.ui.MainViewModel" />
+    </data>
+
+    <com.autonavi.auto.skin.view.SkinConstraintLayout
+        android:layout_width="@dimen/sv_dimen_300"
+        android:layout_height="@dimen/sv_dimen_236"
+        android:background="@drawable/bg_group_float_view_day"
+        app:background4Night="@drawable/bg_group_float_view_night"
+        app:background4Skin="@drawable/bg_group_float_view_day">
+
+        <com.autonavi.auto.skin.view.SkinImageView
+            android:id="@+id/iv_mute"
+            android:layout_width="@dimen/sv_dimen_79"
+            android:layout_height="@dimen/sv_dimen_71"
+            android:src="@drawable/selector_group_float_view_voice_day"
+            android:layout_marginEnd="@dimen/sv_dimen_23"
+            android:layout_marginTop="@dimen/sv_dimen_17"
+            app:stateSelected="@{viewModel.isMineForbidden}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:src4Night="@drawable/selector_group_float_view_voice_night"
+            app:src4Skin="@drawable/selector_group_float_view_voice_day" />
+
+        <com.autonavi.auto.skin.view.SkinImageView
+            android:id="@+id/iv_call"
+            android:layout_width="@dimen/sv_dimen_70"
+            android:layout_height="@dimen/sv_dimen_70"
+            android:layout_marginTop="@dimen/sv_dimen_56"
+            android:src="@drawable/icon_group_phone_day"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:src4Night="@drawable/icon_group_phone_night"
+            app:src4Skin="@drawable/icon_group_phone_day" />
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/tv_call_time"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/sv_dimen_33"
+            android:layout_marginTop="@dimen/sv_dimen_24"
+            android:text="@{viewModel.callDuration}"
+            android:textColor="@color/callTimeTextDay"
+            android:textSize="@dimen/sv_font_size_28"
+            app:layout_constraintTop_toBottomOf="@+id/iv_call"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="00:00" />
+    </com.autonavi.auto.skin.view.SkinConstraintLayout>
+</layout>

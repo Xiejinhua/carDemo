@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <com.autonavi.auto.skin.view.SkinConstraintLayout
+        android:layout_width="@dimen/sv_dimen_564"
+        android:layout_height="@dimen/sv_dimen_218"
+        android:background="@drawable/shape_bg_custom_dialog_day"
+        app:background4Night="@drawable/shape_bg_custom_dialog_night"
+        app:background4Skin="@drawable/shape_bg_custom_dialog_day">
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/tv_low_battery_tips"
+            style="@style/CustomTextAppearanceBodySmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sv_dimen_40"
+            android:paddingHorizontal="@dimen/sv_dimen_40"
+            android:text="电量不足以到达终点"
+            android:textColor="@color/onPrimaryDay"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:textColor4Night="@color/onPrimaryNight"
+            app:textColor4Skin="@color/onPrimaryDay"
+            tools:text="电量不足以到达终点" />
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/btn_find_charge_station"
+            style="@style/CustomTextAppearanceBodySmall"
+            android:layout_width="@dimen/sv_dimen_227"
+            android:layout_height="@dimen/sv_dimen_64"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/sv_dimen_40"
+            android:background="@drawable/selector_bg_confirm_day"
+            android:gravity="center"
+            android:text="查找充电站"
+            android:textColor="@color/onPrimaryContainerDay"
+            app:background4Night="@drawable/selector_bg_confirm_night"
+            app:background4Skin="@drawable/selector_bg_confirm_day"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_cancel"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:textColor4Night="@color/onPrimaryContainerNight"
+            app:textColor4Skin="@color/onPrimaryContainerDay" />
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/btn_cancel"
+            style="@style/CustomTextAppearanceBodySmall"
+            android:layout_width="@dimen/sv_dimen_227"
+            android:layout_height="@dimen/sv_dimen_64"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/sv_dimen_30"
+            android:layout_marginBottom="@dimen/sv_dimen_40"
+            android:background="@drawable/selector_shape_bg_custom_dialog_cancel_btn_day"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="@color/onPrimaryDay"
+            app:background4Night="@drawable/selector_shape_bg_custom_dialog_cancel_btn_night"
+            app:background4Skin="@drawable/selector_shape_bg_custom_dialog_cancel_btn_day"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_find_charge_station"
+            app:textColor4Night="@color/onPrimaryNight"
+            app:textColor4Skin="@color/onPrimaryDay" />
+
+    </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+</layout>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="cardData"
+            type="com.desaysv.psmap.base.bean.HomeCardTipsData" />
+
+        <variable
+            name="isNight"
+            type="Boolean" />
+    </data>
+
+    <com.autonavi.auto.skin.view.SkinLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:id="@+id/cl_poi_my_position"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:background="@drawable/ic_main_bg_day"
+            tools:layout_width="@dimen/sv_dimen_680">
+
+            <com.autonavi.auto.skin.view.SkinImageView
+                android:id="@+id/iv_close"
+                android:layout_width="@dimen/sv_dimen_64"
+                android:layout_height="@dimen/sv_dimen_64"
+                android:layout_marginStart="@dimen/sv_dimen_30"
+                android:layout_marginTop="@dimen/sv_dimen_30"
+                android:background="@drawable/selector_ic_close_day"
+                app:background4Night="@drawable/selector_ic_close_night"
+                app:background4Skin="@drawable/selector_ic_close_day"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tv_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/sv_dimen_40"
+                android:layout_marginTop="@dimen/sv_dimen_20"
+                android:gravity="start"
+                android:text="@{cardData.title}"
+                android:textColor="@color/onPrimaryDay"
+                android:textFontWeight="350"
+                android:textSize="@dimen/sv_dimen_34"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_close"
+                app:textColor4Night="@color/onPrimaryNight"
+                app:textColor4Skin="@color/onPrimaryDay"
+                tools:text="继续导航" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tv_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/sv_dimen_40"
+                android:layout_marginTop="@dimen/sv_dimen_12"
+                android:gravity="start"
+                android:text="@{cardData.content}"
+                android:textColor="@color/onSecondaryDay"
+                android:textFontWeight="350"
+                android:textSize="@dimen/sv_dimen_30"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title"
+                app:textColor4Night="@color/onSecondaryNight"
+                app:textColor4Skin="@color/onSecondaryDay"
+                tools:text="沈本大道115号沈本大道115沈本大道115号沈本大道115" />
+
+            <com.desaysv.psmap.model.view.ShadowLayout
+                android:id="@+id/sdw_action"
+                android:layout_width="@dimen/sv_dimen_400"
+                android:layout_height="@dimen/sv_dimen_90"
+                android:layout_marginTop="@dimen/sv_dimen_40"
+                android:background="@drawable/selector_bg_inverse_primary_day"
+                app:background4Night="@drawable/selector_bg_inverse_primary_night"
+                app:background4Skin="@drawable/selector_bg_inverse_primary_day"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_content"
+                app:radius="@dimen/sv_dimen_12"
+                app:setShadowColor="@{isNight}"
+                app:shadowColor="@color/customColorShadowColorDay"
+                app:shadowDx="@dimen/sv_dimen_2"
+                app:shadowDy="@dimen/sv_dimen_2"
+                app:shadowRadius="@dimen/sv_dimen_10">
+
+                <com.autonavi.auto.skin.view.SkinTextView
+                    android:id="@+id/iv_action"
+                    android:layout_width="@dimen/sv_dimen_400"
+                    android:layout_height="@dimen/sv_dimen_90"
+                    android:layout_gravity="center"
+                    android:background="@drawable/selector_btn_confirm_day"
+                    android:gravity="center"
+                    android:text="@{cardData.buttonText}"
+                    android:textColor="@color/onPrimaryContainerDay"
+                    android:textFontWeight="500"
+                    android:textSize="@dimen/sv_dimen_34"
+                    app:background4Night="@drawable/selector_btn_confirm_night"
+                    app:background4Skin="@drawable/selector_btn_confirm_day"
+                    app:textColor4Night="@color/onPrimaryContainerNight"
+                    app:textColor4Skin="@color/onPrimaryContainerDay"
+                    tools:text="导航" />
+
+            </com.desaysv.psmap.model.view.ShadowLayout>
+
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+    </com.autonavi.auto.skin.view.SkinLinearLayout>
+</layout>

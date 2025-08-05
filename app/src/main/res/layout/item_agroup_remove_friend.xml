@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="userInfo"
+            type="com.txzing.sdk.bean.UserInfo" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root"
+        android:layout_width="@dimen/sv_dimen_640"
+        android:layout_height="@dimen/sv_dimen_164">
+
+        <com.autonavi.auto.skin.view.SkinCheckBox
+            android:id="@+id/cb_select"
+            android:layout_width="@dimen/sv_dimen_64"
+            android:layout_height="@dimen/sv_dimen_64"
+            android:layout_marginStart="@dimen/sv_dimen_38"
+            android:background="@drawable/selector_bg_choice_day"
+            android:button="@null"
+            app:background4Night="@drawable/selector_bg_choice_night"
+            app:background4Skin="@drawable/selector_bg_choice_day"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:checked="true" />
+
+        <com.autonavi.auto.skin.view.SkinImageView
+            android:id="@+id/siv_select"
+            android:layout_width="@dimen/sv_dimen_120"
+            android:layout_height="@dimen/sv_dimen_120"
+            android:scaleType="fitXY"
+            android:src="@drawable/shape_bg_group_normal_ring_day"
+            app:layout_constraintBottom_toBottomOf="@+id/siv_addfriend"
+            app:layout_constraintEnd_toEndOf="@+id/siv_addfriend"
+            app:layout_constraintStart_toStartOf="@+id/siv_addfriend"
+            app:layout_constraintTop_toTopOf="@+id/siv_addfriend"
+            app:src4Night="@drawable/shape_bg_group_normal_ring_night"
+            app:src4Skin="@drawable/shape_bg_group_normal_ring_day" />
+
+        <com.autonavi.auto.skin.view.SkinImageView
+            android:id="@+id/siv_addfriend"
+            android:layout_width="@dimen/sv_dimen_94"
+            android:layout_height="@dimen/sv_dimen_94"
+            android:layout_marginStart="@dimen/sv_dimen_157"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:background="@drawable/ic_group_default_avatar_day"
+            tools:visibility="visible" />
+
+        <com.autonavi.auto.skin.view.SkinImageView
+            android:id="@+id/siv_offline"
+            android:layout_width="@dimen/sv_dimen_120"
+            android:layout_height="@dimen/sv_dimen_120"
+            android:scaleType="fitXY"
+            android:src="@drawable/shape_bg_group_offline"
+            app:layout_constraintBottom_toBottomOf="@+id/siv_addfriend"
+            app:layout_constraintEnd_toEndOf="@+id/siv_addfriend"
+            app:layout_constraintStart_toStartOf="@+id/siv_addfriend"
+            app:layout_constraintTop_toTopOf="@+id/siv_addfriend"
+            app:src4Night="@drawable/shape_bg_group_offline_night"
+            app:src4Skin="@drawable/shape_bg_group_offline"
+            app:visibleGone="@{!userInfo.online_status}" />
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/tv_member_name"
+            android:layout_width="@dimen/sv_dimen_312"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sv_dimen_24"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/onPrimaryDay"
+            android:textSize="@dimen/sv_font_size_34"
+            app:layout_constraintBottom_toBottomOf="@+id/siv_addfriend"
+            app:layout_constraintStart_toEndOf="@+id/siv_addfriend"
+            app:layout_constraintTop_toTopOf="@+id/siv_addfriend"
+            app:nickName="@{userInfo.nick_name}"
+            app:remark="@{userInfo.remark}"
+            app:textColor4Night="@color/onPrimaryNight"
+            app:textColor4Skin="@color/onPrimaryDay"
+            tools:text="55" />
+
+        <com.autonavi.auto.skin.view.SkinView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/sv_dimen_1"
+            android:layout_marginHorizontal="@dimen/sv_dimen_40"
+            android:background="@color/lineDay"
+            app:background4Night="@color/lineNight"
+            app:background4Skin="@color/lineDay"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

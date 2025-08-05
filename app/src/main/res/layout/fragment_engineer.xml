@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingDefaultResource">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.desaysv.psmap.ui.engineer.EngineerViewModel" />
+    </data>
+
+    <com.autonavi.auto.skin.view.SkinConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:onClick="@{()->0}"
+        android:soundEffectsEnabled="false"
+        android:background="@drawable/shape_active_bg_day"
+        app:background4Night="@drawable/shape_active_bg_night"
+        app:background4Skin="@drawable/shape_active_bg_day"
+        tools:context=".ui.engineer.EngineerFragment">
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/sv_dimen_64"
+            android:layout_marginLeft="@dimen/sv_dimen_30"
+            android:layout_marginTop="@dimen/sv_dimen_120"
+            android:drawableLeft="@drawable/selector_ic_back_day"
+            app:drawableLeft4Night="@drawable/selector_ic_back_night"
+            app:drawableLeft4Skin="@drawable/selector_ic_back_day"
+            android:drawablePadding="@dimen/sv_dimen_8"
+            android:gravity="center_vertical"
+            android:text="工程模式"
+            android:textColor="@color/onPrimaryDay"
+            app:textColor4Skin="@color/onPrimaryDay"
+            app:textColor4Night="@color/onPrimaryNight"
+            android:textSize="@dimen/sv_dimen_36"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_function"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sv_dimen_32"
+            app:layout_constraintStart_toStartOf="@+id/btn_back"
+            app:layout_constraintTop_toBottomOf="@+id/btn_back"
+            app:setLayoutManager="@{true}" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/sv_dimen_32"
+            android:layout_marginTop="@dimen/sv_dimen_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/list_function"
+            app:layout_constraintTop_toTopOf="@+id/list_function">
+
+            <include
+                android:id="@+id/version_layout"
+                layout="@layout/layout_engineer_version_info"
+                app:viewModel="@{viewModel}"
+                app:visibleGone="@{viewModel.selectIndex == 0}"
+                tools:visibility="visible" />
+
+            <include
+                android:id="@+id/log_layout"
+                layout="@layout/layout_engineer_log"
+                app:viewModel="@{viewModel}"
+                app:visibleGone="@{viewModel.selectIndex == 1}"
+                tools:visibility="gone" />
+
+            <include
+                android:id="@+id/location_layout"
+                layout="@layout/layout_engineer_location"
+                app:viewModel="@{viewModel}"
+                app:visibleGone="@{viewModel.selectIndex == 2}"
+                tools:visibility="gone" />
+
+            <include
+                android:id="@+id/performance_layout"
+                layout="@layout/layout_engineer_performance"
+                app:viewModel="@{viewModel}"
+                app:visibleGone="@{viewModel.selectIndex == 3}"
+                tools:visibility="gone" />
+
+            <include
+                android:id="@+id/uuid_layout"
+                layout="@layout/layout_engineer_uuid"
+                app:viewModel="@{viewModel}"
+                app:visibleGone="@{viewModel.selectIndex == 4}"
+                tools:visibility="gone" />
+
+            <include
+                android:id="@+id/other_layout"
+                layout="@layout/layout_engineer_other"
+                app:viewModel="@{viewModel}"
+                app:visibleGone="@{viewModel.selectIndex == 5}"
+                tools:visibility="gone" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.autonavi.auto.skin.view.SkinConstraintLayout>
+</layout>

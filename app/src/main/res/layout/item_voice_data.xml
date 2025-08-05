@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.autonavi.gbl.data.model.Voice" />
+        <variable
+            name="showTitle"
+            type="Boolean" />
+        <variable
+            name="defaultVoceName"
+            type="String" />
+        <variable
+            name="isUseVoice"
+            type="Boolean" />
+        <variable
+            name="isNight"
+            type="Boolean" />
+        <import type="android.text.TextUtils"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/type_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:visibleGone="@{showTitle}"
+            tools:visibility="visible"
+            tools:text="@string/sv_setting_recommended_voice"
+            android:text="@{item.isRecommended ? @string/sv_setting_recommended_voice: @string/sv_setting_other_voice}"
+            android:textSize="@dimen/sv_dimen_30"
+            android:textColor="@color/onTertiaryDay"
+            app:textColor4Skin="@color/onTertiaryDay"
+            app:textColor4Night="@color/onTertiaryNight"
+            android:layout_marginTop="@dimen/sv_dimen_48"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <View
+            android:id="@+id/item_placeholder"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sv_dimen_120"
+            app:layout_constraintTop_toTopOf="@+id/head"
+            app:layout_constraintBottom_toBottomOf="@+id/head"/>
+
+        <ImageView
+            android:id="@+id/head"
+            android:layout_width="@dimen/sv_dimen_72"
+            android:layout_height="@dimen/sv_dimen_72"
+            tools:background="@drawable/ic_default_woman_head"
+            app:voiceImage="@{item.imageFilePath}"
+            app:voiceImageTopMargin="@{showTitle}"
+            android:layout_marginTop="@dimen/sv_dimen_48"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/type_name" />
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/voice_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="马丽"
+            android:text="@{item.name}"
+            android:textSize="@dimen/sv_dimen_34"
+            android:textColor="@color/onPrimaryDay"
+            app:textColor4Skin="@color/onPrimaryDay"
+            app:textColor4Night="@color/onPrimaryNight"
+            android:layout_marginLeft="@dimen/sv_dimen_16"
+            app:layout_constraintLeft_toRightOf="@+id/head"
+            app:layout_constraintTop_toTopOf="@+id/head"
+            app:layout_constraintBottom_toBottomOf="@+id/head"/>
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/size_default"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/sv_dimen_16"
+            android:text="@string/sv_setting_system_default_voice_woman"
+            app:voiceSizeDefault="@{item}"
+            android:textColor="@color/onSecondaryDay"
+            app:textColor4Skin="@color/onSecondaryDay"
+            app:textColor4Night="@color/onSecondaryNight"
+            android:textSize="@dimen/sv_dimen_30"
+            app:layout_constraintRight_toLeftOf="@+id/right_layout"
+            app:layout_constraintTop_toTopOf="@+id/head"
+            app:layout_constraintBottom_toBottomOf="@+id/head"/>
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:id="@+id/right_layout"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           app:layout_constraintRight_toRightOf="parent"
+           app:layout_constraintTop_toTopOf="@+id/head"
+           app:layout_constraintBottom_toBottomOf="@+id/head">
+           <com.autonavi.auto.skin.view.SkinTextView
+               android:id="@+id/now_use"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/sv_setting_voice_now_use"
+               app:visibleGone="@{isUseVoice}"
+               android:textColor="@color/onPrimaryDay"
+               app:textColor4Skin="@color/onPrimaryDay"
+               app:textColor4Night="@color/onPrimaryNight"
+               android:textSize="@dimen/sv_dimen_30"
+               app:layout_constraintRight_toRightOf="parent"
+               app:layout_constraintTop_toTopOf="parent"/>
+           <androidx.constraintlayout.widget.ConstraintLayout
+               android:id="@+id/pb_load_sl"
+               android:layout_width="@dimen/sv_dimen_180"
+               android:layout_height="@dimen/sv_dimen_90"
+               tools:visibility="visible"
+               app:visibleGone="@{!isUseVoice}"
+               app:layout_constraintTop_toTopOf="parent"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintEnd_toEndOf="parent">
+               <com.autonavi.auto.skin.view.SkinProgressBar
+                   android:id="@+id/pb_load"
+                   android:layout_width="@dimen/sv_dimen_180"
+                   android:layout_height="@dimen/sv_dimen_90"
+                   android:max="100"
+                   android:indeterminateOnly="false"
+                   android:indeterminate="false"
+                   android:progress="0"
+                   app:voicePercent="@{item}"
+                   android:progressDrawable="@drawable/layer_list_data_progressbar_day"
+                   app:progressDrawable4Skin="@drawable/layer_list_data_progressbar_day"
+                   app:progressDrawable4Night="@drawable/layer_list_data_progressbar_night"
+                   app:layout_constraintLeft_toLeftOf="parent"
+                   app:layout_constraintRight_toRightOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   app:layout_constraintBottom_toBottomOf="parent"/>
+           </androidx.constraintlayout.widget.ConstraintLayout>
+
+           <com.autonavi.auto.skin.view.SkinTextView
+               android:id="@+id/download_tip"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               tools:text="@string/map_theme_text_download"
+               app:voiceDownloadText="@{item}"
+               app:voiceDownloadTextIsNight="@{isNight}"
+               app:visibleGone="@{!isUseVoice}"
+               android:textColor="@color/customAhaSecenicPointTextDay"
+               app:textColor4Skin="@color/customAhaSecenicPointTextDay"
+               app:textColor4Night="@color/onPrimaryNight"
+               android:textSize="@dimen/sv_dimen_34"
+               app:layout_constraintLeft_toLeftOf="@+id/pb_load_sl"
+               app:layout_constraintRight_toRightOf="@+id/pb_load_sl"
+               app:layout_constraintTop_toTopOf="@+id/pb_load_sl"
+               app:layout_constraintBottom_toBottomOf="@+id/pb_load_sl"/>
+       </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.autonavi.auto.skin.view.SkinView
+            app:background4Skin="@color/lineDay"
+            app:background4Night="@color/lineNight"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/sv_dimen_1"
+            android:background="@color/lineDay"
+            android:layout_marginTop="@dimen/sv_dimen_23"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/head"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <com.autonavi.auto.skin.view.SkinConstraintLayout
+        android:id="@+id/search_category_view"
+        android:layout_width="@dimen/sv_dimen_640"
+        android:layout_height="wrap_content"
+        android:onClick="@{()->0}"
+        android:soundEffectsEnabled="false"
+        tools:background="@drawable/ic_main_bg_day">
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/search_category_title"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/sv_dimen_45"
+            android:layout_marginStart="@dimen/sv_dimen_40"
+            android:text="出行"
+            android:textColor="@color/onSecondaryDay"
+            app:textColor4Skin="@color/onSecondaryDay"
+            app:textColor4Night="@color/onSecondaryNight"
+            android:textSize="@dimen/sv_dimen_30"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.autonavi.auto.skin.view.SkinRecyclerView
+            android:id="@+id/search_category_listview"
+            android:layout_width="@dimen/sv_dimen_560"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sv_dimen_8"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:listSelector="@android:color/transparent"
+            android:overScrollMode="never"
+            android:requiresFadingEdge="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_category_title" />
+
+    </com.autonavi.auto.skin.view.SkinConstraintLayout>
+</layout>

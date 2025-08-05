@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+		<variable
+			name="provinceDataBean"
+			type="com.desaysv.psmap.model.bean.ProvinceDataBean" />
+		<variable
+			name="isNight"
+			type="Boolean" />
+		<variable
+			name="taskStatusCode"
+			type="Integer" />
+		<variable
+			name="isExpanded"
+			type="Boolean" />
+		<variable
+			name="hasNewVersion"
+			type="Boolean" />
+	</data>
+
+	<com.autonavi.auto.skin.view.SkinConstraintLayout
+		android:id="@+id/cl_item_offline_province"
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/sv_dimen_120"
+		tools:layout_width="@dimen/sv_dimen_640"
+		tools:background="@drawable/shape_bg_navi_set_day">
+
+		<com.autonavi.auto.skin.view.SkinTextView
+			android:id="@+id/stv_text_offline_province_name"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintEnd_toStartOf="@+id/has_update"
+			tools:text="广东省广东省广东省广东省广东省广东省广东省"
+			android:text="@{provinceDataBean.name}"
+			android:textColor="@color/onPrimaryDay"
+			app:textColor4Night="@color/onPrimaryNight"
+			app:textColor4Skin="@color/onPrimaryDay"
+			android:textSize="@dimen/sv_dimen_34"
+			android:singleLine="true"
+			android:ellipsize="end"/>
+
+		<com.autonavi.auto.skin.view.SkinTextView
+			android:id="@+id/has_update"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginRight="@dimen/sv_dimen_8"
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintRight_toLeftOf="@+id/siv_offline_province_expand"
+			android:text="@string/offline_datalist_text_offline_province_updateable"
+			android:textColor="@color/onSecondaryDay"
+			app:textColor4Night="@color/onSecondaryNight"
+			app:textColor4Skin="@color/onSecondaryDay"
+			android:textSize="@dimen/sv_dimen_28"
+			android:visibility="gone"
+			app:visibleGone="@{hasNewVersion}"
+			tools:visibility="visible"/>
+
+		<com.autonavi.auto.skin.view.SkinImageView
+			android:id="@+id/siv_offline_province_expand"
+			android:layout_width="@dimen/sv_dimen_64"
+			android:layout_height="@dimen/sv_dimen_64"
+			app:setOfflineItemExpand="@{isExpanded}"
+			android:background="@drawable/ic_offline_expand_day"
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintRight_toRightOf="parent"
+			app:background4Skin="@drawable/ic_offline_expand_day"
+			app:background4Night="@drawable/ic_offline_expand_night" />
+
+		<com.autonavi.auto.skin.view.SkinView
+			android:id="@+id/cll_line_offline_city"
+			android:layout_width="0dp"
+			android:layout_height="@dimen/sv_dimen_1"
+			android:background="@color/lineDay"
+			app:background4Skin="@color/lineDay"
+			app:background4Night="@color/lineNight"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintEnd_toEndOf="parent" />
+	</com.autonavi.auto.skin.view.SkinConstraintLayout>
+</layout>

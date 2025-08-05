@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <com.autonavi.auto.skin.view.SkinConstraintLayout
+        android:id="@+id/layout_presentation"
+        android:layout_width="1920px"
+        android:layout_height="720px">
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:id="@+id/layout_map_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--初始化 启动中布局-->
+            <com.autonavi.auto.skin.view.SkinConstraintLayout
+                android:id="@+id/navi_init"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/primaryDay"
+                app:background4Night="@color/primaryNight"
+                app:background4Skin="@color/primaryDay">
+
+                <ImageView
+                    android:id="@+id/iv_init"
+                    android:layout_width="100px"
+                    android:layout_height="100px"
+                    android:src="@drawable/ic_start_up_night"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_init"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <com.autonavi.auto.skin.view.SkinTextView
+                    android:id="@+id/tv_init"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16px"
+                    android:text="@string/sv_presentation_display_init"
+                    android:textColor="@color/onPrimaryDay"
+                    android:textSize="30px"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_init"
+                    app:textColor4Night="@color/onPrimaryNight"
+                    app:textColor4Skin="@color/onPrimaryDay" />
+            </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+            <com.autonavi.auto.skin.view.SkinImageView
+                android:id="@+id/map_container_bg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/primaryDay"
+                android:visibility="gone"
+                app:background4Night="@color/primaryNight"
+                app:background4Skin="@color/primaryDay" />
+
+            <LinearLayout
+                android:id="@+id/map_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" />
+
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+    </com.autonavi.auto.skin.view.SkinConstraintLayout>
+</layout>

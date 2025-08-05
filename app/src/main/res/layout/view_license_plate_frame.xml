@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <EditText
+        android:id="@+id/item_edittext"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/sv_dimen_60"
+        android:background="@android:color/transparent" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/item_code_iv1"
+            android:layout_width="@dimen/sv_dimen_70"
+            android:layout_height="@dimen/sv_dimen_45"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sv_dimen_32"
+            android:layout_weight="1"
+            android:text="粤"
+            android:gravity="center_vertical"
+            android:drawableRight="@drawable/ic_car_triangle_down"
+            android:paddingLeft="@dimen/sv_dimen_5"
+            android:paddingRight="@dimen/sv_dimen_3"
+            android:layout_marginRight="@dimen/sv_dimen_15"
+            android:background="@drawable/shape_btn_search_confirm_day"
+            app:background4Skin="@drawable/shape_btn_search_confirm_day"
+            app:background4Night="@drawable/shape_bg_vehicle_province_night"/>
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            app:textColor4Skin="@color/onPrimaryDay"
+            app:textColor4Night="@color/onPrimaryNight"
+            android:id="@+id/item_code_iv2"
+            style="@style/license_plate_editStyle"
+            android:layout_weight="1"
+            android:background="@drawable/shape_bg_vehicle_number_night"
+            app:background4Skin="@drawable/shape_bg_vehicle_number_day"
+            app:background4Night="@drawable/shape_bg_vehicle_number_night"/>
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            app:textColor4Skin="@color/onPrimaryDay"
+            app:textColor4Night="@color/onPrimaryNight"
+            android:id="@+id/item_code_iv3"
+            style="@style/license_plate_editStyle"
+            android:layout_weight="1"
+            android:background="@drawable/shape_bg_vehicle_number_night"
+            app:background4Skin="@drawable/shape_bg_vehicle_number_day"
+            app:background4Night="@drawable/shape_bg_vehicle_number_night"/>
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            app:textColor4Skin="@color/onPrimaryDay"
+            app:textColor4Night="@color/onPrimaryNight"
+            android:id="@+id/item_code_iv4"
+            style="@style/license_plate_editStyle"
+            android:layout_weight="1"
+            android:background="@drawable/shape_bg_vehicle_number_night"
+            app:background4Skin="@drawable/shape_bg_vehicle_number_day"
+            app:background4Night="@drawable/shape_bg_vehicle_number_night"/>
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            app:textColor4Skin="@color/onPrimaryDay"
+            app:textColor4Night="@color/onPrimaryNight"
+            android:id="@+id/item_code_iv5"
+            style="@style/license_plate_editStyle"
+            android:layout_weight="1"
+            android:background="@drawable/shape_bg_vehicle_number_night"
+            app:background4Skin="@drawable/shape_bg_vehicle_number_day"
+            app:background4Night="@drawable/shape_bg_vehicle_number_night"/>
+
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            app:textColor4Skin="@color/onPrimaryDay"
+            app:textColor4Night="@color/onPrimaryNight"
+            android:id="@+id/item_code_iv6"
+            style="@style/license_plate_editStyle"
+            android:layout_weight="1"
+            android:background="@drawable/shape_bg_vehicle_number_night"
+            app:background4Skin="@drawable/shape_bg_vehicle_number_day"
+            app:background4Night="@drawable/shape_bg_vehicle_number_night"/>
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            app:textColor4Skin="@color/onPrimaryDay"
+            app:textColor4Night="@color/onPrimaryNight"
+            android:id="@+id/item_code_iv7"
+            style="@style/license_plate_editStyle"
+            android:layout_weight="1"
+            android:background="@drawable/shape_bg_vehicle_number_night"
+            app:background4Skin="@drawable/shape_bg_vehicle_number_day"
+            app:background4Night="@drawable/shape_bg_vehicle_number_night"/>
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            app:textColor4Skin="@color/onPrimaryDay"
+            app:textColor4Night="@color/onPrimaryNight"
+            android:id="@+id/item_code_iv8"
+            style="@style/license_plate_editStyle"
+            android:layout_weight="1"
+            android:visibility="gone"
+            android:background="@drawable/shape_bg_vehicle_number_night"
+            app:background4Skin="@drawable/shape_bg_vehicle_number_day"
+            app:background4Night="@drawable/shape_bg_vehicle_number_night"/>
+
+    </LinearLayout>
+</FrameLayout>

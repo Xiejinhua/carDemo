@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.autonavi.auto.skin.view.SkinConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.autonavi.auto.skin.view.SkinConstraintLayout
+        android:id="@+id/top"
+        android:layout_width="@dimen/sv_dimen_408"
+        android:layout_height="@dimen/sv_dimen_110">
+
+        <com.autonavi.auto.skin.view.SkinImageView
+            android:layout_width="@dimen/sv_dimen_338"
+            android:layout_height="@dimen/sv_dimen_78"
+            android:src="@drawable/global_image_icon_jetour_poi_bg_normal_day"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:src4Night="@drawable/global_image_icon_jetour_poi_bg_normal_day"
+            app:src4Skin="@drawable/global_image_icon_jetour_poi_bg_normal_day" />
+
+        <com.autonavi.auto.skin.view.SkinImageView
+            android:layout_width="@dimen/sv_dimen_140"
+            android:layout_height="@dimen/sv_dimen_110"
+            android:src="@drawable/global_image_icon_jetour_poi_focus_day"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:src4Night="@drawable/global_image_icon_jetour_poi_focus_night"
+            app:src4Skin="@drawable/global_image_icon_jetour_poi_focus_day" />
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/name"
+            android:layout_width="@dimen/sv_dimen_168"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sv_dimen_176"
+            android:layout_marginTop="@dimen/sv_dimen_20"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sv_dimen_28"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:textColor4Night="@color/white"
+            app:textColor4Skin="@color/white"
+            tools:text="景点名称" />
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/distance"
+            android:layout_width="@dimen/sv_dimen_168"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/sv_dimen_20"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:textColor="@color/onBackgroundDay"
+            android:textSize="@dimen/sv_dimen_24"
+            app:layout_constraintStart_toStartOf="@+id/name"
+             app:layout_constraintBottom_toBottomOf="parent"
+            app:textColor4Night="@color/onBackgroundNight"
+            app:textColor4Skin="@color/onBackgroundDay"
+            tools:text="3.4公里" />
+
+        <com.autonavi.auto.skin.view.SkinImageView
+            android:layout_width="@dimen/sv_dimen_72"
+            android:layout_height="@dimen/sv_dimen_72"
+            android:src="@drawable/global_image_icon_jetour_poi_comm_info"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="@dimen/sv_dimen_5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:src4Night="@drawable/global_image_icon_jetour_poi_comm_info"
+            app:src4Skin="@drawable/global_image_icon_jetour_poi_comm_info" />
+
+    </com.autonavi.auto.skin.view.SkinConstraintLayout>
+</com.autonavi.auto.skin.view.SkinConstraintLayout>

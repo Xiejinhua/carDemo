@@ -1,0 +1,2 @@
+configurations.maybeCreate("default")
+artifacts.add("default", file('ZYT_Map_SDK_1.0.0.03211758.aar'))

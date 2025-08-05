@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <bitmap android:alpha="0.4" android:src="@drawable/ic_route_high_speed_svg_icon_select_day" />
+    </item>
+    <item android:state_selected="true">
+        <bitmap android:alpha="0.4" android:src="@drawable/ic_route_high_speed_svg_icon_select_day" />
+    </item>
+    <item>
+        <bitmap android:alpha="1" android:src="@drawable/ic_route_high_speed_svg_icon_select_day" />
+    </item>
+</selector>

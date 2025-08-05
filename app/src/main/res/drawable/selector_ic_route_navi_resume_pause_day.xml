@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:state_selected="true">
+        <bitmap android:src="@drawable/ic_route_navi_resume_day" android:alpha="0.8" />
+    </item>
+
+    <item android:state_pressed="true" android:state_selected="false">
+        <bitmap android:src="@drawable/ic_route_navi_pause_day" android:alpha="0.8" />
+    </item>
+
+    <item android:state_selected="true" >
+        <bitmap android:src="@drawable/ic_route_navi_resume_day" android:alpha="1" />
+    </item>
+    <item android:state_selected="false">
+        <bitmap android:src="@drawable/ic_route_navi_pause_day" android:alpha="1" />
+    </item>
+</selector>

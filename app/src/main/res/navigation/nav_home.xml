@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navi_home"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.desaysv.psmap.ui.home.HomeFragment"
+        android:label="HomeFragment"
+        app:launchSingleTop="true"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_searchResultFragment"
+            app:destination="@id/searchResultFragment"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_homeFragment_to_restrictFragment"
+            app:destination="@id/restrictFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_customCategoryFragment"
+            app:destination="@id/customCategoryFragment"
+            app:launchSingleTop="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.desaysv.psmap.ui.search.SearchFragment"
+        android:label="SearchFragment">
+        <action
+            android:id="@+id/action_searchFragment_to_searchResultFragment"
+            app:destination="@id/searchResultFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_routeFragment"
+            app:destination="@id/routeFragment"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_searchFragment_to_searchCategoryFragment"
+            app:destination="@id/searchCategoryFragment"
+            app:launchSingleTop="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchResultFragment"
+        android:name="com.desaysv.psmap.ui.search.SearchResultFragment"
+        android:label="searchResultFragment">
+        <action
+            android:id="@+id/action_searchResultFragment_to_routeFragment"
+            app:destination="@id/routeFragment"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_searchResultFragment_to_searchCategoryFragment"
+            app:destination="@id/searchCategoryFragment"
+            app:popUpTo="@id/searchCategoryFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_searchResultFragment_to_searchFragment"
+            app:destination="@id/searchFragment"
+            app:popUpTo="@id/searchFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchCategoryFragment"
+        android:name="com.desaysv.psmap.ui.search.SearchCategoryFragment"
+        android:label="searchCategoryFragment">
+        <action
+            android:id="@+id/action_searchCategoryFragment_to_searchResultFragment"
+            app:destination="@id/searchResultFragment" />
+        <action
+            android:id="@+id/action_searchCategoryFragment_to_searchAlongWayResultFragment"
+            app:destination="@id/searchAlongWayResultFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchAlongWayFragment"
+        android:name="com.desaysv.psmap.ui.search.SearchAlongWayFragment"
+        android:label="searchAlongWayFragment">
+        <action
+            android:id="@+id/action_searchAlongWayFragment_to_routeFragment"
+            app:destination="@id/routeFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/routeFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_searchAlongWayFragment_to_naviFragment"
+            app:destination="@id/naviFragment"
+            app:popUpTo="@+id/homeFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchAlongWayResultFragment"
+        android:name="com.desaysv.psmap.ui.search.SearchAlongWayResultFragment"
+        android:label="searchAlongWayResultFragment">
+        <action
+            android:id="@+id/action_searchAlongWayResultFragment_to_routeFragment"
+            app:destination="@id/routeFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/routeFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_searchAlongWayResultFragment_to_naviFragment"
+            app:destination="@id/naviFragment"
+            app:popUpTo="@+id/homeFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_searchAlongWayResultFragment_to_searchAlongWayFragment"
+            app:destination="@id/searchAlongWayFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/routeFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchAimPoiPushFragment"
+        android:name="com.desaysv.psmap.ui.search.SearchAimPoiPushFragment"
+        android:label="searchAimPoiPushFragment"/>
+
+    <fragment
+        android:id="@+id/searchSwitchCityFragment"
+        android:name="com.desaysv.psmap.ui.search.SearchSwitchCityFragment"
+        android:label="searchSwitchCityFragment">
+        <action
+            android:id="@+id/action_searchSwitchCityFragment_to_searchFragment"
+            app:destination="@id/searchFragment"
+            app:popUpTo="@+id/searchFragment"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchAddHomeFragment"
+        android:name="com.desaysv.psmap.ui.search.SearchAddHomeFragment"
+        android:label="searchAddHomeFragment">
+        <action
+            android:id="@+id/action_searchAddHomeFragment_to_searchResultFragment"
+            app:destination="@id/searchResultFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/mapPointDataFragment"
+        android:name="com.desaysv.psmap.ui.search.MapPointDataFragment"
+        android:label="mapPointDataFragment">
+        <action
+            android:id="@+id/action_mapPointDataFragment_to_naviFragment"
+            app:destination="@id/naviFragment"
+            app:popUpTo="@+id/homeFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/routeFragment"
+        android:name="com.desaysv.psmap.ui.route.RouteFragment"
+        android:label="RouteFragment"
+        app:launchSingleTop="true">
+        <action
+            android:id="@+id/action_routeFragment_to_naviFragment"
+            app:destination="@id/naviFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_routeFragment_to_simNaviFragment"
+            app:destination="@id/simNaviFragment"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_routeFragment_to_routeDetailsFragment"
+            app:destination="@id/routeDetailsFragment" />
+        <action
+            android:id="@+id/action_routeFragment_to_tripShareDialogFragment"
+            app:destination="@id/tripShareDialogFragment" />
+        <action
+            android:id="@+id/action_routeFragment_to_restrictFragment"
+            app:destination="@id/restrictFragment" />
+        <action
+            android:id="@+id/action_routeFragment_to_naviDeleteViaDialogFragment"
+            app:destination="@id/naviDeleteViaDialogFragment" />
+        <action
+            android:id="@+id/action_routeFragment_to_priorTipFragment"
+            app:destination="@id/priorTipFragment" />
+        <action
+            android:id="@+id/action_routeFragment_to_weatherDetailsFragment"
+            app:destination="@id/weatherDetailsFragment" />
+        <action
+            android:id="@+id/action_routeFragment_to_restAreaDetailsFragment"
+            app:destination="@id/restAreaDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/simNaviFragment"
+        android:name="com.desaysv.psmap.ui.navi.SimNaviFragment"
+        android:label="SimNaviFragment"
+        app:launchSingleTop="true">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/accountAndSettingFragment"
+        android:name="com.desaysv.psmap.ui.settings.AccountAndSettingFragment"
+        android:label="AccountAndSettingFragment" />
+    <fragment
+        android:id="@+id/mobileInternetFragment"
+        android:name="com.desaysv.psmap.ui.settings.mobileinternet.MobileInternetFragment"
+        android:label="MobileInternetFragment" />
+    <fragment
+        android:id="@+id/messageFragment"
+        android:name="com.desaysv.psmap.ui.settings.message.MessageFragment"
+        android:label="MessageFragment" />
+    <fragment
+        android:id="@+id/createTeamFragment"
+        android:name="com.desaysv.psmap.ui.group.CreateTeamFragment"
+        android:label="CreateTeamFragment" />
+    <fragment
+        android:id="@+id/vehicleFragment"
+        android:name="com.desaysv.psmap.ui.settings.vehicle.VehicleFragment"
+        android:label="VehicleFragment" />
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.desaysv.psmap.ui.settings.favorite.FavoriteFragment"
+        android:label="FavoriteFragment" />
+    <fragment
+        android:id="@+id/homeFavoriteFragment"
+        android:name="com.desaysv.psmap.ui.home.HomeFavoriteFragment"
+        android:label="HomeFavoriteFragment" />
+    <fragment
+        android:id="@+id/searchAddTeamDestinationFragment"
+        android:name="com.desaysv.psmap.ui.search.SearchAddTeamDestinationFragment"
+        android:label="SearchAddTeamDestinationFragment" />
+    <fragment
+        android:id="@+id/searchDouYinConfirmFragment"
+        android:name="com.desaysv.psmap.ui.search.SearchDouYinConfirmFragment"
+        android:label="SearchDouYinConfirmFragment" />
+    <fragment
+        android:id="@+id/wechatFragment"
+        android:name="com.desaysv.psmap.ui.settings.mobileinternet.WechatFragment"
+        android:label="WechatFragment" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.desaysv.psmap.ui.settings.login.LoginFragment"
+        android:label="LoginFragment" />
+    <fragment
+        android:id="@+id/myTripFragment"
+        android:name="com.desaysv.psmap.ui.settings.trip.MyTripFragment"
+        android:label="MyTripFragment" />
+    <fragment
+        android:id="@+id/myTripDetailFragment"
+        android:name="com.desaysv.psmap.ui.settings.trip.MyTripDetailFragment"
+        android:label="MyTripDetailFragment" />
+    <fragment
+        android:id="@+id/errorReportFragment"
+        android:name="com.desaysv.psmap.ui.settings.errorreport.ErrorReportFragment"
+        android:label="ErrorReportFragment" />
+    <fragment
+        android:id="@+id/voiceDataFragment"
+        android:name="com.desaysv.psmap.ui.settings.voicedata.VoiceDataFragment"
+        android:label="VoiceDataFragment" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.desaysv.psmap.ui.settings.about.AboutFragment"
+        android:label="AboutFragment" />
+    <fragment
+        android:id="@+id/helpFragment"
+        android:name="com.desaysv.psmap.ui.settings.help.HelpFragment"
+        android:label="HelpFragment" />
+
+    <fragment
+        android:id="@+id/POIDetailFragment"
+        android:name="com.desaysv.psmap.ui.settings.poidetail.POIDetailFragment"
+        android:label="POIDetailFragment" />
+
+    <fragment
+        android:id="@+id/navigationFunctionMenuFragment"
+        android:name="com.desaysv.psmap.ui.settings.settingconfig.NavigationFunctionMenuFragment"
+        android:label="NavigationFunctionMenuFragment">
+
+        <action
+            android:id="@+id/action_navigationFunctionMenuFragment_to_searchAlongWayFragment"
+            app:destination="@id/searchAlongWayFragment"
+            app:launchSingleTop="true" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/naviFragment"
+        android:name="com.desaysv.psmap.ui.navi.NaviFragment"
+        android:label="NaviFragment"
+        app:launchSingleTop="true">
+        <action
+            android:id="@+id/action_naviFragment_to_searchFragment"
+            app:destination="@id/searchFragment"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_naviFragment_to_tripShareDialogFragment"
+            app:destination="@id/tripShareDialogFragment" />
+        <action
+            android:id="@+id/action_naviFragment_to_naviDeleteViaDialogFragment"
+            app:destination="@id/naviDeleteViaDialogFragment" />
+        <action
+            android:id="@+id/action_naviFragment_to_driverReportFragment"
+            app:destination="@id/driverReportFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/homeFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/engineerFragment"
+        android:name="com.desaysv.psmap.ui.engineer.EngineerFragment"
+        android:label="EngineerFragment"
+        app:launchSingleTop="true" />
+    <fragment
+        android:id="@+id/activateMapFragment"
+        android:name="com.desaysv.psmap.ui.activate.ActivateMapFragment"
+        android:label="ActivateMapFragment"
+        app:launchSingleTop="true">
+        <action
+            android:id="@+id/action_to_engineerFragment"
+            app:destination="@id/engineerFragment"
+            app:launchSingleTop="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/agreementFragment"
+        android:name="com.desaysv.psmap.ui.agreement.AgreementFragment"
+        android:label="AgreementFragment"
+        app:launchSingleTop="true" />
+    <fragment
+        android:id="@+id/agreementDetailFragment"
+        android:name="com.desaysv.psmap.ui.agreement.AgreementDetailFragment"
+        android:label="AgreementDetailFragment"
+        app:launchSingleTop="true" />
+
+    <fragment
+        android:id="@+id/offlineMapFragment"
+        android:name="com.desaysv.psmap.ui.settings.offlinedata.OfflineMapFragment"
+        android:label="OfflineMapFragment" />
+    <fragment
+        android:id="@+id/nearbyCityFragment"
+        android:name="com.desaysv.psmap.ui.settings.offlinedata.NearbyCityFragment"
+        android:label="NearbyCityFragment" />
+    <fragment
+        android:id="@+id/offlineMapDownloadManageFragment"
+        android:name="com.desaysv.psmap.ui.settings.offlinedata.download.OfflineMapDownloadManageFragment"
+        android:label="OfflineMapDownloadManageFragment" />
+    <fragment
+        android:id="@+id/usbOfflineMapFragment"
+        android:name="com.desaysv.psmap.ui.settings.offlinedata.UsbOfflineMapFragment"
+        android:label="UsbOfflineMapFragment" />
+
+    <fragment
+        android:id="@+id/myTeamFragment"
+        android:name="com.desaysv.psmap.ui.group.MyTeamFragment"
+        android:label="MyTeamFragment" />
+    <fragment
+        android:id="@+id/inviteJoinTeamFragment"
+        android:name="com.desaysv.psmap.ui.group.InviteJoinTeamFragment"
+        android:label="InviteJoinTeamFragment" />
+
+    <fragment
+        android:id="@+id/jetourPoiListFragment"
+        android:name="com.desaysv.psmap.ui.search.JetourPoiListFragment"
+        android:label="JetourPoiListFragment" />
+
+    <action
+        android:id="@+id/to_activateMapFragment"
+        app:destination="@id/activateMapFragment"
+        app:launchSingleTop="true" />
+    <action
+        android:id="@+id/to_agreementFragment"
+        app:destination="@id/agreementFragment"
+        app:launchSingleTop="true" />
+    <action
+        android:id="@+id/to_agreementDetailFragment"
+        app:destination="@id/agreementDetailFragment"
+        app:launchSingleTop="true" />
+    <action
+        android:id="@+id/to_accountAndSettingFragment"
+        app:destination="@id/accountAndSettingFragment"
+        app:launchSingleTop="true" />
+    <action
+        android:id="@+id/to_routeFragment"
+        app:destination="@id/routeFragment"
+        app:launchSingleTop="true"
+        app:popUpTo="@id/homeFragment"
+        app:popUpToInclusive="false" />
+    <action
+        android:id="@+id/to_searchResultFragment"
+        app:destination="@id/searchResultFragment"
+        app:launchSingleTop="true" />
+    <action
+        android:id="@+id/to_searchFragment"
+        app:destination="@id/searchFragment"
+        app:launchSingleTop="true" />
+
+    <action
+        android:id="@+id/to_searchAlongWayFragment"
+        app:destination="@id/searchAlongWayFragment"
+        app:launchSingleTop="true"
+        app:popUpTo="@+id/searchAlongWayFragment"
+        app:popUpToInclusive="true" />
+    <action
+        android:id="@+id/to_searchCategoryFragment"
+        app:destination="@id/searchCategoryFragment"
+        app:launchSingleTop="true" />
+    <action
+        android:id="@+id/to_searchAddHomeFragment"
+        app:destination="@id/searchAddHomeFragment"
+        app:launchSingleTop="true" />
+
+    <action
+        android:id="@+id/to_searchAlongWayResultFragment"
+        app:destination="@id/searchAlongWayResultFragment"
+        app:launchSingleTop="true" />
+    <action
+        android:id="@+id/to_naviFragment"
+        app:destination="@id/naviFragment"
+        app:launchSingleTop="true"
+        app:popUpTo="@id/homeFragment"
+        app:popUpToInclusive="false" />
+    <action
+        android:id="@+id/to_offlineMapFragment"
+        app:destination="@id/offlineMapFragment"
+        app:launchSingleTop="true" />
+    <action
+        android:id="@+id/to_nearbyCityFragment"
+        app:destination="@id/nearbyCityFragment"
+        app:launchSingleTop="true" />
+    <action
+        android:id="@+id/to_offlineMapDownloadManageFragment"
+        app:destination="@id/offlineMapDownloadManageFragment"
+        app:launchSingleTop="true" />
+    <action
+        android:id="@+id/to_usbOfflineMapFragment"
+        app:destination="@id/usbOfflineMapFragment"
+        app:launchSingleTop="true" />
+
+    <action
+        android:id="@+id/to_myTeamFragment"
+        app:destination="@id/myTeamFragment"
+        app:launchSingleTop="true" />
+    <fragment
+        android:id="@+id/routeDetailsFragment"
+        android:name="com.desaysv.psmap.ui.route.RouteDetailsFragment"
+        android:label="RouteDetailsFragment">
+        <action
+            android:id="@+id/action_routeDetailsFragment_to_routeFragment"
+            app:destination="@id/routeFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/routeFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_routeDetailsFragment_to_simNaviFragment"
+            app:destination="@id/simNaviFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@+id/routeFragment"
+            app:popUpToInclusive="false" />
+
+    </fragment>
+
+    <action
+        android:id="@+id/to_engineerFragment"
+        app:destination="@id/engineerFragment"
+        app:launchSingleTop="true" />
+
+    <action
+        android:id="@+id/to_mobileInternetFragment"
+        app:destination="@id/mobileInternetFragment"
+        app:launchSingleTop="true" />
+
+    <action
+        android:id="@+id/to_messageFragment"
+        app:destination="@id/messageFragment"
+        app:launchSingleTop="true" />
+
+    <action
+        android:id="@+id/to_createTeamFragment"
+        app:destination="@id/createTeamFragment"
+        app:launchSingleTop="true" />
+
+    <action
+        android:id="@+id/to_vehicleFragment"
+        app:destination="@id/vehicleFragment"
+        app:launchSingleTop="true" />
+
+    <action
+        android:id="@+id/to_favoriteFragment"
+        app:destination="@id/favoriteFragment"
+        app:launchSingleTop="true" />
+
+    <action
+        android:id="@+id/to_wechatFragment"
+        app:destination="@id/wechatFragment"
+        app:launchSingleTop="true" />
+
+    <action
+        android:id="@+id/to_loginFragment"
+        app:destination="@id/loginFragment"
+        app:launchSingleTop="true" />
+
+    <action
+        android:id="@+id/to_myTripFragment"
+        app:destination="@id/myTripFragment"
+        app:launchSingleTop="true" />
+
+    <action
+        android:id="@+id/to_myTripDetailFragment"
+        app:destination="@id/myTripDetailFragment"
+        app:launchSingleTop="true" />
+
+    <fragment
+        android:id="@+id/tripShareDialogFragment"
+        android:name="com.desaysv.psmap.ui.share.TripShareDialogFragment"
+        android:label="TripShareDialogFragment" />
+
+    <fragment
+        android:id="@+id/POICardDialogFragment"
+        android:name="com.desaysv.psmap.ui.dialog.POICardDialogFragment"
+        android:label="POICardDialogFragment" />
+
+    <action
+        android:id="@+id/to_errorReportFragment"
+        app:destination="@id/errorReportFragment"
+        app:launchSingleTop="true" />
+
+    <action
+        android:id="@+id/to_voiceDataFragment"
+        app:destination="@id/voiceDataFragment"
+        app:launchSingleTop="true" />
+
+    <action
+        android:id="@+id/to_aboutFragment"
+        app:destination="@id/aboutFragment"
+        app:launchSingleTop="true" />
+
+    <action
+        android:id="@+id/to_helpFragment"
+        app:destination="@id/helpFragment"
+        app:launchSingleTop="true" />
+
+    <action
+        android:id="@+id/to_POIDetailFragment"
+        app:destination="@id/POIDetailFragment"
+        app:launchSingleTop="true" />
+
+    <action
+        android:id="@+id/to_POICardDialogFragment"
+        app:destination="@id/POICardDialogFragment"
+        app:launchSingleTop="true" />
+
+
+    <action
+        android:id="@+id/to_MapPointDataFragment"
+        app:destination="@id/mapPointDataFragment"
+        app:launchSingleTop="true" />
+
+    <action
+        android:id="@+id/to_gnssInfoDialogFragment"
+        app:destination="@id/gnssInfoDialogFragment"
+        app:launchSingleTop="true" />
+
+    <action
+        android:id="@+id/to_navigationFunctionMenuFragment"
+        app:destination="@id/navigationFunctionMenuFragment"
+        app:launchSingleTop="true" />
+    <action
+        android:id="@+id/to_tripShareDialogFragment"
+        app:destination="@id/tripShareDialogFragment"
+        app:launchSingleTop="true" />
+
+
+    <action
+        android:id="@+id/to_SearchAimPoiPushFragment"
+        app:destination="@id/searchAimPoiPushFragment"
+        app:launchSingleTop="true" />
+
+    <action
+        android:id="@+id/to_inviteJoinTeamFragment"
+        app:destination="@id/inviteJoinTeamFragment"
+        app:launchSingleTop="true" />
+
+    <action
+        android:id="@+id/to_customCategoryResultFragment"
+        app:destination="@id/customCategoryResultFragment"
+        app:launchSingleTop="true" />
+
+    <action
+        android:id="@+id/to_driverReportFragment"
+        app:destination="@id/driverReportFragment"
+        app:launchSingleTop="true"
+        app:popUpTo="@+id/homeFragment"
+        app:popUpToInclusive="false" />
+
+    <fragment
+        android:id="@+id/restrictFragment"
+        android:name="com.desaysv.psmap.ui.route.restrict.RestrictFragment"
+        android:label="RestrictFragment" />
+    <fragment
+        android:id="@+id/naviDeleteViaDialogFragment"
+        android:name="com.desaysv.psmap.ui.dialog.NaviDeleteViaDialogFragment"
+        android:label="NaviDeleteViaDialogFragment" />
+    <fragment
+        android:id="@+id/gnssInfoDialogFragment"
+        android:name="com.desaysv.psmap.ui.dialog.GnssInfoDialogFragment"
+        android:label="GnssInfoDialogFragment" />
+    <fragment
+        android:id="@+id/priorTipFragment"
+        android:name="com.desaysv.psmap.ui.route.PriorTipFragment"
+        android:label="PriorTipFragment" />
+    <fragment
+        android:id="@+id/weatherDetailsFragment"
+        android:name="com.desaysv.psmap.ui.route.weather.WeatherDetailsFragment"
+        android:label="WeatherDetailsFragment" />
+
+    <fragment
+        android:id="@+id/customCategoryFragment"
+        android:name="com.desaysv.psmap.ui.custom.CustomCategoryFragment"
+        android:label="customCategoryFragment" />
+
+    <fragment
+        android:id="@+id/customCategoryResultFragment"
+        android:name="com.desaysv.psmap.ui.custom.CustomCategoryResultFragment"
+        android:label="customCategoryResultFragment">
+        <action
+            android:id="@+id/action_customCategoryResultFragment_to_searchCategoryFragment"
+            app:destination="@id/searchCategoryFragment"
+            app:popUpTo="@id/searchCategoryFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/driverReportFragment"
+        android:name="com.desaysv.psmap.ui.navi.DriverReportFragment"
+        android:label="DriverReportFragment" />
+    <fragment
+        android:id="@+id/restAreaDetailsFragment"
+        android:name="com.desaysv.psmap.ui.route.restarea.RestAreaDetailsFragment"
+        android:label="RestAreaDetailsFragment" />
+    <fragment
+        android:id="@+id/ahaTripMainFragment"
+        android:name="com.desaysv.psmap.ui.ahatrip.AhaTripMainFragment"
+        android:label="AhaTripMainFragment" />
+
+    <action
+        android:id="@+id/to_ahaTripMainFragment"
+        app:destination="@id/ahaTripMainFragment"
+        app:launchSingleTop="true" />
+
+    <action
+        android:id="@+id/to_searchSwitchCityFragment"
+        app:destination="@id/searchSwitchCityFragment"
+        app:launchSingleTop="true" />
+    <fragment
+        android:id="@+id/ahaTripDetailFragment"
+        android:name="com.desaysv.psmap.ui.ahatrip.AhaTripDetailFragment"
+        android:label="AhaTripDetailFragment" />
+
+    <action
+        android:id="@+id/to_ahaTripDetailFragment"
+        app:destination="@id/ahaTripDetailFragment"
+        app:launchSingleTop="true" />
+    <fragment
+        android:id="@+id/ahaScenicDetailFragment"
+        android:name="com.desaysv.psmap.ui.ahatrip.AhaScenicDetailFragment"
+        android:label="AhaScenicDetailFragment" />
+
+    <action
+        android:id="@+id/to_ahaScenicDetailFragment"
+        app:destination="@id/ahaScenicDetailFragment"
+        app:launchSingleTop="true" />
+    <fragment
+        android:id="@+id/myAhaMainFragment"
+        android:name="com.desaysv.psmap.ui.ahatrip.MyAhaMainFragment"
+        android:label="MyAhaMainFragment" />
+
+    <action
+        android:id="@+id/to_myAhaMainFragment"
+        app:destination="@id/myAhaMainFragment"
+        app:launchSingleTop="true" />
+    <fragment
+        android:id="@+id/myAhaTripDetailFragment"
+        android:name="com.desaysv.psmap.ui.ahatrip.MyAhaTripDetailFragment"
+        android:label="MyAhaTripDetailFragment" />
+    <action
+        android:id="@+id/to_myAhaTripDetailFragment"
+        app:destination="@id/myAhaTripDetailFragment"
+        app:launchSingleTop="true" />
+    <fragment
+        android:id="@+id/myAhaTankDetailFragment"
+        android:name="com.desaysv.psmap.ui.ahatrip.MyAhaTankDetailFragment"
+        android:label="MyAhaTankDetailFragment" />
+    <action
+        android:id="@+id/to_myAhaTankDetailFragment"
+        app:destination="@id/myAhaTankDetailFragment"
+        app:launchSingleTop="true" />
+    <action
+        android:id="@+id/to_jetourPoiListFragment"
+        app:destination="@id/jetourPoiListFragment"
+        app:launchSingleTop="true" />
+    <action
+        android:id="@+id/to_homeFavoriteFragment"
+        app:destination="@id/homeFavoriteFragment"
+        app:launchSingleTop="true" />
+    <action
+        android:id="@+id/to_searchAddTeamDestinationFragment"
+        app:destination="@id/searchAddTeamDestinationFragment"
+        app:launchSingleTop="true" />
+    <action
+        android:id="@+id/to_searchDouYinConfirmFragment"
+        app:destination="@id/searchDouYinConfirmFragment"
+        app:launchSingleTop="true" />
+</navigation>

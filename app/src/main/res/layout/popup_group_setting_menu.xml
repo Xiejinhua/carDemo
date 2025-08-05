@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="isCurLeader"
+            type="boolean" />
+
+        <variable
+            name="isPersonMe"
+            type="boolean" />
+
+    </data>
+
+    <com.autonavi.auto.skin.view.SkinConstraintLayout
+        android:id="@+id/cl_root"
+        android:layout_width="@dimen/sv_dimen_304"
+        android:layout_height="wrap_content"
+        android:background="@drawable/popup_group_setting_menu_bg"
+        app:background4Night="@drawable/popup_group_setting_menu_bg_night"
+        app:background4Skin="@drawable/popup_group_setting_menu_bg">
+
+        <com.autonavi.auto.skin.view.SkinLinearLayout
+            android:id="@+id/ll_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sv_dimen_35"
+            android:layout_marginBottom="@dimen/sv_dimen_18"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/sv_dimen_40"
+            android:paddingEnd="@dimen/sv_dimen_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/btn_transfer_captain"
+                android:layout_width="@dimen/sv_dimen_240"
+                android:layout_height="@dimen/sv_dimen_64"
+                android:drawableLeft="@drawable/icon_group_transfer_captain"
+                android:drawablePadding="@dimen/sv_dimen_24"
+                android:gravity="center_vertical"
+                android:text="队长转让"
+                android:textColor="@color/onPrimaryDay"
+                android:textSize="@dimen/sv_font_size_34"
+                app:drawableLeft4Night="@drawable/icon_group_transfer_captain_night"
+                app:drawableLeft4Skin="@drawable/icon_group_transfer_captain"
+                app:textColor4Night="@color/onPrimaryNight"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:visibleGone="@{isCurLeader &amp;&amp; !isPersonMe}" />
+
+            <com.autonavi.auto.skin.view.SkinView
+                android:id="@+id/line"
+                android:layout_width="240dp"
+                android:layout_height="@dimen/sv_dimen_1"
+                android:layout_marginTop="@dimen/sv_dimen_18"
+                android:background="@color/lineDay"
+                app:background4Night="@color/lineNight"
+                app:background4Skin="@color/lineDay"
+                app:visibleGone="@{isCurLeader &amp;&amp; !isPersonMe}" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/btn_remove_member"
+                android:layout_width="@dimen/sv_dimen_240"
+                android:layout_height="@dimen/sv_dimen_64"
+                android:layout_marginTop="@dimen/sv_dimen_18"
+                android:drawableLeft="@drawable/icon_group_remove_member"
+                android:drawablePadding="@dimen/sv_dimen_24"
+                android:gravity="center_vertical"
+                android:text="移除队伍"
+                android:textColor="@color/onPrimaryDay"
+                android:textSize="@dimen/sv_font_size_34"
+                app:drawableLeft4Night="@drawable/icon_group_remove_member_night"
+                app:drawableLeft4Skin="@drawable/icon_group_remove_member"
+                app:textColor4Night="@color/onPrimaryNight"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:visibleGone="@{isCurLeader &amp;&amp; !isPersonMe}" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/btn_edit_member"
+                android:layout_width="@dimen/sv_dimen_240"
+                android:layout_height="@dimen/sv_dimen_64"
+                android:drawableLeft="@drawable/icon_group_edit_member"
+                android:drawablePadding="@dimen/sv_dimen_24"
+                android:gravity="center_vertical"
+                android:text="编辑昵称"
+                android:textColor="@color/onPrimaryDay"
+                android:textSize="@dimen/sv_font_size_34"
+                app:drawableLeft4Night="@drawable/icon_group_edit_member_night"
+                app:drawableLeft4Skin="@drawable/icon_group_edit_member"
+                app:textColor4Night="@color/onPrimaryNight"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:visibleGone="@{isPersonMe}" />
+
+        </com.autonavi.auto.skin.view.SkinLinearLayout>
+    </com.autonavi.auto.skin.view.SkinConstraintLayout>
+</layout>

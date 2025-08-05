@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.desaysv.psmap.ui.route.RouteDetailsViewModel" />
+    </data>
+
+    <com.desaysv.psmap.ui.route.view.TouchConstraintLayout
+        android:id="@+id/cl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:id="@+id/startViaEndView"
+            android:layout_width="@dimen/sv_dimen_680"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sv_dimen_20"
+            android:layout_marginTop="@dimen/sv_dimen_90"
+            android:background="@drawable/ic_main_bg_day"
+            android:onClick="@{()->0}"
+            android:soundEffectsEnabled="false"
+            app:background4Night="@drawable/ic_main_bg_night"
+            app:background4Skin="@drawable/ic_main_bg_day"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/sv_dimen_64"
+                android:layout_height="@dimen/sv_dimen_64"
+                android:layout_marginStart="@dimen/sv_dimen_30"
+                android:layout_marginTop="@dimen/sv_dimen_30"
+                android:background="@drawable/selector_ic_back_day"
+                app:background4Night="@drawable/selector_ic_back_night"
+                app:background4Skin="@drawable/selector_ic_back_day"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.desaysv.psmap.model.view.ShadowLayout
+                android:id="@+id/tvSimNavi"
+                android:layout_width="@dimen/sv_dimen_264"
+                android:layout_height="@dimen/sv_dimen_90"
+                android:layout_marginStart="@dimen/sv_dimen_40"
+                android:layout_marginTop="@dimen/sv_dimen_26"
+                android:layout_marginBottom="@dimen/sv_dimen_40"
+                android:background="@drawable/selector_bg_inverse_primar_route_day"
+                android:gravity="center"
+                app:background4Night="@drawable/selector_bg_inverse_primary_route_night"
+                app:background4Skin="@drawable/selector_bg_inverse_primar_route_day"
+                app:invisible="@{!viewModel.parryVisibility}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:radius="@dimen/sv_dimen_4"
+                app:setShadowColor="@{viewModel.themeChange}"
+                app:shadowColor="@color/customColorShadowColorDay"
+                app:shadowDx="@dimen/sv_dimen_2"
+                app:shadowDy="@dimen/sv_dimen_2"
+                app:shadowRadius="@dimen/sv_dimen_10">
+
+                <com.autonavi.auto.skin.view.SkinTextView
+                    android:layout_width="@dimen/sv_dimen_226"
+                    android:layout_height="@dimen/sv_dimen_68"
+                    android:gravity="center"
+                    android:text="@string/sv_route_navi_sim"
+                    android:textColor="@color/onPrimaryDay"
+                    android:textSize="@dimen/sv_dimen_34"
+                    app:textColor4Night="@color/onPrimaryNight"
+                    app:textColor4Skin="@color/onPrimaryDay" />
+            </com.desaysv.psmap.model.view.ShadowLayout>
+
+            <com.desaysv.psmap.model.view.ShadowLayout
+                android:id="@+id/tvAvoidRoad"
+                android:layout_width="@dimen/sv_dimen_264"
+                android:layout_height="@dimen/sv_dimen_90"
+                android:layout_marginEnd="@dimen/sv_dimen_40"
+                android:background="@drawable/selector_bg_inverse_primar_route_day"
+                android:gravity="center"
+                app:background4Night="@drawable/selector_bg_inverse_primary_route_night"
+                app:background4Skin="@drawable/selector_bg_inverse_primar_route_day"
+                app:invisible="@{!viewModel.parryVisibility}"
+                app:layout_constraintBottom_toBottomOf="@+id/tvSimNavi"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvSimNavi"
+                app:radius="@dimen/sv_dimen_4"
+                app:setShadowColor="@{viewModel.themeChange}"
+                app:shadowColor="@color/customColorShadowColorDay"
+                app:shadowDx="@dimen/sv_dimen_2"
+                app:shadowDy="@dimen/sv_dimen_2"
+                app:shadowRadius="@dimen/sv_dimen_10">
+
+                <com.autonavi.auto.skin.view.SkinTextView
+                    android:layout_width="@dimen/sv_dimen_226"
+                    android:layout_height="@dimen/sv_dimen_68"
+                    android:gravity="center"
+                    android:text="@string/sv_route_navi_avoid_road_sections"
+                    android:textColor="@color/onPrimaryDay"
+                    android:textSize="@dimen/sv_dimen_34"
+                    app:textColor4Night="@color/onPrimaryNight"
+                    app:textColor4Skin="@color/onPrimaryDay" />
+            </com.desaysv.psmap.model.view.ShadowLayout>
+
+            <com.desaysv.psmap.model.view.ShadowLayout
+                android:id="@+id/tvParry"
+                android:layout_width="@dimen/sv_dimen_0"
+                android:layout_height="@dimen/sv_dimen_90"
+                android:layout_marginHorizontal="@dimen/sv_dimen_120"
+                android:layout_marginBottom="@dimen/sv_dimen_40"
+                android:background="@drawable/selector_btn_confirm_day"
+                android:enabled="@{viewModel.parryClick}"
+                android:gravity="center"
+                app:background4Night="@drawable/selector_btn_confirm_night"
+                app:background4Skin="@drawable/selector_btn_confirm_day"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:radius="@dimen/sv_dimen_4"
+                app:setShadowColor="@{viewModel.themeChange}"
+                app:shadowColor="@color/customColorShadowColorDay"
+                app:shadowDx="@dimen/sv_dimen_2"
+                app:shadowDy="@dimen/sv_dimen_2"
+                app:shadowRadius="@dimen/sv_dimen_10"
+                app:visibleGone="@{viewModel.parryVisibility}"
+                tools:visibility="visible">
+
+                <com.autonavi.auto.skin.view.SkinTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/sv_dimen_68"
+                    android:gravity="center"
+                    android:text="@string/sv_route_navi_parry"
+                    android:textColor="@color/onPrimaryContainerDay"
+                    android:textSize="@dimen/sv_dimen_34"
+                    app:textColor4Night="@color/onPrimaryContainerNight"
+                    app:textColor4Skin="@color/onPrimaryContainerDay" />
+            </com.desaysv.psmap.model.view.ShadowLayout>
+
+            <androidx.compose.ui.platform.ComposeView
+                android:id="@+id/compose_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/sv_dimen_40"
+                android:layout_marginTop="@dimen/sv_dimen_30"
+                android:layout_marginBottom="@dimen/sv_dimen_40"
+                app:layout_constraintBottom_toTopOf="@+id/tvAvoidRoad"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivBack" />
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+
+    </com.desaysv.psmap.ui.route.view.TouchConstraintLayout>
+</layout>

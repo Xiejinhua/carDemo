@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="item"
+            type="com.desaysv.psmap.model.bean.HelpBean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="@string/sv_setting_jt_version"
+            android:text="@{item.title}"
+            android:textColor="@color/onSecondaryDay"
+            app:textColor4Skin="@color/onSecondaryDay"
+            app:textColor4Night="@color/onSecondaryNight"
+            android:textSize="@dimen/sv_dimen_30"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="@string/sv_setting_jt_version"
+            android:text="@{item.content}"
+            android:textColor="@color/customColorRbBgDay"
+            app:textColor4Skin="@color/customColorRbBgDay"
+            app:textColor4Night="@color/customColorWhite80Night"
+            android:textSize="@dimen/sv_dimen_30"
+            android:lineSpacingExtra="@dimen/sv_dimen_3"
+            android:layout_marginTop="@dimen/sv_dimen_50"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title" />
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/sv_dimen_50"
+            app:layout_constraintTop_toBottomOf="@+id/content"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

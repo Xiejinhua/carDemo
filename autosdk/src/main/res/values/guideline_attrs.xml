@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="autoGuideLine">
+        <attr name="layout_constraintGuide_percent4Landscape" format="float" />
+        <attr name="layout_constraintGuide_percent4LandscapeWide" format="float" />
+        <attr name="layout_constraintGuide_percent4Portrait" format="float" />
+        <attr name="layout_constraintGuide_percent4Square" format="float" />
+    </declare-styleable>
+</resources>

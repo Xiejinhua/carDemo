@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/sv_dimen_15"
+        tools:background="@color/onPrimaryNight">
+
+        <com.autonavi.auto.skin.view.SkinImageView
+            android:id="@+id/iv_header_arrow"
+            android:layout_width="@dimen/sv_dimen_48"
+            android:layout_height="@dimen/sv_dimen_48"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/sv_dimen_5"
+            android:layout_toStartOf="@+id/iv_header_title"
+            android:background="@drawable/iv_list_header_arrow_day"
+            app:background4Skin="@drawable/iv_list_header_arrow_day"
+            app:background4Night="@drawable/iv_list_header_arrow_night"/>
+
+        <ProgressBar
+            android:id="@+id/iv_header_loading"
+            android:layout_width="@dimen/sv_dimen_48"
+            android:layout_height="@dimen/sv_dimen_48"
+            android:indeterminateBehavior="repeat"
+            android:indeterminateDrawable="@drawable/rotate_loading_view_day"
+            android:indeterminateOnly="true"
+            android:layout_toStartOf="@+id/iv_header_title"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/sv_dimen_5"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/iv_header_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:maxLines="1"
+            android:text="当前第一页"
+            android:textColor="@color/onSecondaryDay"
+            app:textColor4Skin="@color/onSecondaryDay"
+            app:textColor4Night="@color/onSecondaryNight"
+            android:textSize="@dimen/sv_dimen_24" />
+
+    </RelativeLayout>
+</layout>

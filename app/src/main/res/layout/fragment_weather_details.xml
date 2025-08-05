@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.desaysv.psmap.ui.route.weather.WeatherDetailsViewModel" />
+
+        <import type="android.text.TextUtils" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:layout_width="@dimen/sv_dimen_680"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sv_dimen_20"
+            android:layout_marginTop="@dimen/sv_dimen_90"
+            android:background="@drawable/ic_main_bg_day"
+            android:onClick="@{()->0}"
+            android:soundEffectsEnabled="false"
+            app:background4Night="@drawable/ic_main_bg_night"
+            app:background4Skin="@drawable/ic_main_bg_day"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible">
+
+            <com.autonavi.auto.skin.view.SkinConstraintLayout
+                android:id="@+id/clTopTitle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sv_dimen_64"
+                android:layout_marginTop="@dimen/sv_dimen_30"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.autonavi.auto.skin.view.SkinImageView
+                    android:id="@+id/ivClose"
+                    android:layout_width="@dimen/sv_dimen_64"
+                    android:layout_height="@dimen/sv_dimen_64"
+                    android:layout_marginStart="@dimen/sv_dimen_30"
+                    android:background="@drawable/ic_close_tip_day"
+                    app:background4Night="@drawable/ic_close_tip_night"
+                    app:background4Skin="@drawable/ic_close_tip_day"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+
+            <com.autonavi.auto.skin.view.SkinConstraintLayout
+                android:id="@+id/clContent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sv_dimen_30"
+                android:layout_marginTop="@dimen/sv_dimen_16"
+                android:layout_marginEnd="@dimen/sv_dimen_20"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/clTopTitle">
+
+                <com.autonavi.auto.skin.view.SkinImageView
+                    android:id="@+id/weatherIcon"
+                    android:layout_width="@dimen/sv_dimen_120"
+                    android:layout_height="@dimen/sv_dimen_120"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:resId="@{viewModel.weatherIcon}"
+                    tools:src="@drawable/ic_weather_sunny_100_night" />
+
+                <com.autonavi.auto.skin.view.SkinTextView
+                    android:id="@+id/tvWeatherType"
+                    style="@style/CustomTextAppearanceBodyMedium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/sv_dimen_24"
+                    android:layout_marginTop="@dimen/sv_dimen_6"
+                    android:text="@{viewModel.weatherLabelItem.mWeatherName}"
+                    android:textColor="@color/onPrimaryDay"
+                    app:layout_constraintStart_toEndOf="@+id/weatherIcon"
+                    app:layout_constraintTop_toTopOf="@+id/weatherIcon"
+                    app:textColor4Night="@color/onPrimaryNight"
+                    app:textColor4Skin="@color/onPrimaryDay"
+                    tools:text="晴" />
+
+                <com.autonavi.auto.skin.view.SkinTextView
+                    android:id="@+id/tvWeatherCity"
+                    style="@style/CustomTextAppearanceBodySmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sv_dimen_12"
+                    android:text="@{viewModel.weatherCityName}"
+                    android:textColor="@color/onSecondaryDay"
+                    app:layout_constraintStart_toStartOf="@+id/tvWeatherType"
+                    app:layout_constraintTop_toBottomOf="@+id/tvWeatherType"
+                    app:textColor4Night="@color/onSecondaryNight"
+                    app:textColor4Skin="@color/onSecondaryDay"
+                    tools:text="南京市" />
+
+                <com.autonavi.auto.skin.view.SkinTextView
+                    android:id="@+id/tvWeatherDistanceEta"
+                    style="@style/CustomTextAppearanceBodyMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sv_dimen_24"
+                    android:text="@{viewModel.weatherDistanceEta}"
+                    android:textColor="@color/onPrimaryDay"
+                    app:layout_constraintTop_toBottomOf="@+id/weatherIcon"
+                    app:textColor4Night="@color/onPrimaryNight"
+                    app:textColor4Skin="@color/onPrimaryDay"
+                    tools:text="62.5公里 · 预计11:38到达"
+                    tools:visibility="visible" />
+
+                <com.autonavi.auto.skin.view.SkinView
+                    android:id="@+id/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/sv_dimen_1"
+                    android:layout_marginTop="@dimen/sv_dimen_30"
+                    android:background="@color/lineDay"
+                    app:background4Night="@color/lineNight"
+                    app:background4Skin="@color/lineDay"
+                    app:layout_constraintTop_toBottomOf="@+id/tvWeatherDistanceEta" />
+
+                <com.autonavi.auto.skin.view.SkinTextView
+                    android:id="@+id/tvWeatherDetails"
+                    style="@style/CustomTextAppearanceBodySmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sv_dimen_30"
+                    android:text="@{viewModel.weatherLabelItem.mText}"
+                    android:textColor="@color/onPrimaryDay"
+                    app:layout_constraintTop_toBottomOf="@+id/line"
+                    app:textColor4Night="@color/onPrimaryNight"
+                    app:textColor4Skin="@color/onPrimaryDay"
+                    tools:text="途径南京段时期，预计将持续至今天16点，影响路段公35公里，温度10°C。"
+                    tools:visibility="visible" />
+
+                <com.autonavi.auto.skin.view.SkinTextView
+                    android:id="@+id/tvUpdate"
+                    style="@style/CustomTextAppearanceHeadlineSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/sv_dimen_40"
+                    android:layout_marginBottom="@dimen/sv_dimen_40"
+                    android:gravity="center"
+                    android:text="@{viewModel.weatherSourceUpdate}"
+                    android:textColor="@color/onSecondaryDay"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvWeatherDetails"
+                    app:textColor4Night="@color/onSecondaryNight"
+                    app:textColor4Skin="@color/onSecondaryDay"
+                    tools:text="更新于3分钟前" />
+
+            </com.autonavi.auto.skin.view.SkinConstraintLayout>
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

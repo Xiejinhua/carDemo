@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <declare-styleable name="SwitchButton" tools:ignore="ResourceName">
+        <!--滑块drawable-->
+        <attr name="kswThumbDrawable" format="reference" />
+
+        <!--滑块颜色，默认：ksw_md__thumb_color.xml，自带最大圆角(可覆盖)，优先级低于kswThumbDrawable-->
+        <attr name="kswThumbColor" format="color|reference" />
+
+        <!--滑块边距，可设正负-->
+        <attr name="kswThumbMargin" format="dimension|reference" />
+
+        <!--滑块上边距-->
+        <attr name="kswThumbMarginTop" format="dimension|reference" />
+
+        <!--滑块下边距-->
+        <attr name="kswThumbMarginBottom" format="dimension|reference" />
+
+        <!--滑块左边距-->
+        <attr name="kswThumbMarginLeft" format="dimension|reference" />
+
+        <!--滑块右边距-->
+        <attr name="kswThumbMarginRight" format="dimension|reference" />
+
+        <!--滑块宽度，会影响整体宽度，关系为：整体宽度：(滑块宽度 + 当边距<0时的绝对值) = kswThumbRangeRatio-->
+        <attr name="kswThumbWidth" format="dimension|reference" />
+
+        <!--滑块高度，会影响整体高度-->
+        <attr name="kswThumbHeight" format="dimension|reference" />
+
+        <!--滑块圆角大小-->
+        <attr name="kswThumbRadius" format="dimension|reference" />
+
+        <!--轨道圆角大小-->
+        <attr name="kswBackRadius" format="dimension|reference" />
+
+        <!--轨道drawable-->
+        <attr name="kswBackDrawable" format="reference" />
+
+        <!--轨道颜色，优先级低于kswBackDrawable，默认：ksw_md_back_color.xml，自带最大圆角(可被kswBackRadius覆盖)-->
+        <attr name="kswBackColor" format="color|reference" />
+
+        <!--切换过程的透明渐变效果，默认关闭-->
+        <attr name="kswFadeBack" format="boolean" />
+
+        <!--定义控件宽度比例，关系为：整体宽度：(滑块宽度 + 当边距<0时的绝对值) = kswThumbRangeRatio，该效果会被layout_width覆盖-->
+        <attr name="kswThumbRangeRatio" format="float" />
+
+        <!--动画时间，包括背景透明(kswFadeBack可设置关闭)与滑块滑动变化时间-->
+        <attr name="kswAnimationDuration" format="integer" />
+
+        <!-- （实际效果为默认颜色，非着色）已废弃，无效果，已使用默认颜色代替（ksw_md_thumb_color.xml，ksw_md_back_color.xml）-->
+        <attr name="kswTintColor" format="color|reference" />
+
+        <!--开关轨道“开”提示文字--><!--大小、颜色等可使用原生属性设置-->
+        <attr name="kswTextOn" format="string" />
+
+        <!--开关轨道“关”提示文字-->
+        <attr name="kswTextOff" format="string" />
+
+        <!--thumb上“开”提示文字-->
+        <attr name="kswBtTextOn" format="string" />
+
+        <!--thumb上“关”提示文字-->
+        <attr name="kswBtTextOff" format="string" />
+
+        <!--thumb上提示文字颜色-->
+        <attr name="kswBtTextColor" format="color|reference" />
+
+        <!--thumb上提示文字大小-->
+        <attr name="kswBtTextSize" format="dimension" />
+
+        <!--提示文字离外侧距离-->
+        <attr name="kswTextThumbInset" format="dimension" />
+
+        <!--轨道提示文字占据的宽度，会影响整体width-->
+        <attr name="kswTextExtra" format="dimension" />
+
+        <!--轨道提示文字离默认文字中心距离-->
+        <attr name="kswTextAdjust" format="dimension" />
+
+        <!--thumb是否可点击，默认true-->
+        <attr name="kswEnableClickThumb" format="boolean" />
+
+        <!--disabled时整体透明度 0.0 ~ 1 -->
+        <attr name="kswDisabledAlpha" format="float" />
+    </declare-styleable>
+
+</resources>

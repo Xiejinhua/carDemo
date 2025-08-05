@@ -1,0 +1,19 @@
+<div style="display:flex;flex-direction:row-reverse;justify-content:flex-start;align-items:center;position:relative;">
+  <div style="display:flex;flex-direction:row;justify-content:flex-start;margin-left:-40px;width:auto;height:auto;background-image:global_image_quick_route_search_along_des_bg_night.9.png;" id="card_container">
+    <div id="content" style="display:flex;flex-direction:column;justify-content:flex-start;align-items:flex-start;padding-top:12px;padding-right:12px;padding-bottom:12px;padding-left:12px;">
+      <label style="font-weight:400;font-size:20px;color:#f2ffffff;font-family:Auto-Font2.0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;line-clamp:1;max-width:300px" id="text_poi_name">国家电网北五环充电站…</label>
+      <div style="display:flex;flex-direction:row;justify-content:flex-start;align-items:center;margin-top:4px;" id="station_info">
+        <div style="display:flex;flex-direction:row;justify-content:flex-start;width:auto;height:24px;background-image:global_image_newenergy_quick_label_bg_night.9.png;align-self:flex-start;" id="label_quick">
+          <div style="display:flex;flex-direction:row;justify-content:center;width:24px;height:24px;align-self:center;"><label style="color:#f2ffffff;font-family:Auto-Font2.0;font-size:16px;font-weight:400;line-height:20px;align-self:center;white-space:nowrap;" lines="1" id="text_charge_type">快</label></div>
+          <div style="display:flex;flex-direction:row;justify-content:center;align-items:center;padding-right:4px;padding-left:4px;width:auto;height:24px;">
+            <label style="font-weight:400;font-size:14px;color:#f99500;align-self:center;font-family:Auto-Font2.0;white-space:nowrap;" lines="1" id="text_free_num">10</label>
+            <label style="font-weight:400;font-size:14px;color:#80f99500;align-self:center;font-family:Auto-Font2.0;white-space:nowrap;" lines="1" id="text_free_total">/20</label>
+          </div>
+        </div>
+        <label style="color:#99ffffff;font-family:Auto-Font2.0;font-size:16px;font-weight:400;line-height:20px;margin-left:8px;align-self:center;white-space:nowrap;" lines="1" id="text_tips">10分钟前有人充电</label>
+      </div>
+      <label style="margin-top:4px;font-weight:400;font-size:16px;color:#99ffffff;line-height:20px;font-family:Auto-Font2.0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;" lines="1" id="text_eta">1.5公里 25分钟</label>
+    </div>
+  </div>
+  <image style="width:70px;height:80px;position:relative;" src="navi_along_search_charge_big_icon_night.png" id="image_point" />
+</div>

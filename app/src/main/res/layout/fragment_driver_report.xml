@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.desaysv.psmap.ui.navi.DriverReportViewModel" />
+
+        <import type="android.text.TextUtils" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.autonavi.auto.common.view.AutoGuideLine
+            android:id="@+id/gl_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.2930859375"
+            app:layout_constraintGuide_percent4Landscape="0.2930859375"
+            app:layout_constraintGuide_percent4LandscapeWide="0.29"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:layout_width="@dimen/sv_dimen_680"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sv_dimen_20"
+            android:layout_marginTop="@dimen/sv_dimen_90"
+            android:background="@drawable/ic_main_bg_day"
+            android:onClick="@{()->0}"
+            android:paddingBottom="@dimen/sv_dimen_68"
+            android:soundEffectsEnabled="false"
+            app:background4Night="@drawable/ic_main_bg_night"
+            app:background4Skin="@drawable/ic_main_bg_day"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible">
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tvMileageDriven"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sv_dimen_96"
+                android:layout_marginTop="@dimen/sv_dimen_68"
+                android:text="@{viewModel.mileageDriven}"
+                android:textColor="@color/onPrimaryDay"
+                android:textFontWeight="500"
+                android:textSize="@dimen/sv_dimen_48"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:textColor4Night="@color/onPrimaryNight"
+                app:textColor4Skin="@color/onPrimaryDay"
+                tools:text="4.3km" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tvMileageDrivenTip"
+                style="@style/CustomTextAppearanceHeadlineSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sv_dimen_8"
+                android:text="@string/sv_navi_mileage_driven"
+                android:textColor="@color/onSecondaryDay"
+                app:layout_constraintEnd_toEndOf="@+id/tvMileageDriven"
+                app:layout_constraintStart_toStartOf="@+id/tvMileageDriven"
+                app:layout_constraintTop_toBottomOf="@+id/tvMileageDriven"
+                app:textColor4Night="@color/onSecondaryNight"
+                app:textColor4Skin="@color/onSecondaryDay" />
+
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tvDrivingTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/sv_dimen_66"
+                android:text="@{viewModel.drivingTime}"
+                android:textColor="@color/onPrimaryDay"
+                android:textFontWeight="500"
+                android:textSize="@dimen/sv_dimen_48"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvMileageDriven"
+                app:textColor4Night="@color/onPrimaryNight"
+                app:textColor4Skin="@color/onPrimaryDay"
+                tools:text="00:04:50" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tvDrivingTimeTip"
+                style="@style/CustomTextAppearanceHeadlineSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sv_dimen_8"
+                android:text="@string/sv_navi_driving_time"
+                android:textColor="@color/onSecondaryDay"
+                app:layout_constraintEnd_toEndOf="@+id/tvDrivingTime"
+                app:layout_constraintStart_toStartOf="@+id/tvDrivingTime"
+                app:layout_constraintTop_toBottomOf="@+id/tvDrivingTime"
+                app:textColor4Night="@color/onSecondaryNight"
+                app:textColor4Skin="@color/onSecondaryDay" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tvAverageSpeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sv_dimen_36"
+                android:text="@{viewModel.averageSpeed}"
+                android:textColor="@color/onPrimaryDay"
+                android:textFontWeight="500"
+                android:textSize="@dimen/sv_dimen_48"
+                app:layout_constraintEnd_toEndOf="@+id/tvMileageDriven"
+                app:layout_constraintStart_toStartOf="@+id/tvMileageDriven"
+                app:layout_constraintTop_toBottomOf="@+id/tvMileageDrivenTip"
+                app:textColor4Night="@color/onPrimaryNight"
+                app:textColor4Skin="@color/onPrimaryDay"
+                tools:text="23km/h" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tvAverageSpeedTip"
+                style="@style/CustomTextAppearanceHeadlineSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sv_dimen_8"
+                android:text="@string/sv_navi_average"
+                android:textColor="@color/onSecondaryDay"
+                app:layout_constraintEnd_toEndOf="@+id/tvAverageSpeed"
+                app:layout_constraintStart_toStartOf="@+id/tvAverageSpeed"
+                app:layout_constraintTop_toBottomOf="@+id/tvAverageSpeed"
+                app:textColor4Night="@color/onSecondaryNight"
+                app:textColor4Skin="@color/onSecondaryDay" />
+
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tvFastestSpeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.fastestSpeed}"
+                android:textColor="@color/onPrimaryDay"
+                android:textFontWeight="500"
+                android:textSize="@dimen/sv_dimen_48"
+                app:layout_constraintEnd_toEndOf="@+id/tvDrivingTime"
+                app:layout_constraintStart_toStartOf="@+id/tvDrivingTime"
+                app:layout_constraintTop_toTopOf="@+id/tvAverageSpeed"
+                app:textColor4Night="@color/onPrimaryNight"
+                app:textColor4Skin="@color/onPrimaryDay"
+                tools:text="55km/h" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tvFastestSpeedTip"
+                style="@style/CustomTextAppearanceHeadlineSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sv_dimen_8"
+                android:text="@string/sv_navi_fastest_speed"
+                android:textColor="@color/onSecondaryDay"
+                app:layout_constraintEnd_toEndOf="@+id/tvFastestSpeed"
+                app:layout_constraintStart_toStartOf="@+id/tvFastestSpeed"
+                app:layout_constraintTop_toBottomOf="@+id/tvFastestSpeed"
+                app:textColor4Night="@color/onSecondaryNight"
+                app:textColor4Skin="@color/onSecondaryDay" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sv_dimen_28"
+                app:layout_constraintTop_toBottomOf="@+id/tvAverageSpeedTip"
+                tools:layout_editor_absoluteX="20dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/parkingRecyclerView"
+                android:layout_width="@dimen/sv_dimen_0"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sv_dimen_40"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view"
+                app:setLayoutManager="@{true}"
+                app:visibleGone="@{!viewModel.isParkingRecommendEmpty}"
+                tools:visibility="visible" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/ivGotIt"
+                style="@style/CustomTextAppearanceBodyMedium"
+                android:layout_width="@dimen/sv_dimen_400"
+                android:layout_height="@dimen/sv_dimen_90"
+                android:layout_marginTop="@dimen/sv_dimen_40"
+                android:layout_marginBottom="@dimen/sv_dimen_32"
+                android:background="@drawable/selector_bg_confirm_day"
+                android:gravity="center"
+                android:text="@{viewModel.btTip}"
+                android:textColor="@color/onPrimaryDay"
+                app:background4Night="@drawable/selector_bg_confirm_night"
+                app:background4Skin="@drawable/selector_bg_confirm_day"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/parkingRecyclerView"
+                app:textColor4Night="@color/onPrimaryNight"
+                app:textColor4Skin="@color/onPrimaryDay"
+                tools:text="知道了（10S）" />
+
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

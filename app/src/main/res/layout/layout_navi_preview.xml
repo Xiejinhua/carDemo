@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="isNight"
+            type="Boolean" />
+        <variable
+            name="selectTab"
+            type="Boolean" />
+    </data>
+
+    <com.autonavi.auto.skin.view.SkinConstraintLayout
+        android:id="@+id/navi_preview_layout"
+        android:layout_width="@dimen/sv_dimen_280"
+        android:layout_height="@dimen/sv_dimen_67">
+        <RadioGroup
+            android:id="@+id/navi_preview_rg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints">
+
+            <com.autonavi.auto.skin.view.SkinRadioButton
+                android:id="@+id/samplePreview"
+                android:layout_width="@dimen/sv_dimen_140"
+                android:layout_height="@dimen/sv_dimen_60"
+                android:gravity="center"
+                android:button="@null"
+                tools:checked="true"
+                android:textSize="@dimen/sv_dimen_40"
+                android:text="@string/sv_setting_navi_all_preview_sample"
+                android:contentDescription="@string/sv_setting_navi_all_preview_sample"
+                app:setRadioButtonChecked="@{selectTab}"
+                app:setTypefaceBold="@{selectTab}"
+                android:textColor="@color/color_setting_rb_day"
+                app:textColor4Skin="@color/color_setting_rb_day"
+                app:textColor4Night="@color/color_setting_rb_night"/>
+
+            <com.autonavi.auto.skin.view.SkinRadioButton
+                android:id="@+id/classicPreview"
+                android:layout_width="@dimen/sv_dimen_140"
+                android:layout_height="@dimen/sv_dimen_60"
+                android:gravity="center"
+                android:button="@null"
+                android:textSize="@dimen/sv_dimen_40"
+                android:text="@string/sv_setting_navi_all_preview_classic"
+                android:contentDescription="@string/sv_setting_navi_all_preview_classic"
+                app:setRadioButtonChecked="@{!selectTab}"
+                app:setTypefaceBold="@{!selectTab}"
+                android:textColor="@color/color_setting_rb_day"
+                app:textColor4Skin="@color/color_setting_rb_day"
+                app:textColor4Night="@color/color_setting_rb_night"/>
+        </RadioGroup>
+        <!-- 底部指示条 -->
+        <com.autonavi.auto.skin.view.SkinImageView
+            android:id="@+id/indicator"
+            android:layout_width="@dimen/sv_dimen_140"
+            android:layout_height="@dimen/sv_dimen_4"
+            android:src="@drawable/ic_rb_day"
+            app:src4Skin="@drawable/ic_rb_day"
+            app:src4Night="@drawable/ic_rb_night"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </com.autonavi.auto.skin.view.SkinConstraintLayout>
+</layout>

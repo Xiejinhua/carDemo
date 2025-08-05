@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.desaysv.psmap.ui.search.JetourPoiListModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <com.autonavi.auto.skin.view.SkinConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:id="@+id/cl_root"
+            android:layout_width="@dimen/sv_dimen_366"
+            android:layout_height="@dimen/sv_dimen_172"
+            android:layout_marginStart="@dimen/sv_dimen_20"
+            android:layout_marginTop="@dimen/sv_dimen_90"
+            android:background="@drawable/ic_main_bg_day"
+            android:paddingHorizontal="@dimen/sv_dimen_20"
+            android:soundEffectsEnabled="false"
+            app:background4Night="@drawable/ic_main_bg_night"
+            app:background4Skin="@drawable/ic_main_bg_day"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:visibleGone="@{viewModel.singleResult==null}">
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/search_category_back"
+                android:layout_width="@dimen/sv_dimen_64"
+                android:layout_height="@dimen/sv_dimen_64"
+                android:layout_marginStart="@dimen/sv_dimen_30"
+                android:layout_marginTop="@dimen/sv_dimen_30"
+                android:background="@drawable/selector_ic_back_day"
+                app:background4Night="@drawable/selector_ic_back_night"
+                app:background4Skin="@drawable/selector_ic_back_day"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/sv_dimen_51"
+                android:layout_marginStart="@dimen/sv_dimen_32"
+                android:text="捷途探趣"
+                android:gravity="center"
+                android:textAppearance="@style/CustomTextAppearanceBodyMedium"
+                android:textColor="@color/customAhaSecenicPointTextDay"
+                app:layout_constraintBottom_toBottomOf="@+id/search_category_back"
+                app:layout_constraintStart_toEndOf="@+id/search_category_back"
+                app:layout_constraintTop_toTopOf="@+id/search_category_back"
+                app:textColor4Night="@color/onPrimaryContainerNight"
+                app:textColor4Skin="@color/customAhaSecenicPointTextDay" />
+
+
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+        <com.desaysv.psmap.ui.search.view.SearchSinglePoiView
+            android:id="@+id/single_poi_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sv_dimen_20"
+            android:layout_marginTop="@dimen/sv_dimen_90"
+            android:visibility="visible"
+            app:visibleGone="@{viewModel.singleResult!=null}" />
+    </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+</layout>

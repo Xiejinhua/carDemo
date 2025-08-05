@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.autonavi.auto.skin.view.SkinConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <com.autonavi.auto.skin.view.SkinConstraintLayout
+        android:id="@+id/top"
+        android:layout_width="@dimen/sv_dimen_112"
+        android:layout_height="@dimen/sv_dimen_104"
+        android:background="@drawable/global_image_icon_jetour_poi_normal_day"
+        app:background4Night="@drawable/global_image_icon_jetour_poi_normal_night"
+        app:background4Skin="@drawable/global_image_icon_jetour_poi_normal_day">
+    </com.autonavi.auto.skin.view.SkinConstraintLayout>
+</com.autonavi.auto.skin.view.SkinConstraintLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ShadowLayout 阴影 -->
+    <declare-styleable name="autoShadow">
+        <attr name="shadowVisibility" format="boolean"/>
+        <attr name="shadowColor" format="color"/>
+        <attr name="shadowColorNight" format="color"/>
+        <attr name="shadowRadius" format="dimension"/>
+        <attr name="shadowDx" format="dimension"/>
+        <attr name="shadowDy" format="dimension"/>
+        <attr name="shadowExtend" format="dimension"/>
+        <attr name="shadowViewId" format="reference"/>
+        <attr name="shadowCorner" format="dimension"/>
+        <attr name="shadowCornerTopLeft" format="dimension"/>
+        <attr name="shadowCornerTopRight" format="dimension"/>
+        <attr name="shadowCornerBottomLeft" format="dimension"/>
+        <attr name="shadowCornerBottomRight" format="dimension"/>
+        <attr name="shadowShapeType" format="string"/>
+        <attr name="shadowSide">
+            <flag name="all" value="0x1111"/>
+            <flag name="left" value="0x0001"/>
+            <flag name="top" value="0x0010"/>
+            <flag name="right" value="0x0100"/>
+            <flag name="bottom" value="0x1000"/>
+        </attr>
+    </declare-styleable>
+</resources>

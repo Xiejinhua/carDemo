@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <com.autonavi.auto.skin.view.SkinConstraintLayout
+        android:id="@+id/dialogMainCl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/showLoadingBgDay"
+        app:background4Night="@color/showLoadingBgNight"
+        app:background4Skin="@color/showLoadingBgDay">
+
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/sv_dimen_150"
+            android:layout_marginTop="@dimen/sv_dimen_590"
+            android:background="@drawable/ic_main_dialog_bg_day"
+            android:paddingRight="@dimen/sv_dimen_60"
+            app:background4Night="@drawable/ic_main_dialog_bg_night"
+            app:background4Skin="@drawable/ic_main_dialog_bg_day"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ProgressBar
+                android:id="@+id/clsLoading"
+                android:layout_width="@dimen/sv_dimen_56"
+                android:layout_height="@dimen/sv_dimen_56"
+                android:layout_marginStart="@dimen/sv_dimen_32"
+                android:indeterminateBehavior="repeat"
+                android:indeterminateDrawable="@drawable/rotate_loading_view_day"
+                android:indeterminateOnly="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sv_dimen_20"
+                android:ellipsize="end"
+                android:includeFontPadding="false"
+                android:singleLine="true"
+                android:textColor="@color/onPrimaryDay"
+                android:textFontWeight="400"
+                android:textSize="@dimen/sv_dimen_34"
+                app:layout_constraintBottom_toBottomOf="@+id/clsLoading"
+                app:layout_constraintStart_toEndOf="@+id/clsLoading"
+                app:layout_constraintTop_toTopOf="@+id/clsLoading"
+                binding:textColor4Night="@color/onPrimaryNight"
+                binding:textColor4Skin="@color/onPrimaryDay"
+                tools:text="路线规划中..."
+                tools:visibility="visible" />
+
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/cancel"
+                android:layout_width="@dimen/sv_dimen_64"
+                android:layout_height="@dimen/sv_dimen_64"
+                android:layout_marginStart="@dimen/sv_dimen_24"
+                android:background="@drawable/selector_ic_close_day"
+                app:background4Night="@drawable/selector_ic_close_night"
+                app:background4Skin="@drawable/selector_ic_close_day"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_title"
+                app:layout_constraintTop_toTopOf="parent" />
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+    </com.autonavi.auto.skin.view.SkinConstraintLayout>
+</layout>

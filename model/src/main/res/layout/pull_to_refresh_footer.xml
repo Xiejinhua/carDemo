@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_content"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <com.autonavi.auto.skin.view.SkinTextView
+        android:id="@+id/footer_tips"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/onSecondaryDay"
+        app:textColor4Night="@color/onSecondaryNight"
+        app:textColor4Skin="@color/onSecondaryDay"
+        android:textSize="@dimen/sv_dimen_16" />
+</LinearLayout>

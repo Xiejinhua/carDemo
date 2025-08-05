@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 间隔 -->
+    <padding
+        android:bottom="@dimen/sv_dimen_13"
+        android:left="@dimen/sv_dimen_13"
+        android:right="@dimen/sv_dimen_13"
+        android:top="@dimen/sv_dimen_13" /> <!-- 设置各个方向的间隔 -->
+    <!--高度30此处设置宽度无效-->
+    <size android:height="@dimen/sv_dimen_50"/>
+    <!--圆角弧度15-->
+    <corners android:radius="@dimen/sv_dimen_8"/>
+    <!--变化率定义从左到右的颜色不变-->
+    <gradient
+        android:endColor="@color/customColorGrayDay"
+        android:startColor="@color/customColorGrayDay"/>
+</shape>

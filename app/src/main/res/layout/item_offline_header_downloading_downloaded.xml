@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+		<variable
+			name="cityItemInfo"
+			type="com.autonavi.gbl.data.model.CityItemInfo" />
+	</data>
+
+	<com.autonavi.auto.skin.view.SkinConstraintLayout
+		android:id="@+id/cl_item_offline_province"
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/sv_dimen_120"
+		tools:layout_width="@dimen/sv_dimen_640"
+		tools:background="@drawable/shape_bg_navi_set_day">
+
+		<com.autonavi.auto.skin.view.SkinTextView
+			android:id="@+id/stv_text_name"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			tools:text="广东省广东省广东省广东省广东省广东省广东省"
+			android:text="@{cityItemInfo.cityName}"
+			android:textColor="@color/onSecondaryDay"
+			app:textColor4Night="@color/onSecondaryNight"
+			app:textColor4Skin="@color/onSecondaryDay"
+			android:textSize="@dimen/sv_dimen_34"
+			android:singleLine="true"
+			android:ellipsize="end"/>
+
+		<com.autonavi.auto.skin.view.SkinView
+			android:id="@+id/cll_line_offline_city"
+			app:background4Skin="@color/lineDay"
+			app:background4Night="@color/lineNight"
+			android:layout_width="0dp"
+			android:layout_height="@dimen/sv_dimen_1"
+			android:background="@color/lineDay"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintEnd_toEndOf="parent" />
+	</com.autonavi.auto.skin.view.SkinConstraintLayout>
+</layout>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingDefaultResource">
+    <!--    白天主题颜色定义-->
+    <!--    请注意：请先严格按照复用以下定义颜色，如果不满足设计要求再自行扩展，规则为-->
+    <!--    customColor+颜色意义+主题, 颜色意义请通用化命名，严禁带上项目相关名字，例如定义警告颜色 customColorWarnDay-->
+
+    <!--    primary: 主要颜色，通常用于应用程序的主要元素。-->
+    <!--    onPrimary: 在主要颜色上的文本或图标的颜色。-->
+    <!--    primaryContainer: 主要容器的颜色，用于包裹主要元素的容器。-->
+    <!--    onPrimaryContainer: 在主要容器上的文本或图标的颜色。-->
+    <!--    primaryContainerPress: 主要容器的颜色 按压色。-->
+    <!--    inversePrimary: 主要颜色的反色，用于高亮主要元素。-->
+    <!--    secondary: 次要颜色，通常用于应用程序的次要元素。-->
+    <!--    onSecondary: 在次要颜色上的文本或图标的颜色。-->
+    <!--    secondaryContainer: 次要容器的颜色，用于包裹次要元素的容器。-->
+    <!--    onSecondaryContainer: 在次要容器上的文本或图标的颜色。-->
+    <!--    tertiary: 第三颜色，通常用于应用程序的第三级元素。-->
+    <!--    onTertiary: 在第三颜色上的文本或图标的颜色。-->
+    <!--    tertiaryContainer: 第三容器的颜色，用于包裹第三级元素的容器。-->
+    <!--    onTertiaryContainer: 在第三容器上的文本或图标的颜色。-->
+    <!--    background: 背景颜色，用于应用程序的整体背景。-->
+    <!--    onBackground: 在背景颜色上的文本或图标的颜色。-->
+    <!--    surface: 表面颜色，用于应用程序的表面元素，如卡片、面板等。-->
+    <!--    onSurface: 在表面颜色上的文本或图标的颜色。-->
+    <!--    surfaceVariant: 表面变体颜色，用于表面元素的变体状态。-->
+    <!--    onSurfaceVariant: 在表面变体颜色上的文本或图标的颜色。-->
+    <!--    surfaceTint: 表面着色颜色，用于对表面元素进行着色。-->
+    <!--    inverseSurface: 表面颜色的反色，用于高亮表面元素。-->
+    <!--    inverseOnSurface: 在反色表面上的文本或图标的颜色。-->
+    <!--    error: 错误颜色，用于表示错误状态。-->
+    <!--    onError: 在错误颜色上的文本或图标的颜色。-->
+    <!--    errorContainer: 错误容器的颜色，用于包裹错误元素的容器。-->
+    <!--    onErrorContainer: 在错误容器上的文本或图标的颜色。-->
+    <!--    outline: 轮廓颜色，用于绘制元素的轮廓。-->
+    <!--    outlineVariant: 轮廓变体颜色，用于绘制元素的变体轮廓。-->
+    <!--    scrim: 遮罩颜色，用于在元素上创建遮罩效果。-->
+
+    <!--下面有些没用到，用到时候在开启吧-->
+    <color name="primaryDay">#FFFFFF</color>
+    <color name="onPrimaryDay">#161616</color>
+    <color name="primaryContainerDay">#8ED0D4</color>
+    <color name="primaryContainerSecondaryDay">#69ACB5</color>
+    <color name="onPrimaryContainerDay">#FFFFFF</color>
+    <color name="primaryContainerPressDay">#CC8ED0D4</color>
+    <color name="primaryContainerSecondaryPressDay">#CC69ACB5</color>
+    <color name="onPrimaryContainerPressDay">#4dffffff</color>
+    <color name="inversePrimaryDay">#14101B1F</color>
+    <color name="inversePrimaryPressDay">#10101B1F</color>
+    <color name="secondaryDay">#F0FBFBFB</color>
+    <color name="onSecondaryDay">#99161616</color>
+    <color name="secondaryContainerDay">#E7E9EF</color>
+    <color name="onSecondaryContainerDay">#99161616</color>
+    <color name="tertiaryDay">#FAFAFA</color>
+    <color name="onTertiaryDay">#FF8C8C8C</color>
+    <color name="tertiaryContainerDay">#1A65DEE2</color>
+    <color name="onTertiaryContainerDay">#12AEBC</color>
+    <color name="backgroundDay">#FF404040</color>
+    <color name="backgroundGreenWaveDay">#FF17C8A0</color>
+    <color name="onBackgroundDay">#80FFFFFF</color>
+    <color name="surfaceDay">#CCFDFEFF</color>
+    <color name="surfacePressDay">#A3101010</color>
+    <color name="onSurfaceDay">#1AFFFFFF</color>
+    <color name="onSurfacePressDay">#15FFFFFF</color>
+    <color name="surfaceVariantDay">#1AFFFFFF</color>
+    <!--    <color name="onSurfaceVariantDay">#0092ff</color>-->
+    <!--    <color name="surfaceTintDay">#0092ff</color>-->
+    <color name="inverseSurfaceDay">#FF5E5E</color>
+    <color name="inverseOnSurfaceDay">#D8ffffff</color>
+    <!--    <color name="errorDay">#0092ff</color>-->
+    <color name="onErrorDay">#DB0000</color>
+    <!--    <color name="errorContainerDay">#0092ff</color>-->
+    <!--    <color name="onErrorContainerDay">#0092ff</color>-->
+    <!--    <color name="outlineDay">#0092ff</color>-->
+    <color name="lineDay">#14101B1F</color>
+    <!--    <color name="outlineVariantDay">#0092ff</color>-->
+    <!--    <color name="scrimDay">#0092ff</color>-->
+
+    <!--    前期开发，等待志鹏确定好颜色后再替换，其他人不要使用-->
+    <color name="customColorTitleDay">#80000000</color><!--    title字体颜色-->
+    <color name="customColorBlack60Day">#99000000</color>
+    <color name="customColorWhite98Day">#FAFFFFFF</color>
+    <color name="customColorActivationBgEndColorDay">#E3E6EC</color>
+    <color name="customColorNotConfirmDay">#33E7E9EF</color>
+    <color name="customColorWhite70Day">#b3ffffff</color><!--    颜色黑色 不透明度70%-->
+    <color name="customColorWhite06Day">#10ffffff</color><!--    颜色黑色 不透明度6%-->
+    <color name="customColorSettingRbBgDay">#F1F2F6</color>
+    <color name="customColorQrBgDay">#41000000</color>
+    <color name="customColorQrCodeBgDay">#E5F5F9FB</color>
+    <color name="customColorThirdDay">#2B2F32</color><!--    三级字体颜色-->
+    <color name="customColorButtonCancelPressDay">#41ffffff</color><!--    删除按钮press颜色-->
+    <color name="customColorSetCruiseTextDay">#4d000000</color>
+    <color name="customColorGrayDay">#8A8B8F</color>
+    <color name="customColorKeyBoardsBgDay">#EDEEF2</color>
+    <color name="customColorVehicleLineDay">#414141</color>
+    <color name="customColorClearMessageDay">#373C43</color>
+    <color name="customColorMaskEndColorDay">#00ffffff</color>
+    <color name="customColorMaskStartColorDay">#FCFCFC</color>
+    <color name="customColorBlack10Day">#1a000000</color>
+    <color name="customColorCarBgBlueDay">#3168BC</color>
+    <color name="customColorSettingBtnBgPressedDay">#0F101B1F</color>
+    <color name="customColorSettingBtnBgNormalDay">#00000000</color>
+    <color name="customColorSettingBtnBgDay">#FBFBFB</color>
+    <color name="customColorSettingBtnBgStartDay">#8ED0D4</color>
+    <color name="customColorSettingBtnBgEndDay">#69ACB5</color>
+    <color name="customColorSettingBtnBgStartPressedDay">#CC8ED0D4</color>
+    <color name="customColorSettingBtnBgEndPressedDay">#CC69ACB5</color>
+    <color name="customColorSendToPhoneBgDay">#F2F7FA</color>
+    <color name="customColorActiveLoadingBgDay">#CAD7DC</color>
+    <color name="customColorRbBgDay">#CC252525</color>
+    <color name="customColorRbSelectedBgDay">#12AEBC</color>
+    <color name="customColorShadowColorDay">#1A28353B</color>
+    <color name="customColorShadowColorBlack10Day">#1928353B</color>
+    <color name="customColorSettingFunColorDay">#7A161616</color>
+    <color name="customColorSecondary40Day">#66161616</color>
+    <color name="customColorPop30Day">#4C13191C</color>
+    <color name="customColorInPutBg8Day">#14101B1F</color>
+    <color name="customColorSettingBtnBgStartUnClickDay">#66333333</color>
+    <color name="customColorSettingBtnBgEndUnClickDay">#66333333</color>
+    <color name="customColorVoiceLineDay">#0F000000</color>
+    <color name="customColorUnBindDay">#0DC7CD</color>
+    <color name="customColorWXUnBindBgDay">#EEF2F6</color>
+    <color name="customColorWXUnBindShadowColorDay">#3328353B</color>
+    <color name="customColorAppBgDay">#EAF3F6</color>
+    <color name="customColorReportBtnBgDay">#33929CAA</color>
+    <color name="customColorReportBtnBgPressedDay">#1A929CAA</color>
+    <color name="customColorInversePrimaryDayDay">#12AEBC</color>
+    <color name="customColorInversePrimaryPressDay">#CC12AEBC</color>
+    <color name="customColorMapDataNumDay">#252525</color>
+    <!--    前期开发，等待志鹏确定好颜色后再替换，其他人不要使用-->
+    <color name="customTrafficPictureBgDay">#FAFCFF</color>
+
+    <!--柱状图-->
+    <color name="auto_color_727577">#33FFFFFF</color>
+    <color name="auto_color_5e5f61">#33FFFFFF</color>
+    <color name="auto_color_1d8cf5">#1d8cf5</color>
+    <color name="auto_color_0a80fb">#0a80fb</color>
+    <color name="auto_color_42b986">#00d346</color>
+    <color name="auto_color_0ca763">#00b964</color>
+    <color name="auto_color_f4cf4b">#f3df00</color>
+    <color name="auto_color_bfa92e">#c3b733</color>
+    <color name="auto_color_e85466">#ee2e20</color>
+    <color name="auto_color_bf714d">#ba1c1c</color>
+    <color name="auto_color_c04361">#bf025b</color>
+    <color name="auto_color_81132b">#8b0c26</color>
+    <color name="color_797979">#797979</color>
+    <color name="color_A6A6A6">#A6A6A6</color>
+    <color name="color_D9D9D9">#D9D9D9</color>
+    <color name="color_01040B">#01040B</color>
+    <!-- 二维码背景 -->
+    <color name="ts_qr_fifty">#0FFFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="showCrossLaneBgDay">#E2EBF1</color>
+</resources>

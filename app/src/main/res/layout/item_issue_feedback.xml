@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.desaysv.psmap.model.bean.IssueFeedbackBean" />
+        <variable
+            name="isNight"
+            type="Boolean" />
+    </data>
+
+    <com.desaysv.psmap.model.view.ShadowLayout
+        android:id="@+id/itemSl"
+        android:layout_width="@dimen/sv_dimen_560"
+        android:layout_height="@dimen/sv_dimen_180"
+        android:layout_marginTop="@dimen/sv_dimen_16"
+        app:radius="@dimen/sv_dimen_4"
+        app:setShadowColor="@{isNight}"
+        app:shadowColor="@color/customColorShadowColorDay"
+        app:shadowDx="@dimen/sv_dimen_2"
+        app:shadowDy="@dimen/sv_dimen_2"
+        app:shadowRadius="@dimen/sv_dimen_10">
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:layout_width="@dimen/sv_dimen_560"
+            android:layout_height="@dimen/sv_dimen_180"
+            android:background="@drawable/selector_bg_report_btn_day"
+            app:background4Night="@drawable/shape_bg_navi_set_night"
+            app:background4Skin="@drawable/selector_bg_report_btn_day">
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="@dimen/sv_dimen_64"
+                android:layout_height="@dimen/sv_dimen_64"
+                android:layout_marginLeft="@dimen/sv_dimen_40"
+                tools:background="@drawable/ic_issue_pos_day"
+                app:errorReportTypeImage="@{item.type}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                tools:text="定位"
+                android:text="@{item.name}"
+                android:textSize="@dimen/sv_dimen_34"
+                android:textColor="@color/onPrimaryDay"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:textColor4Night="@color/onPrimaryNight"
+                android:layout_marginLeft="@dimen/sv_dimen_34"
+                android:layout_marginTop="@dimen/sv_dimen_36"
+                app:layout_constraintLeft_toRightOf="@+id/icon"
+                app:layout_constraintTop_toTopOf="parent" />
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                tools:text="无法定位、定位不准等"
+                android:text="@{item.dec}"
+                android:textSize="@dimen/sv_dimen_30"
+                android:textColor="@color/onSecondaryDay"
+                app:textColor4Skin="@color/onSecondaryDay"
+                app:textColor4Night="@color/onSecondaryNight"
+                android:layout_marginBottom="@dimen/sv_dimen_36"
+                app:layout_constraintLeft_toLeftOf="@+id/type"
+                app:layout_constraintBottom_toBottomOf="parent" />
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+    </com.desaysv.psmap.model.view.ShadowLayout>
+</layout>

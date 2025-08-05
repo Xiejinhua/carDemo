@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--第一层：背景-->
+    <item
+        android:width="@dimen/sv_dimen_79"
+        android:height="@dimen/sv_dimen_71"
+        android:drawable="@drawable/bg_group_float_view_voice_mute_night"
+        android:scaleType="fitXY" />
+    <!--第二层：selector-->
+    <item
+        android:width="@dimen/sv_dimen_56"
+        android:height="@dimen/sv_dimen_56"
+        android:gravity="center_horizontal"
+        android:top="@dimen/sv_dimen_3">
+        <selector>
+            <item
+                android:drawable="@drawable/icon_group_float_view_voice_mute_night"
+                android:state_selected="true" />
+            <item android:drawable="@drawable/icon_group_float_view_voice_night" />
+        </selector>
+    </item>
+</layer-list>

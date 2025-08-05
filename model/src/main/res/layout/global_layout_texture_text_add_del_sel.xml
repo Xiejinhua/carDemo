@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ll_bg"
+        android:layout_width="@dimen/sv_dimen_297"
+        android:layout_height="@dimen/sv_dimen_64"
+        android:background="@drawable/shape_map_via_icon_day">
+
+
+<!--        <ImageView-->
+<!--            android:id="@+id/iv_add_del"-->
+<!--            android:layout_width="@dimen/sv_dimen_39"-->
+<!--            android:layout_height="@dimen/sv_dimen_39"-->
+<!--            android:layout_gravity="center_vertical"-->
+<!--            android:src="@drawable/auto_point_add"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            android:visibility="invisible"-->
+<!--            android:layout_marginStart="@dimen/sv_dimen_10"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+        <TextView
+            android:id="@+id/tx_texture_id"
+            android:layout_width="@dimen/sv_dimen_190"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:textColor="@color/primaryDay"
+            android:textSize="@dimen/sv_dimen_30"
+            android:layout_marginStart="@dimen/sv_dimen_80"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="第二妇幼保" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

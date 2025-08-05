@@ -1,0 +1,818 @@
+{
+    "virtual_bus": {
+        "car_layer": 1,
+        "rct_route_layer": 1,
+        "cruise_congestion_layer": 1,
+        "cruise_lane_layer": 1,
+        "guide_mix_fork_layer": 1,
+        "cruise_congestion_event_layer": 1,
+        "cruise_facility_layer": 1,
+        "cruise_camera_layer": 1,
+        "guide_camera_layer": 1,
+        "guide_facility_layer": 1,
+        "guide_traffic_event_layer": 1,
+        "route_arrow_layer": 1,
+        "update_light_bar": 1,
+        "guide_congestion_layer": 1,
+        "guide_label_layer": 1,
+        "cruise_event_layer": 1,
+        "guide_path_board_layer": 1,
+        "guide_eta_event_layer": 1,
+        "guide_dynamic_level": 1,
+        "stop_guide": 1,
+        "guide_eagle_eye": 1,
+        "guide_traffic_light_layer": 1,
+        "guide_traffic_signal_light_layer": 1,
+        "cruise_congestion_prompt_layer":1,
+        "route_jam_bubbles_layer": 1
+    },
+    "layer_priority": {
+        "agroup_control": {
+            "agroup_layer": {
+                "draw_priority": 140,
+                "sub_priority": 2300
+            },
+            "agroup_endpoint_layer": {
+                "draw_priority": 140,
+                "sub_priority": 2400
+            }
+        },
+        "area_control": {
+            "area_range_onmap_circle_layer": {
+                "draw_priority": 60,
+                "sub_priority": 2500
+            },
+            "area_range_onmap_polygon_line_layer": {
+                "draw_priority": 60,
+                "sub_priority": 2600
+            },
+            "area_range_onmap_circle_line_layer": {
+                "draw_priority": 60,
+                "sub_priority": 2600
+            },
+            "area_range_onmap_polygon_layer": {
+                "draw_priority": 60,
+                "sub_priority": 2500
+            },
+            "area_range_onmap_polygon_exhaustedPoint_layer": {
+                "draw_priority": 140,
+                "sub_priority": 2650
+            },
+            "area_range_onmap_circle_exhaustedPoint_layer": {
+                "draw_priority": 140,
+                "sub_priority": 2650
+            },
+            "route_restrict_layer": {
+                "draw_priority": 100,
+                "sub_priority": 1400
+            },
+            "route_end_area_parent_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3705
+            },
+            "route_end_area_child_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3100
+            },
+            "route_end_area_polygon_layer": {
+                "draw_priority": 100,
+                "sub_priority": 1500
+            },
+            "route_end_area_polyline_layer": {
+                "draw_priority": 100,
+                "sub_priority": 1500
+            },
+            "partical_effect_layer": {
+                "draw_priority": 120,
+                "sub_priority": 100
+            }
+        },
+        "car_control": {
+            "car_guide_layer": {
+                "draw_priority": 140,
+                "sub_priority": 5400
+            },
+            "car_cruise_layer": {
+                "draw_priority": 140,
+                "sub_priority": 5300
+            },
+            "car_search_layer": {
+                "draw_priority": 140,
+                "sub_priority": 5500
+            },
+            "car_route_layer": {
+                "draw_priority": 140,
+                "sub_priority": 1750
+            },
+            "car_familiar_layer": {
+                "draw_priority": 140,
+                "sub_priority": 5350
+            }
+        },
+        "flyline_control": {
+            "car_end_line_layer": {
+                "draw_priority": 100,
+                "sub_priority": 300
+            },
+            "car_end_point_layer": {
+                "draw_priority": 140,
+                "sub_priority": 5200
+            }
+        },
+        "cross_control": {
+            "guide_vector_cross_layer": {
+                "draw_priority": 140,
+                "sub_priority": 6000
+            },
+            "guide_raster_image_layer": {
+                "draw_priority": 65535,
+                "sub_priority": 6100
+            }
+        },
+        "label_control": {
+            "cruise_congestion_layer": {
+                "draw_priority": 100,
+                "sub_priority": 500
+            },
+            "cruise_lane_layer": {
+                "draw_priority": 140,
+                "sub_priority": 600
+            },
+            "guide_mix_fork_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3670
+            },
+            "route_pop_add_via_point_layer": {
+                "draw_priority": 140,
+                "sub_priority": 10000
+            },
+            "route_pop_remove_via_point_layer": {
+                "draw_priority": 140,
+                "sub_priority": 10000
+            },
+            "route_pop_traffic_event_layer": {
+                "draw_priority": 140,
+                "sub_priority": 10000
+            },
+            "route_pop_search_layer": {
+                "draw_priority": 140,
+                "sub_priority": 10000
+            },
+            "route_pop_end_area_layer": {
+                "draw_priority": 140,
+                "sub_priority": 10000
+            },
+            "gps_point_layer": {
+                "draw_priority": 140,
+                "sub_priority": 100
+            }
+        },
+        "road_facility_control": {
+            "cruise_congestion_event_layer": {
+                "draw_priority": 140,
+                "sub_priority": 600
+            },
+            "cruise_facility_layer": {
+                "draw_priority": 140,
+                "sub_priority": 800
+            },
+            "cruise_normal_camera_layer": {
+                "draw_priority": 140,
+                "sub_priority": 820
+            },
+            "cruise_congestion_prompt_layer": {
+                "draw_priority":140,
+                "sub_priority":850
+            },
+            "cruise_camera_layer": {
+                "draw_priority": 140,
+                "sub_priority": 900
+            },
+            "cruise_active_camera_layer": {
+                "draw_priority": 140,
+                "sub_priority": 950
+            },
+            "cruise_event_layer": {
+                "draw_priority": 140,
+                "sub_priority": 725
+            },
+            "route_compare_tip_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3790
+            },
+            "guide_camera_active_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3780
+            },
+            "guide_camera_normal_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3690,
+                "collision_threshold": 0.4
+            },
+            "guide_facility_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3680
+            },
+            "local_traffic_event_point_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3640
+            },
+            "local_traffic_event_line_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3660
+            },
+            "guide_traffic_event_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3685
+            },
+            "guide_traffic_light_layer": {
+                "draw_priority":140,
+                "sub_priority":3770
+            },
+            "guide_traffic_signal_light_layer": {
+                "draw_priority":140,
+                "sub_priority":3785
+            }
+        },
+        "route_control": {
+            "route_start_point_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3400
+            },
+            "route_end_point_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3696
+            },
+            "route_via_point_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3600
+            },
+            "route_via_charge_station_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3620
+            },
+            "route_compare_tip_layer": {
+                "draw_priority": 140,
+                "sub_priority": 2900
+            },
+            "route_path_layer": {
+                "draw_priority": 100,
+                "sub_priority": 1700
+            },
+            "route_jam_line_layer": {
+                "draw_priority": 100,
+                "sub_priority": 1600
+            },
+            "route_jam_point_layer": {
+                "draw_priority": 140,
+                "sub_priority": 2700
+            },
+            "route_forbidden_layer": {
+                "draw_priority": 140,
+                "sub_priority": 2600
+            },
+            "route_weather_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3700
+            },
+            "route_via_road_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3710
+            },
+            "route_arrow_layer": {
+                "draw_priority": 140,
+                "sub_priority": 1740
+            },
+            "route_avoid_limit_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3050
+            },
+            "route_limit_facility_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3080
+            },
+            "route_little_camera_layer": {
+                "draw_priority": 140,
+                "sub_priority": 1900
+            },
+            "route_traffic_light_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3695
+            },
+            "route_traffic_block_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3000
+            },
+            "route_traffic_block_outer_layer": {
+                "draw_priority": 140,
+                "sub_priority": 2800
+            },
+            "route_traffic_event_tip_layer": {
+                "draw_priority": 140,
+                "sub_priority": 2900
+            },
+            "route_energy_empty_point_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3610
+            },
+            "route_odd_point_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3580
+            },
+            "route_via_eta_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3599
+            },
+            "route_energy_remain_point_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3800
+            },
+            "route_energy_key_point_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3540
+            },
+            "guide_congestion_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3710
+            },
+            "guide_label_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3760
+            },
+            "route_path_number_point_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3720
+            },
+            "guide_path_board_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3700
+            },
+            "guide_eta_event_layer": {
+                "draw_priority": 140,
+                "sub_priority": 2100
+            },
+            "route_start_end_line_layer": {
+                "draw_priority": 140,
+                "sub_priority": 300
+            },
+            "route_start_end_point_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3500
+            },
+            "route_eagle_start_point_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3400
+            },
+            "route_eagle_end_point_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3500
+            },
+            "route_eagle_via_point_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3600
+            },
+            "route_eagle_via_charge_station_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3620
+            },
+            "route_eagle_path_layer": {
+                "draw_priority": 100,
+                "sub_priority": 1700
+            },
+            "route_rest_area_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3520
+            },
+            "route_dodge_line_layer": {
+                "draw_priority": 100,
+                "sub_priority": 1725
+            },
+            "route_end_path_point_layer": {
+                "draw_priority": 140,
+                "sub_priority": 2590
+            },
+            "route_three_urgent_layer": {
+                "draw_priority": 140,
+                "sub_priority": 2590
+            },
+            "route_jam_bubbles_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3050
+            },
+            "route_indoor_park_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3690
+            },
+            "route_indoor_park_end_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3510
+            },
+            "guide_familiar_route_layer": {
+                "draw_priority": 140,
+                "sub_priority": 4610
+            }
+        },
+        "search_control": {
+            "search_point_beginend_layer": {
+                "draw_priority": 140,
+                "sub_priority": 2900
+            },
+            "search_point_exitentrance_layer": {
+                "draw_priority": 140,
+                "sub_priority": 1200
+            },
+            "search_point_centralpos_layer": {
+                "draw_priority": 140,
+                "sub_priority": 1200
+            },
+            "search_point_root_layer": {
+                "draw_priority": 140,
+                "sub_priority": 1300
+            },
+            "search_point_children_layer": {
+                "draw_priority": 140,
+                "sub_priority": 1300
+            },
+            "search_poi_label_layer": {
+                "draw_priority": 140,
+                "sub_priority": 1350
+            },
+            "search_line_layer": {
+                "draw_priority": 100,
+                "sub_priority": 200
+            },
+            "search_polyline_layer": {
+                "draw_priority": 100,
+                "sub_priority": 200
+            },
+            "search_polygon_layer": {
+                "draw_priority": 100,
+                "sub_priority": 200
+            },
+            "search_along_route_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3520
+            },
+            "search_along_route_pop_layer":
+            {
+                "draw_priority":140,
+                "sub_priority":5500
+            },
+            "search_park_route_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3650
+            },
+            "search_charge_station_layer": {
+                "draw_priority": 140,
+                "sub_priority": 1300
+            }
+        },
+        "user_control": {
+            "user_gps_track_point_layer": {
+                "draw_priority": 140,
+                "sub_priority": 1100
+            },
+            "user_gps_track_line_layer": {
+                "draw_priority": 140,
+                "sub_priority": 1000
+            },
+            "user_favorite_main_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3000
+            },
+            "user_send_to_car_layer": {
+                "draw_priority": 140,
+                "sub_priority": 1400
+            },
+            "user_favorite_poi_layer": {
+                "draw_priority": 140,
+                "sub_priority": 3000
+            },
+            "user_rainbow_line_layer": {
+                "draw_priority": 140,
+                "sub_priority": 1000
+            }
+        },
+        "lane_control": {
+            "lane_guide_not_recommended_layer": {
+                "draw_priority": 140,
+                "sub_priority": 9001,
+                "collision_threshold": 0.3
+            },
+            "lane_guide_via_layer": {
+                "draw_priority": 140,
+                "sub_priority": 9002,
+                "collision_threshold": 0.3
+            },
+            "lane_guide_end_layer": {
+                "draw_priority": 140,
+                "sub_priority": 9003,
+                "collision_threshold": 0.3
+            },
+            "lane_guide_restricted_layer": {
+                "draw_priority": 140,
+                "sub_priority": 9004,
+                "collision_threshold": 0.3
+            },
+            "lane_guide_event_layer": {
+                "draw_priority": 140,
+                "sub_priority": 9005,
+                "collision_threshold": 0.3
+            },
+            "lane_guide_congestion_layer": {
+                "draw_priority": 140,
+                "sub_priority": 9006,
+                "collision_threshold": 0.3
+            },
+            "lane_guide_odd_layer": {
+                "draw_priority": 140,
+                "sub_priority": 9007,
+                "collision_threshold": 0.3
+            },
+            "lane_guide_traffic_light_icon_layer": {
+                "draw_priority": 140,
+                "sub_priority": 9008,
+                "collision_threshold": 0.3
+            },
+            "lane_guide_traffic_light_countdown_layer": {
+                "draw_priority": 140,
+                "sub_priority": 9009,
+                "collision_threshold": 0.3
+            },
+            "lane_guide_camera_layer": {
+                "draw_priority": 140,
+                "sub_priority": 9010,
+                "collision_threshold": 0.3
+            },
+            "lane_guide_change_layer": {
+                "draw_priority": 140,
+                "sub_priority": 9011,
+                "collision_threshold": 0.3
+            },
+            "lane_guide_turn_layer": {
+                "draw_priority": 140,
+                "sub_priority": 9012,
+                "collision_threshold": 0.3
+            },
+            "lane_guide_normal_camera_layer": {
+                "draw_priority": 140,
+                "sub_priority": 9013,
+                "collision_threshold": 0.3,
+                "priority_area_threshold" : 0.3
+            },
+            "lane_guide_alternative_path_layer": {
+                "draw_priority": 140,
+                "sub_priority": 9014,
+                "collision_threshold": 0.5
+            }
+        },
+        "custom_control": {
+            "point_custom_layer_1": {
+                "draw_priority": 140,
+                "sub_priority": 2999
+            },
+            "point_custom_layer_10": {
+                "draw_priority": 140,
+                "sub_priority": 2999
+            }
+        }
+    },
+    "collision_combination": {
+        "jam_bubbles_collision": {
+            "area_collision": [
+                "route_jam_bubbles_layer"
+            ],
+            "collision_layer": [
+                "route_end_area_parent_layer",
+                "route_jam_bubbles_layer",
+                "route_start_point_layer"
+            ]
+        },
+        "route_path_tmc_collision": {
+            "area_collision": [
+                "route_path_tmc_point_layer"
+            ],
+            "collision_layer": [
+                "route_path_tmc_point_layer",
+                "route_start_point_layer",
+                "route_end_point_layer",
+                "route_via_point_layer",
+                "route_end_area_parent_layer",
+                "route_via_eta_layer",
+                "route_weather_layer",
+                "route_rest_area_layer",
+                "route_via_road_layer",
+                "search_along_route_layer"
+            ]
+        },
+        "guide_label_collision": {
+            "area_collision": [
+                "guide_label_layer",
+                "route_compare_tip_layer"
+            ],
+            "collision_layer": [
+                "guide_path_board_layer",
+                "guide_camera_active_layer",
+                "guide_traffic_light_layer",
+                "guide_traffic_signal_light_layer",
+                "guide_congestion_layer",
+                "guide_label_layer",
+                "guide_facility_layer",
+                "route_end_area_parent_layer",
+                "search_park_route_layer",
+                "route_compare_tip_layer"
+            ],
+            "not_collided_by_high_priority": [
+                "route_compare_tip_layer"
+            ],
+            "ui_threshold": {
+                "guide_label_layer": 0.4
+            }
+        },
+        "search_collision": {
+            "area_collision": [],
+            "collision_layer": [
+                "search_point_root_layer",
+                "search_point_children_layer",
+                "user_send_to_car_layer"
+            ]
+        },
+        "end_area_collision": {
+            "area_collision": [],
+            "collision_layer": [
+                "route_end_area_parent_layer",
+                "route_end_area_child_layer"
+            ],
+            "collided_by_focus_item":1
+        },
+        "via_eta_collision": {
+            "area_collision" : [
+                "route_via_eta_layer"
+            ],
+            "collision_layer": [
+                "route_end_area_parent_layer",
+                "route_via_eta_layer"
+            ]
+        },
+        "guide_collision": {
+            "area_collision": [],
+            "collision_layer": [
+                "guide_camera_active_layer",
+                "guide_camera_normal_layer",
+                "guide_traffic_light_layer",
+                "guide_traffic_signal_light_layer",
+                "guide_facility_layer",
+                "guide_congestion_layer",
+                "guide_label_layer",
+                "guide_path_board_layer",
+                "guide_mix_fork_layer",
+                "guide_traffic_event_layer"
+            ],
+            "not_collided_by_high_priority": [
+                "guide_camera_active_layer",
+                "guide_camera_normal_layer",
+                "guide_congestion_layer",
+                "route_end_area_parent_layer",
+                "search_park_route_layer",
+                "guide_label_layer"
+            ],
+            "not_collide_low_priority": [
+            ],
+            "not_collide_each_other": {
+                "guide_traffic_light_layer":"guide_camera_active_layer",
+                "guide_traffic_signal_light_layer":"guide_camera_active_layer"
+            }
+        },
+        "along_route_collision": {
+            "area_collision": [
+                "search_along_route_pop_layer"
+            ],
+            "collision_layer": [
+                "search_along_route_layer",
+                "search_along_route_pop_layer"
+            ]
+        },
+        "along_route_children_collision": {
+            "area_collision": [
+            ],
+            "collision_layer": [
+                "search_along_route_layer",
+                "search_point_children_layer"
+            ]
+        },
+        "cruise_congestion_collision": {
+            "area_collision": [
+                "cruise_congestion_prompt_layer",
+                "cruise_active_camera_layer"
+            ],
+            "collision_layer": [
+                "cruise_facility_layer",
+                "cruise_congestion_prompt_layer",
+                "cruise_camera_layer",
+                "cruise_active_camera_layer",
+                "cruise_normal_camera_layer"
+            ]
+        },
+        "guide_camera_collision": {
+            "area_collision": [
+                "guide_camera_active_layer",
+                "guide_traffic_light_layer",
+                "guide_traffic_signal_light_layer",
+                "guide_congestion_layer",
+                "guide_traffic_event_layer"
+            ],
+            "collision_layer": [
+                "guide_camera_active_layer",
+                "guide_traffic_light_layer",
+                "guide_traffic_signal_light_layer",
+                "guide_congestion_layer",
+                "guide_label_layer",
+                "guide_camera_normal_layer",
+                "guide_facility_layer",
+                "route_end_area_parent_layer",
+                "search_park_route_layer",
+                "guide_traffic_event_layer"
+            ],
+            "ui_threshold": {
+                "guide_congestion_layer": 0.3,
+                "guide_camera_active_layer": 0.3,
+                "guide_traffic_signal_light_layer": 0.3
+            }
+        },
+        "lane_area_collision": {
+            "area_collision": [
+                "lane_guide_congestion_layer",
+                "lane_guide_traffic_light_countdown_layer",
+                "lane_guide_restricted_layer",
+                "lane_guide_camera_layer",
+                "lane_guide_normal_camera_layer",
+                "lane_guide_alternative_path_layer"
+            ],
+            "collision_layer": [
+                "lane_guide_congestion_layer",
+                "lane_guide_event_layer",
+                "lane_guide_camera_layer",
+                "lane_guide_traffic_light_countdown_layer",
+                "lane_guide_restricted_layer",
+                "lane_guide_not_recommended_layer",
+                "lane_guide_turn_layer",
+                "lane_guide_via_layer",
+                "lane_guide_end_layer",
+                "lane_guide_odd_layer",
+                "lane_guide_change_layer",
+                "lane_guide_traffic_light_icon_layer",
+                "lane_guide_normal_camera_layer",
+                "lane_guide_alternative_path_layer"
+            ],
+            "area_threshold": {
+                "lane_guide_traffic_light_countdown_layer": 0.3,
+                "lane_guide_congestion_layer": 0.3,
+                "lane_guide_camera_layer": 0.3,
+                "lane_guide_normal_camera_layer": 0.3,
+                "lane_guide_alternative_path_layer":0.5
+            },
+            "not_collided_by_high_priority": [
+                "lane_guide_turn_layer",
+                "lane_guide_via_layer",
+                "lane_guide_end_layer",
+                "lane_guide_odd_layer",
+                "lane_guide_traffic_light_icon_layer"
+            ],
+            "not_collide_each_other": {
+                "lane_guide_traffic_light_icon_layer":"lane_guide_traffic_light_countdown_layer"
+            }
+        },
+        "lane_collision": {
+            "area_collision": [],
+            "collision_layer": [
+                "lane_guide_congestion_layer",
+                "lane_guide_event_layer",
+                "lane_guide_camera_layer",
+                "lane_guide_traffic_light_countdown_layer",
+                "lane_guide_restricted_layer",
+                "lane_guide_not_recommended_layer",
+                "lane_guide_turn_layer",
+                "lane_guide_via_layer",
+                "lane_guide_end_layer",
+                "lane_guide_odd_layer",
+                "lane_guide_change_layer",
+                "lane_guide_traffic_light_icon_layer",
+                "lane_guide_normal_camera_layer",
+                "lane_guide_alternative_path_layer"
+            ],
+            "not_collided_by_high_priority": [
+                "lane_guide_turn_layer",
+                "lane_guide_via_layer",
+                "lane_guide_end_layer",
+                "lane_guide_odd_layer",
+                "lane_guide_traffic_light_icon_layer"
+            ],
+            "not_collide_each_other": {
+                "lane_guide_traffic_light_icon_layer":"lane_guide_traffic_light_countdown_layer"
+            }
+        }
+    },
+    "biz_switch":
+    {
+    }
+}

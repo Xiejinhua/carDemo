@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.desaysv.psmap.ui.search.bean.SearchResultBean" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="isNight"
+            type="Boolean" />
+
+        <import type="android.text.TextUtils" />
+
+        <import type="android.view.View" />
+
+        <import type="com.autonavi.auto.skin.NightModeGlobal" />
+    </data>
+
+    <com.autonavi.auto.skin.view.SkinConstraintLayout
+        android:id="@+id/cl_search_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:setSearchResultBg="@{item.select}"
+        tools:background="@drawable/ic_main_bg_day">
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:id="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sv_dimen_180">
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tv_position"
+                android:layout_width="@dimen/sv_dimen_64"
+                android:layout_height="@dimen/sv_dimen_64"
+                android:layout_marginStart="@dimen/sv_dimen_24"
+                android:layout_marginTop="@dimen/sv_dimen_31"
+                android:gravity="center"
+                android:text="@{String.valueOf(position)}"
+                android:textColor="@color/onPrimaryDay"
+                android:textSize="@dimen/sv_dimen_36"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:setSearchListTitleTextColor="@{isNight}"
+                app:textColor4Night="@color/onPrimaryNight"
+                app:textColor4Skin="@color/onPrimaryDay"
+                tools:text="1" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/stv_text_title_search_result"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/sv_dimen_51"
+                android:layout_marginStart="@dimen/sv_dimen_16"
+                android:layout_marginEnd="@dimen/sv_dimen_162"
+                android:layout_marginTop="@dimen/sv_dimen_36"
+                android:ellipsize="end"
+                android:gravity="left"
+                android:singleLine="true"
+                android:text="@{item.poi.name}"
+                android:textColor="@color/onPrimaryDay"
+                android:textSize="@dimen/sv_dimen_34"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_position"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:setSearchListTitleTextColor="@{isNight}"
+                app:textColor4Night="@color/onPrimaryNight"
+                app:textColor4Skin="@color/onPrimaryDay"
+                tools:text="和平饭店" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/stv_time"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/sv_dimen_45"
+                android:layout_marginTop="@dimen/sv_dimen_12"
+                android:layout_marginEnd="@dimen/sv_dimen_20"
+                android:ellipsize="end"
+                android:gravity="left"
+                android:singleLine="true"
+                android:text="@{item.createTime}"
+                android:textColor="@color/onSecondaryDay"
+                android:textSize="@dimen/sv_dimen_32"
+                app:layout_constraintEnd_toEndOf="@+id/stv_text_title_search_result"
+                app:layout_constraintStart_toStartOf="@+id/stv_text_title_search_result"
+                app:layout_constraintTop_toBottomOf="@+id/stv_text_title_search_result"
+                app:setSearchListAddressTextColor="@{isNight}"
+                app:textColor4Night="@color/onSecondaryNight"
+                app:textColor4Skin="@color/onSecondaryDay"
+                tools:text="@string/auto_search_around_text_font"
+                tools:visibility="visible" />
+
+
+            <com.autonavi.auto.skin.view.SkinImageView
+                android:id="@+id/goto_there"
+                android:layout_width="@dimen/sv_dimen_64"
+                android:layout_height="@dimen/sv_dimen_64"
+                android:layout_marginEnd="@dimen/sv_dimen_40"
+                android:src="@drawable/ic_search_alongway_suggestion_right_day"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_position"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_position"
+                app:setSuggestionRightImage="@{5}"
+                app:src4Night="@drawable/ic_search_alongway_suggestion_right_night"
+                app:src4Skin="@drawable/ic_search_alongway_suggestion_right_day"
+                tools:src="@drawable/ic_search_alongway_suggestion_right_day"
+                tools:visibility="visible" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/stv_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sv_dimen_4"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@{item.poi.dis}"
+                android:textColor="@color/onPrimaryDay"
+                android:textSize="@dimen/sv_dimen_32"
+                app:layout_constraintStart_toStartOf="@+id/goto_there"
+                app:layout_constraintEnd_toEndOf="@id/goto_there"
+                app:layout_constraintTop_toBottomOf="@id/goto_there"
+                app:setSearchListTitleTextColor="@{isNight}"
+                app:textColor4Night="@color/onPrimaryNight"
+                app:textColor4Skin="@color/onPrimaryDay"
+                tools:text="3.2Km" />
+
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+        <com.autonavi.auto.skin.view.SkinView
+            android:id="@+id/cll_item_bottom_line"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/sv_dimen_1"
+            android:layout_marginStart="@dimen/sv_dimen_20"
+            android:layout_marginTop="@dimen/sv_dimen_24"
+            android:layout_marginEnd="@dimen/sv_dimen_32"
+            android:background="@color/lineDay"
+            android:visibility="@{item.select?View.GONE:View.VISIBLE}"
+            app:background4Night="@color/lineNight"
+            app:background4Skin="@color/lineDay"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:setSearchLine="@{isNight}" />
+
+    </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+
+</layout>
+

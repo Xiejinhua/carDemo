@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.desaysv.psmap.ui.route.RouteViewModel" />
+    </data>
+
+    <com.autonavi.auto.skin.view.SkinConstraintLayout
+        android:id="@+id/strategy_all"
+        android:layout_width="@dimen/sv_dimen_680"
+        android:layout_height="@dimen/sv_dimen_1130"
+        android:background="@drawable/ic_main_bg_day"
+        android:onClick="@{()->0}"
+        android:soundEffectsEnabled="false"
+        app:background4Night="@drawable/ic_main_bg_night"
+        app:background4Skin="@drawable/ic_main_bg_day"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.autonavi.auto.skin.view.SkinView
+            android:id="@+id/ivClose"
+            android:layout_width="@dimen/sv_dimen_64"
+            android:layout_height="@dimen/sv_dimen_64"
+            android:layout_marginStart="@dimen/sv_dimen_30"
+            android:layout_marginTop="@dimen/sv_dimen_30"
+            android:contentDescription="@string/sv_search_back_accessibility"
+            android:background="@drawable/selector_ic_back_day"
+            app:background4Night="@drawable/selector_ic_back_night"
+            app:background4Skin="@drawable/selector_ic_back_day"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginTop="@dimen/sv_dimen_26" />
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/sv_route_navi_commonly_used"
+            android:textColor="@color/onPrimaryDay"
+            android:textSize="@dimen/sv_dimen_24"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/ivClose"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivClose"
+            app:textColor4Night="@color/onPrimaryNight"
+            app:textColor4Skin="@color/onPrimaryDay" />
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/routePreferenceTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sv_dimen_32"
+            android:layout_marginTop="@dimen/sv_dimen_24"
+            android:gravity="center"
+            android:text="@string/sv_setting_routePreference_text"
+            android:textColor="@color/onPrimaryDay"
+            android:textSize="@dimen/sv_dimen_24"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivClose"
+            app:textColor4Night="@color/onPrimaryNight"
+            app:textColor4Skin="@color/onPrimaryDay" />
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:id="@+id/clDefaultStrategy0"
+            android:layout_width="@dimen/sv_dimen_560"
+            android:layout_height="@dimen/sv_dimen_90"
+            android:layout_marginTop="@dimen/sv_dimen_30"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivClose"
+            app:setStrategyBtn="@{viewModel.rsDefaultSelected}"
+            app:setStrategyBtnNight="@{viewModel.themeChange}"
+            app:setStrategyEnabled="@{true}"
+            app:setStrategyType="@{1}"
+            tools:background="@drawable/selector_route_remommend_press_day">
+
+            <com.autonavi.auto.skin.view.SkinView
+                android:id="@+id/svDefaultStrategy0"
+                android:layout_width="@dimen/sv_dimen_48"
+                android:layout_height="@dimen/sv_dimen_48"
+                android:layout_marginStart="@dimen/sv_dimen_186"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:setStrategyIcon="@{viewModel.rsDefaultSelected}"
+                app:setStrategyIconNight="@{viewModel.themeChange}"
+                app:setStrategyIconType="@{1}"
+                tools:background="@drawable/selector_route_remommend_icon_select_day" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/sv_dimen_20"
+                android:text="@string/sv_route_navi_gaode_recommends"
+                android:textSize="@dimen/sv_dimen_30"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/svDefaultStrategy0"
+                app:layout_constraintTop_toTopOf="parent"
+                app:setStrategyText="@{viewModel.rsDefaultSelected}"
+                app:setStrategyTextNight="@{viewModel.themeChange}"
+                tools:textColor="@color/color_route_strategy_select_day" />
+
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:id="@+id/clAvoidJanStrategy1"
+            android:layout_width="@dimen/sv_dimen_176"
+            android:layout_height="@dimen/sv_dimen_120"
+            android:layout_marginTop="@dimen/sv_dimen_16"
+            app:layout_constraintStart_toStartOf="@+id/clDefaultStrategy0"
+            app:layout_constraintTop_toBottomOf="@+id/clDefaultStrategy0"
+            app:setStrategyBtn="@{viewModel.rsTmcSelected}"
+            app:setStrategyBtnNight="@{viewModel.themeChange}"
+            app:setStrategyEnabled="@{viewModel.isNetworkConnected}"
+            app:setStrategyType="@{2}"
+            tools:background="@drawable/selector_route_strategy_other_bg_day">
+
+            <com.autonavi.auto.skin.view.SkinView
+                android:id="@+id/svAvoidJanStrategy1"
+                android:layout_width="@dimen/sv_dimen_64"
+                android:layout_height="@dimen/sv_dimen_64"
+                android:layout_marginTop="@dimen/sv_dimen_12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:setStrategyIcon="@{viewModel.rsTmcSelected}"
+                app:setStrategyIconNight="@{viewModel.themeChange}"
+                app:setStrategyIconType="@{2}"
+                app:viewEnable="@{viewModel.isNetworkConnected}"
+                tools:background="@drawable/selector_route_avoid_congestion_day" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/skinTextView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/sv_dimen_12"
+                android:text="@string/sv_route_navi_avoid_congestion"
+                android:textSize="@dimen/sv_dimen_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:setStrategyText="@{viewModel.rsTmcSelected}"
+                app:setStrategyTextNight="@{viewModel.themeChange}"
+                app:viewEnable="@{viewModel.isNetworkConnected}"
+                tools:textColor="@color/color_route_strategy_day" />
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:id="@+id/clUsingHighwayStrategy4"
+            android:layout_width="@dimen/sv_dimen_176"
+            android:layout_height="@dimen/sv_dimen_120"
+            android:layout_marginStart="@dimen/sv_dimen_16"
+            app:layout_constraintStart_toEndOf="@+id/clAvoidJanStrategy1"
+            app:layout_constraintTop_toTopOf="@+id/clAvoidJanStrategy1"
+            app:setStrategyBtn="@{viewModel.rsFreewayYesSelected}"
+            app:setStrategyBtnNight="@{viewModel.themeChange}"
+            app:setStrategyEnabled="@{true}"
+            app:setStrategyType="@{2}"
+            tools:background="@drawable/selector_route_strategy_other_bg_day">
+
+            <com.autonavi.auto.skin.view.SkinView
+                android:id="@+id/svUsingHighwayStrategy4"
+                android:layout_width="@dimen/sv_dimen_64"
+                android:layout_height="@dimen/sv_dimen_64"
+                android:layout_marginTop="@dimen/sv_dimen_12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:setStrategyIcon="@{viewModel.rsFreewayYesSelected}"
+                app:setStrategyIconNight="@{viewModel.themeChange}"
+                app:setStrategyIconType="@{3}"
+                tools:background="@drawable/selector_route_high_speed_day" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/skinTextView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/sv_dimen_12"
+                android:text="@string/sv_route_navi_sing_highway"
+                android:textSize="@dimen/sv_dimen_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/svUsingHighwayStrategy4"
+                app:setStrategyText="@{viewModel.rsFreewayYesSelected}"
+                app:setStrategyTextNight="@{viewModel.themeChange}"
+                tools:textColor="@color/color_route_strategy_day" />
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:id="@+id/clAvoidHighwayStrategy3"
+            android:layout_width="@dimen/sv_dimen_176"
+            android:layout_height="@dimen/sv_dimen_120"
+            android:layout_marginStart="@dimen/sv_dimen_16"
+            app:layout_constraintStart_toEndOf="@+id/clUsingHighwayStrategy4"
+            app:layout_constraintTop_toTopOf="@+id/clUsingHighwayStrategy4"
+            app:setStrategyBtn="@{viewModel.rsFreewayNoSelected}"
+            app:setStrategyBtnNight="@{viewModel.themeChange}"
+            app:setStrategyEnabled="@{true}"
+            app:setStrategyType="@{2}"
+            tools:background="@drawable/selector_route_strategy_other_bg_day">
+
+            <com.autonavi.auto.skin.view.SkinView
+                android:id="@+id/svAvoidHighwayStrategy3"
+                android:layout_width="@dimen/sv_dimen_64"
+                android:layout_height="@dimen/sv_dimen_64"
+                android:layout_marginTop="@dimen/sv_dimen_12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:setStrategyIcon="@{viewModel.rsFreewayNoSelected}"
+                app:setStrategyIconNight="@{viewModel.themeChange}"
+                app:setStrategyIconType="@{4}"
+                tools:background="@drawable/selector_route_nohigh_speed_day" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/skinTextView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/sv_dimen_12"
+                android:text="@string/sv_route_navi_avoid_highway"
+                android:textSize="@dimen/sv_dimen_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:setStrategyText="@{viewModel.rsFreewayNoSelected}"
+                app:setStrategyTextNight="@{viewModel.themeChange}"
+                tools:textColor="@color/color_route_strategy_day" />
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:id="@+id/clAvoidChargeStrategy2"
+            android:layout_width="@dimen/sv_dimen_176"
+            android:layout_height="@dimen/sv_dimen_120"
+            android:layout_marginTop="@dimen/sv_dimen_16"
+            app:layout_constraintStart_toStartOf="@+id/clAvoidJanStrategy1"
+            app:layout_constraintTop_toBottomOf="@+id/clAvoidJanStrategy1"
+            app:setStrategyBtn="@{viewModel.rsMoneySelected}"
+            app:setStrategyBtnNight="@{viewModel.themeChange}"
+            app:setStrategyEnabled="@{true}"
+            app:setStrategyType="@{2}"
+            tools:background="@drawable/selector_route_strategy_other_bg_day">
+
+            <com.autonavi.auto.skin.view.SkinView
+                android:id="@+id/svAvoidChargeStrategy2"
+                android:layout_width="@dimen/sv_dimen_64"
+                android:layout_height="@dimen/sv_dimen_64"
+                android:layout_marginTop="@dimen/sv_dimen_12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:setStrategyIcon="@{viewModel.rsMoneySelected}"
+                app:setStrategyIconNight="@{viewModel.themeChange}"
+                app:setStrategyIconType="@{5}"
+                tools:background="@drawable/selector_route_avoid_charging_day" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/skinTextView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/sv_dimen_12"
+                android:text="@string/sv_route_navi_charge_less"
+                android:textSize="@dimen/sv_dimen_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:setStrategyText="@{viewModel.rsMoneySelected}"
+                app:setStrategyTextNight="@{viewModel.themeChange}"
+                tools:textColor="@color/color_route_strategy_day" />
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:id="@+id/clUsingRouteWidthStrategy6"
+            android:layout_width="@dimen/sv_dimen_176"
+            android:layout_height="@dimen/sv_dimen_120"
+            android:layout_marginStart="@dimen/sv_dimen_16"
+            app:layout_constraintLeft_toRightOf="@+id/clUsingHighwayStrategy4"
+            app:layout_constraintStart_toEndOf="@+id/clAvoidChargeStrategy2"
+            app:layout_constraintTop_toTopOf="@+id/clAvoidChargeStrategy2"
+            app:setStrategyBtn="@{viewModel.rsFreewayBigSelected}"
+            app:setStrategyBtnNight="@{viewModel.themeChange}"
+            app:setStrategyEnabled="@{viewModel.isNetworkConnected}"
+            app:setStrategyType="@{2}"
+            tools:background="@drawable/selector_route_strategy_other_bg_day">
+
+            <com.autonavi.auto.skin.view.SkinView
+                android:id="@+id/svUsingRouteWidthStrategy6"
+                android:layout_width="@dimen/sv_dimen_64"
+                android:layout_height="@dimen/sv_dimen_64"
+                android:layout_marginTop="@dimen/sv_dimen_12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:setStrategyIcon="@{viewModel.rsFreewayBigSelected}"
+                app:setStrategyIconNight="@{viewModel.themeChange}"
+                app:setStrategyIconType="@{6}"
+                app:viewEnable="@{viewModel.isNetworkConnected}"
+                tools:background="@drawable/selector_route_width_first_day" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/skinTextView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/sv_dimen_12"
+                android:text="@string/sv_route_navi_sing_route_width"
+                android:textSize="@dimen/sv_dimen_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:setStrategyText="@{viewModel.rsFreewayBigSelected}"
+                app:setStrategyTextNight="@{viewModel.themeChange}"
+                app:viewEnable="@{viewModel.isNetworkConnected}"
+                tools:textColor="@color/color_route_strategy_day" />
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:id="@+id/clUsingSpeedFirstStrategy5"
+            android:layout_width="@dimen/sv_dimen_176"
+            android:layout_height="@dimen/sv_dimen_120"
+            android:layout_marginStart="@dimen/sv_dimen_16"
+            app:layout_constraintLeft_toRightOf="@+id/clUsingRouteWidthStrategy6"
+            app:layout_constraintTop_toTopOf="@+id/clUsingRouteWidthStrategy6"
+            app:setStrategyBtn="@{viewModel.rsFreewayQuickSelected}"
+            app:setStrategyBtnNight="@{viewModel.themeChange}"
+            app:setStrategyEnabled="@{viewModel.isNetworkConnected}"
+            app:setStrategyType="@{2}"
+            tools:background="@drawable/selector_route_strategy_other_bg_day">
+
+            <com.autonavi.auto.skin.view.SkinView
+                android:id="@+id/svUsingSpeedFirstStrategy5"
+                android:layout_width="@dimen/sv_dimen_64"
+                android:layout_height="@dimen/sv_dimen_64"
+                android:layout_marginTop="@dimen/sv_dimen_12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:setStrategyIcon="@{viewModel.rsFreewayQuickSelected}"
+                app:setStrategyIconNight="@{viewModel.themeChange}"
+                app:setStrategyIconType="@{7}"
+                app:viewEnable="@{viewModel.isNetworkConnected}"
+                tools:background="@drawable/selector_route_speed_first_day" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/skinTextView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/sv_dimen_12"
+                android:text="@string/sv_route_navi_sing_speed_first"
+                android:textSize="@dimen/sv_dimen_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:setStrategyText="@{viewModel.rsFreewayQuickSelected}"
+                app:setStrategyTextNight="@{viewModel.themeChange}"
+                app:viewEnable="@{viewModel.isNetworkConnected}"
+                tools:textColor="@color/color_route_strategy_day" />
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/dropBySt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sv_dimen_48"
+            android:gravity="center"
+            android:text="@string/sv_route_navi_drop_by"
+            android:textColor="@color/onSecondaryDay"
+            android:textSize="@dimen/sv_dimen_30"
+            app:layout_constraintStart_toStartOf="@+id/clDefaultStrategy0"
+            app:layout_constraintTop_toBottomOf="@+id/clAvoidChargeStrategy2"
+            app:textColor4Night="@color/onSecondaryNight"
+            app:textColor4Skin="@color/onSecondaryDay" />
+
+        <com.autonavi.auto.skin.view.SkinImageView
+            android:id="@+id/gasStationIv"
+            android:layout_width="@dimen/sv_dimen_110"
+            android:layout_height="@dimen/sv_dimen_108"
+            android:layout_marginStart="@dimen/sv_dimen_28"
+            android:layout_marginTop="@dimen/sv_dimen_24"
+            android:contentDescription="加油站"
+            android:src="@drawable/selector_ic_search_category_gas_station_day"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dropBySt"
+            app:src4Night="@drawable/selector_ic_search_category_gas_station_night"
+            app:src4Skin="@drawable/selector_ic_search_category_gas_station_day" />
+
+        <com.autonavi.auto.skin.view.SkinImageView
+            android:id="@+id/toiletIv"
+            android:layout_width="@dimen/sv_dimen_110"
+            android:layout_height="@dimen/sv_dimen_108"
+            android:layout_marginStart="@dimen/sv_dimen_48"
+            android:contentDescription="卫生间"
+            android:src="@drawable/selector_ic_search_category_restroom_day"
+            app:layout_constraintStart_toEndOf="@+id/gasStationIv"
+            app:layout_constraintTop_toTopOf="@+id/gasStationIv"
+            app:src4Night="@drawable/selector_ic_search_category_restroom_night"
+            app:src4Skin="@drawable/selector_ic_search_category_restroom_day" />
+
+        <com.autonavi.auto.skin.view.SkinImageView
+            android:id="@+id/repairIv"
+            android:layout_width="@dimen/sv_dimen_110"
+            android:layout_height="@dimen/sv_dimen_108"
+            android:layout_marginStart="@dimen/sv_dimen_48"
+            android:contentDescription="维修站"
+            android:src="@drawable/selector_ic_search_category_repair_day"
+            app:layout_constraintStart_toEndOf="@+id/toiletIv"
+            app:layout_constraintTop_toTopOf="@+id/gasStationIv"
+            app:src4Night="@drawable/selector_ic_search_category_repair_night"
+            app:src4Skin="@drawable/selector_ic_search_category_repair_day" />
+
+        <com.autonavi.auto.skin.view.SkinImageView
+            android:id="@+id/restaurantIv"
+            android:layout_width="@dimen/sv_dimen_110"
+            android:layout_height="@dimen/sv_dimen_108"
+            android:layout_marginStart="@dimen/sv_dimen_48"
+            android:contentDescription="美食"
+            android:src="@drawable/selector_ic_search_category_restaurant_day"
+            app:layout_constraintStart_toEndOf="@+id/repairIv"
+            app:layout_constraintTop_toTopOf="@+id/gasStationIv"
+            app:src4Night="@drawable/selector_ic_search_category_restaurant_night"
+            app:src4Skin="@drawable/selector_ic_search_category_restaurant_day" />
+
+        <com.autonavi.auto.skin.view.SkinImageView
+            android:id="@+id/chargingPileIv"
+            android:layout_width="@dimen/sv_dimen_110"
+            android:layout_height="@dimen/sv_dimen_108"
+            android:layout_marginTop="@dimen/sv_dimen_32"
+            android:layout_marginStart="@dimen/sv_dimen_28"
+            android:contentDescription="充电站"
+            android:src="@drawable/selector_ic_search_category_charging_pile_day"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gasStationIv"
+            app:src4Night="@drawable/selector_ic_search_category_charging_pile_night"
+            app:src4Skin="@drawable/selector_ic_search_category_charging_pile_day"
+            tools:visibility="visible"/>
+
+        <com.autonavi.auto.skin.view.SkinImageView
+            android:id="@+id/serviceAreaIv"
+            android:layout_width="@dimen/sv_dimen_110"
+            android:layout_height="@dimen/sv_dimen_108"
+            android:layout_marginStart="@dimen/sv_dimen_48"
+            app:layout_goneMarginStart="@dimen/sv_dimen_32"
+            android:layout_marginTop="@dimen/sv_dimen_32"
+            android:contentDescription="服务区"
+            android:src="@drawable/selector_ic_search_category_service_area_day"
+            app:layout_constraintStart_toEndOf="@+id/chargingPileIv"
+            app:layout_constraintTop_toBottomOf="@+id/gasStationIv"
+            app:src4Night="@drawable/selector_ic_search_category_service_area_night"
+            app:src4Skin="@drawable/selector_ic_search_category_service_area_day" />
+
+        <com.autonavi.auto.skin.view.SkinImageView
+            android:id="@+id/weatherIv"
+            android:layout_width="@dimen/sv_dimen_110"
+            android:layout_height="@dimen/sv_dimen_108"
+            android:layout_marginStart="@dimen/sv_dimen_48"
+            android:layout_marginTop="@dimen/sv_dimen_32"
+            android:contentDescription="天气"
+            android:src="@drawable/selector_ic_search_category_weather_day"
+            app:layout_constraintStart_toEndOf="@+id/serviceAreaIv"
+            app:layout_constraintTop_toBottomOf="@+id/gasStationIv"
+            app:src4Night="@drawable/selector_ic_search_category_weather_night"
+            app:src4Skin="@drawable/selector_ic_search_category_weather_day"
+            app:visibleGone="@{viewModel.weatherVisibility}" />
+
+        <com.autonavi.auto.skin.view.SkinImageView
+            android:id="@+id/pathwayIv"
+            android:layout_width="@dimen/sv_dimen_110"
+            android:layout_height="@dimen/sv_dimen_108"
+            android:layout_marginStart="@dimen/sv_dimen_48"
+            android:layout_marginTop="@dimen/sv_dimen_32"
+            android:contentDescription="途经路"
+            android:src="@drawable/selector_ic_search_category_pathway_day"
+            app:layout_constraintStart_toEndOf="@+id/weatherIv"
+            app:layout_constraintTop_toBottomOf="@+id/gasStationIv"
+            app:src4Night="@drawable/selector_ic_search_category_pathway_night"
+            app:src4Skin="@drawable/selector_ic_search_category_pathway_day"
+            app:visibleGone="@{viewModel.pathwayVisibility}" />
+    </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+</layout>

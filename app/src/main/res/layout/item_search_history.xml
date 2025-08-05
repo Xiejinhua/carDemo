@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.desaysv.psmap.ui.search.bean.SearchHistoryBean" />
+
+        <variable
+            name="isNight"
+            type="Boolean" />
+
+        <import type="android.text.TextUtils" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <com.autonavi.auto.skin.view.SkinLinearLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:background="@drawable/shape_bg_primary_day">
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:id="@+id/cl_auto_search_more_child_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sv_dimen_180"
+            tools:visibility="visible">
+
+            <com.autonavi.auto.skin.view.SkinImageView
+                android:id="@+id/iv_history"
+                android:layout_width="@dimen/sv_dimen_64"
+                android:layout_height="@dimen/sv_dimen_64"
+                android:layout_marginStart="@dimen/sv_dimen_24"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_history_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_history_name"
+                app:setHistoryLeftImage="@{item.type}"
+                tools:src="@drawable/ic_search_history_search_night" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tv_history_name"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/sv_dimen_51"
+                android:layout_marginStart="@dimen/sv_dimen_16"
+                android:layout_marginEnd="@dimen/sv_dimen_24"
+                android:gravity="center|left"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="@{TextUtils.isEmpty(item.poi.name)?item.poi.addr:item.poi.name}"
+                android:textColor="@color/onPrimaryDay"
+                android:textSize="@dimen/sv_dimen_34"
+                app:layout_constraintBottom_toTopOf="@+id/tv_history_address"
+                app:layout_constraintEnd_toStartOf="@+id/iv_add"
+                app:layout_constraintStart_toEndOf="@+id/iv_history"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:textColor4Night="@color/onPrimaryNight"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:setSearchListTitleTextColor="@{isNight}"
+                tools:text="惠州市德赛西威" />
+
+            <com.autonavi.auto.skin.view.SkinImageView
+                android:id="@+id/tv_history_via"
+                android:layout_width="@dimen/sv_dimen_68"
+                android:layout_height="@dimen/sv_dimen_40"
+                android:layout_marginEnd="@dimen/sv_dimen_10"
+                android:background="@drawable/ic_search_history_via_day"
+                android:visibility="@{(item.type==4 || item.type==6)?View.GONE:(item.midPois !=null &amp;&amp; item.midPois.size() > 0)?TextUtils.isEmpty(item.poi.addr)?View.GONE:View.VISIBLE:View.GONE}"
+                app:background4Night="@drawable/ic_search_history_via_night"
+                app:background4Skin="@drawable/ic_search_history_via_day"
+                app:setSearchHistoryVia="@{isNight}"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_history_address"
+                app:layout_constraintEnd_toStartOf="@+id/tv_history_address"
+                app:layout_constraintStart_toStartOf="@+id/tv_history_name"
+                app:layout_constraintTop_toTopOf="@+id/tv_history_address"
+                tools:visibility="visible" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tv_history_address"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/sv_dimen_45"
+                android:layout_marginTop="@dimen/sv_dimen_8"
+                android:gravity="center|start"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="@{item.poi.addr}"
+                android:textColor="@color/onSecondaryDay"
+                android:textSize="@dimen/sv_dimen_30"
+                android:visibility="@{TextUtils.isEmpty(item.poi.addr)?View.GONE:View.VISIBLE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tv_history_name"
+                app:layout_goneMarginEnd="@dimen/sv_dimen_100"
+                app:layout_constraintStart_toEndOf="@+id/tv_history_via"
+                app:layout_constraintTop_toBottomOf="@+id/tv_history_name"
+                app:textColor4Night="@color/onSecondaryNight"
+                app:textColor4Skin="@color/onSecondaryDay"
+                app:setSearchListAddressTextColor="@{isNight}"
+                tools:text="广东省惠州市惠城区和畅五路103号"
+                tools:visibility="visible" />
+
+            <com.autonavi.auto.skin.view.SkinImageView
+                android:id="@+id/iv_add"
+                android:layout_width="@dimen/sv_dimen_64"
+                android:layout_height="@dimen/sv_dimen_64"
+                android:layout_marginEnd="@dimen/sv_dimen_40"
+                android:visibility="@{item.type!=6?View.GONE:View.VISIBLE}"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_history_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_history_name"
+                android:src="@drawable/ic_search_alongway_suggestion_right_day"
+                app:src4Night="@drawable/ic_search_alongway_suggestion_right_night"
+                app:src4Skin="@drawable/ic_search_alongway_suggestion_right_day"
+                tools:src="@drawable/ic_search_alongway_suggestion_right_day" />
+
+
+
+            <com.autonavi.auto.skin.view.SkinView
+                android:id="@+id/line"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/sv_dimen_1"
+                android:background="@color/lineDay"
+                app:background4Night="@color/lineNight"
+                app:background4Skin="@color/lineDay"
+                app:setSearchLine="@{isNight}"
+                android:layout_marginEnd="@dimen/sv_dimen_32"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/iv_history" />
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+
+        <LinearLayout
+            android:layout_width="@dimen/sv_dimen_280"
+            android:layout_height="@dimen/sv_dimen_180"
+            android:onClick="@{()->0}"
+            android:orientation="horizontal"
+            app:setSearchHistoryisFavorite="@{item.isFavorite}"
+            app:setSearchHistoryType="@{(item.type!=2&amp;&amp;!item.isHomeorCompany)}">
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tv_history_favorite"
+                android:layout_width="@dimen/sv_dimen_140"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_history_favorite_bg"
+                android:gravity="center"
+                android:text="@{item.isFavorite?@string/sv_search_favorited:@string/sv_search_favorite}"
+                android:textColor="@color/primaryDay"
+                android:textSize="@dimen/sv_dimen_34"
+                android:visibility="@{(item.type==2||item.isHomeorCompany)?View.GONE:View.VISIBLE}"
+                app:setSearchFavoriteWidth="@{item.favorite}"
+                tools:text="收藏" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tv_history_delete"
+                android:layout_width="@dimen/sv_dimen_140"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_history_delete_bg"
+                android:gravity="center"
+                android:text="删除"
+                android:textColor="@color/primaryDay"
+                android:textSize="@dimen/sv_dimen_34"/>
+        </LinearLayout>
+
+    </com.autonavi.auto.skin.view.SkinLinearLayout>
+
+
+</layout>

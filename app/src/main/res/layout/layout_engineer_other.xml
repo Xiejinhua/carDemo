@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.desaysv.psmap.ui.engineer.EngineerViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.autonavi.auto.skin.view.SkinButton
+            android:id="@+id/btn_reset_map"
+            android:layout_width="@dimen/sv_dimen_300"
+            android:layout_height="@dimen/sv_dimen_80"
+            android:layout_marginTop="@dimen/sv_dimen_16"
+            android:text="@string/sv_engineer_reset_map"
+            android:textSize="@dimen/sv_dimen_36"
+            android:textColor="@color/onPrimaryDay"
+            app:textColor4Night="@color/onPrimaryNight"
+            app:textColor4Skin="@color/onPrimaryDay"
+            android:background="@drawable/selector_bg_inverse_primary_day"
+            app:background4Skin="@drawable/selector_bg_inverse_primary_day"
+            app:background4Night="@drawable/selector_bg_inverse_primary_night"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_reset_map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sv_engineer_reset_map_tips"
+            android:textColor="#f00"
+            android:textSize="@dimen/sv_dimen_34"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_reset_map"
+            app:layout_constraintStart_toEndOf="@+id/btn_reset_map"
+            app:layout_constraintTop_toTopOf="@+id/btn_reset_map" />
+
+        <Switch
+            android:id="@+id/elecContinue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sv_dimen_20"
+            android:onClick="@{() -> viewModel.setElecContinue(!viewModel.elecContinue)}"
+            android:splitTrack="true"
+            android:switchMinWidth="@dimen/sv_dimen_88"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_reset_map"
+            app:switchSetChecked="@{viewModel.elecContinue}"
+            app:switchSetDrawable="@{true}"
+            tools:thumb="@drawable/switch_thumb_checked_night"
+            tools:track="@drawable/switch_track_checked_night" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sv_dimen_15"
+            android:text="@string/sv_engineer_continue_to_calculate_the_road"
+            android:textColor="#f00"
+            android:textSize="@dimen/sv_dimen_34"
+            app:layout_constraintBottom_toBottomOf="@+id/elecContinue"
+            app:layout_constraintStart_toEndOf="@+id/elecContinue"
+            app:layout_constraintTop_toTopOf="@+id/elecContinue" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

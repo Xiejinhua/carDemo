@@ -1,0 +1,71 @@
+plugins {
+    alias(libs.plugins.library)
+    alias(libs.plugins.kotlin)
+    alias(libs.plugins.kotlinkapt)
+    alias(libs.plugins.kotlinextensions)
+}
+
+android {
+    namespace 'com.desaysv.psmap.adapter'
+    compileSdk libs.versions.compileSdkVersion.get().toInteger()
+
+    defaultConfig {
+        minSdk 24
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    libraryVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "map_adapter_api-release.aar"
+        }
+    }
+
+    buildFeatures {
+        buildConfig true
+        aidl true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+        apiVersion = "1.6"
+        languageVersion = "1.6"
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.5.1'
+    }
+    kapt {
+        correctErrorTypes true
+    }
+}
+
+def commitId = "git rev-parse --short HEAD".execute().text.trim().toString() // 获取最新的commit id
+def releaseTime = new Date().format("yyMMdd", TimeZone.getTimeZone("UTC"))
+
+task createPsmapApiAar(type: Copy, dependsOn: ['assembleRelease']) {
+    delete 'build/libs/SvMapApi*.aar'
+    from('build/outputs/aar/')//文件来源
+    into('build/libs/')   //生成路径
+    include('map_adapter_api-release.aar')
+    rename('map_adapter_api-release.aar', 'SvMapApi' + "_" + commitId + "_" + releaseTime + ".aar")
+}
+
+dependencies {
+    // =====Jetpact implementation =====
+    api libs.bundles.kotlin
+    api libs.bundles.androidx
+    api libs.bundles.navigation
+    api libs.bundles.lifecycle
+    api("com.google.code.gson:gson:2.10.1")
+    api(project(":LocalRepo:ZYTMapSdk"))
+
+}

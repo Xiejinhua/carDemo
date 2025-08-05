@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:autoSkin="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <com.autonavi.auto.skin.view.SkinRelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true">
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:id="@+id/tmc_bar_bady"
+            android:layout_width="@dimen/sv_dimen_64"
+            android:layout_height="@dimen/sv_dimen_640"
+            android:layout_alignParentRight="true">
+
+            <!-- 光柱图小图标 -->
+            <com.autonavi.auto.skin.view.SkinConstraintLayout
+                android:id="@+id/tmc_bar_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sv_dimen_20"
+                autoSkin:layout_constraintEnd_toEndOf="parent"
+                autoSkin:layout_constraintStart_toStartOf="parent"
+                autoSkin:layout_constraintTop_toTopOf="parent">
+
+                <com.autonavi.auto.skin.view.SkinImageView
+                    android:id="@+id/skinImageView"
+                    android:layout_width="@dimen/sv_dimen_24"
+                    android:layout_height="@dimen/sv_dimen_588"
+                    android:background="@drawable/auto_tmcbar_bg_day"
+                    android:orientation="vertical"
+                    autoSkin:background4Night="@drawable/auto_tmcbar_bg_night"
+                    autoSkin:background4Skin="@drawable/auto_tmcbar_bg_day"
+                    autoSkin:layout_constraintBottom_toBottomOf="parent"
+                    autoSkin:layout_constraintEnd_toEndOf="parent"
+                    autoSkin:layout_constraintStart_toStartOf="parent"
+                    autoSkin:layout_constraintTop_toTopOf="parent" />
+
+                <com.desaysv.psmap.ui.navi.view.TmcBarView
+                    android:id="@+id/tmc_bar_view"
+                    android:layout_width="@dimen/sv_dimen_16"
+                    android:layout_height="@dimen/sv_dimen_580"
+                    autoSkin:layout_constraintBottom_toBottomOf="parent"
+                    autoSkin:layout_constraintEnd_toEndOf="parent"
+                    autoSkin:layout_constraintStart_toStartOf="parent"
+                    autoSkin:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:layout_width="@dimen/sv_dimen_16"
+                    android:layout_height="@dimen/sv_dimen_12"
+                    android:src="@drawable/ic_navi_tmc_end"
+                    app:layout_constraintEnd_toEndOf="@+id/tmc_bar_view"
+                    app:layout_constraintStart_toStartOf="@+id/tmc_bar_view"
+                    app:layout_constraintTop_toTopOf="@+id/tmc_bar_view" />
+            </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+            <com.autonavi.auto.skin.view.SkinImageView
+                android:id="@+id/navi_tmc_cursor"
+                android:layout_width="@dimen/sv_dimen_64"
+                android:layout_height="@dimen/sv_dimen_64"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/sv_navi_ic_tmc_car_day"
+                autoSkin:background4Night="@drawable/sv_navi_ic_tmc_car_night"
+                autoSkin:background4Skin="@drawable/sv_navi_ic_tmc_car_day"
+                autoSkin:layout_constraintEnd_toEndOf="@+id/tmc_bar_container"
+                autoSkin:layout_constraintStart_toStartOf="@+id/tmc_bar_container" />
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+    </com.autonavi.auto.skin.view.SkinRelativeLayout>
+</layout>

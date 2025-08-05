@@ -1,0 +1,36 @@
+<div style="display:flex;flex-direction:column;justify-content:center;align-items:center;width:auto;height:88px;background-image:global_image_carservice_route_search_along_des_bg_day_night;">
+  <div style="display:flex;flex-direction:column;justify-content:center;align-items:flex-start;margin-right:12px;margin-left:12px;width:auto;height:auto;">
+    <div style="display:flex;flex-direction:row;justify-content:flex-start;align-items:center;width:auto;height:auto;">
+      <label id="choose_aroute_text" style="font-size:24px;color:#01905a;font-family:font_cn;" lines="1">备选2·</label>
+      <label id="choose_brand_text" style="font-size:24px;color:#01905a;font-family:font_cn;max-width:300px;line-clamp:1;" lines="1">特来电沃尔玛超市…</label>
+    </div>
+    <div style="display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:6px;width:auto;">
+      <div id="charge_label_faster_div" style="display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;width:auto;height:28px;background-image:global_image_charge_search_along_faster_day_night;">
+        <div style="display:flex;flex-direction:row;justify-content:center;align-items:center;width:28px;height:28px;position:relative;top:0px;left:0px;"><label id="charging_type_faster_text" style="font-size:16px;color:#ffffff;font-family:font_cn;" lines="1">超</label></div>
+        <div style="display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;margin-left:2px;">
+          <label id="charge_idle_faster_text" style="font-size:18px;color:#ff5c2d;font-family:font_cn;" lines="1">空 10</label>
+          <label id="charge_full_faster_text" style="font-size:18px;color:#80ff5c2d;font-family:font_cn;" lines="1">/20</label>
+        </div>
+      </div>
+      <div id="charge_label_slow_div" style="display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;width:auto;height:28px;background-image:global_image_charge_search_along_slow_day_night;">
+        <div style="display:flex;flex-direction:row;justify-content:center;align-items:center;width:28px;height:28px;position:relative;top:0px;left:0px;"><label id="charging_type_slow_text" style="font-size:16px;color:#ffffff;font-family:font_cn;" lines="1">慢</label></div>
+        <div style="display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;margin-left:2px;">
+          <label id="charge_idle_slow_text" style="font-size:18px;color:#5a6270;font-family:font_cn;" lines="1">空 8</label>
+          <label id="charge_full_slow_text" style="font-size:18px;color:#805a6270;font-family:font_cn;" lines="1">/30</label>
+        </div>
+      </div>
+      <div id="charge_label_div" style="display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;width:auto;height:28px;background-image:global_image_charge_search_along_fast_day_night;">
+        <div style="display:flex;flex-direction:row;justify-content:center;align-items:center;width:28px;height:28px;position:relative;top:0px;left:0px;"><label id="charging_type_text" style="font-size:16px;color:#ffffff;font-family:font_cn;" lines="1">快</label></div>
+        <div style="display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;margin-left:2px;">
+          <label id="charge_idle_text" style="font-size:18px;color:#13b67f;font-family:font_cn;" lines="1">空 10</label>
+          <label id="charge_full_text" style="font-size:18px;color:#8013b67f;font-family:font_cn;" lines="1">/20</label>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:row;justify-content:center;align-items:center;">
+        <label id="distance_text" style="font-size:20px;color:#e6000000;font-family:font_cn;" lines="1">距起点242公里·</label>
+        <label id="time_text" style="font-size:20px;color:#e6000000;font-family:font_cn;" lines="1">充27分钟</label>
+      </div>
+    </div>
+  </div>
+</div>
+

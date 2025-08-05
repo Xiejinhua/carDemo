@@ -1,0 +1,1031 @@
+[{
+    "abstract" : {
+        "brief" : "行前拥堵气泡图层",
+        "name" : "route_congestion_bubble_layer_amap",
+        "biz_type" : 11020,
+        "update_card" : true
+    },
+    "data" : {
+        "brief" : "行前拥堵气泡",
+        "type" : "adaptor_point_amap",
+        "value" : {
+            "item_data" : {
+                "position" : {
+                    "lon" : "$src_data[%].segments[%].display.lon",
+                    "lat" : "$src_data[%].segments[%].display.lat"
+                }
+            },
+            "biz_data" : {
+                "pathId" : "$src_data[%].pathId",
+                "pic" : "",
+                "picPath" : "",
+                "jumpType" : "$src_data[%].segments[%].jumpType",
+                "showType" : "$src_data[%].segments[%].showType",
+                "trend" : {
+                    "text" : "$src_data[%].segments[%].trend.text",
+                    "sceneType" : "$src_data[%].segments[%].trend.sceneType"
+                },
+                "cost" : {
+                    "text" : "$src_data[%].segments[%].cost.text",
+                    "sceneType" : "$src_data[%].segments[%].cost.sceneType"
+                },
+                "deepInfo" : {
+                    "text" : "$src_data[%].segments[%].deepInfo.text",
+                    "sceneType" : "$src_data[%].segments[%].deepInfo.sceneType"
+                },
+                "degree" : {
+                    "text" : "$src_data[%].segments[%].degree.text",
+                    "sceneType" : "$src_data[%].segments[%].degree.sceneType"
+                }
+            }
+        },
+        "rule" : [
+            {
+                "brief" : "添加用户数据func动态规则",
+                "type" : "data_user_func",
+                "value": {
+                    "user_data" : "distText",
+                    "func" : {
+                        "name" : "SubString",
+                        "param" : [
+                            "$biz_data.cost.text",
+                            ",",
+                            0
+                        ]
+                    }
+                }
+            },
+            {
+                "brief" : "添加用户数据func动态规则",
+                "type" : "data_user_func",
+                "value": {
+                    "user_data" : "timeText",
+                    "func" : {
+                        "name" : "SubString",
+                        "param" : [
+                            "$biz_data.cost.text",
+                            ",",
+                            1
+                        ]
+                    }
+                }
+            },
+            {
+                "brief" : "添加用户数据If动态规则",
+                "type" : "data_user_if",
+                "value": {
+                    "user_data" : "mainTitle",
+                    "condition" : {
+                        "func" : {
+                            "name" : "StringLength",
+                            "param" : [
+                                "$biz_data.trend.text"
+                            ]
+                        },
+                        "operator" : "gt",
+                        "value" : 0
+                    },
+                    "case" : {
+                        "true" : "$biz_data.trend.text",
+                        "false" : {
+                            "more_if" : {
+                                "condition" : {
+                                    "func" : {
+                                        "name" : "StringLength",
+                                        "param" : [
+                                            "$biz_data.cost.text"
+                                        ]
+                                    },
+                                    "operator" : "gt",
+                                    "value" : 0
+                                },
+                                "case" : {
+                                    "true" : {
+                                        "more_if" : {
+                                            "condition" : {
+                                                "all" : [{
+                                                    "func" : {
+                                                        "name" : "StringLength",
+                                                        "param" : [
+                                                            "$user_data.timeText"
+                                                        ]
+                                                    },
+                                                    "operator" : "gt",
+                                                    "value" : 10
+                                                },
+                                                {
+                                                     "func" : {
+                                                         "name" : "StringLength",
+                                                         "param" : [
+                                                             "$biz_data.picPath"
+                                                         ]
+                                                     },
+                                                     "operator" : "equal",
+                                                     "value" : 0
+                                                }]
+                                            },
+                                            "case" : {
+                                                "true" : "$user_data.timeText",
+                                                "false" : "$user_data.distText"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "brief" : "添加用户数据If动态规则",
+                "type" : "data_user_if",
+                "value": {
+                    "user_data" : "timeText",
+                    "condition" : {
+                        "all" : [
+                            {
+                                "func" : {
+                                    "name" : "StringLength",
+                                    "param" : [
+                                        "$biz_data.cost.text"
+                                    ]
+                                },
+                                "operator" : "gt",
+                                "value" : 0
+                            },
+                            {
+                                "func" : {
+                                    "name" : "StringLength",
+                                    "param" : [
+                                        "$user_data.timeText"
+                                    ]
+                                },
+                                "operator" : "gt",
+                                "value" : 10
+                            },
+                            {
+                                "func" : {
+                                    "name" : "StringLength",
+                                    "param" : [
+                                        "$biz_data.picPath"
+                                    ]
+                                },
+                                "operator" : "equal",
+                                "value" : 0
+                            }
+                        ]
+                    },
+                    "case" : {
+                        "true" : ""
+                    }
+                }
+            },
+            {
+                "brief" : "添加用户数据If动态规则",
+                "type" : "data_user_if",
+                "value": {
+                    "user_data" : "timeText",
+                    "condition" : {
+                        "func" : {
+                            "name" : "StringLength",
+                            "param" : [
+                                "$biz_data.trend.text"
+                            ]
+                        },
+                        "operator" : "gt",
+                        "value" : 0
+                    },
+                    "case" : {
+                        "true" : ""
+                    }
+                }
+            },
+            {
+                "brief" : "添加用户数据If动态规则",
+                "type" : "data_user_if",
+                "value": {
+                    "user_data" : "sceneType",
+                    "condition" : {
+                        "func" : {
+                            "name" : "StringLength",
+                            "param" : [
+                                "$biz_data.trend.text"
+                            ]
+                        },
+                        "operator" : "gt",
+                        "value" : 0
+                    },
+                    "case" : {
+                        "true" : "$biz_data.trend.sceneType",
+                        "false" : {
+                            "more_if" : {
+                                "condition" : {
+                                    "func" : {
+                                        "name" : "StringLength",
+                                        "param" : [
+                                            "$biz_data.cost.text"
+                                        ]
+                                    },
+                                    "operator" : "gt",
+                                    "value" : 0
+                                },
+                                "case" : {
+                                    "true" : "$biz_data.cost.sceneType",
+                                    "false" : -1
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "brief" : "添加用户数据If动态规则",
+                "type" : "data_user_if",
+                "value": {
+                    "user_data" : "subTitle",
+                    "condition" : {
+                        "func" : {
+                            "name" : "StringLength",
+                            "param" : [
+                                "$biz_data.deepInfo.text"
+                            ]
+                        },
+                        "operator" : "gt",
+                        "value" : 0
+                    },
+                    "case" : {
+                        "true" : "$biz_data.deepInfo.text",
+                        "false" : {
+                            "more_if" : {
+                                "condition" : {
+                                    "func" : {
+                                        "name" : "StringLength",
+                                        "param" : [
+                                            "$biz_data.degree.text"
+                                        ]
+                                    },
+                                    "operator" : "gt",
+                                    "value" : 0
+                                },
+                                "case" : {
+                                    "true" : "$biz_data.degree.text",
+                                    "false" : {
+                                        "more_if" : {
+                                            "condition" : {
+                                                "all" : [
+                                                    {
+                                                        "func" : {
+                                                            "name" : "StringLength",
+                                                            "param" : [
+                                                                "$biz_data.picPath"
+                                                            ]
+                                                        },
+                                                        "operator" : "gt",
+                                                        "value" : 0
+                                                    },
+                                                    {
+                                                        "func" : {
+                                                            "name" : "StringLength",
+                                                            "param" : [
+                                                                "$user_data.timeText"
+                                                            ]
+                                                        },
+                                                        "operator" : "gt",
+                                                        "value" : 0
+                                                    }
+                                                ]
+                                            },
+                                            "case" : {
+                                                "true" : ""
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "brief" : "添加用户数据If动态规则",
+                "type" : "data_user_if",
+                "value": {
+                    "user_data" : "isJamWord",
+                    "condition" : {
+                        "any" : [
+                            {"all" : [
+                                {
+                                    "func" : {
+                                        "name" : "IsSelectedPathID",
+                                        "param" : [
+                                            "$sys_data.deviceId",
+                                            "$biz_data.pathId"
+                                        ]
+                                    },
+                                    "operator" : "equal",
+                                    "value" : false
+                                },
+                                {
+                                    "fact" : "$biz_data.showType",
+                                    "operator" : "unequal",
+                                    "value" : 1
+                                }
+                            ]},
+                            {"all" : [
+                                {
+                                    "func" : {
+                                        "name" : "IsSelectedPathID",
+                                        "param" : [
+                                            "$sys_data.deviceId",
+                                            "$biz_data.pathId"
+                                        ]
+                                    },
+                                    "operator" : "equal",
+                                    "value" : true
+                                },
+                                {
+                                    "fact" : "$biz_data.showType",
+                                    "operator" : "equal",
+                                    "value" : 2
+                                }
+                            ]}
+                        ]
+                    },
+                    "case" : {
+                        "true" : true,
+                        "false" : false
+                    }
+                }
+            },
+            {
+                "brief" : "添加用户数据switch动态规则",
+                "type" : "data_user_switch",
+                "value": {
+                    "user_data" : "sceneValue",
+                    "condition" : "$user_data.sceneType",
+                    "case" : {
+                        "1" : 0,
+                        "2" : 1,
+                        "3" : 1,
+                        "4" : 2,
+                        "default" : 3
+                    }
+                }
+            },
+            {
+                "brief" : "添加用户数据switch动态规则",
+                "type" : "data_user_switch",
+                "value": {
+                    "user_data" : "iconImage",
+                    "condition" : "$user_data.sceneValue",
+                    "case" : {
+                        "0" : "global_image_prediction_green_day_night",
+                        "1" : "global_image_prediction_red_day_night",
+                        "2" : "global_image_prediction_red2_day_night",
+                        "3" : ""
+                    }
+                }
+            },
+            {
+                "brief" : "添加用户数据switch动态规则",
+                "type" : "data_user_switch",
+                "value": {
+                    "user_data" : "colorStyle",
+                    "condition" : "$user_data.sceneValue",
+                    "case" : {
+                        "0" : "color:#ff00804e",
+                        "1" : "color:#ffed390d",
+                        "2" : "color:#ff930506",
+                        "3" : "color:#e6000000"
+                    }
+                }
+            },
+            {
+                "brief" : "多象限if动态规则",
+                "type" : "data_quadrant_if",
+                "value": {
+                    "condition" : {
+                        "fact" : "$user_data.isJamWord",
+                        "operator" : "equal",
+                        "value" : true
+                    },
+                    "case" : {
+                        "true" : 0,
+                        "false" : 20
+                    }
+                }
+            },
+            {
+                "brief" : "数据过滤动态规则",
+                "type" : "data_filter",
+                "value": {
+                    "condition" : {
+                        "any" : [
+                        {
+                            "all" : [
+                                {
+                                    "func" : {
+                                        "name" : "IsSelectedPathID",
+                                        "param" : [
+                                            "$sys_data.deviceId",
+                                            "$biz_data.pathId"
+                                        ]
+                                    },
+                                    "operator" : "equal",
+                                    "value" : true
+                                },
+                                {
+                                    "fact" : "$biz_data.showType",
+                                    "operator" : "equal",
+                                    "value" : 2
+                                }
+                            ]
+                        },
+                        {
+                            "all" : [
+                                {
+                                    "func" : {
+                                        "name" : "IsSelectedPathID",
+                                        "param" : [
+                                            "$sys_data.deviceId",
+                                            "$biz_data.pathId"
+                                        ]
+                                    },
+                                    "operator" : "equal",
+                                    "value" : false
+                                },
+                                {
+                                    "fact" : "$biz_data.showType",
+                                    "operator" : "equal",
+                                    "value" : 1
+                                }
+                            ]
+                        }]
+                    }
+                }
+            },
+            {
+                "brief" : "检查数据是否重复动态规则",
+                "type" : "data_duplicate",
+                "value": [
+                    "$item_data.position.lon",
+                    "$item_data.position.lat"
+                ]
+            },
+            {
+                "brief" : "图元额外优先级if动态规则",
+                "type" : "data_priority_if",
+                "value": {
+                    "condition" : {
+                        "func" : {
+                            "name" : "IsSelectedPathID",
+                            "param" : [
+                                "$sys_data.deviceId",
+                                "$biz_data.pathId"
+                            ]
+                        },
+                        "operator" : "equal",
+                        "value" : true
+                    },
+                    "case" : {
+                        "true" : 1000000
+                    }
+                }
+            },
+            {
+                "brief" : "图元额外优先级if动态规则",
+                "type" : "data_priority_if",
+                "value": {
+                    "condition" : {
+                        "fact" : "$user_data.isJamWord",
+                        "operator" : "equal",
+                        "value" : false
+                    },
+                    "case" : {
+                        "true" : 1000000
+                    }
+                }
+            }
+        ]
+    },
+    "biz" : [
+        {
+            "brief" : "设置显示比例尺范围",
+            "type" : "biz_set_display_scale",
+            "value" : {
+                "min_scale" : 9.0,
+                "max_scale" : 22.0
+            }
+        },
+        {
+            "brief" : "设置图元优先级是否升序",
+            "type" : "biz_item_priority_asc",
+            "value" : {
+                "asc" : true
+            }
+        },
+        {
+            "brief" : "清除所有图元",
+            "type" : "biz_clear_all_items"
+        },
+        {
+            "brief" : "是否可点击",
+            "type" : "biz_set_clickable",
+            "value" : false
+        },
+        {
+            "brief" : "路线切换回调",
+            "type" : "biz_path_changed"
+        },
+        {
+            "brief" : "是否是多象限图层",
+            "type" : "biz_is_quadrant_layer",
+            "value" : {
+                "type" : 20,
+                "preview_rect" : {
+                    "left" : 100,
+                    "right" : 900,
+                    "top" : 100,
+                    "bottom" : 700
+                },
+                "intersect_ratio" : 0.9,
+                "intersect_area" : 2.5
+            }
+        },
+        {
+            "brief" : "设置组合碰撞",
+            "type" : "biz_combination_collision",
+            "value" : {
+                "congestion_bubble_collision": {
+                    "area_collision" : [
+                        "route_congestion_bubble_layer"
+                    ],
+                    "collision_layer": [
+                        "route_congestion_bubble_layer",
+                        "guide_familiar_route_layer"
+                    ]
+                }
+            }
+        },
+        {
+            "brief" : "启用和路线碰撞，碰撞则增加压盖面积",
+            "type" : "biz_interset_path",
+            "value" : {
+                "intersect_area" : 2.5
+            }
+        }
+    ],
+    "style" : {
+        "marker_info" : {
+            "marker_info_route_jam_bubbles_left_up": {
+                "anchor":13,
+                "x_offset":16,
+                "y_offset":25,
+                "night_style": {
+                    "color":[{"sub_title":"#e6ffffff"}]
+                },
+                "day_style": {
+                    "color":[{"sub_title":"#e6000000"}]
+                }
+            },
+            "marker_info_route_jam_bubbles_left_down": {
+                "anchor":11,
+                "x_offset":16,
+                "y_offset":10,
+                "night_style": {
+                    "color":[{"sub_title":"#e6ffffff"}]
+                },
+                "day_style": {
+                    "color":[{"sub_title":"#e6000000"}]
+                }
+            },
+            "marker_info_route_jam_bubbles_right_up": {
+                "anchor":12,
+                "x_offset":16,
+                "y_offset":25,
+               "night_style": {
+                    "color":[{"sub_title":"#e6ffffff"}]
+                },
+                "day_style": {
+                    "color":[{"sub_title":"#e6000000"}]
+                }
+            },
+            "marker_info_route_jam_bubbles_right_down": {
+                "anchor":10,
+                "x_offset":16,
+                "y_offset":10,
+              "night_style": {
+                    "color":[{"sub_title":"#e6ffffff"}]
+                },
+                "day_style": {
+                    "color":[{"sub_title":"#e6000000"}]
+                }
+            }
+        },
+        "style_info" : {
+            "point_route_jam_bubbles_left_up": {
+                "point_layer_item_style": {
+                    "normal_style": {
+                        "poi_marker_id": "route_jam_bubbles_left_up.xml",
+                        "poi_marker_info":"marker_info_route_jam_bubbles_left_up"
+                    }
+                }
+            },
+            "point_route_jam_bubbles_left_down": {
+                "point_layer_item_style": {
+                    "normal_style": {
+                        "poi_marker_id": "route_jam_bubbles_left_down.xml",
+                        "poi_marker_info":"marker_info_route_jam_bubbles_left_down"
+                    }
+                }
+            },
+            "point_route_jam_bubbles_right_up": {
+                "point_layer_item_style": {
+                    "normal_style": {
+                        "poi_marker_id": "route_jam_bubbles_right_up.xml",
+                        "poi_marker_info":"marker_info_route_jam_bubbles_right_up"
+                    }
+                }
+            },
+            "point_route_jam_bubbles_right_down": {
+                "point_layer_item_style": {
+                    "normal_style": {
+                        "poi_marker_id": "route_jam_bubbles_right_down.xml",
+                        "poi_marker_info":"marker_info_route_jam_bubbles_right_down"
+                    }
+                }
+            },
+            "point_route_jam_bubbles_block": {
+                "point_layer_item_style": {
+                    "normal_style": {
+                        "poi_marker_id": "global_image_bubble_block_day_night"
+                    }
+                }
+            }
+        },
+        "card_info" : {
+            "route_jam_bubbles_left_up.xml" : "<div id='jam_bubbles' style='display:flex;width:auto;height:auto;flex-direction:row;align-items:center;background-image:global_image_bubble_left_top_day_night'> <div id='detail_style' style='display:flex;width:auto;height:auto;flex-direction:row;align-items:center'><label style='font-size:0px;align-items:left;margin-left:10px' text='' /><image id='pic_image' style='height:52px;width:52px;margin-right:4px;margin-top:10px;margin-bottom:10px' src=''/><image id='icon_image' style='display:flex;align-items:flex-start;align-self:flex-start;margin-right:2px;margin-top:8px' src='global_image_prediction_green_day_night' /><div id='text_line' style='display:flex;width:auto;height:auto;flex-direction:row;align-items:left'><label style='font-size:0px;align-items:left;margin-left:4px' text='' /><div style='display:flex;width:auto;height:auto;flex-direction:column;align-items:left'><label style='font-size:0px;align-items:left;margin-top:10px' text='' /><div id='text_time_dist' style='display:flex;width:auto;height:auto;flex-direction:row;align-items:left'><label id='main_title' style='color:#ffed390d;font-size:24px;max-height:27px;align-items:left' text='即将加剧' /><image id='line_image' style='margin-left:8px;margin-right:8px' src='global_image_vertical_line_day_night' /><label id='time_col' style='color:#ffed390d;font-size:24px;max-height:27px;align-items:left' text='7分钟' /></div><label id='sub_title_top' style='font-size:0px;align-items:left;margin-top:4px' text='' /><label id='sub_title' style='color:#e6000000;font-size:20px;max-height:23px;align-items:left' text='好几辆车追尾' /><label id='time_row' style='color:#ffed390d;font-size:24px;max-height:27px;align-items:left' text='42分钟' /><label style='font-size:0px;align-items:left;margin-bottom:10px' text='' /></div><label style='font-size:0px;align-items:left;margin-right:8px' text='' /></div><label style='font-size:0px;align-items:left;margin-right:6px' text='' /></div><div id='jam_style' style='display:flex;width:auto;height:auto;flex-direction:row;align-items:center'><image style='margin-left:8px;margin-right:8px;margin-top:8px;margin-bottom:8px' src='global_image_bubble_block_day_night' /></div></div>",
+            "route_jam_bubbles_left_down.xml" : "<div id='jam_bubbles' style='display:flex;width:auto;height:auto;flex-direction:row;align-items:center;background-image:global_image_bubble_left_bottom_day_night'> <div id='detail_style' style='display:flex;width:auto;height:auto;flex-direction:row;align-items:center'><label style='font-size:0px;align-items:left;margin-left:10px' text='' /><image id='pic_image' style='height:52px;width:52px;margin-right:4px;margin-top:10px;margin-bottom:10px' src=''/><image id='icon_image' style='display:flex;align-items:flex-start;align-self:flex-start;margin-right:2px;margin-top:8px' src='global_image_prediction_green_day_night' /><div id='text_line' style='display:flex;width:auto;height:auto;flex-direction:row;align-items:left'><label style='font-size:0px;align-items:left;margin-left:4px' text='' /><div style='display:flex;width:auto;height:auto;flex-direction:column;align-items:left'><label style='font-size:0px;align-items:left;margin-top:10px' text='' /><div id='text_time_dist' style='display:flex;width:auto;height:auto;flex-direction:row;align-items:left'><label id='main_title' style='color:#ffed390d;font-size:24px;max-height:27px;align-items:left' text='即将加剧' /><image id='line_image' style='margin-left:8px;margin-right:8px' src='global_image_vertical_line_day_night' /><label id='time_col' style='color:#ffed390d;font-size:24px;max-height:27px;align-items:left' text='7分钟' /></div><label id='sub_title_top' style='font-size:0px;align-items:left;margin-top:4px' text='' /><label id='sub_title' style='color:#e6000000;font-size:20px;max-height:23px;align-items:left' text='好几辆车追尾' /><label id='time_row' style='color:#ffed390d;font-size:24px;max-height:27px;align-items:left' text='42分钟' /><label style='font-size:0px;align-items:left;margin-bottom:10px' text='' /></div><label style='font-size:0px;align-items:left;margin-right:8px' text='' /></div><label style='font-size:0px;align-items:left;margin-right:6px' text='' /></div><div id='jam_style' style='display:flex;width:auto;height:auto;flex-direction:row;align-items:center'><image style='margin-left:8px;margin-right:8px;margin-top:8px;margin-bottom:8px' src='global_image_bubble_block_day_night' /></div></div>",
+            "route_jam_bubbles_right_up.xml" : "<div id='jam_bubbles' style='display:flex;width:auto;height:auto;flex-direction:row;align-items:center;background-image:global_image_bubble_right_top_day_night'> <div id='detail_style' style='display:flex;width:auto;height:auto;flex-direction:row;align-items:center'><label style='font-size:0px;align-items:left;margin-left:10px' text='' /><image id='pic_image' style='height:52px;width:52px;margin-right:4px;margin-top:10px;margin-bottom:10px' src=''/><image id='icon_image' style='display:flex;align-items:flex-start;align-self:flex-start;margin-right:2px;margin-top:8px' src='global_image_prediction_green_day_night' /><div id='text_line' style='display:flex;width:auto;height:auto;flex-direction:row;align-items:left'><label style='font-size:0px;align-items:left;margin-left:4px' text='' /><div style='display:flex;width:auto;height:auto;flex-direction:column;align-items:left'><label style='font-size:0px;align-items:left;margin-top:10px' text='' /><div id='text_time_dist' style='display:flex;width:auto;height:auto;flex-direction:row;align-items:left'><label id='main_title' style='color:#ffed390d;font-size:24px;max-height:27px;align-items:left' text='即将加剧' /><image id='line_image' style='margin-left:8px;margin-right:8px' src='global_image_vertical_line_day_night' /><label id='time_col' style='color:#ffed390d;font-size:24px;max-height:27px;align-items:left' text='7分钟' /></div><label id='sub_title_top' style='font-size:0px;align-items:left;margin-top:4px' text='' /><label id='sub_title' style='color:#e6000000;font-size:20px;max-height:23px;align-items:left' text='好几辆车追尾' /><label id='time_row' style='color:#ffed390d;font-size:24px;max-height:27px;align-items:left' text='42分钟' /><label style='font-size:0px;align-items:left;margin-bottom:10px' text='' /></div><label style='font-size:0px;align-items:left;margin-right:8px' text='' /></div><label style='font-size:0px;align-items:left;margin-right:6px' text='' /></div><div id='jam_style' style='display:flex;width:auto;height:auto;flex-direction:row;align-items:center'><image style='margin-left:8px;margin-right:8px;margin-top:8px;margin-bottom:8px' src='global_image_bubble_block_day_night' /></div></div>",
+            "route_jam_bubbles_right_down.xml" : "<div id='jam_bubbles' style='display:flex;width:auto;height:auto;flex-direction:row;align-items:center;background-image:global_image_bubble_right_bottom_day_night'> <div id='detail_style' style='display:flex;width:auto;height:auto;flex-direction:row;align-items:center'><label style='font-size:0px;align-items:left;margin-left:10px' text='' /><image id='pic_image' style='height:52px;width:52px;margin-right:4px;margin-top:10px;margin-bottom:10px' src=''/><image id='icon_image' style='display:flex;align-items:flex-start;align-self:flex-start;margin-right:2px;margin-top:8px' src='global_image_prediction_green_day_night' /><div id='text_line' style='display:flex;width:auto;height:auto;flex-direction:row;align-items:left'><label style='font-size:0px;align-items:left;margin-left:4px' text='' /><div style='display:flex;width:auto;height:auto;flex-direction:column;align-items:left'><label style='font-size:0px;align-items:left;margin-top:10px' text='' /><div id='text_time_dist' style='display:flex;width:auto;height:auto;flex-direction:row;align-items:left'><label id='main_title' style='color:#ffed390d;font-size:24px;max-height:27px;align-items:left' text='即将加剧' /><image id='line_image' style='margin-left:8px;margin-right:8px' src='global_image_vertical_line_day_night' /><label id='time_col' style='color:#ffed390d;font-size:24px;max-height:27px;align-items:left' text='7分钟' /></div><label id='sub_title_top' style='font-size:0px;align-items:left;margin-top:4px' text='' /><label id='sub_title' style='color:#e6000000;font-size:20px;max-height:23px;align-items:left' text='好几辆车追尾' /><label id='time_row' style='color:#ffed390d;font-size:24px;max-height:27px;align-items:left' text='42分钟' /><label style='font-size:0px;align-items:left;margin-bottom:10px' text='' /></div><label style='font-size:0px;align-items:left;margin-right:8px' text='' /></div><label style='font-size:0px;align-items:left;margin-right:6px' text='' /></div><div id='jam_style' style='display:flex;width:auto;height:auto;flex-direction:row;align-items:center'><image style='margin-left:8px;margin-right:8px;margin-top:8px;margin-bottom:8px' src='global_image_bubble_block_day_night' /></div></div>"
+        },
+        "style_name" : {
+            "prefix_name" : "point_route_jam_bubbles",
+            "rule" : [
+                {
+                    "brief" : "图层样式if动态规则",
+                    "type" : "style_if",
+                    "value" : {
+                        "condition" : {
+                            "fact" : "$user_data.isJamWord",
+                            "operator" : "equal",
+                            "value" : true
+                        },
+                        "case" : {
+                            "true" : "_block",
+                            "false" : ""
+                        }
+                    }
+                },
+                {
+                    "brief" : "图层样式switch动态规则",
+                    "type" : "style_switch",
+                    "value" : {
+                        "condition" : "$item_data.quadrantType",
+                        "case" : {
+                            "5" : "_right_up",
+                            "6" : "_left_up",
+                            "7" : "_left_down",
+                            "8" : "_right_down"
+                        }
+                    }
+                }
+            ]
+        },
+        "dynamic_marker" : {
+            "rule" : [
+                {
+                    "brief" : "规则1",
+                    "type" : "marker_if",
+                    "value" : {
+                        "condition" : {
+                            "fact" : "$user_data.isJamWord",
+                            "operator" : "equal",
+                            "value" : true
+                        },
+                        "case" : {
+                            "true" : [
+                                {
+                                    "id" : "jam_bubbles",
+                                    "display" : true
+                                },
+                                {
+                                    "id" : "jam_style",
+                                    "display" : true
+                                },
+                                {
+                                    "id" : "detail_style",
+                                    "display" : false
+                                }
+                            ],
+                            "false" : {
+                                "more_if" : [
+                                    {
+                                        "condition" : {
+                                            "any" : [
+                                                {
+                                                    "func" : {
+                                                        "name" : "StringLength",
+                                                        "param" : [
+                                                            "$biz_data.picPath"
+                                                        ]
+                                                    },
+                                                    "operator" : "gt",
+                                                    "value" : 0
+                                                },
+                                                {
+                                                    "func" : {
+                                                        "name" : "StringLength",
+                                                        "param" : [
+                                                            "$user_data.mainTitle"
+                                                        ]
+                                                    },
+                                                    "operator" : "gt",
+                                                    "value" : 0
+                                                }
+                                            ]
+                                        },
+                                        "case" : {
+                                            "true" : {
+                                                "id" : "jam_bubbles",
+                                                "display" : true
+                                            },
+                                            "false" : {
+                                                "id" : "jam_bubbles",
+                                                "display" : false
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "condition" : {
+                                            "func" : {
+                                                "name" : "StringLength",
+                                                "param" : [
+                                                    "$biz_data.picPath"
+                                                ]
+                                            },
+                                            "operator" : "gt",
+                                            "value" : 0
+                                        },
+                                        "case" : {
+                                            "true" : [
+                                                {
+                                                    "id" : "pic_image",
+                                                    "value" : [
+                                                        {
+                                                            "format" : "fullpath@%s",
+                                                            "value" : "$biz_data.picPath"
+                                                        }
+                                                    ],
+                                                    "display" : true
+                                                },
+                                                {
+                                                    "id" : "icon_image",
+                                                    "display" : false
+                                                }
+                                            ],
+                                            "false" : {
+                                                "more_if" : [
+                                                    {
+                                                        "condition" : {
+                                                            "all" : [
+                                                                {
+                                                                    "func" : {
+                                                                        "name" : "StringLength",
+                                                                        "param" : [
+                                                                            "$biz_data.trend.text"
+                                                                        ]
+                                                                    },
+                                                                    "operator" : "gt",
+                                                                    "value" : 0
+                                                                },
+                                                                {
+                                                                    "fact" : "$user_data.sceneValue",
+                                                                    "operator" : "lt",
+                                                                    "value" : 3
+                                                                }
+                                                            ]
+                                                        },
+                                                        "case" : {
+                                                            "true" : {
+                                                                "id" : "icon_image",
+                                                                "value" : "$user_data.iconImage",
+                                                                "display" : true
+                                                            },
+                                                            "false" : {
+                                                                "id" : "icon_image",
+                                                                "display" : false
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "value" : {
+                                                    "id" : "pic_image",
+                                                    "display" : false
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "condition" : {
+                                            "func" : {
+                                                "name" : "StringLength",
+                                                "param" : [
+                                                    "$user_data.mainTitle"
+                                                ]
+                                            },
+                                            "operator" : "gt",
+                                            "value" : 0
+                                        },
+                                        "case" : {
+                                            "true" : {
+                                                "more_if" : [
+                                                    {
+                                                        "condition" : {
+                                                            "func" : {
+                                                                "name" : "StringLength",
+                                                                "param" : [
+                                                                    "$user_data.timeText"
+                                                                ]
+                                                            },
+                                                            "operator" : "gt",
+                                                            "value" : 0
+                                                        },
+                                                        "case" : {
+                                                            "true" : {
+                                                                "more_if" : [
+                                                                    {
+                                                                        "condition" : {
+                                                                            "func" : {
+                                                                                "name" : "StringLength",
+                                                                                "param" : [
+                                                                                    "$biz_data.picPath"
+                                                                                ]
+                                                                            },
+                                                                            "operator" : "gt",
+                                                                            "value" : 0
+                                                                        },
+                                                                        "case" : {
+                                                                            "true" : [
+                                                                                {
+                                                                                    "id" : "line_image",
+                                                                                    "display" : false
+                                                                                },
+                                                                                {
+                                                                                    "id" : "time_col",
+                                                                                    "display" : false
+                                                                                },
+                                                                                {
+                                                                                    "id" : "time_row",
+                                                                                    "style" : "$user_data.colorStyle",
+                                                                                    "value" : "$user_data.timeText",
+                                                                                    "display" : true
+                                                                                }
+                                                                            ],
+                                                                            "false" : [
+                                                                                {
+                                                                                    "id" : "line_image",
+                                                                                    "display" : true
+                                                                                },
+                                                                                {
+                                                                                    "id" : "time_row",
+                                                                                    "display" : false
+                                                                                },
+                                                                                {
+                                                                                    "id" : "time_col",
+                                                                                    "style" : "$user_data.colorStyle",
+                                                                                    "value" : "$user_data.timeText",
+                                                                                    "display" : true
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "false" : [
+                                                                {
+                                                                    "id" : "line_image",
+                                                                    "display" : false
+                                                                },
+                                                                {
+                                                                    "id" : "time_col",
+                                                                    "display" : false
+                                                                },
+                                                                {
+                                                                    "id" : "time_row",
+                                                                    "display" : false
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "condition" : {
+                                                            "func" : {
+                                                                "name" : "StringLength",
+                                                                "param" : [
+                                                                    "$user_data.subTitle"
+                                                                ]
+                                                            },
+                                                            "operator" : "gt",
+                                                            "value" : 0
+                                                        },
+                                                        "case" : {
+                                                            "true" : {
+                                                                "more_if" : [
+                                                                    {
+                                                                        "condition" : {
+                                                                            "func" : {
+                                                                                "name" : "StringLength",
+                                                                                "param" : [
+                                                                                    "$biz_data.picPath"
+                                                                                ]
+                                                                            },
+                                                                            "operator" : "gt",
+                                                                            "value" : 0
+                                                                        },
+                                                                        "case" : {
+                                                                            "true" : {
+                                                                                "id" : "sub_title_top",
+                                                                                "display" : false
+                                                                            },
+                                                                            "false" : {
+                                                                                "id" : "sub_title_top",
+                                                                                "display" : true
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                ],
+                                                                "value" : [
+                                                                    {
+                                                                        "id" : "sub_title",
+                                                                        "display" : true,
+                                                                        "value" : "$user_data.subTitle"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "false" : [
+                                                                {
+                                                                    "id" : "sub_title",
+                                                                    "display" : false
+                                                                },
+                                                                {
+                                                                    "id" : "sub_title_top",
+                                                                    "display" : false
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ],
+                                                "value" : [
+                                                    {
+                                                        "id" : "main_title",
+                                                        "display" : true,
+                                                        "style" : "$user_data.colorStyle",
+                                                        "value" :  "$user_data.mainTitle"
+                                                    },
+                                                    {
+                                                        "id" : "text_line",
+                                                        "display" : true,
+                                                        "style" : "$user_data.colorStyle"
+                                                    }
+                                                ]
+                                            },
+                                            "false" : {
+                                                "id" : "text_line",
+                                                "display" : false
+                                            }
+                                        }
+                                    }
+                                ],
+                                "value" : [
+                                    {
+                                        "id" : "jam_bubbles",
+                                        "display" : true
+                                    },
+                                    {
+                                        "id" : "jam_style",
+                                        "display" : false
+                                    },
+                                    {
+                                        "id" : "detail_style",
+                                        "display" : true
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}]

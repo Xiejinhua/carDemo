@@ -1,0 +1,8 @@
+<div style="display:flex;flex-direction:column;justify-content:center;align-items:flex-start;width:auto;height:auto;background-image:global_image_arrival_charge_info_bg_night.9.png;align-self:flex-start;">
+  <div style="display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding-top:12px;padding-right:16px;padding-bottom:12px;padding-left:16px;align-self:center;">
+    <label id="text_charge" style="font-weight:400;font-size:20px;color:#e6ffffff;line-height:28px;align-self:flex-start;font-family:Auto-Font2.0;white-space:nowrap;" lines="1">预计剩余电量24%</label>
+    <div style="display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:4px;width:auto;height:28px;background-image:global_image_arrival_charge_info_label.9.png;align-self:flex-start;">
+      <label id="text_time" style="margin-right:8px;margin-left:8px;font-weight:500;font-size:16px;color:#e64e8fff;font-family:Auto-Font2.0;white-space:nowrap;" lines="1">预计11:20到</label>
+    </div>
+  </div>
+</div>

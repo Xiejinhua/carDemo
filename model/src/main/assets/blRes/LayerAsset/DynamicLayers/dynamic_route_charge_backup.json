@@ -1,0 +1,556 @@
+{
+  "data": {
+    "type": "adaptor_point",
+    "brief": "点数据信息",
+    "value": {},
+    "rule": [
+      {
+        "brief": "if过滤",
+        "type": "data_filter",
+        "value": {
+          "condition": {
+            "fact": "$item_data.quadrantType"
+          }
+        }
+      },
+      {
+        "type": "data_duplicate",
+        "brief": "数据去重",
+        "value": [
+          "$item_data.position.lon",
+          "$item_data.position.lat"
+        ]
+      }
+    ]
+  },
+  "biz": [
+    {
+      "brief": "清除所有图元",
+      "type": "biz_clear_all_items"
+    },
+    {
+      "brief": "是否可点击",
+      "type": "biz_set_clickable",
+      "value": true
+    },
+    {
+      "brief": "设置图层优先级",
+      "type": "biz_set_priority",
+      "value": {
+        "draw_priority": 140,
+        "sub_priority": 3300
+      }
+    },
+    {
+      "brief": "设置是否图层内碰撞",
+      "type": "biz_is_collision",
+      "value": true
+    },
+    {
+      "brief": "设置是否是多象限图层",
+      "type": "biz_is_quadrant_layer",
+      "value": {
+        "type": 1,
+        "preview_rect": {
+          "left": 0,
+          "right": 0,
+          "top": 0,
+          "bottom": 0
+        },
+        "intersect_ratio": 0.54,
+        "intersect_area": 0.54
+      }
+    }
+  ],
+  "style": {
+    "marker_info": {
+      "marker_info_along_route_choose_charge_left": {
+        "anchor": 9,
+        "x_ratio": 0.908,
+        "y_ratio": 0.808,
+        "night_style": {
+          "color":[{"distance_text":"#bfffffff"},{"time_text":"#bfffffff"}]
+        },
+        "day_style": {
+          "color":[{"distance_text":"#000000"},{"time_text":"#000000"}]
+        }
+      },
+      "marker_info_along_route_choose_charge_right": {
+        "anchor": 9,
+        "x_ratio": 0.087,
+        "y_ratio": 0.808,
+        "night_style": {
+          "color":[{"distance_text":"#bfffffff"},{"time_text":"#bfffffff"}]
+        },
+        "day_style": {
+          "color":[{"distance_text":"#000000"},{"time_text":"#000000"}]
+        }
+      },
+      "marker_info_along_route_choose_charge_left_focus": {
+        "anchor": 9,
+        "x_ratio": 0.871,
+        "y_ratio": 0.904,
+        "night_style": {
+          "color":[{"distance_text":"#bfffffff"},{"time_text":"#bfffffff"}]
+        },
+        "day_style": {
+          "color":[{"distance_text":"#000000"},{"time_text":"#000000"}]
+        }
+      },
+      "marker_info_along_route_choose_charge_right_focus": {
+        "anchor": 9,
+        "x_ratio": 0.124,
+        "y_ratio": 0.92,
+        "night_style": {
+          "color":[{"distance_text":"#bfffffff"},{"time_text":"#bfffffff"}]
+        },
+        "day_style": {
+          "color":[{"distance_text":"#000000"},{"time_text":"#000000"}]
+        }
+      }
+    },
+    "style_info": {
+      "point_along_route_choose_charge_left": {
+        "point_layer_item_style": {
+          "normal_style": {
+            "poi_marker_id": "along_route_choose_charge_left_normal.xml",
+            "poi_marker_info": "marker_info_along_route_choose_charge_left"
+          },
+          "focus_style": {
+            "poi_marker_id": "along_route_choose_charge_left_focus.xml",
+            "poi_marker_info": "marker_info_along_route_choose_charge_left_focus"
+          }
+        }
+      },
+      "point_along_route_choose_charge_right": {
+        "point_layer_item_style": {
+          "normal_style": {
+            "poi_marker_id": "along_route_choose_charge_right_normal.xml",
+            "poi_marker_info": "marker_info_along_route_choose_charge_right"
+          },
+          "focus_style": {
+            "poi_marker_id": "along_route_choose_charge_right_focus.xml",
+            "poi_marker_info": "marker_info_along_route_choose_charge_right_focus"
+          }
+        }
+      }
+    },
+    "style_name": {
+      "prefix_name": "",
+      "rule": [
+        {
+          "brief": "图层样式if动态规则",
+          "type": "style_switch",
+          "value": {
+            "condition": "$item_data.quadrantType",
+            "case": {
+              "1": "point_along_route_choose_charge_left",
+              "2": "point_along_route_choose_charge_right"
+            }
+          }
+        }
+      ]
+    },
+    "card_info": {
+      "along_route_choose_charge_left_normal.xml": "<div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:auto;height:auto;\">\n  <div style=\"display:flex;flex-direction:column;justify-content:center;align-items:center;margin-right:-12px;width:auto;height:88px;background-image:global_image_carservice_route_search_along_des_bg_day_night;\">\n    <div style=\"display:flex;flex-direction:column;justify-content:center;align-items:flex-start;margin-right:12px;margin-left:12px;width:auto;height:auto;\">\n      <div style=\"display:flex;flex-direction:row;justify-content:flex-start;align-items:center;width:auto;height:auto;\">\n        <label id=\"choose_aroute_text\" style=\"font-size:24px;color:#01905a;font-family:font_cn;\" lines=\"1\">备选2·</label>\n        <label id=\"choose_brand_text\" style=\"font-size:24px;color:#01905a;font-family:font_cn;max-width:300px;line-clamp:1;\" lines=\"1\">特来电沃尔玛超市…</label>\n      </div>\n      <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:6px;width:auto;\">\n        <div id=\"charge_label_faster_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;width:auto;height:28px;background-image:global_image_charge_search_along_faster_day_night;\">\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:28px;height:28px;position:relative;top:0px;left:0px;\"><label id=\"charging_type_faster_text\" style=\"font-size:16px;color:#ffffff;font-family:font_cn;\" lines=\"1\">超</label></div>\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;margin-left:2px;\">\n            <label id=\"charge_idle_faster_text\" style=\"font-size:18px;color:#ff5c2d;font-family:font_cn;\" lines=\"1\">空 10</label>\n            <label id=\"charge_full_faster_text\" style=\"font-size:18px;color:#80ff5c2d;font-family:font_cn;\" lines=\"1\">/20</label>\n          </div>\n        </div>\n        <div id=\"charge_label_slow_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;width:auto;height:28px;background-image:global_image_charge_search_along_slow_day_night;\">\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:28px;height:28px;position:relative;top:0px;left:0px;\"><label id=\"charging_type_slow_text\" style=\"font-size:16px;color:#ffffff;font-family:font_cn;\" lines=\"1\">慢</label></div>\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;margin-left:2px;\">\n            <label id=\"charge_idle_slow_text\" style=\"font-size:18px;color:#5a6270;font-family:font_cn;\" lines=\"1\">空 8</label>\n            <label id=\"charge_full_slow_text\" style=\"font-size:18px;color:#805a6270;font-family:font_cn;\" lines=\"1\">/30</label>\n          </div>\n        </div>\n        <div id=\"charge_label_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;width:auto;height:28px;background-image:global_image_charge_search_along_fast_day_night;\">\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:28px;height:28px;position:relative;top:0px;left:0px;\"><label id=\"charging_type_text\" style=\"font-size:16px;color:#ffffff;font-family:font_cn;\" lines=\"1\">快</label></div>\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;margin-left:2px;\">\n            <label id=\"charge_idle_text\" style=\"font-size:18px;color:#13b67f;font-family:font_cn;\" lines=\"1\">空 10</label>\n            <label id=\"charge_full_text\" style=\"font-size:18px;color:#8013b67f;font-family:font_cn;\" lines=\"1\">/20</label>\n          </div>\n        </div>\n        <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;\">\n          <label id=\"distance_text\" style=\"font-size:20px;color:#e6000000;font-family:font_cn;\" lines=\"1\">距起点242公里·</label>\n          <label id=\"time_text\" style=\"font-size:20px;color:#e6000000;font-family:font_cn;\" lines=\"1\">充27分钟</label>\n        </div>\n      </div>\n    </div>\n  </div>\n  <image id=\"type_icon\" style=\"width:auto;height:auto;\" src=\"global_image_carservice_poiicon_charge_normal_icon_day_night\" />\n</div>\n",
+      "along_route_choose_charge_left_focus.xml": "<div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:auto;height:auto;\">\n  <div id=\"click_bg_div\" style=\"display:flex;flex-direction:column;justify-content:center;align-items:center;margin-right:-12px;width:auto;height:88px;background-image:global_image_carservice_route_search_along_des_bg_day_night;\">\n    <div style=\"display:flex;flex-direction:column;justify-content:center;align-items:flex-start;margin-right:12px;margin-left:12px;width:auto;height:auto;\">\n      <div style=\"display:flex;flex-direction:row;justify-content:flex-start;align-items:center;width:auto;height:auto;\">\n        <label id=\"choose_aroute_text\" style=\"font-size:24px;color:#01905a;font-family:font_cn;\" lines=\"1\">备选2·</label>\n        <label id=\"choose_brand_text\" style=\"font-size:24px;color:#01905a;font-family:font_cn;max-width:300px;line-clamp:1;\" lines=\"1\">特来电沃尔玛超市…</label>\n      </div>\n      <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:6px;width:auto;\">\n        <div id=\"charge_label_faster_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;width:auto;height:28px;background-image:global_image_charge_search_along_faster_day_night;\">\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:28px;height:28px;position:relative;top:0px;left:0px;\"><label id=\"charging_type_faster_text\" style=\"font-size:16px;color:#ffffff;font-family:font_cn;\" lines=\"1\">超</label></div>\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;margin-left:2px;\">\n            <label id=\"charge_idle_faster_text\" style=\"font-size:18px;color:#ff5c2d;font-family:font_cn;\" lines=\"1\">空 10</label>\n            <label id=\"charge_full_faster_text\" style=\"font-size:18px;color:#80ff5c2d;font-family:font_cn;\" lines=\"1\">/20</label>\n          </div>\n        </div>\n        <div id=\"charge_label_slow_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;width:auto;height:28px;background-image:global_image_charge_search_along_slow_day_night;\">\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:28px;height:28px;position:relative;top:0px;left:0px;\"><label id=\"charging_type_slow_text\" style=\"font-size:16px;color:#ffffff;font-family:font_cn;\" lines=\"1\">慢</label></div>\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;margin-left:2px;\">\n            <label id=\"charge_idle_slow_text\" style=\"font-size:18px;color:#5a6270;font-family:font_cn;\" lines=\"1\">空 8</label>\n            <label id=\"charge_full_slow_text\" style=\"font-size:18px;color:#805a6270;font-family:font_cn;\" lines=\"1\">/30</label>\n          </div>\n        </div>\n        <div id=\"charge_label_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;width:auto;height:28px;background-image:global_image_charge_search_along_fast_day_night;\">\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:28px;height:28px;position:relative;top:0px;left:0px;\"><label id=\"charging_type_text\" style=\"font-size:16px;color:#ffffff;font-family:font_cn;\" lines=\"1\">快</label></div>\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;margin-left:2px;\">\n            <label id=\"charge_idle_text\" style=\"font-size:18px;color:#13b67f;font-family:font_cn;\" lines=\"1\">空 10</label>\n            <label id=\"charge_full_text\" style=\"font-size:18px;color:#8013b67f;font-family:font_cn;\" lines=\"1\">/20</label>\n          </div>\n        </div>\n        <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;\">\n          <label id=\"distance_text\" style=\"font-size:20px;color:#e6000000;font-family:font_cn;\" lines=\"1\">距起点242公里·</label>\n          <label id=\"time_text\" style=\"font-size:20px;color:#e6000000;font-family:font_cn;\" lines=\"1\">充27分钟</label>\n        </div>\n      </div>\n    </div>\n  </div>\n  <image id=\"click_type_icon\" style=\"width:auto;height:auto;\" src=\"global_image_carservice_poiicon_charge_selected_icon_day_night\" />\n</div>",
+      "along_route_choose_charge_right_normal.xml": "<div style=\"display:flex;flex-direction:row-reverse;justify-content:center;align-items:center;width:auto;height:auto;\">\n  <div style=\"display:flex;flex-direction:column;justify-content:center;align-items:center;margin-left:-12px;width:auto;height:88px;background-image:global_image_carservice_route_search_along_des_bg_day_night;\">\n    <div style=\"display:flex;flex-direction:column;justify-content:center;align-items:flex-start;margin-right:12px;margin-left:12px;width:auto;height:auto;\">\n      <div style=\"display:flex;flex-direction:row;justify-content:flex-start;align-items:center;width:auto;height:auto;\">\n        <label id=\"choose_aroute_text\" style=\"font-size:24px;color:#01905a;font-family:font_cn;\" lines=\"1\">备选2·</label>\n        <label id=\"choose_brand_text\" style=\"font-size:24px;color:#01905a;font-family:font_cn;max-width:300px;line-clamp:1;\" lines=\"1\">特来电沃尔玛超市…</label>\n      </div>\n      <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:6px;width:auto;\">\n        <div id=\"charge_label_faster_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;width:auto;height:28px;background-image:global_image_charge_search_along_faster_day_night;\">\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:28px;height:28px;position:relative;top:0px;left:0px;\"><label id=\"charging_type_faster_text\" style=\"font-size:16px;color:#ffffff;font-family:font_cn;\" lines=\"1\">超</label></div>\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;margin-left:2px;\">\n            <label id=\"charge_idle_faster_text\" style=\"font-size:18px;color:#ff5c2d;font-family:font_cn;\" lines=\"1\">空 10</label>\n            <label id=\"charge_full_faster_text\" style=\"font-size:18px;color:#80ff5c2d;font-family:font_cn;\" lines=\"1\">/20</label>\n          </div>\n        </div>\n        <div id=\"charge_label_slow_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;width:auto;height:28px;background-image:global_image_charge_search_along_slow_day_night;\">\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:28px;height:28px;position:relative;top:0px;left:0px;\"><label id=\"charging_type_slow_text\" style=\"font-size:16px;color:#ffffff;font-family:font_cn;\" lines=\"1\">慢</label></div>\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;margin-left:2px;\">\n            <label id=\"charge_idle_slow_text\" style=\"font-size:18px;color:#5a6270;font-family:font_cn;\" lines=\"1\">空 8</label>\n            <label id=\"charge_full_slow_text\" style=\"font-size:18px;color:#805a6270;font-family:font_cn;\" lines=\"1\">/30</label>\n          </div>\n        </div>\n        <div id=\"charge_label_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;width:auto;height:28px;background-image:global_image_charge_search_along_fast_day_night;\">\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:28px;height:28px;position:relative;top:0px;left:0px;\"><label id=\"charging_type_text\" style=\"font-size:16px;color:#ffffff;font-family:font_cn;\" lines=\"1\">快</label></div>\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;margin-left:2px;\">\n            <label id=\"charge_idle_text\" style=\"font-size:18px;color:#13b67f;font-family:font_cn;\" lines=\"1\">空 10</label>\n            <label id=\"charge_full_text\" style=\"font-size:18px;color:#8013b67f;font-family:font_cn;\" lines=\"1\">/20</label>\n          </div>\n        </div>\n        <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;\">\n          <label id=\"distance_text\" style=\"font-size:20px;color:#e6000000;font-family:font_cn;\" lines=\"1\">距起点242公里·</label>\n          <label id=\"time_text\" style=\"font-size:20px;color:#e6000000;font-family:font_cn;\" lines=\"1\">充27分钟</label>\n        </div>\n      </div>\n    </div>\n  </div>\n  <image id=\"type_icon\" style=\"width:auto;height:auto;\" src=\"global_image_carservice_poiicon_charge_normal_icon_day_night\" />\n</div>",
+      "along_route_choose_charge_right_focus.xml": "<div style=\"display:flex;flex-direction:row-reverse;justify-content:center;align-items:center;width:auto;height:auto;\">\n  <div id=\"click_bg_div\" style=\"display:flex;flex-direction:column;justify-content:center;align-items:center;margin-left:-12px;width:auto;height:88px;background-image:global_image_carservice_route_search_along_des_bg_day_night;\">\n    <div style=\"display:flex;flex-direction:column;justify-content:center;align-items:flex-start;margin-right:12px;margin-left:12px;width:auto;height:auto;\">\n      <div style=\"display:flex;flex-direction:row;justify-content:flex-start;align-items:center;width:auto;height:auto;\">\n        <label id=\"choose_aroute_text\" style=\"font-size:24px;color:#01905a;font-family:font_cn;\" lines=\"1\">备选2·</label>\n        <label id=\"choose_brand_text\" style=\"font-size:24px;color:#01905a;font-family:font_cn;max-width:300px;line-clamp:1;\" lines=\"1\">特来电沃尔玛超市…</label>\n      </div>\n      <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:6px;width:auto;\">\n        <div id=\"charge_label_faster_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;width:auto;height:28px;background-image:global_image_charge_search_along_faster_day_night;\">\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:28px;height:28px;position:relative;top:0px;left:0px;\"><label id=\"charging_type_faster_text\" style=\"font-size:16px;color:#ffffff;font-family:font_cn;\" lines=\"1\">超</label></div>\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;margin-left:2px;\">\n            <label id=\"charge_idle_faster_text\" style=\"font-size:18px;color:#ff5c2d;font-family:font_cn;\" lines=\"1\">空 10</label>\n            <label id=\"charge_full_faster_text\" style=\"font-size:18px;color:#80ff5c2d;font-family:font_cn;\" lines=\"1\">/20</label>\n          </div>\n        </div>\n        <div id=\"charge_label_slow_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;width:auto;height:28px;background-image:global_image_charge_search_along_slow_day_night;\">\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:28px;height:28px;position:relative;top:0px;left:0px;\"><label id=\"charging_type_slow_text\" style=\"font-size:16px;color:#ffffff;font-family:font_cn;\" lines=\"1\">慢</label></div>\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;margin-left:2px;\">\n            <label id=\"charge_idle_slow_text\" style=\"font-size:18px;color:#5a6270;font-family:font_cn;\" lines=\"1\">空 8</label>\n            <label id=\"charge_full_slow_text\" style=\"font-size:18px;color:#805a6270;font-family:font_cn;\" lines=\"1\">/30</label>\n          </div>\n        </div>\n        <div id=\"charge_label_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;width:auto;height:28px;background-image:global_image_charge_search_along_fast_day_night;\">\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:28px;height:28px;position:relative;top:0px;left:0px;\"><label id=\"charging_type_text\" style=\"font-size:16px;color:#ffffff;font-family:font_cn;\" lines=\"1\">快</label></div>\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;margin-left:2px;\">\n            <label id=\"charge_idle_text\" style=\"font-size:18px;color:#13b67f;font-family:font_cn;\" lines=\"1\">空 10</label>\n            <label id=\"charge_full_text\" style=\"font-size:18px;color:#8013b67f;font-family:font_cn;\" lines=\"1\">/20</label>\n          </div>\n        </div>\n        <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;\">\n          <label id=\"distance_text\" style=\"font-size:20px;color:#e6000000;font-family:font_cn;\" lines=\"1\">距起点242公里·</label>\n          <label id=\"time_text\" style=\"font-size:20px;color:#e6000000;font-family:font_cn;\" lines=\"1\">充27分钟</label>\n        </div>\n      </div>\n    </div>\n  </div>\n  <image id=\"click_type_icon\" style=\"width:auto;height:auto;\" src=\"global_image_carservice_poiicon_charge_selected_icon_day_night\" />\n</div>\n"
+    },
+    "dynamic_marker": {
+      "rule": [
+        {
+          "brief": "序列设置",
+          "type": "marker_if",
+          "value": {
+            "condition": {
+              "func": {
+                "name": "StringLength",
+                "param": {
+                  "value": "$biz_data.choose_aroute_text"
+                }
+              },
+              "operator": "gt",
+              "value": 0
+            },
+            "case": {
+              "true": {
+                "id": "choose_aroute_text",
+                "nodeName": "label",
+                "display": true,
+                "value": "$biz_data.choose_aroute_text",
+                "defaultStyle": "font-size:24px;color:#01905a;font-family:font_cn;"
+              },
+              "false": [
+                {
+                  "id": "choose_aroute_text",
+                  "nodeName": "label",
+                  "display": true,
+                  "value": "BlRes::string::test",
+                  "defaultStyle": "font-size:24px;color:#01905a;font-family:font_cn;"
+                },
+                {
+                  "if": {
+                    "condition": {
+                      "fact": "$item_data.quadrantType",
+                      "operator": "equal",
+                      "value": "1"
+                    },
+                    "case": {
+                      "true": {
+                        "id": "choose_brand_text",
+                        "nodeName": "label",
+                        "display": true,
+                        "value": "BlRes::string::test2",
+                        "defaultStyle": "font-size:24px;color:#01905a;font-family:font_cn;line-clamp:1;max-width:220px;"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "brief": "地址设置",
+          "type": "marker_if",
+          "value": {
+            "condition": {
+              "func": {
+                "name": "StringLength",
+                "param": {
+                  "value": "$biz_data.choose_brand_text"
+                }
+              },
+              "operator": "gt",
+              "value": 0
+            },
+            "case": {
+              "true": {
+                "id": "choose_brand_text",
+                "nodeName": "label",
+                "display": true,
+                "value": "$biz_data.choose_brand_text",
+                "defaultStyle": "font-size:24px;color:#01905a;font-family:font_cn;line-clamp:1;max-width:220px;"
+              }
+            }
+          }
+        },
+        {
+          "brief": "距离",
+          "type": "marker_if",
+          "value": {
+            "condition": {
+              "func": {
+                "name": "StringLength",
+                "param": {
+                  "value": "$biz_data.distance_text"
+                }
+              },
+              "operator": "gt",
+              "value": 0
+            },
+            "case": {
+              "true": {
+                "id": "distance_text",
+                "nodeName": "label",
+                "display": true,
+                "value": "$biz_data.distance_text",
+                "defaultStyle": "font-size:20px;color:#e6000000;font-family:font_cn;"
+              },
+              "false": {
+                "id": "distance_text",
+                "nodeName": "label",
+                "display": false,
+                "defaultStyle": "font-size:20px;color:#e6000000;font-family:font_cn;"
+              }
+            }
+          }
+        },
+        {
+          "brief": "充电时间",
+          "type": "marker_if",
+          "value": {
+            "condition": {
+              "func": {
+                "name": "StringLength",
+                "param": {
+                  "value": "$biz_data.time_text"
+                }
+              },
+              "operator": "gt",
+              "value": 0
+            },
+            "case": {
+              "true": {
+                "id": "time_text",
+                "nodeName": "label",
+                "display": true,
+                "value": "$biz_data.time_text",
+                "defaultStyle": "font-size:20px;color:#e6000000;font-family:font_cn;"
+              },
+              "false": {
+                "id": "time_text",
+                "nodeName": "label",
+                "display": false,
+                "defaultStyle": "font-size:20px;color:#e6000000;font-family:font_cn;"
+              }
+            }
+          }
+        },
+        {
+          "brief": "快充",
+          "type": "marker_if",
+          "value": {
+            "condition": {
+              "all": [
+                {
+                  "func": {
+                    "name": "StringLength",
+                    "param": {
+                      "value": "$biz_data.fast_total"
+                    }
+                  },
+                  "operator": "gt",
+                  "value": 0
+                },
+                {
+                  "func": {
+                    "name": "StringLength",
+                    "param": {
+                      "value": "$biz_data.fast_free"
+                    }
+                  },
+                  "operator": "gt",
+                  "value": 0
+                }
+              ]
+            },
+            "case": {
+              "true": [
+                {
+                  "id": "charge_full_text",
+                  "nodeName": "label",
+                  "display": true,
+                  "value": "$biz_data.fast_total",
+                  "defaultStyle": "margin-top:2px;font-size:18px;color:#8013b67f;font-family:font_cn;"
+                },
+                {
+                  "id": "charge_idle_text",
+                  "nodeName": "label",
+                  "display": true,
+                  "value": "$biz_data.fast_free",
+                  "defaultStyle": "margin-top:2px;font-size:18px;color:#13b67f;font-family:font_cn;"
+                }
+              ],
+              "false": {
+                "if": {
+                  "condition": {
+                    "func": {
+                      "name": "StringLength",
+                      "param": {
+                        "value": "$biz_data.fast_free"
+                      }
+                    },
+                    "operator": "gt",
+                    "value": 0
+                  },
+                  "case": {
+                    "true": [
+                      {
+                        "id": "charge_idle_text",
+                        "nodeName": "label",
+                        "display": true,
+                        "value": "$biz_data.fast_free",
+                        "defaultStyle": "margin-top:2px;font-size:18px;color:#13b67f;font-family:font_cn;"
+                      },
+                      {
+                        "id": "charge_full_text",
+                        "nodeName": "label",
+                        "display": false,
+                        "defaultStyle": "margin-top:2px;font-size:18px;color:#8013b67f;font-family:font_cn;"
+                      }
+                    ],
+                    "false": {
+                      "if": {
+                        "condition": {
+                          "func": {
+                            "name": "StringLength",
+                            "param": {
+                              "value": "$biz_data.fast_total"
+                            }
+                          },
+                          "operator": "gt",
+                          "value": 0
+                        },
+                        "case": {
+                          "true": [
+                            {
+                              "id": "charge_idle_text",
+                              "nodeName": "label",
+                              "display": true,
+                              "value": "$biz_data.fast_total",
+                              "defaultStyle": "margin-top:2px;font-size:18px;color:#13b67f;font-family:font_cn;"
+                            },
+                            {
+                              "id": "charge_full_text",
+                              "nodeName": "label",
+                              "display": false,
+                              "value": "$biz_data.fast_total",
+                              "defaultStyle": "margin-top:2px;font-size:18px;color:#8013b67f;font-family:font_cn;"
+                            }
+                          ],
+                          "false": {
+                            "id": "charge_label_div",
+                            "nodeName": "div",
+                            "display": false,
+                            "defaultStyle": "display:flex;flex-direction:row;justify-content:center;align-items:center;width:auto;height:28px;background-image:global_image_charge_search_along_fast_day_night;"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "brief": "超充",
+          "type": "marker_if",
+          "value": {
+            "condition": {
+              "func": {
+                "name": "StringLength",
+                "param": {
+                  "value": "$biz_data.super_total"
+                }
+              },
+              "operator": "gt",
+              "value": 0
+            },
+            "case": {
+              "true": {
+                "id": "charge_label_faster_div",
+                "nodeName": "div",
+                "display": true,
+                "defaultStyle": "display:flex;flex-direction:row;justify-content:center;align-items:center;width:auto;height:28px;background-image:global_image_charge_search_along_faster_day_night;"
+              },
+              "false": {
+                "id": "charge_label_faster_div",
+                "nodeName": "div",
+                "display": false,
+                "defaultStyle": "display:flex;flex-direction:row;justify-content:center;align-items:center;width:auto;height:28px;background-image:global_image_charge_search_along_faster_day_night;"
+              }
+            }
+          }
+        },
+        {
+          "brief": "左飘焦点",
+          "type": "marker_if",
+          "value": {
+            "marker_id": "along_route_choose_charge_left_focus.xml",
+            "condition": {
+              "func": {
+                "name": "StringLength",
+                "param": {
+                  "value": "$biz_data.choose_aroute_text"
+                }
+              },
+              "operator": "gt",
+              "value": 0
+            },
+            "case": {
+              "true": {
+                "id": "type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_charge_selected_icon_day_night",
+                "defaultStyle": "width:auto;height:auto;"
+              }
+            }
+          }
+        },
+        {
+          "brief": "右飘焦点",
+          "type": "marker_if",
+          "value": {
+            "marker_id": "along_route_choose_charge_right_focus.xml",
+            "condition": {
+              "func": {
+                "name": "StringLength",
+                "param": {
+                  "value": "$biz_data.choose_aroute_text"
+                }
+              },
+              "operator": "gt",
+              "value": 0
+            },
+            "case": {
+              "true": {
+                "id": "type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_charge_selected_icon_day_night",
+                "defaultStyle": "width:auto;height:auto;"
+              }
+            }
+          }
+        },
+        {
+          "brief": "慢充",
+          "type": "marker_if",
+          "value": {
+            "condition": {
+              "func": {
+                "name": "StringLength",
+                "param": {
+                  "value": "$biz_data.slow_total"
+                }
+              },
+              "operator": "gt",
+              "value": 0
+            },
+            "case": {
+              "true": {
+                "id": "charge_label_slow_div",
+                "nodeName": "div",
+                "display": true,
+                "defaultStyle": "display:flex;flex-direction:row;justify-content:center;align-items:center;width:auto;height:28px;background-image:global_image_charge_search_along_slow_day_night;"
+              },
+              "false": {
+                "id": "charge_label_slow_div",
+                "nodeName": "div",
+                "display": false,
+                "defaultStyle": "display:flex;flex-direction:row;justify-content:center;align-items:center;width:auto;height:28px;background-image:global_image_charge_search_along_slow_day_night;"
+              }
+            }
+          }
+        },
+        {
+          "brief": "测试",
+          "type": "marker_if",
+          "value": {
+            "marker_id": "along_route_choose_charge_right_normal.xml",
+            "case": {
+              "true": {
+                "id": "time_text",
+                "nodeName": "label",
+                "display": true,
+                "defaultStyle": "font-size:20px;color:#e6000000;font-family:font_cn;",
+                "lines": "1"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "abstract": {
+    "brief": "接续算路备选充电站",
+    "name": "dynamic_route_charge_backup",
+    "biz_type": 11006,
+    "update_card": false
+  },
+  "dataSource": "[{\"item_data\":{\"quadrantType\":1,\"position\":{\"lon\":116.356343,\"lat\":39.942365}},\"biz_data\":{\"choose_aroute_text\":\"备选\",\"choose_brand_text\":\"服务区充电\",\"distance_text\":\"距离\",\"time_text\":\"时间\",\"super_free\":\"1\",\"super_total\":\"\",\"fast_free\":\"\",\"fast_total\":\"18\",\"slow_free\":\"8\",\"slow_total\":\"\"}}]"
+}

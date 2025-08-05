@@ -1,0 +1,136 @@
+{
+	"maneuver_render_style_0":
+	{
+		"corner_bessel": 1.0,
+		"margin": 0.0,
+		"thick_width": 21.0,
+		"arrow_height": 1.0,
+		"arrow_width": 1.0,
+		"arrow_indent": 0.0,
+		"arrow_thick_width": 25.0,
+		"arrow_corner_bessel": 16.0,
+		"arrow_tip_shift": 8.0,
+		"road_paint":
+		{
+			"note": "背景道路的风格效果，支持多层叠加",
+			"style":
+			[
+				{
+					"width_coefficient": 1.0,
+					"paint":
+					{
+						"STYLE_FILL":
+						{
+							"fillcolor": "0x40FFFFFF"
+						}
+					}
+				}
+			]
+		},
+		"arrow_paint":
+		{
+			"note": "背景道路箭头的风格效果，支持多层叠加",
+			"style":
+			[
+				{
+					"width_coefficient": 1.0,
+					"paint":
+					{
+						"STYLE_FILL":
+						{
+							"fillcolor": "0xFFFFFFFF"
+						}
+					}
+				}
+
+			]
+		},
+		"roundabout_road_paint":
+		{
+			"note": "环岛道路的风格效果，支持多层叠加",
+			"roundabout_corner_bessel": 0.85,
+			"style":
+			[
+				{
+					"width_coefficient": 1.0,
+					"paint":
+					{
+						"STYLE_FILL":
+						{
+							"fillcolor": "0x40FFFFFF"
+						}
+					}
+				}
+			]
+		},
+		"roundabout_circle_paint":
+		{
+			"note": "环岛圆圈的风格效果，支持多层叠加",
+			"style":
+			[
+				{
+					"width_coefficient": 1.0,
+					"paint":
+					{
+						"STYLE_FILL":
+						{
+							"fillcolor": "0x40FFFFFF"
+						}
+					}
+				}
+			]
+		},
+		"roundabout_arrow_paint":
+		{
+			"note": "环岛道路箭头的风格效果，支持多层叠加",
+			"style":
+			[
+				{
+					"width_coefficient": 1.0,
+					"paint":
+					{
+						"STYLE_FILL":
+						{
+							"fillcolor": "0xFFFFFFFF"
+						}
+					}
+				}
+			]
+		},
+		"uturn_road_paint":
+		{
+			"arrow_indent": 0.1,
+			"note": "调头背景道路的风格效果，支持多层叠加",
+			"style":
+			[
+				{
+					"width_coefficient": 1.0,
+					"paint":
+					{
+						"STYLE_FILL":
+						{
+							"fillcolor": "0x40FFFFFF"
+						}
+					}
+				}
+			]
+		},
+		"uturn_arrow_paint":
+		{
+			"note": "调头道路箭头的风格效果，支持多层叠加",
+			"style":
+			[
+				{
+					"width_coefficient": 1.0,
+					"paint":
+					{
+						"STYLE_FILL":
+						{
+							"fillcolor": "0xFFFFFFFF"
+						}
+					}
+				}
+			]
+		}
+	}
+}

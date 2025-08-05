@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="isNight"
+            type="Boolean" />
+    </data>
+    <com.autonavi.auto.skin.view.SkinConstraintLayout
+        android:id="@+id/cl_root"
+        android:layout_width="@dimen/sv_dimen_240"
+        android:layout_height="@dimen/sv_dimen_116"
+        android:paddingHorizontal="@dimen/sv_dimen_10"
+        android:background="@drawable/shape_bg_search_result_child_day"
+        app:background4Night="@drawable/shape_bg_search_result_child_night"
+        app:background4Skin="@drawable/shape_bg_search_result_child_day">
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/stv_text_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/sv_dimen_10"
+            android:singleLine="true"
+            android:text="@string/auto_search_result_map_text_location"
+            android:textColor="@color/onTertiaryDay"
+            android:textFontWeight="400"
+            android:textSize="@dimen/sv_dimen_28"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tv_child_ratio"
+            app:textColor4Night="@color/onPrimaryNight"
+            app:textColor4Skin="@color/onTertiaryDay" />
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/tv_child_ratio"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/sv_dimen_31"
+            android:layout_marginTop="@dimen/sv_dimen_20"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textColor="@color/onSecondaryDay"
+            android:textSize="@dimen/sv_dimen_26"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/stv_text_location"
+            app:setSearchListAddressTextColor="@{isNight}"
+            app:textColor4Night="@color/onSecondaryNight"
+            app:textColor4Skin="@color/onSecondaryDay"
+            tools:text="53%" />
+
+    </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+
+</layout>
+

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+		<import type="java.util.ArrayList"/>
+		<import type="com.autonavi.gbl.data.model.TaskStatusCode"/>
+		<variable
+			name="isNight"
+			type="Boolean" />
+		<variable
+			name="currentCityAdCode"
+			type="Integer" />
+		<variable
+			name="workingQueueAdCodeList"
+			type="ArrayList&lt;Integer&gt;" />
+		<variable
+			name="cityItemInfo"
+			type="com.autonavi.gbl.data.model.CityItemInfo" />
+		<variable
+			name="cityDownLoadItem"
+			type="com.autonavi.gbl.data.model.CityDownLoadItem" />
+		<variable
+			name="isAllProvince"
+			type="Boolean" />
+		<variable
+			name="isAllStartEnable"
+			type="Boolean" />
+		<variable
+			name="isAllPauseEnable"
+			type="Boolean" />
+		<variable
+			name="provinceFullZipSize"
+			type="Long" />
+	</data>
+
+	<com.autonavi.auto.skin.view.SkinConstraintLayout
+		android:id="@+id/cl_itemchild_offline_city"
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/sv_dimen_180"
+		tools:layout_width="@dimen/sv_dimen_640"
+		tools:background="@drawable/shape_bg_navi_set_day">
+
+		<com.autonavi.auto.skin.view.SkinTextView
+			android:id="@+id/stv_text_offline_city_name"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintBottom_toTopOf="@+id/stv_offline_city_size"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintEnd_toStartOf="@+id/right_layout"
+			app:layout_constraintVertical_chainStyle="packed"
+			tools:text="惠州市惠州市惠州市惠州市惠州市惠州市"
+			app:setOfflineItemCityName="@{cityItemInfo}"
+			app:setOfflineItemCurrentCityAdCode="@{currentCityAdCode}"
+			android:textColor="@color/onPrimaryDay"
+			app:textColor4Night="@color/onPrimaryNight"
+			app:textColor4Skin="@color/onPrimaryDay"
+			android:textSize="@dimen/sv_dimen_34"
+			android:gravity="left"
+			android:singleLine="true"
+			android:ellipsize="end" />
+
+		<com.autonavi.auto.skin.view.SkinTextView
+			android:id="@+id/stv_offline_city_size"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="@dimen/sv_dimen_8"
+			app:layout_constraintTop_toBottomOf="@+id/stv_text_offline_city_name"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintLeft_toLeftOf="@+id/stv_text_offline_city_name"
+			tools:text="@string/offline_downloadmanager_offline_city_size"
+			app:setOfflineCitySize="@{cityDownLoadItem}"
+			app:setWorkingQueueAdCodeList="@{workingQueueAdCodeList}"
+			app:provinceFullZipSize="@{provinceFullZipSize}"
+			app:isAllProvince="@{isAllProvince}"
+			android:textColor="@color/onSecondaryDay"
+			app:textColor4Night="@color/onSecondaryNight"
+			app:textColor4Skin="@color/onSecondaryDay"
+			android:textSize="@dimen/sv_dimen_32" />
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:id="@+id/left_layout"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintRight_toLeftOf="@+id/right_layout"/>
+
+		<androidx.constraintlayout.widget.ConstraintLayout
+			android:id="@+id/right_layout"
+			android:layout_width="wrap_content"
+			android:layout_height="match_parent"
+			app:layout_constraintRight_toRightOf="parent">
+			<androidx.constraintlayout.widget.ConstraintLayout
+				android:id="@+id/pb_load_sl"
+				android:layout_width="@dimen/sv_dimen_180"
+				android:layout_height="@dimen/sv_dimen_90"
+				app:visibleGone="@{cityDownLoadItem.taskState != TaskStatusCode.TASK_STATUS_CODE_SUCCESS &amp;&amp; !isAllProvince}"
+				android:visibility="gone"
+				tools:visibility="gone"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintEnd_toEndOf="parent">
+				<com.autonavi.auto.skin.view.SkinProgressBar
+					android:layout_width="@dimen/sv_dimen_180"
+					android:layout_height="@dimen/sv_dimen_90"
+					android:max="100"
+					android:indeterminateOnly="false"
+					android:progress="0"
+					app:setOfflineCityProgressTxt="@{cityDownLoadItem}"
+					app:setProgressTxtWorkingQueueList="@{workingQueueAdCodeList}"
+					android:progressDrawable="@drawable/layer_list_data_progressbar_day"
+					app:progressDrawable4Skin="@drawable/layer_list_data_progressbar_day"
+					app:progressDrawable4Night="@drawable/layer_list_data_progressbar_night"
+					app:layout_constraintLeft_toLeftOf="parent"
+					app:layout_constraintRight_toRightOf="parent"
+					app:layout_constraintTop_toTopOf="parent"
+					app:layout_constraintBottom_toBottomOf="parent"/>
+			</androidx.constraintlayout.widget.ConstraintLayout>
+
+			<com.autonavi.auto.skin.view.SkinTextView
+				android:id="@+id/download_tip"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				tools:text="@string/map_theme_text_download"
+				app:setOfflineCityBtn="@{cityDownLoadItem}"
+				app:setBtnWorkingQueueList="@{workingQueueAdCodeList}"
+				app:setOfflineCityBtnTextNight="@{isNight}"
+				app:visibleGone="@{cityDownLoadItem.taskState != TaskStatusCode.TASK_STATUS_CODE_SUCCESS &amp;&amp; !isAllProvince}"
+				android:visibility="gone"
+				tools:visibility="gone"
+				android:textColor="@color/customAhaSecenicPointTextDay"
+				app:textColor4Skin="@color/customAhaSecenicPointTextDay"
+				app:textColor4Night="@color/onPrimaryNight"
+				android:textSize="@dimen/sv_dimen_34"
+				app:layout_constraintLeft_toLeftOf="@+id/pb_load_sl"
+				app:layout_constraintRight_toRightOf="@+id/pb_load_sl"
+				app:layout_constraintTop_toTopOf="@+id/pb_load_sl"
+				app:layout_constraintBottom_toBottomOf="@+id/pb_load_sl"/>
+			<com.autonavi.auto.skin.view.SkinTextView
+				android:id="@+id/downloaded_tip"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/offline_datalist_offline_city_status"
+				app:visibleGone="@{cityDownLoadItem.taskState == TaskStatusCode.TASK_STATUS_CODE_SUCCESS &amp;&amp; !isAllProvince}"
+				android:visibility="gone"
+				tools:visibility="gone"
+				android:textColor="@color/onPrimaryDay"
+				app:textColor4Skin="@color/onPrimaryDay"
+				app:textColor4Night="@color/onPrimaryNight"
+				android:textSize="@dimen/sv_dimen_30"
+				app:layout_constraintRight_toRightOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent"/>
+
+			<com.desaysv.psmap.model.view.ShadowLayout
+				android:id="@+id/all_pause"
+				android:layout_width="@dimen/sv_dimen_180"
+				android:layout_height="@dimen/sv_dimen_90"
+				android:visibility="gone"
+				app:visibleGone="@{isAllProvince}"
+				android:enabled="@{isAllPauseEnable}"
+				app:setViewAlpha="@{isAllPauseEnable}"
+				android:background="@drawable/selector_bg_report_btn_day"
+				app:background4Skin="@drawable/selector_bg_report_btn_day"
+				app:background4Night="@drawable/selector_bg_report_btn_night"
+				android:layout_marginRight="@dimen/sv_dimen_16"
+				app:layout_constraintRight_toLeftOf="@+id/all_start"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:radius="@dimen/sv_dimen_4"
+				app:setShadowColor="@{isNight}"
+				app:shadowColor="@color/customColorShadowColorDay"
+				app:shadowDx="@dimen/sv_dimen_2"
+				app:shadowDy="@dimen/sv_dimen_2"
+				app:shadowRadius="@dimen/sv_dimen_10">
+				<com.autonavi.auto.skin.view.SkinTextView
+					android:layout_width="@dimen/sv_dimen_180"
+					android:layout_height="@dimen/sv_dimen_90"
+					android:text="@string/offline_datalist_text_offline_whole_province_allpause_button"
+					android:textColor="@color/customAhaSecenicPointTextDay"
+					app:textColor4Night="@color/onPrimaryNight"
+					app:textColor4Skin="@color/customAhaSecenicPointTextDay"
+					android:textSize="@dimen/sv_dimen_34"
+					android:gravity="center"
+					app:setViewAlpha="@{isAllPauseEnable}"/>
+			</com.desaysv.psmap.model.view.ShadowLayout>
+
+			<com.desaysv.psmap.model.view.ShadowLayout
+				android:id="@+id/all_start"
+				android:layout_width="@dimen/sv_dimen_180"
+				android:layout_height="@dimen/sv_dimen_90"
+				android:visibility="gone"
+				app:visibleGone="@{isAllProvince}"
+				android:enabled="@{isAllStartEnable}"
+				app:setViewAlpha="@{isAllStartEnable}"
+				android:background="@drawable/selector_bg_report_btn_day"
+				app:background4Skin="@drawable/selector_bg_report_btn_day"
+				app:background4Night="@drawable/selector_bg_report_btn_night"
+				app:layout_constraintRight_toRightOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:radius="@dimen/sv_dimen_4"
+				app:setShadowColor="@{isNight}"
+				app:shadowColor="@color/customColorShadowColorDay"
+				app:shadowDx="@dimen/sv_dimen_2"
+				app:shadowDy="@dimen/sv_dimen_2"
+				app:shadowRadius="@dimen/sv_dimen_10">
+				<com.autonavi.auto.skin.view.SkinTextView
+					android:layout_width="@dimen/sv_dimen_180"
+					android:layout_height="@dimen/sv_dimen_90"
+					android:text="@string/offline_datalist_text_offline_whole_province_allstart_button"
+					android:textColor="@color/customAhaSecenicPointTextDay"
+					app:textColor4Night="@color/onPrimaryNight"
+					app:textColor4Skin="@color/customAhaSecenicPointTextDay"
+					android:textSize="@dimen/sv_dimen_34"
+					android:gravity="center"
+					app:setViewAlpha="@{isAllStartEnable}" />
+			</com.desaysv.psmap.model.view.ShadowLayout>
+		</androidx.constraintlayout.widget.ConstraintLayout>
+
+		<com.autonavi.auto.skin.view.SkinView
+			android:id="@+id/cll_line_offline_city"
+			app:background4Skin="@color/lineDay"
+			app:background4Night="@color/lineNight"
+			android:layout_width="0dp"
+			android:layout_height="@dimen/sv_dimen_1"
+			android:background="@color/lineDay"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintEnd_toEndOf="parent" />
+	</com.autonavi.auto.skin.view.SkinConstraintLayout>
+</layout>

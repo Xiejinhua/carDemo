@@ -1,0 +1,1823 @@
+{
+  "data": {
+    "type": "adaptor_point",
+    "brief": "点数据信息",
+    "value": {},
+    "rule": [
+      {
+        "type": "data_duplicate",
+        "brief": "数据去重",
+        "value": [
+          "$item_data.position.lon",
+          "$item_data.position.lat",
+          "$biz_data.name"
+        ]
+      },
+      {
+        "brief": "图层飘向",
+        "type": "data_quadrant_if",
+        "value": {
+          "biz_data": "demo",
+          "condition": {
+            "any": [
+              {
+                "fact": "$biz_data.type_code",
+                "operator": "equal",
+                "value": "wc"
+              },
+              {
+                "fact": "$biz_data.type_code",
+                "operator": "equal",
+                "value": "parking"
+              }
+            ]
+          },
+          "case": {
+            "true": 24,
+            "false": 25
+          }
+        }
+      }
+    ]
+  },
+  "biz": [
+    {
+      "brief": "是否可点击",
+      "type": "biz_set_clickable",
+      "value": true
+    },
+    {
+      "brief": "设置图层优先级",
+      "type": "biz_set_priority",
+      "value": {
+        "draw_priority": 140,
+        "sub_priority": 3300
+      }
+    },
+    {
+      "brief": "设置多飘向图层避让算法",
+      "type": "biz_set_avoid_algorithm",
+      "value": 2
+    },
+    {
+      "brief": "设置图元优先级是否升序",
+      "type": "biz_item_priority_asc",
+      "value": false
+    },
+    {
+      "brief": "设置是否图层内碰撞",
+      "type": "biz_is_collision",
+      "value": true
+    },
+    {
+      "brief": "设置是否是多象限图层",
+      "type": "biz_is_quadrant_layer",
+      "value": {
+        "type": 2,
+        "preview_rect": {
+          "left": 0,
+          "right": 1024,
+          "top": 0,
+          "bottom": 600
+        },
+        "intersect_ratio": 0.57,
+        "intersect_area": 0.57,
+        "area_threshold": 0.001
+      }
+    },
+    {
+      "brief": "设置组合碰撞",
+      "type": "biz_combination_collision",
+      "value": {
+        "second_display_search_nearby_collision": {
+          "area_collision": [
+            "second_display_search_nearby_layer"
+          ],
+          "collision_layer": [
+            "second_display_search_nearby_layer"
+          ],
+          "area_threshold": 0.1,
+          "ui_threshold": 0.1
+        }
+      }
+    }
+  ],
+  "style": {
+    "marker_info": {
+      "marker_info_nearby_search_left": {
+        "anchor": 9,
+        "x_ratio": 0.871,
+        "y_ratio": 0.745
+      },
+      "marker_info_nearby_search_right": {
+        "anchor": 9,
+        "x_ratio": 0.127,
+        "y_ratio": 0.728
+      },
+      "marker_info_nearby_search_focus": {
+        "anchor": 10,
+        "x_offset": 134,
+        "y_offset": 114
+      },
+      "marker_info_nearby_search_point": {
+        "anchor": 9,
+        "x_ratio": 0.485,
+        "y_ratio": 0.9
+      }
+    },
+    "style_info": {
+      "point_nearby_search_left": {
+        "point_layer_item_style": {
+          "normal_style": {
+            "poi_marker_id": "carservice_search_nearby_content_left.xml",
+            "poi_marker_info": "marker_info_nearby_search_left"
+          },
+          "focus_style": {
+            "poi_marker_id": "carservice_search_nearby_content_focus.xml",
+            "poi_marker_info": "marker_info_nearby_search_focus"
+          }
+        }
+      },
+      "point_nearby_search_right": {
+        "point_layer_item_style": {
+          "normal_style": {
+            "poi_marker_id": "carservice_search_nearby_content_right.xml",
+            "poi_marker_info": "marker_info_nearby_search_right"
+          },
+          "focus_style": {
+            "poi_marker_id": "carservice_search_nearby_content_focus.xml",
+            "poi_marker_info": "marker_info_nearby_search_focus"
+          }
+        }
+      },
+      "point_nearby_search_normal": {
+        "point_layer_item_style": {
+          "normal_style": {
+            "poi_marker_id": "carservice_poiicon_small_point.xml",
+            "poi_marker_info": "marker_info_nearby_search_point"
+          },
+          "focus_style": {
+            "poi_marker_id": "carservice_search_nearby_content_focus.xml",
+            "poi_marker_info": "marker_info_nearby_search_focus"
+          }
+        }
+      },
+      "point_nearby_search_smaller": {
+        "point_layer_item_style": {
+          "normal_style": {
+            "poi_marker_id": "carservice_poiicon_smaller_point.xml",
+            "poi_marker_info": "marker_info_nearby_search_point"
+          },
+          "focus_style": {
+            "poi_marker_id": "carservice_search_nearby_content_focus.xml",
+            "poi_marker_info": "marker_info_nearby_search_focus"
+          }
+        }
+      }
+    },
+    "style_name": {
+      "prefix_name": "",
+      "rule": [
+        {
+          "brief": "结合业务及飘向选择样式文件\n\nQuadrantTypeNone = 0, /**< 默认值 */\n    QuadrantTypeLeft = 1, /**< 左象限 */\n    QuadrantTypeRight = 2, /**< 右象限 */\n    QuadrantTypeUp= 3, /**< 上象限 */\n    QuadrantTypeDown= 4, /**< 下象限 */\n    QuadrantTypeRightUp =5, /**< 右上象限 */\n    QuadrantTypeLeftUp = 6, /**< 左上象限 */\n    QuadrantTypeLeftDown= 7, /**< 左下象限 */\n    QuadrantTypeRightDown= 8, /**< 右下象限 */\n    QuadrantTypeBigPic = 9, /**< 大图标象限 */\n    QuadrantTypeSmallPic = 10, /**< 小图标象限 */\n\n根据type_cdoe决定显示poi扎点图标类型定义如下(字符串)：\nfood、scenic、shopping、charge、parking、wc\n\n根据style_type决定样式类型定义如下(字符串)：\nsingle(单个品类)、multi(多种品类)、recommend(推荐品类，未使用预留)",
+          "type": "style_switch",
+          "value": {
+            "condition": "$biz_data.type_code",
+            "case": {
+              "food": {
+                "switch": {
+                  "condition": "$item_data.quadrantType",
+                  "case": {
+                    "1": "point_nearby_search_left",
+                    "2": "point_nearby_search_right",
+                    "10": "point_nearby_search_smaller",
+                    "default": "point_nearby_search_right"
+                  }
+                }
+              },
+              "scenic": {
+                "switch": {
+                  "condition": "$item_data.quadrantType",
+                  "case": {
+                    "1": "point_nearby_search_left",
+                    "2": "point_nearby_search_right",
+                    "10": "point_nearby_search_smaller"
+                  }
+                }
+              },
+              "shopping": {
+                "switch": {
+                  "condition": "$item_data.quadrantType",
+                  "case": {
+                    "1": "point_nearby_search_left",
+                    "2": "point_nearby_search_right",
+                    "10": "point_nearby_search_smaller",
+                    "default": "point_nearby_search_right"
+                  }
+                }
+              },
+              "charge": {
+                "switch": {
+                  "condition": "$item_data.quadrantType",
+                  "case": {
+                    "1": "point_nearby_search_left",
+                    "2": "point_nearby_search_right",
+                    "10": "point_nearby_search_smaller",
+                    "default": "point_nearby_search_left"
+                  }
+                }
+              },
+              "parking": {
+                "if": {
+                  "condition": {
+                    "fact": "$biz_data.style_type",
+                    "operator": "unequal",
+                    "value": "multi"
+                  },
+                  "case": {
+                    "true": {
+                      "switch": {
+                        "condition": "$item_data.quadrantType",
+                        "case": {
+                          "1": "point_nearby_search_left",
+                          "2": "point_nearby_search_right",
+                          "10": "point_nearby_search_smaller",
+                          "default": "point_nearby_search_right"
+                        }
+                      }
+                    },
+                    "false": {
+                      "if": {
+                        "condition": {
+                          "fact": "$item_data.quadrantType",
+                          "operator": "unequal",
+                          "value": 10
+                        },
+                        "case": {
+                          "true": "point_nearby_search_normal",
+                          "false": "point_nearby_search_smaller"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "wc": {
+                "if": {
+                  "condition": {
+                    "fact": "$biz_data.style_type",
+                    "operator": "unequal",
+                    "value": "multi"
+                  },
+                  "case": {
+                    "true": {
+                      "switch": {
+                        "condition": "$item_data.quadrantType",
+                        "case": {
+                          "1": "point_nearby_search_left",
+                          "2": "point_nearby_search_right",
+                          "10": "point_nearby_search_smaller",
+                          "default": "point_nearby_search_right"
+                        }
+                      }
+                    },
+                    "false": {
+                      "if": {
+                        "condition": {
+                          "fact": "$item_data.quadrantType",
+                          "operator": "unequal",
+                          "value": 10
+                        },
+                        "case": {
+                          "true": "point_nearby_search_normal",
+                          "false": "point_nearby_search_smaller"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "default": {
+                "switch": {
+                  "condition": "$item_data.quadrantType",
+                  "case": {
+                    "1": "point_nearby_search_left",
+                    "2": "point_nearby_search_right",
+                    "10": "point_nearby_search_smaller",
+                    "default": "point_nearby_search_left"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "card_info": {
+      "carservice_search_nearby_content_left.xml": "<div style=\"display:flex;flex-direction:row;justify-content:flex-end;align-items:center;margin-top:16px;margin-right:16px;margin-bottom:16px;margin-left:16px;width:auto;height:auto;\">\n  <div id=\"click_content_div\" style=\"display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-end;\">\n    <div id=\"first_row_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;\">\n      <label id=\"text_title\" style=\"font-size:22px;color:#d15b0e;font-family:font_cn;max-width:240px;text-stroke:3px #ccffffff;text-overflow:ellipsis;line-clamp:1;\" lines=\"1\">标题极限情况长度就</label>\n      <div id=\"nearest_label_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-left:6px;width:auto;height:28px;background-image:global_image_carservice_route_search_labelbg_day_night;\">\n        <label id=\"text_nearest\" style=\"margin-right:6px;margin-left:6px;font-size:16px;color:#ffffff;font-family:font_cn;\" lines=\"1\">最近</label>\n      </div>\n    </div>\n    <div id=\"score_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:2px;\">\n      <image id=\"score_icon\" style=\"width:19px;height:19px;\" src=\"global_image_carservice_food_score_icon_day_night\" />\n      <label id=\"score_text\" style=\"margin-left:6px;font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">4.8</label>\n      <label id=\"price_text\" style=\"margin-left:6px;font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">¥128/人</label>\n    </div>\n    <div id=\"charge_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:2px;\">\n      <div id=\"charge_label_faster_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:auto;height:28px;background-image:global_image_charge_faster_day_night;\">\n        <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:28px;height:28px;position:relative;top:0px;left:0px;\"><label id=\"charging_type_faster_text\" style=\"font-size:16px;color:#ffffff;font-family:font_cn;\" lines=\"1\">超</label></div>\n        <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;margin-left:2px;\">\n          <label id=\"charge_idle_faster_text\" style=\"font-size:16px;color:#ff5c2d;font-family:font_cn;\" lines=\"1\">空 7</label>\n          <label id=\"charge_full_faster_text\" style=\"font-size:16px;color:#80ff5c2d;font-family:font_cn;\" lines=\"1\">/20</label>\n        </div>\n      </div>\n      <div id=\"charge_label_slow_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:auto;height:28px;background-image:global_image_charge_slow_day_night;\">\n        <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:28px;height:28px;position:relative;top:0px;left:0px;\"><label id=\"charging_type_slow_text\" style=\"font-size:16px;color:#ffffff;font-family:font_cn;\" lines=\"1\">慢</label></div>\n        <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;margin-left:2px;\">\n          <label id=\"charge_idle_slow_text\" style=\"font-size:16px;color:#5a6270;font-family:font_cn;\" lines=\"1\">空 8</label>\n          <label id=\"charge_full_slow_text\" style=\"font-size:16px;color:#805a6270;font-family:font_cn;\" lines=\"1\">/20</label>\n        </div>\n      </div>\n      <div id=\"charge_label_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:auto;height:28px;background-image:global_image_charge_fast_day_night;\">\n        <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:28px;height:28px;position:relative;top:0px;left:0px;\"><label id=\"charging_type_text\" style=\"font-size:16px;color:#ffffff;font-family:font_cn;\" lines=\"1\">快</label></div>\n        <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;margin-left:2px;\">\n          <label id=\"charge_idle_text\" style=\"font-size:16px;color:#13b67f;font-family:font_cn;\" lines=\"1\">空 10</label>\n          <label id=\"charge_full_text\" style=\"font-size:16px;color:#8013b67f;font-family:font_cn;\" lines=\"1\">/20</label>\n        </div>\n      </div>\n      <label id=\"charge_price_text\" style=\"margin-left:6px;font-size:18px;color:#36955f;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">¥4.1/度</label>\n    </div>\n    <div id=\"parking_label_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:2px;width:auto;height:28px;background-image:global_image_station_bg_day_night;\">\n      <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;margin-left:6px;\">\n        <label id=\"parking_idle_text\" style=\"font-size:16px;color:#3278ff;font-family:font_cn;\" lines=\"1\">空 27</label>\n        <label id=\"parking_full_text\" style=\"font-size:16px;color:#803278ff;font-family:font_cn;\" lines=\"1\">/50</label>\n      </div>\n    </div>\n    <div id=\"recommend_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:2px;\">\n      <image id=\"recommend_icon\" style=\"width:20px;height:20px;\" src=\"global_image_carservice_brandfood_recommend_icon_day_night\" />\n      <label id=\"recommend_text\" style=\"margin-left:4px;font-size:18px;color:#ff6543;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">入选高德指南必吃榜</label>\n    </div>\n    <div id=\"position_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:2px;\"><label id=\"position_text\" style=\"font-size:18px;color:#3278ff;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">距当前位置500米</label></div>\n    <div id=\"browse_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:2px;\"><label id=\"browse_text\" style=\"font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">最近浏览过</label></div>\n    <div id=\"business_time_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:2px;\">\n      <image id=\"time_icon\" style=\"width:20px;height:20px;\" src=\"global_image_carservice_time_score_icon_day_night\" />\n      <label id=\"business_time_text\" style=\"margin-left:4px;font-size:18px;color:#fc4b3c;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">即将休息</label>\n    </div>\n  </div>\n  <image id=\"click_type_icon\" style=\"margin-left:6px;\" src=\"global_image_carservice_poiicon_food_normal_icon_day_night\" />\n</div>",
+      "carservice_search_nearby_content_focus.xml": "<div style=\"display:flex;flex-direction:column;justify-content:center;align-items:center;margin-top:16px;margin-right:16px;margin-bottom:16px;margin-left:16px;max-width:256xp;\">\n  <image id=\"click_type_icon\" style=\"width:86px;height:106px;\" src=\"global_image_carservice_poiicon_food_selected_icon_day_night\" />\n  <div id=\"click_content_div\" style=\"display:flex;flex-direction:column;justify-content:flex-end;align-items:center;width:238px;\">\n    <div id=\"first_row_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;\">\n      <label id=\"text_title\" style=\"width:220px;font-size:22px;color:#d15b0e;text-align:center;font-family:font_cn;text-stroke:3px #ccffffff;text-overflow:ellipsis;line-clamp:2;\" lines=\"1\">标题极限情况长度就</label>\n    </div>\n    <div id=\"score_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:2px;\">\n      <image id=\"score_icon\" style=\"width:19px;height:19px;\" src=\"global_image_carservice_food_score_icon_day_night\" />\n      <label id=\"score_text\" style=\"margin-left:6px;font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">4.8</label>\n      <label id=\"price_text\" style=\"margin-left:6px;font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">¥128/人</label>\n    </div>\n    <div id=\"charge_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:2px;\">\n      <div style=\"display:flex;flex-direction:column;justify-content:center;align-items:flex-start;\">\n        <div id=\"charge_label_faster_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:auto;height:28px;background-image:global_image_charge_faster_day_night;\">\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:28px;height:28px;position:relative;top:0px;left:0px;\"><label id=\"charging_type_faster_text\" style=\"font-size:16px;color:#ffffff;font-family:font_cn;\" lines=\"1\">超</label></div>\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;margin-left:2px;\">\n            <label id=\"charge_idle_faster_text\" style=\"font-size:16px;color:#ff5c2d;font-family:font_cn;\" lines=\"1\">空 7</label>\n            <label id=\"charge_full_faster_text\" style=\"font-size:16px;color:#80ff5c2d;font-family:font_cn;\" lines=\"1\">/20</label>\n          </div>\n        </div>\n        <div id=\"charge_label_slow_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:auto;height:28px;background-image:global_image_charge_slow_day_night;\">\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:28px;height:28px;position:relative;top:0px;left:0px;\"><label id=\"charging_type_slow_text\" style=\"font-size:16px;color:#ffffff;font-family:font_cn;\" lines=\"1\">慢</label></div>\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;margin-left:2px;\">\n            <label id=\"charge_idle_slow_text\" style=\"font-size:16px;color:#5a6270;font-family:font_cn;\" lines=\"1\">空 8</label>\n            <label id=\"charge_full_slow_text\" style=\"font-size:16px;color:#805a6270;font-family:font_cn;\" lines=\"1\">/20</label>\n          </div>\n        </div>\n        <div id=\"charge_label_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:auto;height:28px;background-image:global_image_charge_fast_day_night;\">\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:28px;height:28px;position:relative;top:0px;left:0px;\"><label id=\"charging_type_text\" style=\"font-size:16px;color:#ffffff;font-family:font_cn;\" lines=\"1\">快</label></div>\n          <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;margin-left:2px;\">\n            <label id=\"charge_idle_text\" style=\"font-size:16px;color:#13b67f;font-family:font_cn;\" lines=\"1\">空 10</label>\n            <label id=\"charge_full_text\" style=\"font-size:16px;color:#8013b67f;font-family:font_cn;\" lines=\"1\">/20</label>\n          </div>\n        </div>\n      </div>\n      <label id=\"charge_price_text\" style=\"margin-left:6px;font-size:18px;color:#36955f;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">¥4.1/度</label>\n    </div>\n    <div id=\"parking_label_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:2px;width:auto;height:28px;background-image:global_image_station_bg_day_night;\">\n      <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;margin-left:6px;\">\n        <label id=\"parking_idle_text\" style=\"font-size:16px;color:#3278ff;font-family:font_cn;\" lines=\"1\">空 27</label>\n        <label id=\"parking_full_text\" style=\"font-size:16px;color:#803278ff;font-family:font_cn;\" lines=\"1\">/50</label>\n      </div>\n    </div>\n    <div id=\"recommend_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:2px;\">\n      <image id=\"recommend_icon\" style=\"width:20px;height:20px;\" src=\"global_image_carservice_brandfood_recommend_icon_day_night\" />\n      <label id=\"recommend_text\" style=\"margin-left:4px;font-size:18px;color:#ff6543;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">入选高德指南必吃榜</label>\n    </div>\n    <div id=\"position_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:2px;\"><label id=\"position_text\" style=\"font-size:18px;color:#3278ff;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">距当前位置500米</label></div>\n    <div id=\"browse_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:2px;\"><label id=\"browse_text\" style=\"font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">最近浏览过</label></div>\n    <div id=\"business_time_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:2px;\">\n      <image id=\"time_icon\" style=\"width:20px;height:20px;\" src=\"global_image_carservice_time_score_icon_day_night\" />\n      <label id=\"business_time_text\" style=\"margin-left:4px;font-size:18px;color:#fc4b3c;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">即将休息</label>\n    </div>\n  </div>\n</div>\n",
+      "carservice_search_nearby_content_right.xml": "<div style=\"display:flex;flex-direction:row;justify-content:flex-start;align-items:center;margin-top:16px;margin-right:16px;margin-bottom:16px;margin-left:16px;\">\n  <image id=\"click_type_icon\" style=\"margin-right:6px;\" src=\"global_image_carservice_poiicon_food_normal_icon_day_night\" />\n  <div id=\"click_content_div\" style=\"display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;\">\n    <div id=\"first_row_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;\">\n      <label id=\"text_title\" style=\"font-size:22px;color:#d15b0e;font-family:font_cn;max-width:240px;text-stroke:3px #ccffffff;text-overflow:ellipsis;line-clamp:1;\" lines=\"1\">标题极限情况长度就</label>\n      <div id=\"nearest_label_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-left:6px;width:auto;height:28px;background-image:global_image_carservice_route_search_labelbg_day_night;\">\n        <label id=\"text_nearest\" style=\"margin-right:6px;margin-left:6px;font-size:16px;color:#ffffff;font-family:font_cn;\" lines=\"1\">最近</label>\n      </div>\n    </div>\n    <div id=\"score_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:2px;\">\n      <image id=\"score_icon\" style=\"width:19px;height:19px;\" src=\"global_image_carservice_food_score_icon_day_night\" />\n      <label id=\"score_text\" style=\"margin-left:6px;font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">4.8</label>\n      <label id=\"price_text\" style=\"margin-left:6px;font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">¥128/人</label>\n    </div>\n    <div id=\"charge_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:2px;\">\n      <div id=\"charge_label_faster_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:auto;height:28px;background-image:global_image_charge_faster_day_night;\">\n        <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:28px;height:28px;position:relative;top:0px;left:0px;\"><label id=\"charging_type_faster_text\" style=\"font-size:16px;color:#ffffff;font-family:font_cn;\" lines=\"1\">超</label></div>\n        <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;margin-left:2px;\">\n          <label id=\"charge_idle_faster_text\" style=\"font-size:16px;color:#ff5c2d;font-family:font_cn;\" lines=\"1\">空 7</label>\n          <label id=\"charge_full_faster_text\" style=\"font-size:16px;color:#80ff5c2d;font-family:font_cn;\" lines=\"1\">/20</label>\n        </div>\n      </div>\n      <div id=\"charge_label_slow_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:auto;height:28px;background-image:global_image_charge_slow_day_night;\">\n        <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:28px;height:28px;position:relative;top:0px;left:0px;\"><label id=\"charging_type_slow_text\" style=\"font-size:16px;color:#ffffff;font-family:font_cn;\" lines=\"1\">慢</label></div>\n        <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;margin-left:2px;\">\n          <label id=\"charge_idle_slow_text\" style=\"font-size:16px;color:#5a6270;font-family:font_cn;\" lines=\"1\">空 8</label>\n          <label id=\"charge_full_slow_text\" style=\"font-size:16px;color:#805a6270;font-family:font_cn;\" lines=\"1\">/20</label>\n        </div>\n      </div>\n      <div id=\"charge_label_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:auto;height:28px;background-image:global_image_charge_fast_day_night;\">\n        <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;width:28px;height:28px;position:relative;top:0px;left:0px;\"><label id=\"charging_type_text\" style=\"font-size:16px;color:#ffffff;font-family:font_cn;\" lines=\"1\">快</label></div>\n        <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;margin-left:2px;\">\n          <label id=\"charge_idle_text\" style=\"font-size:16px;color:#13b67f;font-family:font_cn;\" lines=\"1\">空 10</label>\n          <label id=\"charge_full_text\" style=\"font-size:16px;color:#8013b67f;font-family:font_cn;\" lines=\"1\">/20</label>\n        </div>\n      </div>\n      <label id=\"charge_price_text\" style=\"margin-left:6px;font-size:18px;color:#36955f;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">¥4.1/度</label>\n    </div>\n    <div id=\"parking_label_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:2px;width:auto;height:28px;background-image:global_image_station_bg_day_night;\">\n      <div style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-right:6px;margin-left:6px;\">\n        <label id=\"parking_idle_text\" style=\"font-size:16px;color:#3278ff;font-family:font_cn;\" lines=\"1\">空 27</label>\n        <label id=\"parking_full_text\" style=\"font-size:16px;color:#803278ff;font-family:font_cn;\" lines=\"1\">/50</label>\n      </div>\n    </div>\n    <div id=\"recommend_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:2px;\">\n      <image id=\"recommend_icon\" style=\"width:20px;height:20px;\" src=\"global_image_carservice_brandfood_recommend_icon_day_night\" />\n      <label id=\"recommend_text\" style=\"margin-left:4px;font-size:18px;color:#ff6543;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">入选高德指南必吃榜</label>\n    </div>\n    <div id=\"position_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:2px;\"><label id=\"position_text\" style=\"font-size:18px;color:#3278ff;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">距当前位置500米</label></div>\n    <div id=\"browse_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:2px;\"><label id=\"browse_text\" style=\"font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">最近浏览过</label></div>\n    <div id=\"business_time_div\" style=\"display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:2px;\">\n      <image id=\"time_icon\" style=\"width:20px;height:20px;\" src=\"global_image_carservice_time_score_icon_day_night\" />\n      <label id=\"business_time_text\" style=\"margin-left:4px;font-size:18px;color:#fc4b3c;font-family:font_cn;text-stroke:2px #ccffffff;\" lines=\"1\">即将休息</label>\n    </div>\n  </div>\n</div>",
+      "carservice_poiicon_small_point.xml": "<div style=\"\"><image id=\"click_type_icon\" style=\"width:36px;height:44px;\" src=\"global_image_carservice_poiicon_food_small_icon_day_night\" /></div>",
+      "carservice_poiicon_smaller_point.xml": "<div style=\"\"><image id=\"click_type_icon\" style=\"width:24px;height:24px;\" src=\"global_image_carservice_poiicon_food_smaller_icon_day_night\" /></div>"
+    },
+    "dynamic_marker": {
+      "rule": [
+        {
+          "brief": "title文案及style设置\n根据type_code决定显示poi扎点图标类型定义如下(字符串)：\nfood、scenic、shopping、charge、parking、wc\n根据style_type决定样式类型定义如下(字符串)：\nsingle(单个品类)、multi(多种品类)、recommend(推荐品类，未使用预留)",
+          "type": "marker_switch",
+          "value": {
+            "condition": "$biz_data.type_code",
+            "case": {
+              "food": {
+                "switch": {
+                  "condition": "$biz_data.style_type",
+                  "case": {
+                    "single": {
+                      "id": "text_title",
+                      "nodeName": "label",
+                      "display": true,
+                      "value": "$biz_data.name",
+                      "style": "color:#000000",
+                      "defaultStyle": "margin-top:3px;max-width:212px;font-size:22px;color:#d15b0e;font-family:font_cn;text-stroke:3px #ccffffff;text-overflow:ellipsis;line-clamp:1;"
+                    },
+                    "multi": {
+                      "id": "text_title",
+                      "nodeName": "label",
+                      "display": true,
+                      "value": "$biz_data.name",
+                      "style": "color:#D15B0E",
+                      "defaultStyle": "margin-top:3px;max-width:212px;font-size:22px;color:#d15b0e;font-family:font_cn;text-stroke:3px #ccffffff;text-overflow:ellipsis;line-clamp:1;"
+                    }
+                  }
+                }
+              },
+              "scenic": {
+                "switch": {
+                  "condition": "$biz_data.style_type",
+                  "case": {
+                    "single": {
+                      "id": "text_title",
+                      "nodeName": "label",
+                      "display": true,
+                      "value": "$biz_data.name",
+                      "style": "color:#000000",
+                      "defaultStyle": "margin-top:3px;max-width:212px;font-size:22px;color:#d15b0e;font-family:font_cn;text-stroke:3px #ccffffff;text-overflow:ellipsis;line-clamp:1;"
+                    },
+                    "multi": {
+                      "id": "text_title",
+                      "nodeName": "label",
+                      "display": true,
+                      "value": "$biz_data.name",
+                      "style": "color:#339FB1",
+                      "defaultStyle": "margin-top:3px;max-width:212px;font-size:22px;color:#d15b0e;font-family:font_cn;text-stroke:3px #ccffffff;text-overflow:ellipsis;line-clamp:1;"
+                    }
+                  }
+                }
+              },
+              "shopping": {
+                "switch": {
+                  "condition": "$biz_data.style_type",
+                  "case": {
+                    "single": {
+                      "id": "text_title",
+                      "nodeName": "label",
+                      "display": true,
+                      "value": "$biz_data.name",
+                      "style": "color:#000000",
+                      "defaultStyle": "margin-top:3px;max-width:212px;font-size:22px;color:#d15b0e;font-family:font_cn;text-stroke:3px #ccffffff;text-overflow:ellipsis;line-clamp:1;"
+                    },
+                    "multi": {
+                      "id": "text_title",
+                      "nodeName": "label",
+                      "display": true,
+                      "value": "$biz_data.name",
+                      "style": "color:#8151BC",
+                      "defaultStyle": "margin-top:3px;max-width:212px;font-size:22px;color:#d15b0e;font-family:font_cn;text-stroke:3px #ccffffff;text-overflow:ellipsis;line-clamp:1;"
+                    }
+                  }
+                }
+              },
+              "charge": {
+                "switch": {
+                  "condition": "$biz_data.style_type",
+                  "case": {
+                    "multi": {
+                      "id": "text_title",
+                      "nodeName": "label",
+                      "display": true,
+                      "value": "$biz_data.name",
+                      "style": "color:#36955F",
+                      "defaultStyle": "margin-top:3px;max-width:212px;font-size:22px;color:#d15b0e;font-family:font_cn;text-stroke:3px #ccffffff;text-overflow:ellipsis;line-clamp:1;"
+                    },
+                    "single": {
+                      "id": "text_title",
+                      "nodeName": "label",
+                      "display": true,
+                      "value": "$biz_data.name",
+                      "style": "color:#000000",
+                      "defaultStyle": "margin-top:3px;max-width:212px;font-size:22px;color:#d15b0e;font-family:font_cn;text-stroke:3px #ccffffff;text-overflow:ellipsis;line-clamp:1;"
+                    }
+                  }
+                }
+              },
+              "parking": {
+                "switch": {
+                  "condition": "$biz_data.style_type",
+                  "case": {
+                    "multi": {
+                      "id": "text_title",
+                      "nodeName": "label",
+                      "display": true,
+                      "value": "$biz_data.name",
+                      "style": "color:#376ED7",
+                      "defaultStyle": "margin-top:3px;max-width:212px;font-size:22px;color:#d15b0e;font-family:font_cn;text-stroke:3px #ccffffff;text-overflow:ellipsis;line-clamp:1;"
+                    },
+                    "single": {
+                      "id": "text_title",
+                      "nodeName": "label",
+                      "display": true,
+                      "value": "$biz_data.name",
+                      "style": "color:#000000",
+                      "defaultStyle": "margin-top:3px;max-width:212px;font-size:22px;color:#d15b0e;font-family:font_cn;text-stroke:3px #ccffffff;text-overflow:ellipsis;line-clamp:1;"
+                    }
+                  }
+                }
+              },
+              "wc": {
+                "switch": {
+                  "condition": "$biz_data.style_type",
+                  "case": {
+                    "multi": {
+                      "id": "text_title",
+                      "nodeName": "label",
+                      "display": true,
+                      "value": "$biz_data.name",
+                      "style": "color:#376ED7",
+                      "defaultStyle": "margin-top:3px;max-width:212px;font-size:22px;color:#d15b0e;font-family:font_cn;text-stroke:3px #ccffffff;text-overflow:ellipsis;line-clamp:1;"
+                    },
+                    "single": {
+                      "id": "text_title",
+                      "nodeName": "label",
+                      "display": true,
+                      "value": "$biz_data.name",
+                      "style": "color:#000000",
+                      "defaultStyle": "margin-top:3px;max-width:212px;font-size:22px;color:#d15b0e;font-family:font_cn;text-stroke:3px #ccffffff;text-overflow:ellipsis;line-clamp:1;"
+                    }
+                  }
+                }
+              },
+              "default": {
+                "switch": {
+                  "condition": "$biz_data.style_type",
+                  "case": {
+                    "multi": {
+                      "id": "text_title",
+                      "nodeName": "label",
+                      "display": true,
+                      "value": "$biz_data.name",
+                      "style": "color:#376ED7",
+                      "defaultStyle": "margin-top:3px;max-width:212px;font-size:22px;color:#d15b0e;font-family:font_cn;text-stroke:3px #ccffffff;text-overflow:ellipsis;line-clamp:1;"
+                    },
+                    "single": {
+                      "id": "text_title",
+                      "nodeName": "label",
+                      "display": true,
+                      "value": "$biz_data.name",
+                      "style": "color:#000000",
+                      "defaultStyle": "margin-top:3px;max-width:212px;font-size:22px;color:#d15b0e;font-family:font_cn;text-stroke:3px #ccffffff;text-overflow:ellipsis;line-clamp:1;"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "brief": "评分及人均 文案及style设置\n根据type_code决定显示poi扎点图标类型定义如下(字符串)：\nfood、scenic、shopping、charge、parking、wc\n根据style_type决定样式类型定义如下(字符串)：\nsingle(单个品类)、multi(多种品类)、recommend(推荐品类，未使用预留)",
+          "type": "marker_if",
+          "value": {
+            "condition": {
+              "any": [
+                {
+                  "func": {
+                    "name": "StringLength",
+                    "param": {
+                      "value": "$biz_data.average_cost"
+                    }
+                  },
+                  "operator": "gt",
+                  "value": 0
+                },
+                {
+                  "func": {
+                    "name": "StringLength",
+                    "param": {
+                      "value": "$biz_data.rating"
+                    }
+                  },
+                  "operator": "gt",
+                  "value": 0
+                }
+              ]
+            },
+            "case": {
+              "true": [
+                {
+                  "id": "score_div",
+                  "nodeName": "div",
+                  "display": true
+                },
+                {
+                  "if": {
+                    "condition": {
+                      "func": {
+                        "name": "StringLength",
+                        "param": {
+                          "value": "$biz_data.average_cost"
+                        }
+                      },
+                      "operator": "unequal",
+                      "value": 0
+                    },
+                    "case": {
+                      "true": {
+                        "switch": {
+                          "condition": "$biz_data.style_type",
+                          "case": {
+                            "single": {
+                              "id": "price_text",
+                              "nodeName": "label",
+                              "display": true,
+                              "value": [
+                                {
+                                  "format": "¥%s/人",
+                                  "value": "$biz_data.average_cost"
+                                }
+                              ],
+                              "style": "color:#3C3C43",
+                              "defaultStyle": "margin-left:6px;font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;"
+                            },
+                            "multi": {
+                              "id": "price_text",
+                              "nodeName": "label",
+                              "display": true,
+                              "value": [
+                                {
+                                  "format": "¥%s/人",
+                                  "value": "$biz_data.average_cost"
+                                }
+                              ],
+                              "style": "color:#D15B0E",
+                              "defaultStyle": "margin-left:6px;font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;"
+                            }
+                          }
+                        }
+                      },
+                      "false": {
+                        "id": "price_text",
+                        "nodeName": "label",
+                        "display": false
+                      }
+                    }
+                  }
+                },
+                {
+                  "if": {
+                    "condition": {
+                      "func": {
+                        "name": "StringLength",
+                        "param": {
+                          "value": "$biz_data.rating"
+                        }
+                      },
+                      "operator": "unequal",
+                      "value": 0
+                    },
+                    "case": {
+                      "true": {
+                        "switch": {
+                          "condition": "$biz_data.style_type",
+                          "case": {
+                            "single": [
+                              {
+                                "id": "score_icon",
+                                "nodeName": "image",
+                                "display": true,
+                                "value": "global_image_carservice_brandfood_score_icon_day_night"
+                              },
+                              {
+                                "id": "score_text",
+                                "nodeName": "label",
+                                "display": true,
+                                "value": "$biz_data.rating",
+                                "style": "color:#FF6543",
+                                "defaultStyle": "margin-left:6px;font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;"
+                              }
+                            ],
+                            "multi": {
+                              "switch": {
+                                "condition": "$biz_data.type_code",
+                                "case": {
+                                  "food": [
+                                    {
+                                      "id": "score_icon",
+                                      "nodeName": "image",
+                                      "display": true,
+                                      "value": "global_image_carservice_food_score_icon_day_night"
+                                    },
+                                    {
+                                      "id": "score_text",
+                                      "nodeName": "label",
+                                      "display": true,
+                                      "value": "$biz_data.rating",
+                                      "style": "color:#D15B0E",
+                                      "defaultStyle": "margin-left:6px;font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;"
+                                    }
+                                  ],
+                                  "scenic": [
+                                    {
+                                      "id": "score_icon",
+                                      "nodeName": "image",
+                                      "display": true,
+                                      "value": "global_image_carservice_scenic_score_icon_day_night"
+                                    },
+                                    {
+                                      "id": "score_text",
+                                      "nodeName": "label",
+                                      "display": true,
+                                      "value": "$biz_data.rating",
+                                      "style": "color:#339FB1",
+                                      "defaultStyle": "margin-left:6px;font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;"
+                                    }
+                                  ],
+                                  "shopping": [
+                                    {
+                                      "id": "score_icon",
+                                      "nodeName": "image",
+                                      "display": true,
+                                      "value": "global_image_carservice_shopping_score_icon_day_night"
+                                    },
+                                    {
+                                      "id": "score_text",
+                                      "nodeName": "label",
+                                      "display": true,
+                                      "value": "$biz_data.rating",
+                                      "style": "color:#8151BC",
+                                      "defaultStyle": "margin-left:6px;font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;"
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "false": [
+                        {
+                          "id": "score_icon",
+                          "nodeName": "image",
+                          "display": false
+                        },
+                        {
+                          "id": "score_text",
+                          "nodeName": "label",
+                          "display": false
+                        }
+                      ]
+                    }
+                  }
+                }
+              ],
+              "false": {
+                "id": "score_div",
+                "nodeName": "div",
+                "display": false
+              }
+            }
+          }
+        },
+        {
+          "brief": "设置图标类型(右)\n根据type_code决定显示poi扎点图标类型定义如下(字符串)：\nfood、scenic、shopping、charge、parking、wc",
+          "type": "marker_switch",
+          "value": {
+            "marker_id": "carservice_search_nearby_content_right.xml",
+            "condition": "$biz_data.type_code",
+            "case": {
+              "food": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_food_normal_icon_day_night",
+                "defaultStyle": "margin-left:6px;"
+              },
+              "scenic": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_scenic_normal_icon_day_night",
+                "defaultStyle": "margin-left:6px;"
+              },
+              "shopping": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_shopping_normal_icon_day_night",
+                "defaultStyle": "margin-left:6px;"
+              },
+              "charge": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_charge_normal_icon_day_night",
+                "defaultStyle": "margin-left:6px;"
+              },
+              "parking": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_parking_normal_icon_day_night",
+                "defaultStyle": "margin-left:6px;"
+              },
+              "wc": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_wc_normal_icon_day_night",
+                "defaultStyle": "margin-left:6px;"
+              },
+              "default": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_default_normal_icon_day_night",
+                "defaultStyle": "margin-left:6px;"
+              }
+            }
+          }
+        },
+        {
+          "brief": "ETA信息填充",
+          "type": "marker_if",
+          "value": {
+            "condition": {
+              "func": {
+                "name": "StringLength",
+                "param": {
+                  "value": "$biz_data.eta"
+                }
+              },
+              "operator": "unequal",
+              "value": 0
+            },
+            "case": {
+              "true": [
+                {
+                  "id": "position_div",
+                  "nodeName": "div",
+                  "display": true
+                },
+                {
+                  "id": "position_text",
+                  "nodeName": "label",
+                  "display": true,
+                  "value": "$biz_data.eta"
+                }
+              ],
+              "false": {
+                "id": "position_div",
+                "nodeName": "div",
+                "display": false
+              }
+            }
+          }
+        },
+        {
+          "brief": "充电桩数量填充及样式，type_code为charge时显示\n根据style_type决定样式类型定义如下(字符串)：\nsingle(单个品类)、multi(多种品类)、recommend(推荐品类，未使用预留)",
+          "type": "marker_if",
+          "value": {
+            "condition": {
+              "fact": "$biz_data.style_type",
+              "operator": "equal",
+              "value": "single"
+            },
+            "case": {
+              "true": {
+                "if": {
+                  "condition": {
+                    "fact": "$biz_data.type_code",
+                    "operator": "equal",
+                    "value": "charge"
+                  },
+                  "case": {
+                    "true": {
+                      "if": {
+                        "condition": {
+                          "func": {
+                            "name": "String2Int",
+                            "param": {
+                              "value": "$biz_data.fast_total"
+                            }
+                          },
+                          "operator": "gt",
+                          "value": 0
+                        },
+                        "case": {
+                          "true": [
+                            {
+                              "id": "charge_div",
+                              "nodeName": "div",
+                              "display": true
+                            },
+                            {
+                              "if": {
+                                "condition": {
+                                  "func": {
+                                    "name": "String2Int",
+                                    "param": {
+                                      "value": "$biz_data.fast_free"
+                                    }
+                                  },
+                                  "operator": "gt",
+                                  "value": 0
+                                },
+                                "case": {
+                                  "true": [
+                                    {
+                                      "id": "charge_idle_text",
+                                      "nodeName": "label",
+                                      "display": true,
+                                      "value": [
+                                        {
+                                          "format": "空 %s",
+                                          "value": "$biz_data.fast_free"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "id": "charge_full_text",
+                                      "nodeName": "label",
+                                      "display": true,
+                                      "value": [
+                                        {
+                                          "format": "/%s",
+                                          "value": "$biz_data.fast_total"
+                                        }
+                                      ]
+                                    }
+                                  ],
+                                  "false": [
+                                    {
+                                      "id": "charge_idle_text",
+                                      "nodeName": "label",
+                                      "display": false
+                                    },
+                                    {
+                                      "id": "charge_full_text",
+                                      "nodeName": "label",
+                                      "display": true,
+                                      "value": [
+                                        {
+                                          "format": "共%s个",
+                                          "value": "$biz_data.fast_total"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            },
+                            {
+                              "if": {
+                                "condition": {
+                                  "func": {
+                                    "name": "StringLength",
+                                    "param": {
+                                      "value": "$biz_data.charge_price"
+                                    }
+                                  },
+                                  "operator": "unequal",
+                                  "value": 0
+                                },
+                                "case": {
+                                  "true": {
+                                    "id": "charge_price_text",
+                                    "nodeName": "label",
+                                    "display": true,
+                                    "value": [
+                                      {
+                                        "format": "¥%s/度",
+                                        "value": "$biz_data.charge_price"
+                                      }
+                                    ]
+                                  },
+                                  "false": {
+                                    "id": "charge_price_text",
+                                    "nodeName": "label",
+                                    "display": false
+                                  }
+                                }
+                              }
+                            }
+                          ],
+                          "false": {
+                            "id": "charge_div",
+                            "nodeName": "div",
+                            "display": false
+                          }
+                        }
+                      }
+                    },
+                    "false": {
+                      "id": "charge_div",
+                      "nodeName": "div",
+                      "display": false
+                    }
+                  }
+                }
+              },
+              "false": {
+                "id": "charge_div",
+                "nodeName": "div",
+                "display": false
+              }
+            }
+          }
+        },
+        {
+          "brief": "停车场空闲数填充，typecode为parking时填充\n根据style_type决定样式类型定义如下(字符串)：\nsingle(单个品类)、multi(多种品类)、recommend(推荐品类，未使用预留)",
+          "type": "marker_if",
+          "value": {
+            "condition": {
+              "all": [
+                {
+                  "fact": "$biz_data.style_type",
+                  "operator": "unequal",
+                  "value": "multi"
+                },
+                {
+                  "fact": "$biz_data.type_code",
+                  "operator": "equal",
+                  "value": "parking"
+                }
+              ]
+            },
+            "case": {
+              "true": {
+                "if": {
+                  "condition": {
+                    "func": {
+                      "name": "String2Int",
+                      "param": {
+                        "value": "$biz_data.parking_total"
+                      }
+                    },
+                    "operator": "gt",
+                    "value": 0
+                  },
+                  "case": {
+                    "true": [
+                      {
+                        "id": "parking_label_div",
+                        "nodeName": "div",
+                        "display": true
+                      },
+                      {
+                        "if": {
+                          "condition": {
+                            "func": {
+                              "name": "String2Int",
+                              "param": {
+                                "value": "$biz_data.parking_free"
+                              }
+                            },
+                            "operator": "gt",
+                            "value": 0
+                          },
+                          "case": {
+                            "true": [
+                              {
+                                "id": "parking_idle_text",
+                                "nodeName": "label",
+                                "display": true,
+                                "value": [
+                                  {
+                                    "format": "空 %s",
+                                    "value": "$biz_data.parking_free"
+                                  }
+                                ]
+                              },
+                              {
+                                "id": "parking_full_text",
+                                "nodeName": "label",
+                                "display": true,
+                                "value": [
+                                  {
+                                    "format": "/%s",
+                                    "value": "$biz_data.parking_total"
+                                  }
+                                ]
+                              }
+                            ],
+                            "false": [
+                              {
+                                "id": "parking_idle_text",
+                                "nodeName": "label",
+                                "display": false
+                              },
+                              {
+                                "id": "parking_full_text",
+                                "nodeName": "label",
+                                "display": true,
+                                "value": [
+                                  {
+                                    "format": "共%s个",
+                                    "value": "$biz_data.parking_total"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    ],
+                    "false": {
+                      "id": "parking_label_div",
+                      "nodeName": "div",
+                      "display": false
+                    }
+                  }
+                }
+              },
+              "false": {
+                "id": "parking_label_div",
+                "nodeName": "div",
+                "display": false
+              }
+            }
+          }
+        },
+        {
+          "brief": "浏览记录及营业时间填充样式切换\n根据type_code决定显示poi扎点图标类型定义如下(字符串)：\nfood、scenic、shopping、charge、parking、wc\n根据style_type决定样式类型定义如下(字符串)：\nsingle(单个品类)、multi(多种品类)、recommend(推荐品类，未使用预留)",
+          "type": "marker_switch",
+          "value": {
+            "condition": "$biz_data.type_code",
+            "case": {
+              "food": {
+                "if": {
+                  "condition": {
+                    "func": {
+                      "name": "StringLength",
+                      "param": {
+                        "value": "$biz_data.open_time"
+                      }
+                    },
+                    "operator": "unequal",
+                    "value": 0
+                  },
+                  "case": {
+                    "true": [
+                      {
+                        "id": "business_time_div",
+                        "nodeName": "div",
+                        "display": true
+                      },
+                      {
+                        "id": "business_time_text",
+                        "nodeName": "label",
+                        "display": true,
+                        "value": "$biz_data.open_time"
+                      },
+                      {
+                        "id": "browse_div",
+                        "nodeName": "div",
+                        "display": false,
+                        "defaultStyle": "display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:2px;"
+                      }
+                    ],
+                    "false": [
+                      {
+                        "id": "business_time_div",
+                        "nodeName": "div",
+                        "display": false
+                      },
+                      {
+                        "if": {
+                          "condition": {
+                            "func": {
+                              "name": "StringLength",
+                              "param": {
+                                "value": "$biz_data.browse"
+                              }
+                            },
+                            "operator": "unequal",
+                            "value": 0
+                          },
+                          "case": {
+                            "true": [
+                              {
+                                "id": "browse_div",
+                                "nodeName": "div",
+                                "display": true
+                              },
+                              {
+                                "switch": {
+                                  "condition": "$biz_data.style_type",
+                                  "case": {
+                                    "single": {
+                                      "id": "browse_text",
+                                      "nodeName": "label",
+                                      "display": true,
+                                      "value": "$biz_data.browse",
+                                      "style": "color:#3C3C43",
+                                      "defaultStyle": "font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;"
+                                    },
+                                    "multi": {
+                                      "id": "browse_text",
+                                      "nodeName": "label",
+                                      "display": true,
+                                      "value": "$biz_data.browse",
+                                      "defaultStyle": "font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;"
+                                    }
+                                  }
+                                }
+                              }
+                            ],
+                            "false": {
+                              "id": "browse_div",
+                              "nodeName": "div",
+                              "display": false
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "scenic": {
+                "if": {
+                  "condition": {
+                    "func": {
+                      "name": "StringLength",
+                      "param": {
+                        "value": "$biz_data.open_time"
+                      }
+                    },
+                    "operator": "unequal",
+                    "value": 0
+                  },
+                  "case": {
+                    "true": [
+                      {
+                        "id": "business_time_div",
+                        "nodeName": "div",
+                        "display": true
+                      },
+                      {
+                        "id": "browse_div",
+                        "nodeName": "div",
+                        "display": false
+                      },
+                      {
+                        "id": "business_time_text",
+                        "nodeName": "label",
+                        "display": true,
+                        "value": "$biz_data.open_time"
+                      }
+                    ],
+                    "false": [
+                      {
+                        "id": "business_time_div",
+                        "nodeName": "div",
+                        "display": false
+                      },
+                      {
+                        "if": {
+                          "condition": {
+                            "func": {
+                              "name": "StringLength",
+                              "param": {
+                                "value": "$biz_data.browse"
+                              }
+                            },
+                            "operator": "unequal",
+                            "value": 0
+                          },
+                          "case": {
+                            "true": [
+                              {
+                                "id": "browse_div",
+                                "nodeName": "div",
+                                "display": true
+                              },
+                              {
+                                "switch": {
+                                  "condition": "$biz_data.style_type",
+                                  "case": {
+                                    "single": {
+                                      "id": "browse_text",
+                                      "nodeName": "label",
+                                      "display": true,
+                                      "value": "$biz_data.browse",
+                                      "style": "color:#3C3C43",
+                                      "defaultStyle": "font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;"
+                                    },
+                                    "multi": {
+                                      "id": "browse_text",
+                                      "nodeName": "label",
+                                      "display": true,
+                                      "value": "$biz_data.browse",
+                                      "style": "color:#339FB1",
+                                      "defaultStyle": "font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;"
+                                    }
+                                  }
+                                }
+                              }
+                            ],
+                            "false": {
+                              "id": "browse_div",
+                              "nodeName": "div",
+                              "display": false
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "shopping": {
+                "if": {
+                  "condition": {
+                    "func": {
+                      "name": "StringLength",
+                      "param": {
+                        "value": "$biz_data.open_time"
+                      }
+                    },
+                    "operator": "unequal",
+                    "value": 0
+                  },
+                  "case": {
+                    "true": [
+                      {
+                        "id": "browse_div",
+                        "nodeName": "div",
+                        "display": false
+                      },
+                      {
+                        "id": "business_time_div",
+                        "nodeName": "div",
+                        "display": true
+                      },
+                      {
+                        "id": "business_time_text",
+                        "nodeName": "label",
+                        "display": true,
+                        "value": "$biz_data.open_time"
+                      }
+                    ],
+                    "false": [
+                      {
+                        "id": "business_time_div",
+                        "nodeName": "div",
+                        "display": false
+                      },
+                      {
+                        "if": {
+                          "condition": {
+                            "func": {
+                              "name": "StringLength",
+                              "param": {
+                                "value": "$biz_data.browse"
+                              }
+                            },
+                            "operator": "unequal",
+                            "value": 0
+                          },
+                          "case": {
+                            "true": [
+                              {
+                                "id": "browse_div",
+                                "nodeName": "div",
+                                "display": true
+                              },
+                              {
+                                "switch": {
+                                  "condition": "$biz_data.style_type",
+                                  "case": {
+                                    "single": {
+                                      "id": "browse_text",
+                                      "nodeName": "label",
+                                      "display": true,
+                                      "value": "$biz_data.browse",
+                                      "style": "color:#3C3C43",
+                                      "defaultStyle": "font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;"
+                                    },
+                                    "multi": {
+                                      "id": "browse_text",
+                                      "nodeName": "label",
+                                      "display": true,
+                                      "value": "$biz_data.browse",
+                                      "style": "color:#8151BC",
+                                      "defaultStyle": "font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;"
+                                    }
+                                  }
+                                }
+                              }
+                            ],
+                            "false": {
+                              "id": "browse_div",
+                              "nodeName": "div",
+                              "display": false
+                            }
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              "charge": [
+                {
+                  "if": {
+                    "condition": {
+                      "fact": "$biz_data.style_type",
+                      "operator": "unequal",
+                      "value": "multi"
+                    },
+                    "case": {
+                      "true": {
+                        "if": {
+                          "condition": {
+                            "func": {
+                              "name": "StringLength",
+                              "param": {
+                                "value": "$biz_data.browse"
+                              }
+                            },
+                            "operator": "unequal",
+                            "value": 0
+                          },
+                          "case": {
+                            "true": [
+                              {
+                                "id": "browse_div",
+                                "nodeName": "div",
+                                "display": true
+                              },
+                              {
+                                "id": "browse_text",
+                                "nodeName": "label",
+                                "display": true,
+                                "value": "$biz_data.browse",
+                                "style": "color:#36955F",
+                                "defaultStyle": "font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;"
+                              }
+                            ],
+                            "false": {
+                              "id": "browse_div",
+                              "nodeName": "div",
+                              "display": false
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "business_time_div",
+                  "nodeName": "div",
+                  "display": false,
+                  "defaultStyle": "display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:2px;"
+                }
+              ],
+              "parking": [
+                {
+                  "id": "business_time_div",
+                  "nodeName": "div",
+                  "display": false
+                },
+                {
+                  "if": {
+                    "condition": {
+                      "fact": "$biz_data.style_type",
+                      "operator": "unequal",
+                      "value": "mutli"
+                    },
+                    "case": {
+                      "true": {
+                        "if": {
+                          "condition": {
+                            "func": {
+                              "name": "StringLength",
+                              "param": {
+                                "value": "$biz_data.browse"
+                              }
+                            },
+                            "operator": "unequal",
+                            "value": 0
+                          },
+                          "case": {
+                            "true": [
+                              {
+                                "id": "browse_div",
+                                "nodeName": "div",
+                                "display": true
+                              },
+                              {
+                                "id": "browse_text",
+                                "nodeName": "label",
+                                "display": true,
+                                "value": "$biz_data.browse",
+                                "style": "color:#3C3C43",
+                                "defaultStyle": "font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;"
+                              }
+                            ],
+                            "false": {
+                              "id": "browse_div",
+                              "nodeName": "div",
+                              "display": false
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              ],
+              "wc": [
+                {
+                  "id": "business_time_div",
+                  "nodeName": "div",
+                  "display": false
+                },
+                {
+                  "if": {
+                    "condition": {
+                      "fact": "$biz_data.style_type",
+                      "operator": "unequal",
+                      "value": "mutli"
+                    },
+                    "case": {
+                      "true": {
+                        "if": {
+                          "condition": {
+                            "func": {
+                              "name": "StringLength",
+                              "param": {
+                                "value": "$biz_data.browse"
+                              }
+                            },
+                            "operator": "unequal",
+                            "value": 0
+                          },
+                          "case": {
+                            "true": [
+                              {
+                                "id": "browse_div",
+                                "nodeName": "div",
+                                "display": true
+                              },
+                              {
+                                "id": "browse_text",
+                                "nodeName": "label",
+                                "display": true,
+                                "value": "$biz_data.browse",
+                                "style": "color:#3C3C43",
+                                "defaultStyle": "font-size:18px;color:#d15b0e;font-family:font_cn;text-stroke:2px #ccffffff;"
+                              }
+                            ],
+                            "false": {
+                              "id": "browse_div",
+                              "nodeName": "div",
+                              "display": false
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              ],
+              "default": [
+                {
+                  "id": "business_time_div",
+                  "nodeName": "div",
+                  "display": false,
+                  "defaultStyle": "display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:2px;"
+                },
+                {
+                  "id": "browse_div",
+                  "nodeName": "div",
+                  "display": false,
+                  "defaultStyle": "display:flex;flex-direction:row;justify-content:center;align-items:center;margin-top:2px;"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "brief": "本期隐藏超充和慢充，下期做互斥显示，高德指南隐藏",
+          "type": "marker_if",
+          "value": {
+            "condition": {
+              "func": {
+                "name": "StringLength",
+                "param": {
+                  "value": "$biz_data.name"
+                }
+              },
+              "operator": "gt",
+              "value": 0
+            },
+            "case": {
+              "true": [
+                {
+                  "id": "charge_label_faster_div",
+                  "nodeName": "div",
+                  "display": false
+                },
+                {
+                  "id": "charge_label_slow_div",
+                  "nodeName": "div",
+                  "display": false
+                },
+                {
+                  "id": "recommend_div",
+                  "nodeName": "div",
+                  "display": false
+                }
+              ],
+              "false": [
+                {
+                  "id": "charge_label_slow_div",
+                  "nodeName": "div",
+                  "display": false
+                },
+                {
+                  "id": "charge_label_faster_div",
+                  "nodeName": "div",
+                  "display": false
+                },
+                {
+                  "id": "recommend_div",
+                  "nodeName": "div",
+                  "display": false
+                }
+              ]
+            }
+          }
+        },
+        {
+          "brief": "focus态扎点处理，设置图标类型\n根据type_code决定显示poi扎点图标类型定义如下(字符串)：\nfood、scenic、shopping、charge、parking、wc",
+          "type": "marker_switch",
+          "value": {
+            "marker_id": "carservice_search_nearby_content_focus.xml",
+            "condition": "$biz_data.type_code",
+            "case": {
+              "food": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_food_selected_icon_day_night",
+                "defaultStyle": "margin-left:6px;"
+              },
+              "scenic": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_scenic_selected_icon_day_night",
+                "defaultStyle": "margin-left:6px;"
+              },
+              "shopping": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_shopping_selected_icon_day_night",
+                "defaultStyle": "margin-left:6px;"
+              },
+              "charge": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_charge_selected_icon_day_night",
+                "defaultStyle": "margin-left:6px;"
+              },
+              "wc": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_wc_selected_icon_day_night",
+                "defaultStyle": "margin-left:6px;"
+              },
+              "parking": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_parking_selected_icon_day_night",
+                "defaultStyle": "margin-left:6px;"
+              },
+              "default": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_default_selected_icon_day_night",
+                "defaultStyle": "margin-left:6px;"
+              }
+            }
+          }
+        },
+        {
+          "brief": "标签填充",
+          "type": "marker_if",
+          "value": {
+            "condition": {
+              "func": {
+                "name": "StringLength",
+                "param": {
+                  "value": "$biz_data.tag"
+                }
+              },
+              "operator": "gt",
+              "value": 0
+            },
+            "case": {
+              "true": [
+                {
+                  "id": "nearest_label_div",
+                  "nodeName": "div",
+                  "display": true,
+                  "defaultStyle": "display:flex;flex-direction:row;justify-content:center;align-items:center;margin-left:6px;width:44px;height:28px;background-image:global_image_carservice_route_search_labelbg_day_night;"
+                },
+                {
+                  "id": "text_nearest",
+                  "nodeName": "label",
+                  "display": true,
+                  "value": "$biz_data.tag",
+                  "defaultStyle": "margin-top:3px;font-size:16px;color:#ffffff;font-family:font_cn;"
+                }
+              ],
+              "false": {
+                "id": "nearest_label_div",
+                "nodeName": "div",
+                "display": false,
+                "defaultStyle": "display:flex;flex-direction:row;justify-content:center;align-items:center;margin-left:6px;width:44px;height:28px;background-image:global_image_carservice_route_search_labelbg_day_night;"
+              }
+            }
+          }
+        },
+        {
+          "brief": "设置图标类型(左)\n根据type_code决定显示poi扎点图标类型定义如下(字符串)：\nfood、scenic、shopping、charge、parking、wc",
+          "type": "marker_switch",
+          "value": {
+            "marker_id": "carservice_search_nearby_content_left.xml",
+            "condition": "$biz_data.type_code",
+            "case": {
+              "food": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_food_normal_icon_day_night",
+                "defaultStyle": "margin-left:6px;"
+              },
+              "scenic": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_scenic_normal_icon_day_night",
+                "defaultStyle": "margin-left:6px;"
+              },
+              "shopping": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_shopping_normal_icon_day_night",
+                "defaultStyle": "margin-left:6px;"
+              },
+              "charge": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_charge_normal_icon_day_night",
+                "defaultStyle": "margin-left:6px;"
+              },
+              "parking": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_parking_normal_icon_day_night",
+                "defaultStyle": "margin-left:6px;"
+              },
+              "wc": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_wc_normal_icon_day_night",
+                "defaultStyle": "margin-left:6px;"
+              },
+              "default": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_default_normal_icon_day_night",
+                "defaultStyle": "margin-left:6px;"
+              }
+            }
+          }
+        },
+        {
+          "brief": "麻点资源配置",
+          "type": "marker_switch",
+          "value": {
+            "marker_id": "carservice_poiicon_smaller_point.xml",
+            "condition": "$biz_data.type_code",
+            "case": {
+              "food": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_food_smaller_icon_day_night",
+                "defaultStyle": "width:24px;height:24px;"
+              },
+              "scenic": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_scenic_smaller_icon_day_night",
+                "defaultStyle": "width:24px;height:24px;"
+              },
+              "shopping": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_shopping_smaller_icon_day_night",
+                "defaultStyle": "width:24px;height:24px;"
+              },
+              "charge": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_charge_smaller_icon_day_night",
+                "defaultStyle": "width:24px;height:24px;"
+              },
+              "wc": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_wc_smaller_icon_day_night",
+                "defaultStyle": "width:24px;height:24px;"
+              },
+              "parking": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_parking_smaller_icon_day_night",
+                "defaultStyle": "width:24px;height:24px;"
+              },
+              "default": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_wc_smaller_icon_day_night",
+                "defaultStyle": "width:24px;height:24px;"
+              }
+            }
+          }
+        },
+        {
+          "brief": "小扎标配置",
+          "type": "marker_switch",
+          "value": {
+            "marker_id": "carservice_poiicon_small_point.xml",
+            "condition": "$biz_data.type_code",
+            "case": {
+              "wc": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_wc_small_icon_day_night",
+                "defaultStyle": "width:36px;height:44px;"
+              },
+              "parking": {
+                "id": "click_type_icon",
+                "nodeName": "image",
+                "display": true,
+                "value": "global_image_carservice_poiicon_parking_small_icon_day_night",
+                "defaultStyle": "width:36px;height:44px;"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "abstract": {
+    "brief": "副驾屏周边搜图层(包含美食、景区、购物、充电、停车、厕所、麻点)",
+    "name": "second_display_search_nearby_layer",
+    "biz_type": 11003,
+    "update_card": false
+  },
+  "dataSource": "[{\"item_data\":{\"quadrantType\":1,\"position\":{\"lon\":116.356343,\"lat\":39.942365}},\"biz_data\":{\"name\":\"汉堡王\",\"is_focus\":false,\"style_type\":\"single\",\"type_code\":\"food\",\"eta\":\"距离100km · 驾车30分钟\",\"average_cost\":\"140\",\"rating\":\"4.5\",\"tag\":\"最近\",\"browse\":\"最近浏览\",\"open_time\":\"即将休息\",\"charge_price\":\"4.1\",\"fast_free\":\"10\",\"fast_total\":\"20\",\"parking_free\":\"40\",\"parking_total\":\"50\"}},{\"item_data\":{\"quadrantType\":1,\"position\":{\"lon\":116.358982,\"lat\":39.941304}},\"biz_data\":{\"name\":\"特来电充电站\",\"is_focus\":false,\"style_type\":\"multi\",\"type_code\":\"charge\",\"eta\":\"距离100km · 驾车30分钟\",\"average_cost\":\"\",\"rating\":\"\",\"tag\":\"最近\",\"browse\":\"最近浏览\",\"open_time\":\"\",\"charge_price\":\"4.1\",\"fast_free\":\"10\",\"fast_total\":\"20\",\"parking_free\":\"0\",\"parking_total\":\"0\"}},{\"item_data\":{\"quadrantType\":1,\"position\":{\"lon\":116.359982,\"lat\":39.948304}},\"biz_data\":{\"name\":\"停车场\",\"is_focus\":false,\"style_type\":\"single\",\"type_code\":\"default\",\"browse\":\"\",\"eta\":\"距离100km · 驾车30分钟\",\"tag\":\"最近\",\"parking_free\":\"0\",\"parking_total\":\"0\",\"open_time\":\"\",\"charge_price\":\"0\",\"fast_free\":\"0\",\"fast_total\":\"0\",\"average_cost\":\"\",\"rating\":\"\"}}]"
+}

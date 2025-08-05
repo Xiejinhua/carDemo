@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="isNight"
+            type="Boolean" />
+    </data>
+
+    <com.autonavi.auto.skin.view.SkinConstraintLayout
+        android:id="@+id/cl_save_list_one"
+        android:layout_width="@dimen/sv_dimen_688"
+        android:layout_height="@dimen/sv_dimen_440"
+        android:clickable="true"
+        android:background="@drawable/ic_main_bg_day"
+        app:background4Night="@drawable/ic_main_bg_night"
+        app:background4Skin="@drawable/ic_main_bg_day">
+
+        <com.autonavi.auto.skin.view.SkinImageView
+            android:id="@+id/ivClose"
+            android:layout_width="@dimen/sv_dimen_64"
+            android:layout_height="@dimen/sv_dimen_64"
+            android:layout_marginStart="@dimen/sv_dimen_16"
+            android:layout_marginTop="@dimen/sv_dimen_30"
+            android:background="@drawable/ic_close_tip_day"
+            app:background4Night="@drawable/ic_close_tip_night"
+            app:background4Skin="@drawable/ic_close_tip_day"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sv_font_size_34"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:layout_marginTop="@dimen/sv_dimen_20"
+            android:layout_marginHorizontal="@dimen/sv_dimen_32"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivClose"
+            android:textColor="@color/onPrimaryDay"
+            app:textColor4Night="@color/onPrimaryNight"
+            app:textColor4Skin="@color/onPrimaryDay"
+            tools:text="@string/sv_group_invite_team" />
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="@dimen/sv_font_size_30"
+            android:textColor="@color/onSecondaryDay"
+            android:layout_marginTop="@dimen/sv_dimen_12"
+            android:layout_marginHorizontal="@dimen/sv_dimen_32"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            app:textColor4Night="@color/onSecondaryNight"
+            app:textColor4Skin="@color/onSecondaryDay"
+            tools:text="@string/message_invite_text" />
+
+        <com.autonavi.auto.skin.view.SkinTextView
+            android:id="@+id/stv_text_go"
+            style="@style/CustomTextAppearanceBodyMedium"
+            android:layout_width="@dimen/sv_dimen_400"
+            android:layout_height="@dimen/sv_dimen_90"
+            android:layout_marginBottom="@dimen/sv_dimen_40"
+            android:background="@drawable/selector_btn_confirm_day"
+            android:gravity="center"
+            android:text="@string/sv_group_send_invitation"
+            android:textColor="@color/onPrimaryContainerDay"
+            app:background4Night="@drawable/selector_btn_confirm_night"
+            app:background4Skin="@drawable/selector_btn_confirm_day"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:textColor4Night="@color/onPrimaryContainerNight"
+            app:textColor4Skin="@color/onPrimaryContainerDay" />
+
+    </com.autonavi.auto.skin.view.SkinConstraintLayout>
+</layout>

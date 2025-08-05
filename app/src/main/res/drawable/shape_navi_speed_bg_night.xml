@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <!-- 填充的颜色 -->
+    <solid android:color="#000000" />
+
+    <!-- android:radius 弧形的半径宽度 -->
+    <stroke
+        android:width="@dimen/sv_dimen_4"
+        android:color="#1EDFE5" />
+
+</shape>

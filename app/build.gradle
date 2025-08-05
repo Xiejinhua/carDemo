@@ -1,0 +1,142 @@
+plugins {
+    alias(libs.plugins.application)
+    alias(libs.plugins.kotlin)
+    alias(libs.plugins.kotlinkapt)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.navigation)
+    alias(libs.plugins.kotlinextensions)
+}
+apply from: '../sign.gradle'
+apply from: '../version.gradle'
+setProjectName("T1J FL2")
+setModuleName("DesaysvMap")
+
+android {
+    namespace 'com.desaysv.psmap'
+    compileSdk libs.versions.compileSdkVersion.get().toInteger()
+
+    defaultConfig {
+        applicationId "com.desaysv.jetour.t1n.psmap"
+        minSdk libs.versions.minSdkVersion.get().toInteger()
+        targetSdk libs.versions.targetSdkVersion.get().toInteger()
+        versionCode generateVersionCode()
+        versionName generateVersionName()
+        //
+//        testInstrumentationRunner "com.desaysv.psmap.utilities.MainTestRunner" // Hilt
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner" //  Espresso
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments["dagger.hilt.disableModulesHaveInstallInCheck"] = "true"
+            }
+        }
+        vectorDrawables {
+            useSupportLibrary true
+        }
+        ndk {
+            abiFilters 'arm64-v8a'
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    // DataBinding
+    buildFeatures {
+        compose = true
+        dataBinding true
+        buildConfig true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.5.1'
+    }
+
+    // 配置Robolectric
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+    packaging {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+
+    lint {
+        baseline = file("lint-baseline.xml")
+    }
+}
+kapt {
+    correctErrorTypes true
+}
+dependencies {
+    // model
+    implementation project(path: ':model')
+    implementation project(path: ':base')
+    implementation(project(":adapter"))
+    implementation project(path: ':DesayWidget:SVLibSwitchButton')
+
+    // =====Jetpact implementation =====
+    implementation libs.bundles.kotlin
+    implementation libs.bundles.androidx
+    implementation libs.bundles.navigation
+    implementation libs.bundles.lifecycle
+
+    // =====Compose kotlin =====
+    def composeBom = platform(libs.kotlin.compose)
+    implementation(composeBom)
+    testImplementation(composeBom)
+    androidTestImplementation(composeBom)
+
+    // =====hilt =====
+    implementation libs.bundles.hilt
+    kapt libs.bundles.hilt.kapt
+
+    implementation libs.paging
+    implementation libs.workmanager
+
+    //room
+    implementation libs.bundles.room
+    kapt libs.bundles.room.kapt
+    //retrofit
+    implementation libs.bundles.retrofit
+
+    // ===== 第三方开源库 implementation======
+    implementation libs.timber
+    implementation libs.coil
+    implementation libs.coil.gif
+    implementation libs.coil.compose
+    implementation libs.security
+    implementation libs.baseRecyclerViewAdapterHelper
+    implementation libs.bundles.smartRefreshLayout
+    implementation libs.groupedRecyclerView
+    implementation libs.glideLibrary
+    implementation libs.glideTransformations
+
+    // =====Compose =====
+    implementation libs.bundles.androidx.compose
+    debugImplementation libs.bundles.androidx.compose.debug
+
+    //=====单元测试 testImplementation & androidTestImplementation kaptAndroidTest =====
+    testImplementation libs.bundles.test.java
+    androidTestImplementation libs.bundles.test.android
+    kaptAndroidTest libs.bundles.test.kapt.android
+
+}

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<resources>
+    <color name="auto_ui_000000_00">#00000000</color>
+    <color name="auto_ui_000000_1a">#1a000000</color>
+    <color name="auto_ui_000000_26">#26000000</color>
+    <color name="auto_ui_000000_33">#33000000</color>
+    <color name="auto_ui_000000_47">#47000000</color>
+    <color name="auto_ui_000000_4d">#4d000000</color>
+    <color name="auto_ui_000000_66">#66000000</color>
+    <color name="auto_ui_000000_73">#73000000</color>
+    <color name="auto_ui_000000_80">#80000000</color>
+    <color name="auto_ui_000000_B3">#B3000000</color>
+    <color name="auto_ui_000000_ff">#ff000000</color>
+    <color name="auto_ui_000000_14">#14000000</color>
+    <color name="auto_ui_0092ff">#0092ff</color>
+    <color name="auto_ui_111111">#111111</color>
+    <color name="auto_ui_373737">#373737</color>
+    <color name="auto_ui_393d40">#393d40</color>
+    <color name="auto_ui_478bff">#478bff</color>
+    <color name="auto_ui_4f5053">#4f5053</color>
+    <color name="auto_ui_50535a">#50535a</color>
+    <color name="auto_ui_7a7a7a">#7a7a7a</color>
+    <color name="auto_ui_c3c5cc">#c3c5cc</color>
+    <color name="auto_ui_df113b">#df113b</color>
+    <color name="auto_ui_fafafa">#fafafa</color>
+    <color name="auto_ui_ff3860">#ff3860</color>
+    <color name="auto_ui_ffffff">#ffffff</color>
+    <drawable name="transparent">#00000000</drawable>
+    <color name="auto_ui_dddddd">#dddddd</color>
+    <color name="auto_ui_f6f6f6">#f6f6f6</color>
+
+    <!--搜索-->
+    <color name="auto_ui_1a66ff">#1A66FF</color>
+    <color name="auto_ui_2e4258_14">#142E4258</color>
+    <color name="auto_ui_a3a4a8">#A3A4A8</color>
+    <color name="auto_ui_ffffff_4c">#4cffffff</color>
+    <color name="auto_ui_000000_0a">#0A000000</color>
+    <color name="auto_ui_161616">#161616</color>
+    <color name="auto_ui_4e8fff">#4e8fff</color>
+    <color name="auto_ui_ffffff_e6">#e6ffffff</color>
+    <color name="auto_ui_ffffff_e8">#e8ffffff</color>
+
+    <!--附近推荐-->
+    <color name="auto_ui_000000_5c">#5c000000</color>
+    <color name="auto_ui_fe5d32">#FE5D32</color>
+    <color name="auto_ui_000000_99">#99000000</color>
+    <color name="auto_ui_6f4116">#6F4116</color>
+    <color name="auto_ui_ff5d58">#FF5D58</color>
+    <color name="auto_ui_ffffff_99">#99FFFFFF</color>
+    <color name="auto_ui_ff7756_26">#26FF7756</color>
+    <color name="auto_ui_e66151">#E66151</color>
+    <color name="auto_coupon_color_amaplist_bg_day">#19ff6f00</color>
+    <color name="auto_coupon_color_amaplist_bg_night">#19ffd8bf</color>
+    <color name="auto_coupon_color_text_amaplist_day">#6F4116</color>
+    <color name="auto_coupon_color_text_amaplist_night">#DA995E</color>
+
+
+    <color name="auto_color_393d40_cc">#45484a</color>
+    <color name="auto_color_ffffff_4c">#7fffffff</color>
+    <color name="auto_color_393d40_fa">#fa393d40</color>
+    <color name="auto_color_ffffff_59">#59ffffff</color>
+
+    <color name="auto_color_0046ff_1a">#1A0046FF</color>
+    <color name="auto_color_000000_0c">#0c000000</color>
+    <color name="auto_color_ffffff_0c">#0cffffff</color>
+
+    <color name="auto_ui_direction_back_color">#00000000</color>
+    <color name="auto_ui_direction_road_color">#88888888</color>
+    <color name="auto_ui_direction_arrow_color">#ffffffff</color>
+</resources>

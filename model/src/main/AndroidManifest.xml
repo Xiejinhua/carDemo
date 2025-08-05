@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.desaysv.psmap.model">
+
+    <application>
+        <service
+            android:name=".service.MapService"
+            android:enabled="true"
+            android:exported="true"
+            android:foregroundServiceType="location" />
+        <service
+            android:name=".service.MapScreenshotService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.desaysv.psmap.model.service.MapScreenshotService" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".service.MapDataOutputService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.desaysv.psmap.model.service.MapDataOutputService" />
+            </intent-filter>
+        </service>
+        <service android:name=".presentation.PresentationService" />
+
+        <receiver
+            android:name=".service.ServiceStartReceiver"
+            android:exported="false">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".service.MapStandardJsonProtocolService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.desaysv.psmap.model.service.MapStandardJsonProtocolService" />
+            </intent-filter>
+        </service>
+
+    </application>
+
+</manifest>

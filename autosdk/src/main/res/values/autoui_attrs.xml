@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="autoui">
+        <attr name="constraint_referenced_ids" format="string" />
+        <attr name="designWidth" format="string" />
+        <attr name="designHeight" format="string" />
+        <attr name="subviewids" format="string" />
+        <attr name="addviewids" format="string" />
+        <attr name="removeviewids" format="string" />
+        <attr name="flatfixed" format="string" />
+        <attr name="typeface" format="string" />
+        <attr name="interface_key" format="string" />
+        <attr name="magnifierBackground" format="reference" />
+        <attr name="textSize" format="reference" />
+        <attr name="textColor" format="reference" />
+        <attr name="magnifierTextSize" format="reference" />
+        <attr name="magnifierTextColor" format="reference" />
+        <attr name="magnifierWidth" format="reference" />
+        <attr name="magnifierMarginTop" format="reference" />
+        <attr name="magnifierMarginRight" format="reference" />
+        <attr name="layout_constraintBottomline_toBottomlineOf" format="reference" />
+        <attr name="tag" format="string" />
+    </declare-styleable>
+</resources>

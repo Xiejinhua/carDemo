@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.desaysv.psmap.ui.search.bean.SearchResultBean" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <import type="android.text.TextUtils" />
+
+        <import type="android.view.View" />
+
+        <import type="com.autonavi.auto.skin.NightModeGlobal" />
+    </data>
+
+    <com.autonavi.auto.skin.view.SkinConstraintLayout
+        android:id="@+id/clMapPoiCard"
+        android:layout_width="@dimen/sv_dimen_680"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/sv_dimen_20"
+        android:layout_marginTop="@dimen/sv_dimen_90"
+        android:background="@drawable/ic_main_bg_day"
+        android:onClick="@{()->0}"
+        android:paddingHorizontal="@dimen/sv_dimen_20"
+        android:paddingTop="@dimen/sv_dimen_20"
+        android:paddingBottom="@dimen/sv_dimen_28"
+        android:soundEffectsEnabled="false"
+        app:background4Night="@drawable/ic_main_bg_night"
+        app:background4Skin="@drawable/ic_main_bg_day"
+        app:layout_constraintHeight_max="@dimen/sv_dimen_1178"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
+
+        <com.autonavi.auto.skin.view.SkinImageView
+            android:id="@+id/ivClose"
+            android:layout_width="@dimen/sv_dimen_64"
+            android:layout_height="@dimen/sv_dimen_64"
+            android:layout_marginStart="@dimen/sv_dimen_30"
+            android:layout_marginTop="@dimen/sv_dimen_30"
+            android:background="@drawable/ic_close_tip_day"
+            android:contentDescription="@string/sv_search_back_accessibility"
+            app:background4Night="@drawable/ic_close_tip_night"
+            app:background4Skin="@drawable/ic_close_tip_day"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:id="@+id/clTextDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/sv_dimen_40"
+            android:layout_marginTop="@dimen/sv_dimen_20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivClose">
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tvPoiName"
+                style="@style/CustomTextAppearanceBodyMedium"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/sv_dimen_51"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{TextUtils.isEmpty(item.poi.name)?item.poi.addr:item.poi.name}"
+                android:textColor="@color/onPrimaryDay"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:textColor4Night="@color/onPrimaryNight"
+                app:textColor4Skin="@color/onPrimaryDay"
+                tools:text="球馆之家球馆之家球馆之家球馆之家"
+                tools:textColor="@color/onPrimaryDay" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tvAddress"
+                style="@style/CustomTextAppearanceBodySmall"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/sv_dimen_45"
+                android:layout_marginTop="@dimen/sv_dimen_12"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{item.poi.addr}"
+                android:textColor="@color/onSecondaryDay"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvPoiName"
+                app:textColor4Night="@color/onSecondaryNight"
+                app:textColor4Skin="@color/onSecondaryDay"
+                tools:text="豆腐干豆腐干地方干豆腐干地方干豆腐干地方地方干豆腐" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tvArriveDistanceTime"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/sv_dimen_51"
+                android:layout_marginTop="@dimen/sv_dimen_30"
+                android:text="@{item.disAndTime}"
+                android:textColor="@color/onPrimaryDay"
+                android:textSize="@dimen/sv_dimen_36"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvAddress"
+                app:textColor4Night="@color/onPrimaryNight"
+                app:textColor4Skin="@color/onPrimaryDay"
+                tools:text="3公里 丨 约10分钟"
+                tools:textColor="@color/onPrimaryDay" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/tvOpenTimeTitle"
+                style="@style/CustomTextAppearanceBodyMedium"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/sv_dimen_51"
+                android:layout_marginTop="@dimen/sv_dimen_24"
+                android:gravity="center_vertical"
+                android:text="营业时间："
+                android:textColor="@color/onPrimaryDay"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvArriveDistanceTime"
+                app:textColor4Night="@color/onPrimaryNight"
+                app:textColor4Skin="@color/onPrimaryDay"
+                app:visibleGone="@{!TextUtils.isEmpty(item.poi.deepinfo)}"
+                tools:textColor="@color/onPrimaryDay" />
+
+            <ScrollView
+                android:id="@+id/tvOpenTime"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintHeight_max="@dimen/sv_dimen_300"
+                android:scrollbars="none"
+                android:minHeight="@dimen/sv_dimen_51"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvOpenTimeTitle"
+                app:layout_constraintTop_toTopOf="@+id/tvOpenTimeTitle">
+
+                <com.autonavi.auto.skin.view.SkinTextView
+                    style="@style/CustomTextAppearanceBodyMedium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:hyphenationFrequency="full"
+                    android:minHeight="@dimen/sv_dimen_51"
+                    android:singleLine="false"
+                    android:text="@{item.poi.deepinfo}"
+                    android:textColor="@color/onPrimaryDay"
+                    app:textColor4Night="@color/onPrimaryNight"
+                    app:textColor4Skin="@color/onPrimaryDay"
+                    app:visibleGone="@{!TextUtils.isEmpty(item.poi.deepinfo)}"
+                    tools:text="周一至周二11:00-21:00"
+                    tools:textColor="@color/onPrimaryDay" />
+            </ScrollView>
+
+
+            <com.autonavi.auto.skin.view.SkinView
+                android:id="@+id/cll_item_bottom_line"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/sv_dimen_1"
+                android:layout_marginHorizontal="@dimen/sv_dimen_40"
+                android:layout_marginTop="@dimen/sv_dimen_30"
+                android:background="@color/lineDay"
+                app:background4Night="@color/lineNight"
+                app:background4Skin="@color/lineDay"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvOpenTime"
+                app:visibleGone="@{item.isChildLayout}" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rl_search_child_station"
+                android:layout_width="@dimen/sv_dimen_496"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sv_dimen_30"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cll_item_bottom_line"
+                app:visibleGone="@{item.isChildLayout}"
+                tools:visibility="visible" />
+
+            <com.autonavi.auto.skin.view.SkinImageView
+                android:id="@+id/ivMoreChild"
+                android:layout_width="@dimen/sv_dimen_64"
+                android:layout_height="@dimen/sv_dimen_64"
+                android:background="@drawable/selector_ic_arrow_day"
+                app:background4Night="@drawable/selector_ic_arrow_night"
+                app:background4Skin="@drawable/selector_ic_arrow_day"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/rl_search_child_station"
+                app:visibleGone="@{item.isMoreVisible}"
+                tools:visibility="visible" />
+
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:id="@+id/cl_gothere"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sv_dimen_153"
+            android:layout_marginTop="@dimen/sv_dimen_24"
+            app:layout_constraintTop_toBottomOf="@+id/clTextDetail"
+            app:visibleGone="@{item.type==0}"
+            tools:visibility="gone">
+
+            <com.autonavi.auto.skin.view.SkinView
+                android:id="@+id/line"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/sv_dimen_1"
+                android:background="@color/lineDay"
+                app:background4Night="@color/lineNight"
+                app:background4Skin="@color/lineDay"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvOpenTime" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/sv_dimen_40"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.autonavi.auto.skin.view.SkinImageView
+                    android:id="@+id/ivSearchAround"
+                    android:layout_width="@dimen/sv_dimen_64"
+                    android:layout_height="@dimen/sv_dimen_64"
+                    android:background="@drawable/selector_ic_search_around_day"
+                    android:contentDescription="搜周边"
+                    app:background4Night="@drawable/selector_ic_search_around_night"
+                    app:background4Skin="@drawable/selector_ic_search_around_day"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/ivFavorite"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.autonavi.auto.skin.view.SkinImageView
+                    android:id="@+id/ivFavorite"
+                    android:layout_width="@dimen/sv_dimen_64"
+                    android:layout_height="@dimen/sv_dimen_64"
+                    android:layout_marginStart="@dimen/sv_dimen_56"
+                    android:contentDescription="收藏#取消收藏"
+                    app:layout_constraintEnd_toEndOf="@+id/ivPhoneCall"
+                    app:layout_constraintStart_toEndOf="@+id/ivSearchAround"
+                    app:layout_constraintTop_toTopOf="@+id/ivSearchAround"
+                    app:setViewFavorite="@{item.isFavorite}"
+                    tools:background="@drawable/selector_ic_favorite_day" />
+
+                <com.autonavi.auto.skin.view.SkinImageView
+                    android:id="@+id/ivPhoneCall"
+                    android:layout_width="@dimen/sv_dimen_64"
+                    android:layout_height="@dimen/sv_dimen_64"
+                    android:layout_marginStart="@dimen/sv_dimen_56"
+                    android:background="@drawable/selector_ic_phone_call_day"
+                    android:contentDescription="电话#拨打电话"
+                    app:background4Night="@drawable/selector_ic_phone_call_night"
+                    app:background4Skin="@drawable/selector_ic_phone_call_day"
+                    app:layout_constraintStart_toEndOf="@+id/ivFavorite"
+                    app:layout_constraintTop_toTopOf="@+id/ivFavorite"
+                    app:visibleGone="@{!TextUtils.isEmpty(item.poi.phone)}"
+                    tools:visibility="visible" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/ivGoHere"
+                style="@style/CustomTextAppearanceBodyMedium"
+                android:layout_width="@dimen/sv_dimen_200"
+                android:layout_height="@dimen/sv_dimen_72"
+                android:layout_marginEnd="@dimen/sv_dimen_40"
+                android:background="@drawable/selector_btn_confirm_day"
+                android:gravity="center"
+                android:text="@string/sv_common_goto"
+                android:textColor="@color/onPrimaryContainerDay"
+                app:background4Night="@drawable/selector_btn_confirm_night"
+                app:background4Skin="@drawable/selector_btn_confirm_day"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:textColor4Night="@color/onPrimaryContainerNight"
+                app:textColor4Skin="@color/onPrimaryContainerDay"
+                tools:textColor="@color/onPrimaryContainerDay"
+                tools:visibility="visible" />
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:id="@+id/cl_add_via"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sv_dimen_153"
+            android:layout_marginTop="@dimen/sv_dimen_24"
+            app:layout_constraintTop_toBottomOf="@+id/clTextDetail"
+            app:visibleGone="@{item.type==1}"
+            tools:visibility="gone">
+
+            <com.autonavi.auto.skin.view.SkinView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/sv_dimen_1"
+                android:background="@color/lineDay"
+                app:background4Night="@color/lineNight"
+                app:background4Skin="@color/lineDay"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvOpenTime" />
+
+            <com.autonavi.auto.skin.view.SkinView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/sv_dimen_1"
+                android:background="@color/lineDay"
+                app:background4Night="@color/lineNight"
+                app:background4Skin="@color/lineDay"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/ivViaGoHere"
+                style="@style/CustomTextAppearanceLabelMedium"
+                android:layout_width="@dimen/sv_dimen_264"
+                android:layout_height="@dimen/sv_dimen_90"
+                android:background="@drawable/selector_btn_confirm_day"
+                android:gravity="center"
+                android:text="@string/sv_common_goto"
+                android:textColor="@color/onPrimaryContainerDay"
+                app:background4Night="@drawable/selector_btn_confirm_night"
+                app:background4Skin="@drawable/selector_btn_confirm_day"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ivAddVia"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:textColor4Night="@color/onPrimaryContainerNight"
+                app:textColor4Skin="@color/onPrimaryContainerDay"
+                tools:visibility="visible" />
+
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/ivAddVia"
+                style="@style/CustomTextAppearanceLabelMedium"
+                android:layout_width="@dimen/sv_dimen_264"
+                android:layout_height="@dimen/sv_dimen_90"
+                android:layout_marginStart="@dimen/sv_dimen_32"
+                android:background="@drawable/selector_btn_confirm_day"
+                android:gravity="center"
+                android:text="添加为途经点"
+                android:textColor="@color/onPrimaryContainerDay"
+                app:background4Night="@drawable/selector_btn_confirm_night"
+                app:background4Skin="@drawable/selector_btn_confirm_day"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivViaGoHere"
+                app:layout_constraintTop_toTopOf="parent"
+                app:textColor4Night="@color/onPrimaryContainerNight"
+                app:textColor4Skin="@color/onPrimaryContainerDay"
+                tools:textColor="@color/onPrimaryContainerDay"
+                tools:visibility="visible" />
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+        <com.autonavi.auto.skin.view.SkinConstraintLayout
+            android:id="@+id/cl_add_home"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sv_dimen_153"
+            android:layout_marginTop="@dimen/sv_dimen_24"
+            app:layout_constraintTop_toBottomOf="@+id/clTextDetail"
+            app:visibleGone="@{item.type==3 || item.type==4 || item.type==5}"
+            tools:visibility="visible">
+
+            <com.autonavi.auto.skin.view.SkinView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/sv_dimen_1"
+                android:background="@color/lineDay"
+                app:background4Night="@color/lineNight"
+                app:background4Skin="@color/lineDay"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.autonavi.auto.skin.view.SkinTextView
+                android:id="@+id/ivAddHome"
+                style="@style/CustomTextAppearanceBodyMedium"
+                android:layout_width="@dimen/sv_dimen_340"
+                android:layout_height="@dimen/sv_dimen_72"
+                android:background="@drawable/selector_btn_confirm_day"
+                android:gravity="center"
+                android:text="设置为家"
+                android:textColor="@color/primaryDay"
+                android:textSize="@dimen/sv_dimen_32"
+                app:background4Night="@drawable/selector_btn_confirm_night"
+                app:background4Skin="@drawable/selector_btn_confirm_day"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:textColor4Night="@color/primaryNight"
+                app:textColor4Skin="@color/primaryDay"
+                tools:textColor="@color/onPrimaryNight"
+                tools:visibility="visible" />
+        </com.autonavi.auto.skin.view.SkinConstraintLayout>
+
+    </com.autonavi.auto.skin.view.SkinConstraintLayout>
+</layout>

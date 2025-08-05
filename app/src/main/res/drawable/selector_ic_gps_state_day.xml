@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:state_selected="true">
+        <bitmap android:alpha="0.8" android:src="@drawable/ic_satellite_signal_strong_day" />
+    </item>
+    <item android:state_pressed="false" android:state_selected="true">
+        <bitmap android:src="@drawable/ic_satellite_signal_strong_day" />
+    </item>
+
+    <item android:state_pressed="true" android:state_selected="false">
+        <bitmap android:alpha="0.8" android:src="@drawable/ic_satellite_signal_weak_day" />
+    </item>
+    <item android:state_pressed="false" android:state_selected="false">
+        <bitmap android:src="@drawable/ic_satellite_signal_weak_day" />
+    </item>
+</selector>

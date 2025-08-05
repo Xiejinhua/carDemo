@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="check"
+            type="Boolean" />
+        <variable
+            name="isNight"
+            type="Boolean" />
+    </data>
+
+    <com.sy.swbt.SettingSwitchView
+        android:id="@+id/switchChange"
+        style="@style/switch_style_night"
+        app:switchViewSetDrawable="@{isNight}"
+        app:switchViewSetChecked="@{check}"/>
+</layout>
